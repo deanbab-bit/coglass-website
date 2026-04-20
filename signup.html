@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Free Trial | Coglass Glazing Software</title>
+<meta name="description" content="Start your 14-day free trial of Coglass. No credit card required.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4;
+    --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA; --border: #D6E8F0;
+    --white: #FFFFFF; --green: #16a34a; --red: #dc2626;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--light); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; }
+  nav { background: var(--teal); padding: 0 5%; height: 64px; display: flex; align-items: center; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo span { font-size: 16px; font-weight: 300; color: white; letter-spacing: 3px; text-transform: uppercase; }
+  main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 48px 20px; }
+  .card { background: white; border-radius: 16px; padding: 48px; width: 100%; max-width: 480px; box-shadow: 0 4px 32px rgba(0,74,102,0.10); }
+  .card-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  h1 { font-size: 26px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .subtitle { font-size: 15px; color: var(--grey); margin-bottom: 32px; line-height: 1.5; }
+  .trial-badge { display: inline-flex; align-items: center; gap: 6px; background: #dcfce7; color: var(--green); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; }
+  .field { margin-bottom: 20px; }
+  label { display: block; font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+  input, select { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 15px; color: var(--dark); background: white; outline: none; transition: border-color 0.2s; }
+  input:focus, select:focus { border-color: var(--blue); }
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+  .plan-option { border: 1.5px solid var(--border); border-radius: 8px; padding: 12px 10px; cursor: pointer; text-align: center; transition: all 0.2s; }
+  .plan-option:hover { border-color: var(--blue); }
+  .plan-option.selected { border-color: var(--blue); background: #E0F4FB; }
+  .plan-name { font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .plan-price { font-size: 12px; color: var(--grey); }
+  .plan-users { font-size: 11px; color: var(--grey); margin-top: 2px; }
+  .submit-btn { width: 100%; padding: 15px; background: var(--blue); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+  .submit-btn:hover { background: var(--blue-dark); }
+  .submit-btn:disabled { background: #93c5fd; cursor: not-allowed; }
+  .fine-print { font-size: 12px; color: var(--grey); text-align: center; margin-top: 16px; line-height: 1.6; }
+  .error-msg { background: #fee2e2; color: var(--red); border-radius: 8px; padding: 12px 16px; font-size: 14px; margin-bottom: 20px; display: none; }
+  .success-screen { display: none; text-align: center; padding: 24px 0; }
+  .success-icon { width: 64px; height: 64px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 28px; }
+  .success-screen h2 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+  .success-screen p { font-size: 15px; color: var(--grey); line-height: 1.6; margin-bottom: 24px; }
+  .instance-link { display: inline-block; background: var(--blue); color: white; padding: 13px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; }
+  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 24px 5%; text-align: center; font-size: 13px; }
+  footer a { color: #29ABE2; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/></svg>
+    <span>COGLASS</span>
+  </a>
+</nav>
+
+<main>
+  <div class="card">
+
+    <div id="form-screen">
+      <div class="card-label">Get started</div>
+      <h1>Start your free trial</h1>
+      <p class="subtitle">Set up your Coglass account in seconds. Your team can be live today.</p>
+      <div class="trial-badge">✓ 14 days free — no credit card needed</div>
+
+      <div id="error-msg" class="error-msg"></div>
+
+      <form id="signup-form">
+        <div class="field">
+          <label for="companyName">Company name</label>
+          <input type="text" id="companyName" name="companyName" placeholder="Smith's Glazing Ltd" required>
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" placeholder="dean@smithsglazing.co.uk" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Min. 8 characters" required minlength="8">
+        </div>
+        <div class="field">
+          <label>Choose your plan</label>
+          <div class="plan-grid">
+            <div class="plan-option" data-plan="Starter" onclick="selectPlan(this)">
+              <div class="plan-name">Starter</div>
+              <div class="plan-price">£39/mo</div>
+              <div class="plan-users">3 users</div>
+            </div>
+            <div class="plan-option selected" data-plan="Professional" onclick="selectPlan(this)">
+              <div class="plan-name">Professional</div>
+              <div class="plan-price">£79/mo</div>
+              <div class="plan-users">10 users</div>
+            </div>
+            <div class="plan-option" data-plan="Business" onclick="selectPlan(this)">
+              <div class="plan-name">Business</div>
+              <div class="plan-price">£149/mo</div>
+              <div class="plan-users">Unlimited</div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Create my account →</button>
+        <p class="fine-print">By signing up you agree to our <a href="#" style="color:var(--blue);">Terms of Service</a>. All prices exclude VAT.</p>
+      </form>
+    </div>
+
+    <div id="success-screen" class="success-screen">
+      <div class="success-icon">✓</div>
+      <h2>You're all set!</h2>
+      <p>Your Coglass account is being set up now. Check your email for your login link — it'll arrive within a minute.</p>
+      <a id="instance-link" href="#" class="instance-link">Open Coglass →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Coglass · <a href="index.html">Home</a> · Built for UK glazing companies</p>
+</footer>
+
+<script>
+  let selectedPlan = 'Professional';
+
+  function selectPlan(el) {
+    document.querySelectorAll('.plan-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedPlan = el.dataset.plan;
+  }
+
+  document.getElementById('signup-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const errorEl = document.getElementById('error-msg');
+    errorEl.style.display = 'none';
+
+    const body = {
+      companyName: document.getElementById('companyName').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      password: document.getElementById('password').value,
+      plan: selectedPlan,
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Setting up your account…';
+
+    try {
+      const res = await fetch('https://signup-api.coglass.app/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        errorEl.textContent = data.error || 'Something went wrong. Please try again.';
+        errorEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Create my account →';
+        return;
+      }
+
+      // Show success screen
+      document.getElementById('form-screen').style.display = 'none';
+      document.getElementById('success-screen').style.display = 'block';
+      document.getElementById('instance-link').href = data.instanceUrl;
+
+    } catch (err) {
+      errorEl.textContent = 'Could not connect. Please try again.';
+      errorEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Create my account →';
+    }
+  });
+</script>
+
+</body>
+</html>
