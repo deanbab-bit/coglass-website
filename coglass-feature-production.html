@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glass Production Planning Software | Workshop Management | Coglass</title>
+<meta name="description" content="Manage your glass production queue from a visual board. Track every item from order to ready, flag rush jobs, print barcode labels and never miss a deadline.">
+<meta name="keywords" content="glass production planning software, glazing workshop management, glass production board, barcode labels glass, glazing job tracking, production planning glaziers UK">
+<link rel="canonical" href="https://coglass.co.uk/features/production">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4; --blue-light: #E0F4FB; --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA; --white: #FFFFFF; --green: #16a34a; --border: #D6E8F0; --shadow: 0 2px 16px rgba(0,74,102,0.08); }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; font-size: 16px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--teal); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; box-shadow: 0 2px 16px rgba(0,0,0,0.2); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo span { font-size: 16px; font-weight: 300; color: white; letter-spacing: 3px; text-transform: uppercase; }
+  .nav-right { display: flex; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; padding: 9px 22px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; }
+  .btn-primary { background: var(--blue); color: white; } .btn-primary:hover { background: var(--blue-dark); }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25); }
+  .btn-white { background: white; color: var(--teal); font-weight: 600; }
+  .btn-outline-white { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
+  .hero { padding: 130px 5% 80px; background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .hero-label { font-size: 11px; font-weight: 700; color: #7DD8F5; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  h1 { font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.12; color: white; margin-bottom: 20px; } h1 span { color: var(--blue); }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.65; font-weight: 300; margin-bottom: 32px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .board-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .board-col { display: flex; flex-direction: column; gap: 8px; }
+  .col-title { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .board-card { background: white; border-radius: 7px; padding: 10px 12px; }
+  .bc-order { font-size: 10px; color: var(--grey); margin-bottom: 2px; }
+  .bc-name { font-size: 12px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .bc-size { font-size: 11px; color: var(--grey); }
+  .bc-badge { display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 100px; margin-top: 6px; }
+  .badge-urgent { background: #fee2e2; color: #dc2626; }
+  .badge-ready { background: #dcfce7; color: var(--green); }
+  .badge-normal { background: var(--blue-light); color: var(--teal); }
+  section { padding: 80px 5%; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; color: var(--dark); margin-bottom: 16px; }
+  .section-sub { font-size: 17px; color: var(--grey); line-height: 1.65; font-weight: 300; margin-bottom: 48px; max-width: 600px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .step-card { background: var(--light); border-radius: 10px; padding: 24px; border: 1px solid var(--border); }
+  .step-num { width: 36px; height: 36px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; }
+  .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .f-item { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: var(--light); border-radius: 10px; border: 1px solid var(--border); }
+  .f-check { width: 22px; height: 22px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .f-text { font-size: 14px; color: var(--dark); line-height: 1.5; } .f-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+  .bg-light { background: var(--light); }
+  .cta-section { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); text-align: center; padding: 80px 5%; }
+  .cta-section h2 { color: white; margin: 0 auto 16px; max-width: 500px; }
+  .cta-section p { color: rgba(255,255,255,0.65); margin: 0 auto 36px; max-width: 420px; font-size: 17px; font-weight: 300; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 32px 5%; text-align: center; font-size: 13px; }
+  footer a { color: var(--blue); text-decoration: none; }
+  .related { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+  .related a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; } .related a:hover { color: white; }
+  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 20px; } section { padding: 56px 20px; } .board-visual { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="coglass-website.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/></svg>
+    <span>COGLASS</span>
+  </a>
+  <div class="nav-right">
+    <a href="#" class="btn btn-ghost">Sign In</a>
+    <a href="#" class="btn btn-primary">Start Free Trial</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Feature — Production Planning</div>
+      <h1>See every job in your workshop at a <span>glance</span></h1>
+      <p class="hero-sub">The Coglass production board shows every glass item in your queue — what's waiting for a supplier, what's being made, what's ready. Flag urgent jobs, print barcode labels and never miss a deadline again.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="#" class="btn btn-ghost btn-lg">Book a Demo</a>
+      </div>
+    </div>
+    <div class="board-visual">
+      <div class="board-col">
+        <div class="col-title">In Production</div>
+        <div class="board-card"><div class="bc-order">ORD-1038</div><div class="bc-name">Williams &amp; Sons</div><div class="bc-size">4-16-4 DGU · 1200×900</div><span class="bc-badge badge-urgent">URGENT</span></div>
+        <div class="board-card"><div class="bc-order">ORD-1035</div><div class="bc-name">Riverside Flats</div><div class="bc-size">6mm toughened · 600×400</div><span class="bc-badge badge-normal">Normal</span></div>
+      </div>
+      <div class="board-col">
+        <div class="col-title">Ready</div>
+        <div class="board-card"><div class="bc-order">ORD-1034</div><div class="bc-name">Apex Commercial</div><div class="bc-size">4-16-4 Low-E · ×6</div><span class="bc-badge badge-ready">Ready</span></div>
+        <div class="board-card"><div class="bc-order">ORD-1033</div><div class="bc-name">Johnson Residence</div><div class="bc-size">Arch DGU · 900×600</div><span class="bc-badge badge-ready">Ready</span></div>
+      </div>
+      <div class="board-col">
+        <div class="col-title">Waiting Supplier</div>
+        <div class="board-card"><div class="bc-order">ORD-1040</div><div class="bc-name">Maple House</div><div class="bc-size">10mm toughened · ×4</div><span class="bc-badge badge-normal">Due Thu</span></div>
+        <div class="board-card"><div class="bc-order">ORD-1039</div><div class="bc-name">Park View</div><div class="bc-size">Laminated 6.4mm · 800×600</div><span class="bc-badge badge-normal">Due Fri</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inner">
+    <div class="section-label">How it works</div>
+    <h2>From order placed to glass ready — fully tracked</h2>
+    <p class="section-sub">The production board keeps your workshop and your office in sync at all times.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Items appear on the board</div><div class="step-text">When an order is placed, every glass line automatically appears on the production board under To Plan. Expected ready dates are calculated from your supplier lead times so your team knows what to prioritise immediately.</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">Move items through the workflow</div><div class="step-text">Drag cards across the board as work progresses: To Plan → Waiting Supplier → In Production → Ready → Made. Every status change is timestamped and logged against the order.</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Flag urgent jobs</div><div class="step-text">Mark any item as Rush with a reason. Rush cards are highlighted in red and sorted to the top of every column. Your team can see at a glance what needs to be prioritised today.</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">Print barcode labels</div><div class="step-text">Generate barcode labels directly from the production board. Each label shows the order number, customer, pane description and dimensions. Stick them to the glass in the workshop — scan to confirm receipt or completion.</div></div>
+      <div class="step-card"><div class="step-num">5</div><div class="step-title">Get overdue alerts</div><div class="step-text">If an item's expected ready date passes without being moved to Ready, Coglass automatically alerts the relevant team member. Nothing slips through the cracks without someone being notified.</div></div>
+      <div class="step-card"><div class="step-num">6</div><div class="step-title">Mark as made</div><div class="step-text">Once glass is fitted or delivered, mark the item as Made. Full production history is logged against the order — when it was made, who moved it, and how long it spent in each stage.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="inner">
+    <div class="section-label">What's included</div>
+    <h2>Production tools built for glass workshops</h2>
+    <p class="section-sub">Everything your workshop team needs to stay on top of the queue — without spreadsheets or whiteboards.</p>
+    <div class="features-list">
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Visual kanban board</strong>Five status columns: To Plan, Waiting Supplier, In Production, Ready, Made. Drag to update status instantly.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Priority levels</strong>Normal, High and Urgent priority flags — colour coded so urgent jobs are impossible to miss.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Rush flag with reason</strong>Mark any item as Rush and record why — customer deadline, insurance job, breakage replacement.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Expected ready date</strong>Auto-calculated from supplier lead times. Override manually when needed. Shows days remaining or overdue.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Overdue alerts</strong>Automatic alerts sent to staff when items pass their expected ready date without being marked ready.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Barcode label printing</strong>Print labels for every glass item in your workshop — order number, description, dimensions and barcode all included.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Barcode scanning</strong>Scan labels on mobile to confirm glass received, mark items as made, or update status from the shopfloor.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Needed-by date</strong>Set a customer-facing deadline for each item. Separate from expected ready date — used to flag jobs that need to be prioritised even when lead time looks fine.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Full status history</strong>Every status change is logged with timestamp and user — full audit trail for every item through the production process.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Filter and search</strong>Filter the board by status, urgency, order type or date range. Search by customer name or order number.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Shopfloor mobile mode</strong>Workshop staff use the Coglass mobile app in shopfloor mode — scan barcodes, update status, mark items made from the workshop floor.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Linked to orders and suppliers</strong>Every production card links directly to the full order and supplier order — one click to see what's been ordered and when delivery is expected.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Get your workshop organised</h2>
+  <p>14-day free trial. No credit card required. Full access from day one.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn btn-white btn-lg">Start Free Trial</a>
+    <a href="#" class="btn btn-outline-white btn-lg">See All Features</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Coglass · <a href="coglass-website.html">Home</a> · Built for UK glazing companies</p>
+  <div class="related">
+    <a href="coglass-feature-suppliers.html">Suppliers →</a>
+    <a href="coglass-feature-scheduling.html">Scheduling →</a>
+    <a href="coglass-feature-mobile.html">Mobile App →</a>
+    <a href="coglass-feature-surveys.html">Surveys →</a>
+  </div>
+</footer>
+</body>
+</html>

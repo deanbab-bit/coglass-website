@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glass Supplier Management Software | Order and Track Deliveries | Coglass</title>
+<meta name="description" content="Order from glass suppliers directly in Coglass. Track deliveries, chase overdue orders automatically, and import price lists with AI. Built for UK glazing companies.">
+<meta name="keywords" content="glass supplier management, glazing supplier software, glass order tracking, supplier price list import, chase supplier glazing, glazing procurement software UK">
+<link rel="canonical" href="https://coglass.co.uk/features/suppliers">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4; --blue-light: #E0F4FB; --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA; --white: #FFFFFF; --green: #16a34a; --border: #D6E8F0; --shadow: 0 2px 16px rgba(0,74,102,0.08); }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; font-size: 16px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--teal); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; box-shadow: 0 2px 16px rgba(0,0,0,0.2); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo span { font-size: 16px; font-weight: 300; color: white; letter-spacing: 3px; text-transform: uppercase; }
+  .nav-right { display: flex; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; padding: 9px 22px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; }
+  .btn-primary { background: var(--blue); color: white; } .btn-primary:hover { background: var(--blue-dark); }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25); }
+  .btn-white { background: white; color: var(--teal); font-weight: 600; }
+  .btn-outline-white { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
+  .hero { padding: 130px 5% 80px; background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .hero-label { font-size: 11px; font-weight: 700; color: #7DD8F5; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  h1 { font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.12; color: white; margin-bottom: 20px; } h1 span { color: var(--blue); }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.65; font-weight: 300; margin-bottom: 32px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .sup-row { background: white; border-radius: 8px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .sup-left { flex: 1; }
+  .sup-name { font-size: 13px; font-weight: 600; color: var(--dark); }
+  .sup-detail { font-size: 11px; color: var(--grey); margin-top: 2px; }
+  .sup-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; white-space: nowrap; }
+  .b-received { background: #dcfce7; color: var(--green); }
+  .b-ordered { background: #dbeafe; color: #1d4ed8; }
+  .b-overdue { background: #fee2e2; color: #dc2626; }
+  .b-chased { background: #fef3c7; color: #d97706; }
+  section { padding: 80px 5%; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; color: var(--dark); margin-bottom: 16px; }
+  .section-sub { font-size: 17px; color: var(--grey); line-height: 1.65; font-weight: 300; margin-bottom: 48px; max-width: 600px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .step-card { background: var(--light); border-radius: 10px; padding: 24px; border: 1px solid var(--border); }
+  .step-num { width: 36px; height: 36px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; }
+  .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .f-item { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: var(--light); border-radius: 10px; border: 1px solid var(--border); }
+  .f-check { width: 22px; height: 22px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .f-text { font-size: 14px; color: var(--dark); line-height: 1.5; } .f-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+  .bg-light { background: var(--light); }
+  .cta-section { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); text-align: center; padding: 80px 5%; }
+  .cta-section h2 { color: white; margin: 0 auto 16px; max-width: 500px; }
+  .cta-section p { color: rgba(255,255,255,0.65); margin: 0 auto 36px; max-width: 420px; font-size: 17px; font-weight: 300; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 32px 5%; text-align: center; font-size: 13px; }
+  footer a { color: var(--blue); text-decoration: none; }
+  .related { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+  .related a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; } .related a:hover { color: white; }
+  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 20px; } section { padding: 56px 20px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="coglass-website.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/></svg>
+    <span>COGLASS</span>
+  </a>
+  <div class="nav-right">
+    <a href="#" class="btn btn-ghost">Sign In</a>
+    <a href="#" class="btn btn-primary">Start Free Trial</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Feature — Supplier Management</div>
+      <h1>Order glass from suppliers <span>without leaving Coglass</span></h1>
+      <p class="hero-sub">Place supplier orders, track deliveries, chase overdue glass and import price lists — all from one screen. No more chasing suppliers on the phone because you can't remember what you ordered or when.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="#" class="btn btn-ghost btn-lg">Book a Demo</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="sup-row"><div class="sup-left"><div class="sup-name">Pilkington — ORD-1040</div><div class="sup-detail">4-16-4 DGU ×6 · Expected 22 Apr</div></div><span class="sup-badge b-ordered">On Order</span></div>
+      <div class="sup-row"><div class="sup-left"><div class="sup-name">Pilkington — ORD-1038</div><div class="sup-detail">6mm toughened ×4 · Expected 20 Apr</div></div><span class="sup-badge b-overdue">Overdue</span></div>
+      <div class="sup-row"><div class="sup-left"><div class="sup-name">Saint-Gobain — ORD-1035</div><div class="sup-detail">Low-E 4-16-4 ×8 · Received 18 Apr</div></div><span class="sup-badge b-received">Received</span></div>
+      <div class="sup-row"><div class="sup-left"><div class="sup-name">Pilkington — ORD-1038</div><div class="sup-detail">Chased 19 Apr · 1 chase sent</div></div><span class="sup-badge b-chased">Chased</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inner">
+    <div class="section-label">How it works</div>
+    <h2>From order placed to glass received — all tracked</h2>
+    <p class="section-sub">Coglass manages the full supplier ordering cycle so nothing gets forgotten.</div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Set up your suppliers</div><div class="step-text">Add your glass suppliers to Coglass with their name, email, phone and lead times. Set a default lead time per supplier — Coglass uses this to automatically calculate expected delivery dates on every order.</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">Import their price list</div><div class="step-text">Upload your supplier's PDF price list. Coglass AI reads it and extracts article numbers, descriptions and prices automatically. Products are created or updated in your catalogue — saving hours of manual data entry.</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Assign supplier to each glass line</div><div class="step-text">On each order, assign which supplier is providing each glass item. For IGUs, assign a supplier per pane if different suppliers provide different components. Add notes to the supplier about special requirements.</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">Send the supplier order</div><div class="step-text">Click Send Order. Coglass generates a PDF order and emails it to your supplier's address. The order lists every item, dimensions, article numbers and any special instructions. The sent timestamp is recorded automatically.</div></div>
+      <div class="step-card"><div class="step-num">5</div><div class="step-title">Track delivery status</div><div class="step-text">The supplier orders list shows every order with its expected delivery date and current status: On Order, Received or Issue Reported. When glass arrives, mark it as Received — the production board updates automatically.</div></div>
+      <div class="step-card"><div class="step-num">6</div><div class="step-title">Chase overdue orders automatically</div><div class="step-text">If a delivery is overdue, Coglass can automatically send a chase email to the supplier. Chase count and timestamp are recorded so your team knows what's been done and when — no duplicate chasing.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="inner">
+    <div class="section-label">What's included</div>
+    <h2>Everything you need to manage glass suppliers</h2>
+    <p class="section-sub">From price lists to delivery confirmation — supplier management that saves hours every week.</p>
+    <div class="features-list">
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Supplier database</strong>Store all your suppliers with contact details, VAT and CRO numbers, lead times and payment terms.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Send orders by email</strong>Generate and email supplier orders directly from Coglass — no copying into separate emails or spreadsheets.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>AI price list import</strong>Upload a PDF price list and AI extracts article numbers, descriptions and prices — products created automatically.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Expected delivery tracking</strong>Auto-calculated from lead time. Shows days remaining or overdue so you know exactly what to chase.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Auto supplier chasing</strong>Coglass automatically sends chase emails when delivery is overdue — records chase count and timestamp.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Receipt confirmation</strong>Mark glass as received when it arrives. Production board updates instantly — no manual cross-referencing.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Issue reporting</strong>Flag a delivery as Issue Reported if glass arrives damaged or incorrect — tracked against the supplier order.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Delivery note and invoice upload</strong>Attach delivery notes and supplier invoices directly to the supplier order for your accounts records.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Internal suppliers</strong>Mark in-house production as an internal supplier — tracks the same way as external suppliers on the board.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Per-pane supplier assignment</strong>For IGUs, assign different suppliers to different panes — useful when one supplier provides the glass and another the spacer bar.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Supplier notes on order lines</strong>Add specific notes for the supplier on each glass line — special requirements, reference numbers, delivery instructions.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Full communication log</strong>Every email sent to a supplier is logged against the order — full audit trail of all supplier correspondence.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Stop chasing suppliers on the phone</h2>
+  <p>14-day free trial. No credit card required. Full access from day one.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn btn-white btn-lg">Start Free Trial</a>
+    <a href="#" class="btn btn-outline-white btn-lg">See All Features</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Coglass · <a href="coglass-website.html">Home</a> · Built for UK glazing companies</p>
+  <div class="related">
+    <a href="coglass-feature-production.html">Production →</a>
+    <a href="coglass-feature-quoting.html">Quoting →</a>
+    <a href="coglass-feature-scheduling.html">Scheduling →</a>
+    <a href="coglass-feature-communication.html">Communication →</a>
+  </div>
+</footer>
+</body>
+</html>

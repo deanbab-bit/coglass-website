@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glazing Team Scheduling Software | Plan Fitters and Surveyors | Coglass</title>
+<meta name="description" content="Schedule your glazing team with a visual planning board. Assign jobs to fitters, manage absences and vehicle allocation — all synced to the mobile app instantly.">
+<meta name="keywords" content="glazing team scheduling, glazier planner software, fitter scheduling app, glass team management, glazing workforce planning, schedule surveyors glaziers UK">
+<link rel="canonical" href="https://coglass.co.uk/features/scheduling">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4; --blue-light: #E0F4FB; --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA; --white: #FFFFFF; --green: #16a34a; --border: #D6E8F0; --shadow: 0 2px 16px rgba(0,74,102,0.08); }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; font-size: 16px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--teal); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; box-shadow: 0 2px 16px rgba(0,0,0,0.2); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo span { font-size: 16px; font-weight: 300; color: white; letter-spacing: 3px; text-transform: uppercase; }
+  .nav-right { display: flex; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; padding: 9px 22px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; }
+  .btn-primary { background: var(--blue); color: white; } .btn-primary:hover { background: var(--blue-dark); }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25); }
+  .btn-white { background: white; color: var(--teal); font-weight: 600; }
+  .btn-outline-white { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
+  .hero { padding: 130px 5% 80px; background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .hero-label { font-size: 11px; font-weight: 700; color: #7DD8F5; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  h1 { font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.12; color: white; margin-bottom: 20px; } h1 span { color: var(--blue); }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.65; font-weight: 300; margin-bottom: 32px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .planner-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; }
+  .planner-grid { display: grid; grid-template-columns: 80px 1fr 1fr 1fr; gap: 8px; }
+  .pg-header { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; padding: 4px 0; text-align: center; }
+  .pg-name { font-size: 12px; color: white; font-weight: 500; display: flex; align-items: center; }
+  .pg-cell { border-radius: 6px; padding: 6px 8px; font-size: 11px; }
+  .pc-blue { background: rgba(41,171,226,0.25); border: 1px solid rgba(41,171,226,0.4); color: #7DD8F5; }
+  .pc-green { background: rgba(22,163,74,0.2); border: 1px solid rgba(22,163,74,0.3); color: #86efac; }
+  .pc-amber { background: rgba(245,158,11,0.2); border: 1px solid rgba(245,158,11,0.3); color: #fcd34d; }
+  .pc-absent { background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.15); color: rgba(255,255,255,0.3); font-size: 10px; }
+  .pc-empty { background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.08); }
+  .pc-label { font-weight: 600; margin-bottom: 1px; }
+  .pc-sub { font-size: 10px; opacity: 0.8; }
+  section { padding: 80px 5%; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; color: var(--dark); margin-bottom: 16px; }
+  .section-sub { font-size: 17px; color: var(--grey); line-height: 1.65; font-weight: 300; margin-bottom: 48px; max-width: 600px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .step-card { background: var(--light); border-radius: 10px; padding: 24px; border: 1px solid var(--border); }
+  .step-num { width: 36px; height: 36px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; }
+  .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .f-item { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: var(--light); border-radius: 10px; border: 1px solid var(--border); }
+  .f-check { width: 22px; height: 22px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .f-text { font-size: 14px; color: var(--dark); line-height: 1.5; } .f-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+  .bg-light { background: var(--light); }
+  .cta-section { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); text-align: center; padding: 80px 5%; }
+  .cta-section h2 { color: white; margin: 0 auto 16px; max-width: 500px; }
+  .cta-section p { color: rgba(255,255,255,0.65); margin: 0 auto 36px; max-width: 420px; font-size: 17px; font-weight: 300; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 32px 5%; text-align: center; font-size: 13px; }
+  footer a { color: var(--blue); text-decoration: none; }
+  .related { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+  .related a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; } .related a:hover { color: white; }
+  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 20px; } section { padding: 56px 20px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="coglass-website.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/></svg>
+    <span>COGLASS</span>
+  </a>
+  <div class="nav-right">
+    <a href="#" class="btn btn-ghost">Sign In</a>
+    <a href="#" class="btn btn-primary">Start Free Trial</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Feature — Team Scheduling</div>
+      <h1>Schedule your whole team from <span>one visual board</span></h1>
+      <p class="hero-sub">Assign surveys, fittings and deliveries to the right people on the right days. Manage absences, allocate vehicles and sync the schedule to your team's phones — without a single phone call to coordinate.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="#" class="btn btn-ghost btn-lg">Book a Demo</a>
+      </div>
+    </div>
+    <div class="planner-visual">
+      <div class="planner-grid">
+        <div class="pg-header"></div>
+        <div class="pg-header">Mon 20</div>
+        <div class="pg-header">Tue 21</div>
+        <div class="pg-header">Wed 22</div>
+        <div class="pg-name">James</div>
+        <div class="pg-cell pc-blue"><div class="pc-label">ORD-1042</div><div class="pc-sub">Survey · 9am</div></div>
+        <div class="pg-cell pc-blue"><div class="pc-label">ORD-1040</div><div class="pc-sub">Fitting · 10am</div></div>
+        <div class="pg-cell pc-green"><div class="pc-label">ORD-1038</div><div class="pc-sub">Delivery · 9am</div></div>
+        <div class="pg-name">Mark</div>
+        <div class="pg-cell pc-amber"><div class="pc-label">ORD-1039</div><div class="pc-sub">Fitting · 11am</div></div>
+        <div class="pg-cell pc-absent">Holiday</div>
+        <div class="pg-cell pc-absent">Holiday</div>
+        <div class="pg-name">Sarah</div>
+        <div class="pg-cell pc-green"><div class="pc-label">ORD-1041</div><div class="pc-sub">Survey · 2pm</div></div>
+        <div class="pg-cell pc-blue"><div class="pc-label">ORD-1043</div><div class="pc-sub">Fitting · 9am</div></div>
+        <div class="pg-cell pc-empty"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inner">
+    <div class="section-label">How it works</div>
+    <h2>Your whole team's week, planned in minutes</h2>
+    <p class="section-sub">The Coglass planning board gives managers a full view of who is doing what, when — and pushes the schedule straight to everyone's phones.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Open the planning board</div><div class="step-text">The scheduling view shows your full team in rows and upcoming dates in columns. At a glance you can see who's free, who's booked, and which days have gaps — for the week or the next two weeks.</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">Assign jobs to team members</div><div class="step-text">Drag an order onto a team member's slot for a specific date. Set the visit type (survey, fitting, delivery), start time and duration. The assignment appears in that person's mobile app immediately — no call needed.</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Allocate vehicles</div><div class="step-text">Assign a van to each team member for each day from the same board. Field staff select their vehicle in the mobile app when they start their day — vehicle and driver are tracked together.</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">Block absences</div><div class="step-text">Record holidays, sick days and training in the absence calendar. Absent team members show as blocked on the planning board — you can't accidentally book them in on a day they're off.</div></div>
+      <div class="step-card"><div class="step-num">5</div><div class="step-title">Team see their schedule on mobile</div><div class="step-text">Every assignment syncs to the field team's mobile app in real time. They open the app and see exactly what they're doing today — customer, address, visit type and time — without any calls from the office.</div></div>
+      <div class="step-card"><div class="step-num">6</div><div class="step-title">Manage your people</div><div class="step-text">The employees section tracks staff details, roles, certifications, and mobile app access. Monitor seat usage, manage who has access to which parts of the system, and view each person's upcoming schedule at a glance.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="inner">
+    <div class="section-label">What's included</div>
+    <h2>Team management tools built for glazing companies</h2>
+    <p class="section-sub">From scheduling fitters to tracking holidays — everything you need to manage a field team.</p>
+    <div class="features-list">
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Visual planning board</strong>Drag-and-drop schedule with all staff in one view. See the full week or two-week outlook at a glance.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Job assignment with time slots</strong>Assign any order to any team member with specific start time and duration — survey, fitting or delivery.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Instant mobile sync</strong>Assignments push to the team member's mobile app immediately — no calls, no group WhatsApp messages needed.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Vehicle allocation</strong>Assign a vehicle to each team member per day. Field staff confirm their vehicle when starting the day from their app.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Holiday and absence management</strong>Record holidays, sick days and training. Absences block the planner so you can't double-book unavailable staff.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Holiday chart</strong>Visual overview of all staff absences for the coming weeks — plan your resourcing before gaps appear.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Employee management</strong>Store staff details, roles, employee types, contact info and mobile app access in one place.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Employee credentials</strong>Track driving licences, CSCS cards, accreditations and other certifications per team member.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Role-based access</strong>Control who can see and do what in Coglass — admin, manager, office staff, field, and viewer roles.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Push notifications</strong>Team members are notified on their phone when they're assigned to a new job or their schedule changes.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Assignment notes</strong>Add notes to any slot — special access instructions, customer preferences, equipment needed.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Seat licence management</strong>See desktop and mobile user counts versus your plan limits — manage who has access without overpaying.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Stop coordinating your team over WhatsApp</h2>
+  <p>14-day free trial. No credit card required. Full access from day one.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn btn-white btn-lg">Start Free Trial</a>
+    <a href="#" class="btn btn-outline-white btn-lg">See All Features</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Coglass · <a href="coglass-website.html">Home</a> · Built for UK glazing companies</p>
+  <div class="related">
+    <a href="coglass-feature-mobile.html">Mobile App →</a>
+    <a href="coglass-feature-fleet.html">Fleet →</a>
+    <a href="coglass-feature-production.html">Production →</a>
+    <a href="coglass-feature-communication.html">Communication →</a>
+  </div>
+</footer>
+</body>
+</html>

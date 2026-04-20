@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coglass | Glazing Business Management Software for UK Glaziers</title>
+<meta name="description" content="Coglass is the all-in-one glazing software for UK glass companies. Manage jobs, quotes, invoices, surveys, suppliers, and your team from one app. Try free today.">
+<meta name="keywords" content="glazing software UK, glazier management app, glass company software, quoting software for glaziers, glazing business management, glass ordering app, surveying app glaziers, IGU software, glazing CRM">
+<meta property="og:title" content="Coglass | Glazing Business Management Software">
+<meta property="og:description" content="The all-in-one app built for glazing companies. Jobs, quotes, invoices, surveys, team scheduling and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://coglass.co.uk">
+<link rel="canonical" href="https://coglass.co.uk">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Coglass",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "iOS, Android, Web",
+  "description": "All-in-one glazing business management software for UK glass companies",
+  "offers": {"@type": "Offer", "priceCurrency": "GBP"},
+  "url": "https://coglass.co.uk"
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal:       #004A66;   /* app sidebar / dark brand */
+    --teal-mid:   #005F80;   /* hover teal */
+    --teal-light: #006E94;   /* lighter teal accent */
+    --blue:       #29ABE2;   /* logo icon / highlight blue */
+    --blue-dark:  #1A90C4;   /* button hover */
+    --blue-light: #E0F4FB;   /* light blue bg */
+    --dark:       #0D1F2D;   /* near-black text */
+    --grey:       #5C7A8A;   /* muted text */
+    --light:      #F4F8FA;   /* light section bg */
+    --white:      #FFFFFF;
+    --green:      #16a34a;
+    --border:     #D6E8F0;
+    --radius:     10px;
+    --shadow:     0 2px 16px rgba(0,74,102,0.08);
+    --shadow-lg:  0 12px 40px rgba(0,74,102,0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* ─── LOGO SVG ─── */
+  .logo-svg { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-svg svg { flex-shrink: 0; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--teal);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: white; }
+
+  .nav-cta { display: flex; gap: 12px; align-items: center; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    letter-spacing: 0.2px;
+  }
+
+  .btn-primary { background: var(--blue); color: white; }
+  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(41,171,226,0.35); }
+
+  .btn-ghost-white {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .btn-ghost-white:hover { background: rgba(255,255,255,0.2); }
+
+  .btn-outline-teal {
+    background: transparent;
+    color: var(--teal);
+    border: 1.5px solid var(--teal);
+  }
+  .btn-outline-teal:hover { background: var(--blue-light); }
+
+  .btn-outline-white {
+    background: transparent;
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.4);
+  }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+
+  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
+  .btn-xl { padding: 16px 36px; font-size: 16px; border-radius: 8px; letter-spacing: 0.3px; }
+
+  .btn-white { background: white; color: var(--teal); font-weight: 600; }
+  .btn-white:hover { background: #f0f9ff; transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 130px 5% 90px;
+    background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 50%, #007A9E 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(41,171,226,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(41,171,226,0.2);
+    color: #7DD8F5;
+    border: 1px solid rgba(41,171,226,0.3);
+    padding: 5px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 28px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: clamp(34px, 5.5vw, 60px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto 24px;
+  }
+
+  h1 span { color: var(--blue); }
+
+  .hero-sub {
+    font-size: clamp(15px, 2vw, 19px);
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .hero-note { font-size: 13px; color: rgba(255,255,255,0.45); }
+  .hero-note span { color: #7DD8F5; }
+
+  /* ─── APP MOCKUP ─── */
+  .hero-screen {
+    margin: 56px auto 0;
+    max-width: 880px;
+    background: #001F2D;
+    border-radius: 14px;
+    padding: 10px 10px 0;
+    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.08);
+    position: relative;
+  }
+
+  .screen-bar { display: flex; gap: 6px; margin-bottom: 10px; padding-left: 4px; }
+  .screen-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .d1 { background: #ff5f57; } .d2 { background: #febc2e; } .d3 { background: #28c840; }
+
+  .screen-content {
+    background: var(--light);
+    border-radius: 6px 6px 0 0;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 300px;
+    overflow: hidden;
+  }
+
+  .screen-sidebar {
+    background: var(--teal);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-logo-wrap {
+    padding: 0 16px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 12px;
+  }
+
+  .sidebar-item {
+    padding: 9px 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: default;
+    letter-spacing: 0.2px;
+  }
+
+  .sidebar-item.active {
+    background: rgba(41,171,226,0.2);
+    color: #7DD8F5;
+    border-right: 2px solid var(--blue);
+  }
+
+  .screen-main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .screen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .screen-title { font-size: 16px; font-weight: 600; color: var(--dark); }
+
+  .screen-btn {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .order-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .order-card {
+    background: white;
+    border-radius: 8px;
+    padding: 14px;
+    border-left: 3px solid var(--blue);
+    box-shadow: var(--shadow);
+  }
+
+  .order-card.green { border-left-color: var(--green); }
+  .order-card.amber { border-left-color: #f59e0b; }
+  .order-card.purple { border-left-color: #7c3aed; }
+
+  .order-num { font-size: 10px; color: var(--grey); margin-bottom: 4px; font-weight: 500; }
+  .order-name { font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+
+  .order-status {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 100px;
+    background: var(--blue-light);
+    color: var(--teal);
+  }
+  .order-status.green { background: #dcfce7; color: var(--green); }
+  .order-status.amber { background: #fef3c7; color: #d97706; }
+  .order-status.purple { background: #ede9fe; color: #7c3aed; }
+
+  /* ─── STATS ─── */
+  .stats-bar {
+    background: #001F2D;
+    padding: 32px 5%;
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--blue); display: block; }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; letter-spacing: 0.3px; text-transform: uppercase; }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 96px 5%; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.18;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--grey);
+    max-width: 540px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  /* ─── PROBLEM ─── */
+  .problem { background: var(--light); text-align: center; }
+  .problem h2 { max-width: 680px; margin: 0 auto 16px; }
+  .problem .section-sub { margin: 0 auto 48px; }
+
+  .pain-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 860px;
+    margin: 0 auto 48px;
+  }
+
+  .pain-point {
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: left;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  .pain-icon { font-size: 26px; margin-bottom: 12px; }
+  .pain-title { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+  .pain-text { font-size: 13px; color: var(--grey); line-height: 1.5; }
+
+  /* ─── FEATURE CARDS ─── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 20px;
+  }
+
+  .feature-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+    transition: all 0.2s;
+  }
+
+  .feature-card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 6px 24px rgba(41,171,226,0.12);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon {
+    width: 44px; height: 44px;
+    background: var(--blue-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .feature-title { font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .feature-text { font-size: 13px; color: var(--grey); line-height: 1.6; margin-bottom: 14px; }
+
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .feature-list li {
+    font-size: 12px;
+    color: #4A6070;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+  }
+  .feature-list li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .feature-link:hover { gap: 9px; }
+
+  /* ─── MOBILE SECTION ─── */
+  .bg-light { background: var(--light); }
+
+  .mobile-section {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .phone-mockup {
+    width: 220px;
+    background: var(--teal);
+    border-radius: 32px;
+    padding: 10px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .phone-screen {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    min-height: 440px;
+  }
+
+  .phone-header {
+    background: var(--teal);
+    padding: 18px 14px 14px;
+    color: white;
+  }
+
+  .phone-header-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .phone-header-sub { font-size: 10px; opacity: 0.6; font-weight: 300; }
+
+  .phone-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+
+  .phone-job {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    border-left: 3px solid var(--blue);
+  }
+  .phone-job.green { border-left-color: var(--green); }
+  .phone-job.amber { border-left-color: #f59e0b; }
+
+  .phone-job-name { font-size: 12px; font-weight: 600; color: var(--dark); }
+  .phone-job-addr { font-size: 10px; color: var(--grey); margin-top: 2px; }
+  .phone-job-time { font-size: 10px; color: var(--teal); margin-top: 3px; font-weight: 600; }
+
+  .phone-tab-bar { display: flex; border-top: 1px solid #eee; }
+  .phone-tab {
+    flex: 1; padding: 10px 4px 8px;
+    text-align: center; font-size: 9px; color: var(--grey);
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+  }
+  .phone-tab.active { color: var(--teal); }
+  .phone-tab-icon { font-size: 15px; }
+
+  /* ─── SPLIT LISTS ─── */
+  .split-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0 32px;
+  }
+
+  .split-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: #3A5060;
+    font-weight: 300;
+  }
+
+  .split-check {
+    width: 20px; height: 20px;
+    background: var(--blue-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ─── SEO FEATURE LIST ─── */
+  .seo-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .seo-feature { display: flex; align-items: flex-start; gap: 10px; }
+
+  .seo-check {
+    width: 18px; height: 18px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 10px; font-weight: 700;
+    flex-shrink: 0; margin-top: 2px;
+  }
+
+  .seo-text { font-size: 13px; color: #4A6070; line-height: 1.5; }
+  .seo-text strong { display: block; font-size: 14px; color: var(--dark); margin-bottom: 1px; }
+
+  /* ─── STEPS ─── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+  }
+
+  .step { text-align: center; padding: 0 12px; }
+
+  .step-num {
+    width: 52px; height: 52px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 700;
+    margin: 0 auto 18px;
+  }
+
+  .step-title { font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; font-weight: 300; }
+
+  /* ─── PRICING ─── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto 40px;
+  }
+
+  .price-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 36px 28px;
+    text-align: left;
+    position: relative;
+  }
+
+  .price-card.featured {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+
+  .price-tier { font-size: 11px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+  .price-card.featured .price-tier { color: rgba(255,255,255,0.55); }
+
+  .price-amount { font-size: 40px; font-weight: 700; color: var(--dark); letter-spacing: -1px; margin-bottom: 4px; }
+  .price-amount span { font-size: 15px; font-weight: 400; color: var(--grey); }
+  .price-card.featured .price-amount { color: white; }
+  .price-card.featured .price-amount span { color: rgba(255,255,255,0.5); }
+
+  .price-sub { font-size: 12px; color: var(--grey); margin-bottom: 28px; }
+  .price-card.featured .price-sub { color: rgba(255,255,255,0.5); }
+
+  .price-popular {
+    position: absolute;
+    top: -14px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue);
+    color: white;
+    font-size: 10px; font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .price-btn {
+    display: block;
+    text-align: center;
+    padding: 11px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 28px;
+    transition: all 0.2s;
+  }
+
+  .price-btn-blue { background: var(--blue); color: white; }
+  .price-btn-blue:hover { background: var(--blue-dark); }
+
+  .price-btn-white { background: white; color: var(--teal); }
+  .price-btn-white:hover { background: #f0f9ff; }
+
+  .price-btn-outline { background: transparent; color: var(--teal); border: 1.5px solid var(--border); }
+  .price-btn-outline:hover { border-color: var(--teal); background: var(--blue-light); }
+
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .price-features li {
+    font-size: 13px;
+    color: #3A5060;
+    display: flex; align-items: flex-start; gap: 8px;
+    line-height: 1.4;
+  }
+  .price-features li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+  .price-card.featured .price-features li { color: rgba(255,255,255,0.8); }
+  .price-card.featured .price-features li::before { color: #7DD8F5; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #006E94 100%);
+    text-align: center;
+    padding: 96px 5%;
+  }
+  .cta-section h2 { color: white; max-width: 560px; margin: 0 auto 16px; }
+  .cta-section p { color: rgba(255,255,255,0.65); max-width: 440px; margin: 0 auto 40px; font-size: 17px; font-weight: 300; }
+  .cta-note { color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 16px; letter-spacing: 0.3px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #001F2D;
+    color: rgba(255,255,255,0.45);
+    padding: 56px 5% 32px;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand-text { font-size: 13px; line-height: 1.7; max-width: 220px; margin-top: 14px; font-weight: 300; }
+
+  .footer-col-title { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; transition: color 0.2s; font-weight: 300; }
+  .footer-links a:hover { color: white; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 64px 20px; }
+    .mobile-section { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .stats-bar { gap: 28px; }
+    .order-cards { grid-template-columns: 1fr; }
+    .screen-content { grid-template-columns: 1fr; }
+    .screen-sidebar { display: none; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo-svg">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+      <rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+      <rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+      <rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+    </svg>
+    <span style="font-size:17px; font-weight:300; color:white; letter-spacing:3px; text-transform:uppercase;">COGLASS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#mobile">Mobile App</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn btn-ghost-white">Sign In</a>
+    <a href="#" class="btn btn-primary">Start Free Trial</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Built exclusively for UK glazing companies</div>
+  <h1>Run your glazing business<br>from <span>one app</span></h1>
+  <p class="hero-sub">Jobs, quotes, invoices, surveys, suppliers, and your team — all connected. The only software built from the ground up for glass companies.</p>
+  <div class="hero-cta">
+    <a href="#" class="btn btn-primary btn-xl">Start Free Trial</a>
+    <a href="#" class="btn btn-outline-white btn-xl">Book a Demo</a>
+  </div>
+  <p class="hero-note"><span>No credit card required</span> &nbsp;·&nbsp; Free setup &nbsp;·&nbsp; iOS, Android &amp; web</p>
+
+  <div class="hero-screen">
+    <div class="screen-bar">
+      <div class="screen-dot d1"></div>
+      <div class="screen-dot d2"></div>
+      <div class="screen-dot d3"></div>
+    </div>
+    <div class="screen-content">
+      <div class="screen-sidebar">
+        <div class="sidebar-logo-wrap">
+          <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+            <rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+            <rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+            <rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+            <rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <div class="sidebar-item active">📋 Orders</div>
+        <div class="sidebar-item">💷 Invoices</div>
+        <div class="sidebar-item">📐 Surveys</div>
+        <div class="sidebar-item">🏭 Production</div>
+        <div class="sidebar-item">👥 Customers</div>
+        <div class="sidebar-item">🚚 Suppliers</div>
+        <div class="sidebar-item">📅 Planner</div>
+        <div class="sidebar-item">🚗 Fleet</div>
+      </div>
+      <div class="screen-main">
+        <div class="screen-header">
+          <div class="screen-title">Orders</div>
+          <button class="screen-btn">+ New Order</button>
+        </div>
+        <div class="order-cards">
+          <div class="order-card">
+            <div class="order-num">ORD-1042</div>
+            <div class="order-name">Johnson Residence</div>
+            <span class="order-status">Quote Accepted</span>
+          </div>
+          <div class="order-card green">
+            <div class="order-num">ORD-1041</div>
+            <div class="order-name">Apex Commercial</div>
+            <span class="order-status green">Glass Ready</span>
+          </div>
+          <div class="order-card amber">
+            <div class="order-num">ORD-1040</div>
+            <div class="order-name">Riverside Flats</div>
+            <span class="order-status amber">On Order</span>
+          </div>
+          <div class="order-card purple">
+            <div class="order-num">ORD-1039</div>
+            <div class="order-name">Williams &amp; Sons</div>
+            <span class="order-status purple">Ready to Fit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">All-in-one</span><span class="stat-label">No extra apps needed</span></div>
+  <div class="stat"><span class="stat-num">iOS &amp; Android</span><span class="stat-label">Full mobile app</span></div>
+  <div class="stat"><span class="stat-num">UK Built</span><span class="stat-label">VAT &amp; compliance ready</span></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Built for glaziers</span></div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="section-label">Sound familiar?</div>
+  <h2>Glazing businesses shouldn't run on spreadsheets and WhatsApp</h2>
+  <p class="section-sub">Most glaziers juggle jobs across email, notes, and phone calls. Coglass brings everything into one place.</p>
+  <div class="pain-points">
+    <div class="pain-point">
+      <div class="pain-icon">📱</div>
+      <div class="pain-title">Lost in WhatsApp</div>
+      <div class="pain-text">Job details buried in message threads nobody can find when it matters.</div>
+    </div>
+    <div class="pain-point">
+      <div class="pain-icon">📊</div>
+      <div class="pain-title">Spreadsheet chaos</div>
+      <div class="pain-text">Quotes in one file, invoices in another, measurements on a notepad somewhere.</div>
+    </div>
+    <div class="pain-point">
+      <div class="pain-icon">📐</div>
+      <div class="pain-title">Survey errors</div>
+      <div class="pain-text">Wrong measurements, lost drawings, glass ordered to the wrong spec.</div>
+    </div>
+    <div class="pain-point">
+      <div class="pain-icon">💷</div>
+      <div class="pain-title">Late payments</div>
+      <div class="pain-text">Invoices sent late, chased manually, no visibility on what's outstanding.</div>
+    </div>
+  </div>
+  <a href="#" class="btn btn-primary btn-lg">See how Coglass fixes this</a>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div style="text-align:center; margin-bottom:52px;">
+    <div class="section-label">Everything you need</div>
+    <h2>Every tool your glazing business needs,<br>built into one place</h2>
+    <p class="section-sub" style="margin:0 auto;">No more paying for five different apps. Coglass handles everything from first enquiry to final payment.</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <div class="feature-title">Jobs &amp; Order Management</div>
+      <div class="feature-text">Track every job from enquiry to completion with full status visibility for your whole team.</div>
+      <ul class="feature-list">
+        <li>Full order lifecycle tracking</li>
+        <li>Auto-generated order numbers</li>
+        <li>Internal notes and job photos</li>
+        <li>Order templates for repeat work</li>
+        <li>Site contacts and billing addresses</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <div class="feature-title">Quotes &amp; Pricing</div>
+      <div class="feature-text">Generate professional PDF quotes in seconds. Customers accept online via a link.</div>
+      <ul class="feature-list">
+        <li>Branded PDF quotes</li>
+        <li>Multiple quote variants per job</li>
+        <li>Online customer acceptance portal</li>
+        <li>Labour, installation and energy costs</li>
+        <li>Line and order level discounts</li>
+      </ul>
+      <a href="coglass-feature-quoting.html" class="feature-link">Learn more →</a>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">💷</div>
+      <div class="feature-title">Invoicing &amp; Payments</div>
+      <div class="feature-text">Invoice customers, take deposits, record payments and track what's outstanding.</div>
+      <ul class="feature-list">
+        <li>Standard, deposit and proforma invoices</li>
+        <li>UK VAT calculation and tracking</li>
+        <li>Payment recording (cash, BACS, card)</li>
+        <li>Overdue invoice alerts</li>
+        <li>Stripe and PayPal integration</li>
+      </ul>
+      <a href="coglass-feature-invoicing.html" class="feature-link">Learn more →</a>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📐</div>
+      <div class="feature-title">Surveying &amp; Measurements</div>
+      <div class="feature-text">Capture accurate site measurements on your phone. No more lost drawings.</div>
+      <ul class="feature-list">
+        <li>Mobile measurement drawing tool</li>
+        <li>All shapes: rectangle, arch, circle, oval, gable</li>
+        <li>Survey photos per measurement</li>
+        <li>Access and logistics logging</li>
+        <li>Survey duration and personnel tracking</li>
+      </ul>
+      <a href="coglass-feature-surveys.html" class="feature-link">Learn more →</a>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🔬</div>
+      <div class="feature-title">Glass Specifications</div>
+      <div class="feature-text">Specify any glass product in full detail — from basic cut sizes to complex IGU builds.</div>
+      <ul class="feature-list">
+        <li>DGU and TGU IGU configuration</li>
+        <li>Spacer bar and gas type selection</li>
+        <li>Polished, bevelled and custom edges</li>
+        <li>Georgian bars and lead designs</li>
+        <li>Cutouts, holes, notches and letterboxes</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🏭</div>
+      <div class="feature-title">Production Planning</div>
+      <div class="feature-text">See your full production queue. Prioritise urgent jobs and track from order to ready.</div>
+      <ul class="feature-list">
+        <li>Visual production board</li>
+        <li>Rush and urgent item flagging</li>
+        <li>Expected ready date calculation</li>
+        <li>Overdue alerts</li>
+        <li>Barcode labels and scanning</li>
+      </ul>
+      <a href="coglass-feature-production.html" class="feature-link">Learn more →</a>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🚚</div>
+      <div class="feature-title">Supplier Management</div>
+      <div class="feature-text">Order from suppliers inside Coglass. Track what's ordered, received and chased.</div>
+      <ul class="feature-list">
+        <li>Supplier database with full contact info</li>
+        <li>Send purchase orders by email</li>
+        <li>Track ordered and received status</li>
+        <li>Auto-chase emails for overdue orders</li>
+        <li>AI-powered price list import from PDF</li>
+      </ul>
+      <a href="coglass-feature-suppliers.html" class="feature-link">Learn more →</a>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📅</div>
+      <div class="feature-title">Team &amp; Scheduling</div>
+      <div class="feature-text">Schedule your fitters, assign vehicles, and keep everyone updated automatically.</div>
+      <ul class="feature-list">
+        <li>Visual planning board for all staff</li>
+        <li>Job and vehicle assignment</li>
+        <li>Employee credentials and licence tracking</li>
+        <li>Holiday and absence management</li>
+        <li>On-the-way status updates</li>
+      </ul>
+      <a href="coglass-feature-scheduling.html" class="feature-link">Learn more →</a>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <div class="feature-title">Customer Communication</div>
+      <div class="feature-text">Talk to customers through WhatsApp, SMS or email — all tracked against the job.</div>
+      <ul class="feature-list">
+        <li>WhatsApp send and receive</li>
+        <li>SMS via VoodooSMS</li>
+        <li>Gmail and Outlook integration</li>
+        <li>Built-in customer chat portal</li>
+        <li>Automated notifications on job events</li>
+      </ul>
+      <a href="coglass-feature-communication.html" class="feature-link">Learn more →</a>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">✅</div>
+      <div class="feature-title">Fitting &amp; Delivery</div>
+      <div class="feature-text">Record completion on site with photos, GPS proof and digital customer signatures.</div>
+      <ul class="feature-list">
+        <li>Fitting checklist and completion record</li>
+        <li>GPS proof of location</li>
+        <li>Customer digital signature capture</li>
+        <li>Snag notes and photos</li>
+        <li>Partial fitting tracking with reasons</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🛒</div>
+      <div class="feature-title">Customer Webshop</div>
+      <div class="feature-text">Let trade customers browse and order glass from your branded online shop.</div>
+      <ul class="feature-list">
+        <li>Your own branded webshop</li>
+        <li>Trade discount pricing per customer</li>
+        <li>Stripe and PayPal checkout</li>
+        <li>Embeddable on your own website</li>
+        <li>Auto-convert orders to jobs</li>
+      </ul>
+      <a href="coglass-feature-webshop.html" class="feature-link">Learn more →</a>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🚗</div>
+      <div class="feature-title">Fleet Management</div>
+      <div class="feature-text">Track your vehicles, MOT dates and assign vans to your team each day.</div>
+      <ul class="feature-list">
+        <li>Vehicle database with full details</li>
+        <li>Daily vehicle assignment for staff</li>
+        <li>MOT date tracking and reminders</li>
+        <li>MOT certificate storage</li>
+        <li>DVLA lookup integration</li>
+      </ul>
+      <a href="coglass-feature-fleet.html" class="feature-link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE -->
+<section id="mobile" class="bg-light">
+  <div class="mobile-section">
+    <div>
+      <div class="section-label">Mobile app</div>
+      <h2>Your team on the road,<br>fully connected</h2>
+      <p class="section-sub">The Coglass mobile app gives field teams everything they need on their phone — surveys, jobs, schedules, photos and signatures — with offline support for when signal drops.</p>
+      <ul class="split-list">
+        <li><div class="split-check">✓</div>View assigned jobs and daily schedule</li>
+        <li><div class="split-check">✓</div>Capture site measurements with the drawing tool</li>
+        <li><div class="split-check">✓</div>Take photos, log GPS and collect customer signatures</li>
+        <li><div class="split-check">✓</div>Works offline — syncs when back in signal</li>
+        <li><div class="split-check">✓</div>Push notifications for job updates</li>
+        <li><div class="split-check">✓</div>Shopfloor mode for warehouse and production teams</li>
+      </ul>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
+        <a href="#" class="btn btn-primary btn-lg">Download for iOS</a>
+        <a href="#" class="btn btn-outline-teal btn-lg">Download for Android</a>
+      </div>
+      <a href="coglass-feature-mobile.html" class="feature-link" style="color:var(--teal);">See all mobile features →</a>
+    </div>
+
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="phone-header">
+          <div class="phone-header-title">My Jobs — Today</div>
+          <div class="phone-header-sub">Monday 20 April · 3 jobs assigned</div>
+        </div>
+        <div class="phone-body">
+          <div class="phone-job">
+            <div>
+              <div class="phone-job-name">ORD-1042 · Johnson</div>
+              <div class="phone-job-addr">14 Maple Close, Bristol</div>
+              <div class="phone-job-time">Survey · 9:00am</div>
+            </div>
+          </div>
+          <div class="phone-job green">
+            <div>
+              <div class="phone-job-name">ORD-1039 · Williams</div>
+              <div class="phone-job-addr">Riverside Business Park</div>
+              <div class="phone-job-time">Fitting · 11:30am</div>
+            </div>
+          </div>
+          <div class="phone-job amber">
+            <div>
+              <div class="phone-job-name">ORD-1041 · Apex</div>
+              <div class="phone-job-addr">72 Commerce St, Bath</div>
+              <div class="phone-job-time">Delivery · 2:00pm</div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-tab-bar">
+          <div class="phone-tab active"><div class="phone-tab-icon">💼</div>Jobs</div>
+          <div class="phone-tab"><div class="phone-tab-icon">📅</div>Planner</div>
+          <div class="phone-tab"><div class="phone-tab-icon">🔔</div>Alerts</div>
+          <div class="phone-tab"><div class="phone-tab-icon">⚙️</div>Settings</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL FEATURE LIST -->
+<section>
+  <div style="text-align:center; margin-bottom:52px;">
+    <div class="section-label">Complete feature list</div>
+    <h2>Everything included,<br>nothing extra to buy</h2>
+    <p class="section-sub" style="margin:0 auto;">Every Coglass subscription includes the full platform — no add-ons, no hidden extras.</p>
+  </div>
+  <div class="seo-features">
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Job &amp; order management</strong>Full lifecycle from enquiry to completion</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>PDF quote generation</strong>Branded professional quotes in seconds</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Online quote acceptance</strong>Customers accept via a shared link</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Invoice &amp; payment management</strong>Standard, deposit and proforma invoices</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>UK VAT tracking</strong>VAT calculation built in</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Stripe &amp; PayPal payments</strong>Take card payments online</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Site survey capture</strong>Mobile measurement drawings on your phone</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>All glass shapes</strong>Rectangle, arch, circle, oval, gable, trapezoid</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>IGU specification</strong>DGU and TGU with gas and spacer selection</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Cutouts &amp; operations</strong>Holes, notches, polished edges, drilling</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Georgian bars &amp; lead</strong>Full decorative glazing configuration</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Production planning board</strong>Visual queue with priority and status</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Glass barcode labels</strong>Print and scan labels for glass tracking</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Supplier management</strong>Order and track supplier deliveries</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>AI price list import</strong>Parse supplier PDFs automatically</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Auto supplier chasing</strong>Chase overdue orders automatically</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Team scheduling</strong>Visual planner with staff and job allocation</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Fleet &amp; vehicle management</strong>MOT tracking and daily vehicle assignment</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>WhatsApp integration</strong>Send and receive WhatsApp messages</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>SMS messaging</strong>Text customers directly from the app</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Gmail &amp; Outlook integration</strong>Full email in your inbox</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Automated notifications</strong>SMS and email triggered on job events</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Customer signature capture</strong>Digital signatures on job completion</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>GPS proof of completion</strong>Location logged at job sign-off</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Customer webshop</strong>Trade ordering portal with your branding</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Compliance guidance</strong>GGF, FENSA and Building Regs reference</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Mobile app (iOS &amp; Android)</strong>Full offline-capable field app</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Window frame templates</strong>Reusable multi-pane configurations</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Role-based access control</strong>Admin, manager, staff, field and viewer roles</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Full edit &amp; payment history</strong>See every change and who made it</div></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="bg-light" style="text-align:center;">
+  <div class="section-label">Simple to get started</div>
+  <h2>Up and running in under an hour</h2>
+  <p class="section-sub" style="margin:0 auto 56px;">No complicated setup. If you can use a smartphone, you can use Coglass.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Sign up free</div>
+      <div class="step-text">Create your company account in minutes. Add your logo, VAT number and team members.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Add your products</div>
+      <div class="step-text">Import your glass products and pricing. Upload supplier price lists and let AI do the rest.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Start taking jobs</div>
+      <div class="step-text">Create your first order, send a quote and have your team surveying on the mobile app the same day.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">Get paid faster</div>
+      <div class="step-text">Invoice on completion, track payments and watch your outstanding balance drop.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="text-align:center;">
+  <div class="section-label">Simple pricing</div>
+  <h2>One straightforward price.<br>No hidden extras.</h2>
+  <p class="section-sub" style="margin:0 auto 12px;">Start free, upgrade when you're ready. All plans include the full Coglass feature set.</p>
+  <p style="font-size:13px; color:var(--grey); margin-bottom:52px; font-weight:300;">All prices exclude VAT &nbsp;·&nbsp; 14-day free trial on all plans</p>
+
+  <div class="pricing-grid">
+
+    <div class="price-card">
+      <div class="price-tier">Starter</div>
+      <div class="price-amount">£39<span>/month</span></div>
+      <div class="price-sub">Up to 3 users</div>
+      <a href="#" class="price-btn price-btn-outline">Start Free Trial</a>
+      <ul class="price-features">
+        <li>Jobs and order management</li>
+        <li>PDF quotes and invoices</li>
+        <li>Online quote acceptance</li>
+        <li>Site survey and measurements</li>
+        <li>Glass and IGU specification</li>
+        <li>Customer database</li>
+        <li>Email integration</li>
+        <li>Mobile app (iOS &amp; Android)</li>
+        <li>Compliance guidance</li>
+      </ul>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-popular">Most Popular</div>
+      <div class="price-tier">Professional</div>
+      <div class="price-amount">£79<span>/month</span></div>
+      <div class="price-sub">Up to 10 users</div>
+      <a href="#" class="price-btn price-btn-white">Start Free Trial</a>
+      <ul class="price-features">
+        <li>Everything in Starter</li>
+        <li>Production planning board</li>
+        <li>Supplier management and ordering</li>
+        <li>Team scheduling and planner</li>
+        <li>WhatsApp and SMS integration</li>
+        <li>Glass barcode labels and scanning</li>
+        <li>Automated customer notifications</li>
+        <li>Fleet and vehicle management</li>
+        <li>AI supplier price list import</li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <div class="price-tier">Business</div>
+      <div class="price-amount">£149<span>/month</span></div>
+      <div class="price-sub">Unlimited users</div>
+      <a href="#" class="price-btn price-btn-blue">Start Free Trial</a>
+      <ul class="price-features">
+        <li>Everything in Professional</li>
+        <li>Customer webshop with your branding</li>
+        <li>Stripe and PayPal checkout</li>
+        <li>Embeddable webshop for your website</li>
+        <li>Trade customer portal and accounts</li>
+        <li>Advanced automation rules</li>
+        <li>Custom PDF quote and invoice templates</li>
+        <li>Priority support</li>
+        <li>Dedicated onboarding</li>
+      </ul>
+    </div>
+
+  </div>
+  <p style="font-size:13px; color:var(--grey); font-weight:300;">No credit card required to start &nbsp;·&nbsp; <a href="#" style="color:var(--teal);">Compare all plans</a></p>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to run a better glazing business?</h2>
+  <p>Join glazing companies across the UK who manage their jobs, teams and customers with Coglass.</p>
+  <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+    <a href="#" class="btn btn-white btn-xl">Start Free Trial</a>
+    <a href="#" class="btn btn-outline-white btn-xl">Book a Demo</a>
+  </div>
+  <p class="cta-note">No credit card required &nbsp;·&nbsp; Free onboarding support &nbsp;·&nbsp; Cancel any time</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#" class="logo-svg">
+        <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+          <rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+          <rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+          <rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+          <rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/>
+        </svg>
+        <span style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.7); letter-spacing:3px; text-transform:uppercase;">COGLASS</span>
+      </a>
+      <p class="footer-brand-text">The all-in-one glazing business management software built for UK glass companies.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Product</div>
+      <ul class="footer-links">
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Mobile App</a></li>
+        <li><a href="#">Webshop</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Changelog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">For Glaziers</div>
+      <ul class="footer-links">
+        <li><a href="#">Glazing Software UK</a></li>
+        <li><a href="#">Glass Company CRM</a></li>
+        <li><a href="#">Glazier Quoting App</a></li>
+        <li><a href="#">IGU Software</a></li>
+        <li><a href="#">FENSA Compliance</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Coglass. All rights reserved. &nbsp;·&nbsp; coglass.co.uk</span>
+    <span>Built for UK glazing companies</span>
+  </div>
+</footer>
+
+</body>
+</html>

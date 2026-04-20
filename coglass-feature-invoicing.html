@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glazing Invoice Software | Get Paid Faster | Coglass</title>
+<meta name="description" content="Invoice customers, record payments and track what's outstanding — all in one place. Coglass invoicing software built for UK glazing companies.">
+<meta name="keywords" content="glazing invoice software, glazier invoicing app, glass company invoicing, UK VAT invoices glazing, send invoices glaziers, track payments glazing">
+<link rel="canonical" href="https://coglass.co.uk/features/invoicing">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4; --blue-light: #E0F4FB; --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA; --white: #FFFFFF; --green: #16a34a; --border: #D6E8F0; --shadow: 0 2px 16px rgba(0,74,102,0.08); }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; font-size: 16px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--teal); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; box-shadow: 0 2px 16px rgba(0,0,0,0.2); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo span { font-size: 16px; font-weight: 300; color: white; letter-spacing: 3px; text-transform: uppercase; }
+  .nav-right { display: flex; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; padding: 9px 22px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; }
+  .btn-primary { background: var(--blue); color: white; } .btn-primary:hover { background: var(--blue-dark); }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25); }
+  .btn-white { background: white; color: var(--teal); font-weight: 600; } .btn-white:hover { background: #f0f9ff; }
+  .btn-outline-white { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
+  .hero { padding: 130px 5% 80px; background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .hero-label { font-size: 11px; font-weight: 700; color: #7DD8F5; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  h1 { font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.12; color: white; margin-bottom: 20px; } h1 span { color: var(--blue); }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.65; font-weight: 300; margin-bottom: 32px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-card { background: white; border-radius: 8px; padding: 16px; }
+  .stat-label { font-size: 11px; color: var(--grey); margin-bottom: 4px; }
+  .stat-val { font-size: 22px; font-weight: 700; color: var(--dark); }
+  .stat-val.red { color: #dc2626; } .stat-val.green { color: var(--green); }
+  .inv-row { background: white; border-radius: 8px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+  .inv-left { display: flex; flex-direction: column; gap: 2px; }
+  .inv-num { font-size: 11px; color: var(--grey); }
+  .inv-name { font-size: 13px; font-weight: 600; color: var(--dark); }
+  .inv-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
+  .b-paid { background: #dcfce7; color: var(--green); }
+  .b-over { background: #fee2e2; color: #dc2626; }
+  .b-sent { background: #dbeafe; color: #1d4ed8; }
+  .b-draft { background: #f3f4f6; color: #6b7280; }
+  .inv-amount { font-size: 14px; font-weight: 700; color: var(--dark); }
+  section { padding: 80px 5%; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; color: var(--dark); margin-bottom: 16px; }
+  .section-sub { font-size: 17px; color: var(--grey); line-height: 1.65; font-weight: 300; margin-bottom: 48px; max-width: 600px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .step-card { background: var(--light); border-radius: 10px; padding: 24px; border: 1px solid var(--border); }
+  .step-num { width: 36px; height: 36px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; }
+  .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .f-item { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: var(--light); border-radius: 10px; border: 1px solid var(--border); }
+  .f-check { width: 22px; height: 22px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .f-text { font-size: 14px; color: var(--dark); line-height: 1.5; } .f-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+  .bg-light { background: var(--light); }
+  .cta-section { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); text-align: center; padding: 80px 5%; }
+  .cta-section h2 { color: white; margin: 0 auto 16px; max-width: 500px; }
+  .cta-section p { color: rgba(255,255,255,0.65); margin: 0 auto 36px; max-width: 420px; font-size: 17px; font-weight: 300; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 32px 5%; text-align: center; font-size: 13px; }
+  footer a { color: var(--blue); text-decoration: none; }
+  .related { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+  .related a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; } .related a:hover { color: white; }
+  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 20px; } section { padding: 56px 20px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="coglass-website.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/></svg>
+    <span>COGLASS</span>
+  </a>
+  <div class="nav-right">
+    <a href="#" class="btn btn-ghost">Sign In</a>
+    <a href="#" class="btn btn-primary">Start Free Trial</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Feature — Invoicing</div>
+      <h1>Know exactly what you're <span>owed</span> at all times</h1>
+      <p class="hero-sub">Coglass tracks every invoice, deposit, and payment in one place. See outstanding balances, overdue invoices, and monthly income at a glance — without opening a spreadsheet.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="#" class="btn btn-ghost btn-lg">Book a Demo</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-label">Outstanding</div><div class="stat-val">£8,420</div></div>
+        <div class="stat-card"><div class="stat-label">Overdue</div><div class="stat-val red">£1,240</div></div>
+        <div class="stat-card"><div class="stat-label">Paid This Month</div><div class="stat-val green">£14,680</div></div>
+        <div class="stat-card"><div class="stat-label">Draft</div><div class="stat-val">£3,100</div></div>
+      </div>
+      <div class="inv-row"><div class="inv-left"><div class="inv-num">INV-0089</div><div class="inv-name">Johnson Residence</div></div><span class="inv-badge b-paid">Paid</span><div class="inv-amount">£566.40</div></div>
+      <div class="inv-row"><div class="inv-left"><div class="inv-num">INV-0088</div><div class="inv-name">Riverside Flats</div></div><span class="inv-badge b-over">Overdue</span><div class="inv-amount">£1,240.00</div></div>
+      <div class="inv-row"><div class="inv-left"><div class="inv-num">INV-0087</div><div class="inv-name">Apex Commercial</div></div><span class="inv-badge b-sent">Sent</span><div class="inv-amount">£2,880.00</div></div>
+      <div class="inv-row"><div class="inv-left"><div class="inv-num">INV-0086</div><div class="inv-name">Williams &amp; Sons</div></div><span class="inv-badge b-draft">Draft</span><div class="inv-amount">£420.00</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inner">
+    <div class="section-label">How it works</div>
+    <h2>From job completion to payment recorded — fully tracked</h2>
+    <p class="section-sub">Coglass invoicing follows the natural flow of a glazing job. Here's how it works in practice.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Create the invoice</div><div class="step-text">Raise a standard invoice, deposit invoice, or proforma directly from the order. All job details, glass lines, and pricing carry across automatically — no re-entering data.</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">Set payment terms</div><div class="step-text">Set the issue date, due date and payment terms (e.g. 14 days, 30 days, on completion). Coglass automatically flags the invoice as overdue if the due date passes without payment.</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Send to customer</div><div class="step-text">Mark as sent and Coglass emails the PDF invoice to your customer. The invoice shows all line items, VAT breakdown, bank details and payment instructions.</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">Record payment</div><div class="step-text">When payment arrives, open the invoice and record it: amount, date, method (cash, BACS, card, cheque) and reference. Partial payments are tracked automatically — the outstanding balance updates in real time.</div></div>
+      <div class="step-card"><div class="step-num">5</div><div class="step-title">Track what's owed</div><div class="step-text">The invoices dashboard shows Total Outstanding, Overdue, Paid This Month and Draft at a glance. Filter by status to chase what needs chasing — no mental arithmetic required.</div></div>
+      <div class="step-card"><div class="step-num">6</div><div class="step-title">Full payment history</div><div class="step-text">Every payment is logged against the invoice with method, date, reference and who recorded it. Full audit trail for your accounts — nothing disappears, nothing is overwritten.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="inner">
+    <div class="section-label">What's included</div>
+    <h2>Invoice features built for glazing businesses</h2>
+    <p class="section-sub">Everything you need to get paid on time and keep your accounts in order.</p>
+    <div class="features-list">
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Three invoice types</strong>Standard invoice, deposit invoice and proforma — all generated from the same order.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>UK VAT handling</strong>VAT calculated automatically. Ex-VAT and inc-VAT totals shown clearly on every PDF.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>PDF invoice download and email</strong>Generate professional PDFs instantly and email them directly to your customer from within Coglass.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Partial payment tracking</strong>Record payments as they come in. Outstanding balance updates automatically after each payment.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>All payment methods</strong>Record cash, BACS, card, cheque or other payments — with date, amount, reference and notes.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Overdue flagging</strong>Invoices are automatically marked overdue when the due date passes without full payment.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Invoice status dashboard</strong>See Outstanding, Overdue, Paid This Month and Draft totals at a glance every time you open invoices.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Stripe and PayPal integration</strong>Let customers pay online via card or PayPal directly from the webshop checkout.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Deposit invoices</strong>Raise a deposit invoice for a percentage or fixed amount before work begins — common on large commercial jobs.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Custom invoice numbering</strong>Set your own prefix and starting number so Coglass invoices match your existing numbering system.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Void invoices</strong>Mark invoices as void if cancelled — they remain on record for your accounts but are excluded from totals.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Full payment history</strong>Complete audit trail of every payment recorded — who recorded it, when, how much, and by what method.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Stop chasing invoices manually</h2>
+  <p>14-day free trial. No credit card required. Full access from day one.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn btn-white btn-lg">Start Free Trial</a>
+    <a href="#" class="btn btn-outline-white btn-lg">See All Features</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Coglass · <a href="coglass-website.html">Home</a> · Built for UK glazing companies</p>
+  <div class="related">
+    <a href="coglass-feature-quoting.html">Quoting →</a>
+    <a href="coglass-feature-surveys.html">Surveys →</a>
+    <a href="coglass-feature-production.html">Production →</a>
+    <a href="coglass-feature-communication.html">Communication →</a>
+    <a href="coglass-feature-webshop.html">Webshop →</a>
+  </div>
+</footer>
+</body>
+</html>

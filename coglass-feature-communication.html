@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp and SMS for Glaziers | Customer Communication | Coglass</title>
+<meta name="description" content="Send WhatsApp messages, SMS and emails to customers directly from your glazing job management system. All communication tracked against the order automatically.">
+<meta name="keywords" content="WhatsApp glazing software, SMS glazier customers, glazing customer communication, automated SMS glaziers, email glazing software, glazier customer notifications UK">
+<link rel="canonical" href="https://coglass.co.uk/features/communication">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4; --blue-light: #E0F4FB; --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA; --white: #FFFFFF; --green: #16a34a; --border: #D6E8F0; --shadow: 0 2px 16px rgba(0,74,102,0.08); }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; font-size: 16px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--teal); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; box-shadow: 0 2px 16px rgba(0,0,0,0.2); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo span { font-size: 16px; font-weight: 300; color: white; letter-spacing: 3px; text-transform: uppercase; }
+  .nav-right { display: flex; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; padding: 9px 22px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; }
+  .btn-primary { background: var(--blue); color: white; } .btn-primary:hover { background: var(--blue-dark); }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25); }
+  .btn-white { background: white; color: var(--teal); font-weight: 600; }
+  .btn-outline-white { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
+  .hero { padding: 130px 5% 80px; background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .hero-label { font-size: 11px; font-weight: 700; color: #7DD8F5; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  h1 { font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.12; color: white; margin-bottom: 20px; } h1 span { color: var(--blue); }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.65; font-weight: 300; margin-bottom: 32px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .chat-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .chat-header { background: white; border-radius: 8px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+  .ch-name { font-size: 13px; font-weight: 600; color: var(--dark); }
+  .ch-order { font-size: 11px; color: var(--grey); margin-top: 2px; }
+  .ch-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
+  .b-wa { background: #dcfce7; color: #15803d; }
+  .b-sms { background: #dbeafe; color: #1d4ed8; }
+  .b-email { background: var(--blue-light); color: var(--teal); }
+  .msg-out { background: var(--teal); color: white; border-radius: 10px 10px 3px 10px; padding: 10px 14px; margin-left: 20%; font-size: 12px; line-height: 1.5; }
+  .msg-in { background: white; color: var(--dark); border-radius: 10px 10px 10px 3px; padding: 10px 14px; margin-right: 20%; font-size: 12px; line-height: 1.5; }
+  .msg-time { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 4px; text-align: right; }
+  .msg-time-in { font-size: 10px; color: var(--grey); margin-top: 4px; }
+  section { padding: 80px 5%; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; color: var(--dark); margin-bottom: 16px; }
+  .section-sub { font-size: 17px; color: var(--grey); line-height: 1.65; font-weight: 300; margin-bottom: 48px; max-width: 600px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .step-card { background: var(--light); border-radius: 10px; padding: 24px; border: 1px solid var(--border); }
+  .step-num { width: 36px; height: 36px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; }
+  .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .f-item { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: var(--light); border-radius: 10px; border: 1px solid var(--border); }
+  .f-check { width: 22px; height: 22px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .f-text { font-size: 14px; color: var(--dark); line-height: 1.5; } .f-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+  .bg-light { background: var(--light); }
+  .cta-section { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); text-align: center; padding: 80px 5%; }
+  .cta-section h2 { color: white; margin: 0 auto 16px; max-width: 500px; }
+  .cta-section p { color: rgba(255,255,255,0.65); margin: 0 auto 36px; max-width: 420px; font-size: 17px; font-weight: 300; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 32px 5%; text-align: center; font-size: 13px; }
+  footer a { color: var(--blue); text-decoration: none; }
+  .related { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+  .related a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; } .related a:hover { color: white; }
+  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 20px; } section { padding: 56px 20px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="coglass-website.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/></svg>
+    <span>COGLASS</span>
+  </a>
+  <div class="nav-right">
+    <a href="#" class="btn btn-ghost">Sign In</a>
+    <a href="#" class="btn btn-primary">Start Free Trial</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Feature — Customer Communication</div>
+      <h1>WhatsApp, SMS and email — all <span>tracked against the job</span></h1>
+      <p class="hero-sub">Talk to customers however they prefer. Coglass integrates WhatsApp, SMS and email into your job management system so every message is stored against the right order — not lost in someone's personal phone.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="#" class="btn btn-ghost btn-lg">Book a Demo</a>
+      </div>
+    </div>
+    <div class="chat-visual">
+      <div class="chat-header"><div><div class="ch-name">Johnson Residence</div><div class="ch-order">ORD-1042</div></div><span class="ch-badge b-wa">WhatsApp</span></div>
+      <div class="msg-out">Hi Sarah, your glass is ready and we're booked in for Thursday 24th April at 9am. Does that still work for you?<div class="msg-time">Today 10:32</div></div>
+      <div class="msg-in">Perfect, yes that works great. Will someone call when on the way?<div class="msg-time-in">Today 10:45</div></div>
+      <div class="msg-out">Yes absolutely — the fitter will message when leaving the previous job. See you Thursday!<div class="msg-time">Today 10:47</div></div>
+      <div class="chat-header"><div><div class="ch-name">Apex Commercial</div><div class="ch-order">ORD-1041</div></div><span class="ch-badge b-sms">SMS</span></div>
+      <div class="msg-out">Your glass order ORD-1041 is ready for collection. Please call 01234 567890 to arrange. — Coglass<div class="msg-time">Yesterday 15:20</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inner">
+    <div class="section-label">How it works</div>
+    <h2>Every customer conversation, linked to the job</h2>
+    <p class="section-sub">No more hunting through WhatsApp to find what was said about a job. Every message is stored in Coglass against the order it belongs to.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Connect your channels</div><div class="step-text">Connect your WhatsApp Business account via Meta Cloud API, your email via Gmail or Outlook, and SMS via your SMS provider. One-time setup — Coglass handles the rest.</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">Message from the order</div><div class="step-text">Open any order in Coglass and send a WhatsApp message, SMS or email directly from the order screen. The customer's contact details are pre-filled — no copying numbers between apps.</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Replies come in automatically</div><div class="step-text">When a customer replies via WhatsApp, the message appears in Coglass against the same order. Your team sees the full conversation history without leaving the job screen.</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">Set up automated notifications</div><div class="step-text">Configure automation rules that trigger SMS or email messages automatically when job status changes — glass ready, fitter on the way, job complete. Your customers stay informed without anyone lifting a finger.</div></div>
+      <div class="step-card"><div class="step-num">5</div><div class="step-title">Use message templates</div><div class="step-text">Pre-written templates for common messages — quote sent, glass ready, payment reminder, appointment reminder. Variables like {customerName} and {orderNumber} fill in automatically from the job.</div></div>
+      <div class="step-card"><div class="step-num">6</div><div class="step-title">Full message history</div><div class="step-text">Every message ever sent or received on any channel is stored in the order timeline. New team members can pick up any job and immediately see the full customer communication history.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="inner">
+    <div class="section-label">What's included</div>
+    <h2>Every channel your customers use, in one place</h2>
+    <p class="section-sub">Stop juggling WhatsApp on your personal phone, emails in Outlook and texts on another device. Coglass brings them all together.</p>
+    <div class="features-list">
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>WhatsApp integration</strong>Send and receive WhatsApp messages directly in Coglass. Full conversation history stored against each order.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>SMS messaging</strong>Text customers directly from any order. SMS history logged and stored automatically.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Gmail integration</strong>Connect your Gmail account — send and receive emails from within Coglass, tracked against jobs.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Outlook integration</strong>Connect Microsoft Outlook — full email integration with the same order-linked tracking.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Automated notifications</strong>Trigger SMS and email automatically when order status changes — glass ready, fitter en route, job complete.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Custom automation rules</strong>Build your own triggers and actions — any status change, any channel, any message template.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Message templates</strong>Pre-written messages with automatic variables: customer name, order number, quote link, amount due.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Customer chat portal</strong>Customers can reply to messages via a web link — no WhatsApp or app required on their side.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Quote and invoice links via WhatsApp</strong>Share quote PDFs and invoice payment links directly in WhatsApp messages — customers tap to view.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Full conversation history</strong>Every message on every channel stored against the order — new staff can see the full picture immediately.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Inbound message handling</strong>Inbound WhatsApp and email messages auto-matched to the right order — no manual filing required.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Notification alerts</strong>Team members are notified when a customer replies — no messages left unread because they came in on someone else's phone.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Keep customers informed without the extra effort</h2>
+  <p>14-day free trial. No credit card required. Full access from day one.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn btn-white btn-lg">Start Free Trial</a>
+    <a href="#" class="btn btn-outline-white btn-lg">See All Features</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Coglass · <a href="coglass-website.html">Home</a> · Built for UK glazing companies</p>
+  <div class="related">
+    <a href="coglass-feature-quoting.html">Quoting →</a>
+    <a href="coglass-feature-invoicing.html">Invoicing →</a>
+    <a href="coglass-feature-scheduling.html">Scheduling →</a>
+    <a href="coglass-feature-webshop.html">Webshop →</a>
+  </div>
+</footer>
+</body>
+</html>

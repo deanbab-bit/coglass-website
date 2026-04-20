@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glazing Quoting Software | Send Professional Glass Quotes | Coglass</title>
+<meta name="description" content="Create and send professional glass quotes in seconds. Multiple variants, PDF output, online customer acceptance — all built into Coglass glazing software.">
+<meta name="keywords" content="glazing quoting software, glass quote app, send quotes to customers, glazier quoting tool, online quote acceptance, glazing PDF quotes UK">
+<link rel="canonical" href="https://coglass.co.uk/features/quoting">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4;
+    --blue-light: #E0F4FB; --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA;
+    --white: #FFFFFF; --green: #16a34a; --border: #D6E8F0;
+    --shadow: 0 2px 16px rgba(0,74,102,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; font-size: 16px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--teal); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; box-shadow: 0 2px 16px rgba(0,0,0,0.2); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo span { font-size: 16px; font-weight: 300; color: white; letter-spacing: 3px; text-transform: uppercase; }
+  .nav-right { display: flex; gap: 12px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; padding: 9px 22px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; }
+  .btn-primary { background: var(--blue); color: white; }
+  .btn-primary:hover { background: var(--blue-dark); }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+  .btn-teal { background: var(--teal); color: white; }
+  .btn-teal:hover { background: var(--teal-mid); }
+  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
+  .hero { padding: 130px 5% 80px; background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .hero-label { font-size: 11px; font-weight: 700; color: #7DD8F5; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  h1 { font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.12; letter-spacing: -0.5px; color: white; margin-bottom: 20px; }
+  h1 span { color: var(--blue); }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.65; font-weight: 300; margin-bottom: 32px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 24px; }
+  .quote-card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 12px; box-shadow: var(--shadow); }
+  .qc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .qc-num { font-size: 11px; color: var(--grey); margin-bottom: 3px; }
+  .qc-name { font-size: 15px; font-weight: 600; color: var(--dark); }
+  .qc-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
+  .badge-sent { background: #dbeafe; color: #1d4ed8; }
+  .badge-accepted { background: #dcfce7; color: var(--green); }
+  .badge-new { background: #fef3c7; color: #d97706; }
+  .qc-lines { border-top: 1px solid #f0f0f0; padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .qc-line { display: flex; justify-content: space-between; font-size: 12px; color: var(--grey); }
+  .qc-total { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--dark); border-top: 1px solid #f0f0f0; padding-top: 8px; margin-top: 4px; }
+  section { padding: 80px 5%; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; color: var(--dark); margin-bottom: 16px; }
+  .section-sub { font-size: 17px; color: var(--grey); line-height: 1.65; font-weight: 300; margin-bottom: 48px; max-width: 600px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .step-card { background: var(--light); border-radius: 10px; padding: 24px; border: 1px solid var(--border); }
+  .step-num { width: 36px; height: 36px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; }
+  .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .f-item { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: var(--light); border-radius: 10px; border: 1px solid var(--border); }
+  .f-check { width: 22px; height: 22px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .f-text { font-size: 14px; color: var(--dark); line-height: 1.5; }
+  .f-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+  .bg-light { background: var(--light); }
+  .cta-section { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); text-align: center; padding: 80px 5%; }
+  .cta-section h2 { color: white; margin: 0 auto 16px; max-width: 500px; }
+  .cta-section p { color: rgba(255,255,255,0.65); margin: 0 auto 36px; max-width: 420px; font-size: 17px; font-weight: 300; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-white { background: white; color: var(--teal); font-weight: 600; }
+  .btn-white:hover { background: #f0f9ff; }
+  .btn-outline-white { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); }
+  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 32px 5%; text-align: center; font-size: 13px; }
+  footer a { color: var(--blue); text-decoration: none; }
+  .related { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+  .related a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; }
+  .related a:hover { color: white; }
+  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 20px; } section { padding: 56px 20px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="coglass-website.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/></svg>
+    <span>COGLASS</span>
+  </a>
+  <div class="nav-right">
+    <a href="#" class="btn btn-ghost">Sign In</a>
+    <a href="#" class="btn btn-primary">Start Free Trial</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Feature — Quoting</div>
+      <h1>Send professional glass quotes in <span>seconds</span></h1>
+      <p class="hero-sub">Stop typing out quotes in Word documents. Coglass builds your quote automatically from the glass specifications, calculates prices, and sends a branded PDF to your customer — all in a few clicks.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="#" class="btn btn-ghost btn-lg">Book a Demo</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="quote-card">
+        <div class="qc-header">
+          <div><div class="qc-num">QUOTE-0042</div><div class="qc-name">Johnson Residence</div></div>
+          <span class="qc-badge badge-accepted">Accepted</span>
+        </div>
+        <div class="qc-lines">
+          <div class="qc-line"><span>4-16-4 DGU, 1200×900mm ×2</span><span>£284.00</span></div>
+          <div class="qc-line"><span>6mm toughened, 600×400mm ×1</span><span>£68.00</span></div>
+          <div class="qc-line"><span>Labour &amp; installation</span><span>£120.00</span></div>
+          <div class="qc-total"><span>Total (excl. VAT)</span><span>£472.00</span></div>
+        </div>
+      </div>
+      <div class="quote-card">
+        <div class="qc-header">
+          <div><div class="qc-num">QUOTE-0041</div><div class="qc-name">Apex Commercial</div></div>
+          <span class="qc-badge badge-sent">Quote Sent</span>
+        </div>
+        <div class="qc-lines">
+          <div class="qc-line"><span>4-16-4 Low-E DGU ×6 panes</span><span>£1,140.00</span></div>
+          <div class="qc-total"><span>Total (excl. VAT)</span><span>£1,140.00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inner">
+    <div class="section-label">How it works</div>
+    <h2>From enquiry to accepted quote — without the paperwork</h2>
+    <p class="section-sub">Coglass handles every step of the quoting process. Here's exactly how it works.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">Enquiry comes in</div>
+        <div class="step-text">Customers submit enquiries via the embedded web form on your website, or your team creates an order directly in Coglass. Customer name, address, contact details and job description are all captured.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">Add glass specifications</div>
+        <div class="step-text">Add each pane to the quote: dimensions (width × height in mm), quantity, product type (cut size, DGU, toughened, laminated), and any operations like polished edges, cutouts or Georgian bars.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">Price is calculated automatically</div>
+        <div class="step-text">Coglass calculates the price based on square metre rates or unit pricing from your product catalogue. Labour, installation charges and energy allowances are added automatically or adjusted manually.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-title">Send the PDF quote</div>
+        <div class="step-text">Click Send. Coglass generates a branded PDF quote and emails it to your customer. A unique public link lets them view the quote online without needing a login — on any device.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-title">Customer accepts online</div>
+        <div class="step-text">The customer clicks Accept on their quote page. Coglass instantly notifies your team, converts the quote to a live order, and assigns it an order number — no calls, no back and forth.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <div class="step-title">Order is ready to process</div>
+        <div class="step-text">The accepted order lands in your Orders screen with all glass specifications intact, ready for the production planning board, supplier ordering, and team scheduling.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="inner">
+    <div class="section-label">What's included</div>
+    <h2>Everything you need to quote faster and win more jobs</h2>
+    <p class="section-sub">Every quoting feature glaziers actually need — built in, no add-ons required.</p>
+    <div class="features-list">
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Branded PDF quotes</strong>Your company name, logo and colours on every quote.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Multiple quote variants</strong>Send two or three options in the same quote — e.g. standard vs Low-E glass — and let the customer choose.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Online customer acceptance</strong>No printing, no signing, no scanning. Customers accept the quote from a link on their phone.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Auto price calculation</strong>Square metre and unit pricing calculated from your product catalogue the moment you select a product.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Labour and installation costs</strong>Add labour rates, fitting charges and energy allowances automatically or override per job.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Line and order discounts</strong>Apply percentage or fixed discounts at the individual line level or across the whole quote.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Quote notes</strong>Add internal notes for your team and visible notes that appear on the customer's quote PDF.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Quote status tracking</strong>See every quote as New, Sent, Accepted or Closed at a glance — nothing falls through the cracks.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Full glass specification</strong>DGU, TGU, toughened, laminated, Low-E, Georgian bars, lead, cutouts, polished edges — all on the quote.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Embedded enquiry form</strong>Add a glass enquiry form to your own website. Customer enquiries land directly in Coglass ready to quote.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>VAT handling</strong>Prices shown ex-VAT and inc-VAT. VAT calculated automatically based on your registration settings.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>One-click order conversion</strong>Accepted quotes convert to live orders instantly, carrying all glass specs through to production.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Start sending better quotes today</h2>
+  <p>14-day free trial. No credit card required. Full access from day one.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn btn-white btn-lg">Start Free Trial</a>
+    <a href="#" class="btn btn-outline-white btn-lg">See All Features</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Coglass · <a href="coglass-website.html">Home</a> · Built for UK glazing companies</p>
+  <div class="related">
+    <a href="coglass-feature-invoicing.html">Invoicing →</a>
+    <a href="coglass-feature-surveys.html">Surveys →</a>
+    <a href="coglass-feature-production.html">Production →</a>
+    <a href="coglass-feature-suppliers.html">Suppliers →</a>
+    <a href="coglass-feature-mobile.html">Mobile App →</a>
+  </div>
+</footer>
+</body>
+</html>

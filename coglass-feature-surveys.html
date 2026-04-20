@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glass Survey App for Glaziers | On-Site Measurements | Coglass</title>
+<meta name="description" content="Capture accurate glass measurements on your phone. Drawing tool, all glass shapes, survey photos and offline support — the glazier survey app that works on site.">
+<meta name="keywords" content="glass survey app, glazier measurement app, on site glass measurements, glazing survey software, glass measuring tool, site survey glaziers UK">
+<link rel="canonical" href="https://coglass.co.uk/features/surveys">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4; --blue-light: #E0F4FB; --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA; --white: #FFFFFF; --green: #16a34a; --border: #D6E8F0; --shadow: 0 2px 16px rgba(0,74,102,0.08); }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; font-size: 16px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--teal); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; box-shadow: 0 2px 16px rgba(0,0,0,0.2); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo span { font-size: 16px; font-weight: 300; color: white; letter-spacing: 3px; text-transform: uppercase; }
+  .nav-right { display: flex; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; padding: 9px 22px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; }
+  .btn-primary { background: var(--blue); color: white; } .btn-primary:hover { background: var(--blue-dark); }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25); }
+  .btn-white { background: white; color: var(--teal); font-weight: 600; }
+  .btn-outline-white { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
+  .hero { padding: 130px 5% 80px; background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .hero-label { font-size: 11px; font-weight: 700; color: #7DD8F5; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  h1 { font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.12; color: white; margin-bottom: 20px; } h1 span { color: var(--blue); }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.65; font-weight: 300; margin-bottom: 32px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .survey-header { background: white; border-radius: 8px; padding: 14px 16px; }
+  .s-order { font-size: 11px; color: var(--grey); margin-bottom: 3px; }
+  .s-title { font-size: 14px; font-weight: 600; color: var(--dark); }
+  .meas-row { background: white; border-radius: 8px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+  .meas-loc { font-size: 13px; font-weight: 600; color: var(--dark); }
+  .meas-size { font-size: 12px; color: var(--grey); margin-top: 2px; }
+  .meas-tags { display: flex; gap: 6px; }
+  .tag { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 100px; background: var(--blue-light); color: var(--teal); }
+  section { padding: 80px 5%; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; color: var(--dark); margin-bottom: 16px; }
+  .section-sub { font-size: 17px; color: var(--grey); line-height: 1.65; font-weight: 300; margin-bottom: 48px; max-width: 600px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .step-card { background: var(--light); border-radius: 10px; padding: 24px; border: 1px solid var(--border); }
+  .step-num { width: 36px; height: 36px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; }
+  .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .f-item { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: var(--light); border-radius: 10px; border: 1px solid var(--border); }
+  .f-check { width: 22px; height: 22px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .f-text { font-size: 14px; color: var(--dark); line-height: 1.5; } .f-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+  .bg-light { background: var(--light); }
+  .cta-section { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); text-align: center; padding: 80px 5%; }
+  .cta-section h2 { color: white; margin: 0 auto 16px; max-width: 500px; }
+  .cta-section p { color: rgba(255,255,255,0.65); margin: 0 auto 36px; max-width: 420px; font-size: 17px; font-weight: 300; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 32px 5%; text-align: center; font-size: 13px; }
+  footer a { color: var(--blue); text-decoration: none; }
+  .related { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+  .related a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; } .related a:hover { color: white; }
+  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 20px; } section { padding: 56px 20px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="coglass-website.html" class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="1" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="1" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/><rect x="16" y="16" width="11" height="11" rx="1.5" stroke="#29ABE2" stroke-width="1.8"/></svg>
+    <span>COGLASS</span>
+  </a>
+  <div class="nav-right">
+    <a href="#" class="btn btn-ghost">Sign In</a>
+    <a href="#" class="btn btn-primary">Start Free Trial</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">Feature — Surveys &amp; Measurements</div>
+      <h1>Accurate glass measurements, <span>captured on site</span></h1>
+      <p class="hero-sub">No more lost notebooks. No more illegible handwriting. Your surveyors capture measurements, drawings and photos directly on their phones — synced back to the office the moment they're back in signal.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="#" class="btn btn-ghost btn-lg">Book a Demo</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="survey-header"><div class="s-order">ORD-1042 · Johnson Residence</div><div class="s-title">Survey Visit — 20 Apr 2026</div></div>
+      <div class="meas-row">
+        <div><div class="meas-loc">Front bedroom — left pane</div><div class="meas-size">1200 × 900mm &nbsp;·&nbsp; qty 1</div></div>
+        <div class="meas-tags"><span class="tag">DGU</span><span class="tag">Arch</span></div>
+      </div>
+      <div class="meas-row">
+        <div><div class="meas-loc">Front bedroom — right pane</div><div class="meas-size">1200 × 900mm &nbsp;·&nbsp; qty 1</div></div>
+        <div class="meas-tags"><span class="tag">DGU</span><span class="tag">4 photos</span></div>
+      </div>
+      <div class="meas-row">
+        <div><div class="meas-loc">Kitchen side window</div><div class="meas-size">600 × 400mm &nbsp;·&nbsp; qty 2</div></div>
+        <div class="meas-tags"><span class="tag">Toughened</span><span class="tag">Cutout</span></div>
+      </div>
+      <div class="meas-row">
+        <div><div class="meas-loc">Landing obscure</div><div class="meas-size">450 × 300mm &nbsp;·&nbsp; qty 1</div></div>
+        <div class="meas-tags"><span class="tag">Obscure</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inner">
+    <div class="section-label">How it works</div>
+    <h2>Survey to glass order — without the guesswork</h2>
+    <p class="section-sub">The Coglass survey tool captures everything your office needs to order the right glass, first time.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Open the job on your phone</div><div class="step-text">Your surveyor opens the assigned job in the Coglass mobile app. Job address, access notes and survey instructions from the office are all visible before they arrive on site.</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">Start the survey visit</div><div class="step-text">Tap Start Survey. Coglass records the time, date and who is on site. The surveyor can record how many operatives are present, access requirements (ladders, scaffolding, powered access), and any special notes.</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Add measurements</div><div class="step-text">For each pane, the surveyor enters a location label (e.g. "Front bedroom left"), width and height in millimetres, and quantity. All dimensions are stored exactly as entered — no unit conversion, no rounding.</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">Add drawings and operations</div><div class="step-text">Use the drawing tool to record glass shape (rectangle, arch, circle, oval, gable, trapezoid), Georgian bar positions, lead design patterns, cutouts, holes, notches, and RAL paint codes — all linked to that measurement.</div></div>
+      <div class="step-card"><div class="step-num">5</div><div class="step-title">Take photos</div><div class="step-text">Attach photos to each individual measurement and to the overall survey. Photos are stored against the job and viewable in the office immediately — useful for checking the frame, damage, or unusual details.</div></div>
+      <div class="step-card"><div class="step-num">6</div><div class="step-title">Import to order</div><div class="step-text">Once the survey is finished, office staff click Import to Workbench. Each measurement becomes a product line on the order — dimensions, shape, operations and all — ready for pricing and supplier ordering.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="inner">
+    <div class="section-label">What's included</div>
+    <h2>Every measurement tool a glazier needs on site</h2>
+    <p class="section-sub">Built around how glaziers actually work — in the field, often without signal, measuring non-standard shapes.</p>
+    <div class="features-list">
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>All glass shapes supported</strong>Rectangle, arch, circle, oval, gable, trapezoid, semicircle, triangle, pill — every shape your surveyors encounter.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Location labels per pane</strong>Name each pane clearly (e.g. "Kitchen left, above sink") so the right glass goes to the right window every time.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Georgian bar configuration</strong>Record bar positions, columns, rows and colour — all stored digitally and passed to production.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Lead design patterns</strong>Diamond and square lead patterns with cell size, colour and border-only option recorded against the measurement.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Cutouts and holes</strong>Record circular holes, rectangular cutouts, letterbox cutouts and corner notches — with position, size and label.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Survey photos</strong>Take photos per measurement and per survey. All photos are stored against the order, viewable in the office instantly.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Photo comments</strong>Add comments to photos — useful for flagging damage, unusual frame conditions, or installation notes.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Access and logistics logging</strong>Record what access equipment is needed (ladders, MEWP, scaffold) and special site conditions for fitters.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Works offline</strong>No signal on site? No problem. All survey data is captured and queued locally. Syncs automatically when connection is restored.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Survey duration and operatives</strong>Record how long the survey took and who was on site — useful for labour costing and scheduling future visits.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>One-click import to order</strong>Finished surveys import directly to the order workbench — dimensions, shapes and operations all carry through to the glass order.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Multiple visit types</strong>Survey, fitting and delivery visits all tracked separately under the same order — full site history in one place.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Stop losing measurements on paper</h2>
+  <p>14-day free trial. No credit card required. Full access from day one.</p>
+  <div class="cta-btns">
+    <a href="#" class="btn btn-white btn-lg">Start Free Trial</a>
+    <a href="#" class="btn btn-outline-white btn-lg">See All Features</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Coglass · <a href="coglass-website.html">Home</a> · Built for UK glazing companies</p>
+  <div class="related">
+    <a href="coglass-feature-quoting.html">Quoting →</a>
+    <a href="coglass-feature-production.html">Production →</a>
+    <a href="coglass-feature-mobile.html">Mobile App →</a>
+    <a href="coglass-feature-scheduling.html">Scheduling →</a>
+  </div>
+</footer>
+</body>
+</html>
