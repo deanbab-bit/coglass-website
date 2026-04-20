@@ -43,6 +43,19 @@
   .success-screen h2 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
   .success-screen p { font-size: 15px; color: var(--grey); line-height: 1.6; margin-bottom: 24px; }
   .instance-link { display: inline-block; background: var(--blue); color: white; padding: 13px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; }
+  .sms-preview-wrap { margin-bottom: 20px; }
+  .sms-preview-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  .sms-phone { background: #1c1c1e; border-radius: 12px; padding: 14px; }
+  .sms-phone-bar { margin-bottom: 10px; }
+  .sms-sender-label { font-size: 14px; font-weight: 600; color: white; }
+  .sms-phone-sub { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+  .sms-bubble { background: #3a3a3c; color: white; border-radius: 12px 12px 12px 3px; padding: 10px 13px; font-size: 12px; line-height: 1.5; }
+  .sms-hint { padding: 4px 0; }
+  .sms-id-display { display: inline-block; background: var(--blue-light); border: 1.5px solid var(--blue); border-radius: 8px; padding: 8px 16px; font-size: 18px; font-weight: 700; color: var(--teal); letter-spacing: 1px; margin-bottom: 10px; }
+  .sms-hint-text { font-size: 12px; color: var(--grey); line-height: 1.5; margin-bottom: 6px; }
+  .sms-hint-chars { font-size: 12px; font-weight: 600; color: var(--green); }
+  .sms-hint-chars.over { color: var(--red); }
+  @media(max-width:520px) { .sms-preview-inner { grid-template-columns: 1fr; } }
   footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 24px 5%; text-align: center; font-size: 13px; }
   footer a { color: #29ABE2; text-decoration: none; }
 </style>
@@ -101,6 +114,25 @@
           </div>
         </div>
 
+        <!-- SMS ID Preview -->
+        <div class="sms-preview-wrap" id="sms-preview-wrap" style="display:none;">
+          <label style="margin-bottom:10px; display:block;">Your SMS sender name</label>
+          <div class="sms-preview-inner">
+            <div class="sms-phone">
+              <div class="sms-phone-bar">
+                <div class="sms-sender-label" id="sms-sender-label">YourCompany</div>
+                <div class="sms-phone-sub">SMS · now</div>
+              </div>
+              <div class="sms-bubble">Your glass is ready for fitting on Thursday. Reply YES to confirm or call us to rearrange.</div>
+            </div>
+            <div class="sms-hint">
+              <div class="sms-id-display"><span id="sms-id-display">YourCompany</span></div>
+              <p class="sms-hint-text">This is the name your customers will see when you send them a text. Max 11 characters, letters and numbers only.</p>
+              <p class="sms-hint-chars" id="sms-hint-chars">11/11 characters</p>
+            </div>
+          </div>
+        </div>
+
         <button type="submit" class="submit-btn" id="submit-btn">Create my account →</button>
         <p class="fine-print">By signing up you agree to our <a href="#" style="color:var(--blue);">Terms of Service</a>. All prices exclude VAT.</p>
       </form>
@@ -128,6 +160,26 @@
     el.classList.add('selected');
     selectedPlan = el.dataset.plan;
   }
+
+  function toSmsId(name) {
+    return name.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 11);
+  }
+
+  document.getElementById('companyName').addEventListener('input', function() {
+    const raw = this.value.trim();
+    const smsId = toSmsId(raw);
+    const preview = smsId || 'YourCompany';
+    const wrap = document.getElementById('sms-preview-wrap');
+    const chars = document.getElementById('sms-hint-chars');
+
+    wrap.style.display = raw ? 'block' : 'none';
+    document.getElementById('sms-sender-label').textContent = preview;
+    document.getElementById('sms-id-display').textContent = preview;
+
+    const len = smsId.length;
+    chars.textContent = `${len}/11 characters`;
+    chars.className = 'sms-hint-chars' + (len === 11 ? ' over' : '');
+  });
 
   document.getElementById('signup-form').addEventListener('submit', async (e) => {
     e.preventDefault();
