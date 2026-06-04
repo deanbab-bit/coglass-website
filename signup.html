@@ -97,8 +97,8 @@
 
     <div id="form-screen">
       <div class="card-label">Get started</div>
-      <h1>Start your free trial</h1>
-      <p class="subtitle">Set up your Coglass account in seconds. Your whole team can be live today.</p>
+      <h1>Request your free trial</h1>
+      <p class="subtitle">We're onboarding new glaziers personally right now. Send us a quick email and we'll set up your trial and send your login — usually the same working day.</p>
 
       <div class="trial-banner">
         <div class="trial-banner-title">Everything included free for 14 days</div>
@@ -111,7 +111,15 @@
 
       <div id="error-msg" class="error-msg"></div>
 
-      <form id="signup-form">
+      <!-- TRIALS-PAUSED 2026-06-04: self-serve instant signup hidden while the product is being finished.
+           Visitors are directed to email for a trial (manually provisioned via ~/new-instance.sh).
+           To re-enable instant signup: delete this CTA block and remove style="display:none" from the form below. -->
+      <a class="submit-btn" id="email-trial-btn"
+         href="mailto:contact@coglass.co.uk?subject=Coglass%20trial%20request&body=Hi%20Coglass%2C%0A%0AI%27d%20like%20to%20start%20a%20free%20trial%20of%20Coglass.%0A%0ACompany%20name%3A%0AYour%20name%3A%0APhone%3A%0A%0AThanks%21"
+         style="display:block;text-align:center;text-decoration:none;">Email us to request your trial →</a>
+      <p class="fine-print">We usually reply the same working day · No credit card needed · 14-day free trial · All prices exclude VAT</p>
+
+      <form id="signup-form" style="display:none;">
         <div class="field">
           <label for="companyName">Company name</label>
           <input type="text" id="companyName" name="companyName" placeholder="Smith's Glazing Ltd" required>
