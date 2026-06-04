@@ -98,7 +98,7 @@
     <div id="form-screen">
       <div class="card-label">Get started</div>
       <h1>Request your free trial</h1>
-      <p class="subtitle">We're onboarding new glaziers personally right now. Send us a quick email and we'll set up your trial and send your login — usually the same working day.</p>
+      <p class="subtitle">We're onboarding new glaziers personally right now — fill in your details and we'll set up your trial and email your login, usually the same working day.</p>
 
       <div class="trial-banner">
         <div class="trial-banner-title">Everything included free for 14 days</div>
@@ -111,57 +111,37 @@
 
       <div id="error-msg" class="error-msg"></div>
 
-      <!-- TRIALS-PAUSED 2026-06-04: self-serve instant signup hidden while the product is being finished.
-           Visitors are directed to email for a trial (manually provisioned via ~/new-instance.sh).
-           To re-enable instant signup: delete this CTA block and remove style="display:none" from the form below. -->
-      <a class="submit-btn" id="email-trial-btn"
-         href="mailto:contact@coglass.co.uk?subject=Coglass%20trial%20request&body=Hi%20Coglass%2C%0A%0AI%27d%20like%20to%20start%20a%20free%20trial%20of%20Coglass.%0A%0ACompany%20name%3A%0AYour%20name%3A%0APhone%3A%0A%0AThanks%21"
-         style="display:block;text-align:center;text-decoration:none;">Email us to request your trial →</a>
-      <p class="fine-print">We usually reply the same working day · No credit card needed · 14-day free trial · All prices exclude VAT</p>
-
-      <form id="signup-form" style="display:none;">
+      <form id="request-form" autocomplete="on">
         <div class="field">
-          <label for="companyName">Company name</label>
-          <input type="text" id="companyName" name="companyName" placeholder="Smith's Glazing Ltd" required>
+          <label for="r-company">Company name</label>
+          <input type="text" id="r-company" placeholder="Smith's Glazing Ltd" required>
         </div>
         <div class="field">
-          <label for="email">Work email</label>
-          <input type="email" id="email" name="email" placeholder="dean@smithsglazing.co.uk" required>
+          <label for="r-name">Your name</label>
+          <input type="text" id="r-name" placeholder="Dean Smith">
         </div>
         <div class="field">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Min. 8 characters" required minlength="8">
+          <label for="r-email">Work email</label>
+          <input type="email" id="r-email" placeholder="dean@smithsglazing.co.uk" required>
         </div>
-
-        <!-- SMS ID Preview -->
-        <div class="sms-preview-wrap" id="sms-preview-wrap" style="display:none;">
-          <label style="margin-bottom:10px; display:block;">Your SMS sender name</label>
-          <div class="sms-preview-inner">
-            <div class="sms-phone">
-              <div class="sms-phone-bar">
-                <div class="sms-sender-label" id="sms-sender-label">YourCompany</div>
-                <div class="sms-phone-sub">SMS · now</div>
-              </div>
-              <div class="sms-bubble">Your glass is ready for fitting on Thursday. Reply YES to confirm or call us to rearrange.</div>
-            </div>
-            <div class="sms-hint">
-              <div class="sms-id-display"><span id="sms-id-display">YourCompany</span></div>
-              <p class="sms-hint-text">This is the name your customers see when you text them. You can change it in settings anytime.</p>
-              <p class="sms-hint-chars" id="sms-hint-chars">11/11 characters</p>
-            </div>
-          </div>
+        <div class="field">
+          <label for="r-phone">Phone</label>
+          <input type="tel" id="r-phone" placeholder="07…">
         </div>
-
-        <button type="submit" class="submit-btn" id="submit-btn">Start free trial →</button>
-        <p class="fine-print">No credit card needed · Choose your plan after 14 days · All prices exclude VAT<br>By signing up you agree to our <a href="#" style="color:var(--blue);">Terms of Service</a>.</p>
+        <div class="field">
+          <label for="r-message">Anything else? (optional)</label>
+          <input type="text" id="r-message" placeholder="How many users, what you sell…">
+        </div>
+        <input type="text" id="r-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+        <button type="submit" class="submit-btn" id="request-btn">Request your trial →</button>
+        <p class="fine-print">No credit card needed · We'll set you up and email your login, usually the same working day.</p>
       </form>
     </div>
 
     <div id="success-screen" class="success-screen">
       <div class="success-icon">✓</div>
-      <h2>You're all set!</h2>
-      <p>Your Coglass account is being set up now. Check your email for your login link — it'll arrive within a minute.</p>
-      <a id="instance-link" href="#" class="instance-link">Open Coglass →</a>
+      <h2>Request received!</h2>
+      <p>Thanks — we've got your details. We'll set up your trial and email your login shortly, usually the same working day.</p>
     </div>
 
   </div>
@@ -200,68 +180,49 @@
 </footer>
 
 <script>
-  function toSmsId(name) {
-    return name.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 11);
-  }
-
-  document.getElementById('companyName').addEventListener('input', function() {
-    const raw = this.value.trim();
-    const smsId = toSmsId(raw);
-    const preview = smsId || 'YourCompany';
-    const wrap = document.getElementById('sms-preview-wrap');
-    const chars = document.getElementById('sms-hint-chars');
-
-    wrap.style.display = raw ? 'block' : 'none';
-    document.getElementById('sms-sender-label').textContent = preview;
-    document.getElementById('sms-id-display').textContent = preview;
-
-    const len = smsId.length;
-    chars.textContent = `${len}/11 characters`;
-    chars.className = 'sms-hint-chars' + (len === 11 ? ' over' : '');
-  });
-
-  document.getElementById('signup-form').addEventListener('submit', async (e) => {
+  document.getElementById('request-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = document.getElementById('submit-btn');
+    const btn = document.getElementById('request-btn');
     const errorEl = document.getElementById('error-msg');
     errorEl.style.display = 'none';
 
     const body = {
-      companyName: document.getElementById('companyName').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      password: document.getElementById('password').value,
-      plan: 'Business', // everyone gets full access during trial
+      company: document.getElementById('r-company').value.trim(),
+      name: document.getElementById('r-name').value.trim(),
+      email: document.getElementById('r-email').value.trim(),
+      phone: document.getElementById('r-phone').value.trim(),
+      message: document.getElementById('r-message').value.trim(),
+      website: document.getElementById('r-website').value, // honeypot
     };
 
     btn.disabled = true;
-    btn.textContent = 'Setting up your account…';
+    btn.textContent = 'Sending…';
 
     try {
-      const res = await fetch('https://signup-api.coglass.app/signup', {
+      const res = await fetch('https://hq.coglass.app/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
         errorEl.textContent = data.error || 'Something went wrong. Please try again.';
         errorEl.style.display = 'block';
         btn.disabled = false;
-        btn.textContent = 'Start free trial →';
+        btn.textContent = 'Request your trial →';
         return;
       }
 
       document.getElementById('form-screen').style.display = 'none';
       document.getElementById('plan-section').style.display = 'none';
       document.getElementById('success-screen').style.display = 'block';
-      document.getElementById('instance-link').href = data.instanceUrl;
 
     } catch (err) {
       errorEl.textContent = 'Could not connect. Please try again.';
       errorEl.style.display = 'block';
       btn.disabled = false;
-      btn.textContent = 'Start free trial →';
+      btn.textContent = 'Request your trial →';
     }
   });
 </script>
