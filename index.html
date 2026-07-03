@@ -60,7 +60,7 @@
         { "@type": "Question", "name": "Does the survey app work offline with no signal?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Site surveys — measurements, drawings, photos, access notes and GPS — are captured offline on your phone and sync automatically when you are back in signal." } },
         { "@type": "Question", "name": "Can I import my suppliers' price lists?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Coglass uses AI to read your suppliers' price-list PDFs into live prices, so you do not have to type rate cards by hand." } },
         { "@type": "Question", "name": "Does Coglass work on iOS, Android and web?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — office staff use the web app and field staff use the iOS and Android apps. Everything syncs in real time." } },
-        { "@type": "Question", "name": "Does it integrate with Xero and take card payments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Invoices push to Xero, and you can take card payments online via Stripe or PayPal." } },
+        { "@type": "Question", "name": "Does it integrate with Xero and take card payments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Invoices push to Xero, and you can take card payments online through your webshop checkout (Stripe or PayPal)." } },
         { "@type": "Question", "name": "How long does it take to get started?", "acceptedAnswer": { "@type": "Answer", "text": "Most glass companies are up and running in under an hour. Start a free trial with no credit card required." } }
       ]
     }
@@ -758,8 +758,10 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
-    nav { padding: 0 20px; }
+    nav { padding: 0 16px; }
     .nav-links { display: none; }
+    .nav-cta .btn-ghost-white { display: none; }
+    .nav-cta .btn { padding: 8px 15px; font-size: 13px; }
     section { padding: 64px 20px; }
     .mobile-section { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -1033,7 +1035,7 @@
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
       <div class="feature-title">Get paid faster, chase less</div>
-      <div class="feature-text">Deposits, UK VAT, proformas and payments all handled — with overdue alerts so nothing slips. Push straight to Xero or take card online. The money side runs itself.</div>
+      <div class="feature-text">Deposits, UK VAT, proformas and payments all handled — with overdue alerts so nothing slips. Push straight to Xero, or take card in your webshop. The money side runs itself.</div>
       <ul class="feature-list">
         <li>Standard, deposit and proforma invoices</li>
         <li>UK VAT calculation and tracking</li>
@@ -1117,7 +1119,7 @@
     <div class="feature-card">
       <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
       <div class="feature-title">Every WhatsApp, text and email — on the job</div>
-      <div class="feature-text">Talk to customers however they prefer, all threaded against the order so nothing's lost in someone's personal phone. Automatic updates fire as the job moves, so they're never left wondering.</div>
+      <div class="feature-text">Talk to customers however they prefer, tracked against the order so nothing's lost in someone's personal phone. Automatic updates fire as the job moves, so they're never left wondering.</div>
       <ul class="feature-list">
         <li>WhatsApp send and receive</li>
         <li>SMS messaging to customers</li>
@@ -1247,7 +1249,7 @@
     <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Online quote acceptance</strong>Customers accept via a shared link</div></div>
     <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Invoice &amp; payment management</strong>Standard, deposit and proforma invoices</div></div>
     <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>UK VAT tracking</strong>VAT calculation built in</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Stripe &amp; PayPal payments</strong>Take card payments online</div></div>
+    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Stripe &amp; PayPal payments</strong>Take card payments in your webshop</div></div>
     <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Site survey capture</strong>Mobile measurement drawings on your phone</div></div>
     <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>All glass shapes</strong>Rectangle, arch, circle, oval, gable, trapezoid</div></div>
     <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>IGU specification</strong>DGU and TGU with gas and spacer selection</div></div>
@@ -1387,7 +1389,7 @@
     <div class="faq-item"><div class="faq-q">Does the survey app work offline with no signal?</div><div class="faq-a">Yes. Site surveys — measurements, drawings, photos, access notes and GPS — are captured offline on your phone and sync automatically when you're back in signal.</div></div>
     <div class="faq-item"><div class="faq-q">Can I import my suppliers' price lists?</div><div class="faq-a">Yes. Coglass uses AI to read your suppliers' price-list PDFs into live prices, so you don't have to type rate cards by hand.</div></div>
     <div class="faq-item"><div class="faq-q">Does Coglass work on iOS, Android and web?</div><div class="faq-a">Yes — office staff use the web app and field staff use the iOS and Android apps. Everything syncs in real time.</div></div>
-    <div class="faq-item"><div class="faq-q">Does it integrate with Xero and take card payments?</div><div class="faq-a">Yes. Invoices push to Xero, and you can take card payments online via Stripe or PayPal.</div></div>
+    <div class="faq-item"><div class="faq-q">Does it integrate with Xero and take card payments?</div><div class="faq-a">Yes. Invoices push to Xero, and you can take card payments online through your webshop checkout (Stripe or PayPal).</div></div>
     <div class="faq-item"><div class="faq-q">How long does it take to get started?</div><div class="faq-a">Most glass companies are up and running in under an hour. Start a free trial with no credit card required.</div></div>
   </div>
 </section>

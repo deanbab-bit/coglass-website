@@ -64,7 +64,7 @@
   footer a { color: var(--blue); text-decoration: none; }
   .related { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
   .related a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; } .related a:hover { color: white; }
-  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 20px; } section { padding: 56px 20px; } }
+  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 16px; } .nav-right .btn-ghost { display: none; } .nav-right .btn { padding: 8px 15px; font-size: 13px; } section { padding: 56px 20px; } }
 </style>
 </head>
 <body>
@@ -92,7 +92,7 @@
     <div class="hero-visual">
       <div class="survey-header"><div class="s-order">Pane 1 · Bay window</div><div class="s-title">Glass specification</div></div>
       <div class="meas-row"><div><div class="meas-loc">Make-up</div><div class="meas-size">DGU 4 / 16 / 4 toughened</div></div><div class="meas-tags"><span class="tag">DGU</span><span class="tag">Toughened</span></div></div>
-      <div class="meas-row"><div><div class="meas-loc">Cavity & spacer</div><div class="meas-size">16mm warm-edge · argon</div></div><div class="meas-tags"><span class="tag">Argon</span></div></div>
+      <div class="meas-row"><div><div class="meas-loc">Cavity & spacer</div><div class="meas-size">16mm cavity</div></div><div class="meas-tags"><span class="tag">Argon</span></div></div>
       <div class="meas-row"><div><div class="meas-loc">Edges</div><div class="meas-size">Polished, pencil-round</div></div><div class="meas-tags"><span class="tag">Polished</span></div></div>
       <div class="meas-row"><div><div class="meas-loc">Shape</div><div class="meas-size">Gable head</div></div><div class="meas-tags"><span class="tag">Gable</span></div></div>
       <div class="meas-row"><div><div class="meas-loc">Features</div><div class="meas-size">4 × Ø6 holes · Georgian 3×2</div></div><div class="meas-tags"><span class="tag">Georgian</span><span class="tag">Holes</span></div></div>
@@ -107,7 +107,7 @@
     <div class="steps-grid">
       <div class="step-card"><div class="step-num">1</div><div class="step-title">Choose the make-up</div><div class="step-text">Pick single glazed, DGU or TGU and Coglass captures the full build — the glass type for each leaf, cavity, spacer and gas.</div></div>
       <div class="step-card"><div class="step-num">2</div><div class="step-title">Set size & shape</div><div class="step-text">Width × height in mm, quantity, and any shape — rectangle, arch, circle, oval, gable, trapezoid. Stored exactly as entered, no rounding.</div></div>
-      <div class="step-card"><div class="step-num">3</div><div class="step-title">Add edgework & processing</div><div class="step-text">Polished, bevelled, mitred or arrised edges; toughening, heat-soak, lamination and window filming — each priced as its own operation.</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Add edgework & processing</div><div class="step-text">Add edge-finishing and glass-processing operations to any pane — each priced as its own operation alongside the glass.</div></div>
       <div class="step-card"><div class="step-num">4</div><div class="step-title">Draw the features on the pane</div><div class="step-text">Open the drawing canvas and place holes, cut-outs, Georgian bars, lead and diamond lattices right on the glass — sized off the edges in mm.</div></div>
       <div class="step-card"><div class="step-num">5</div><div class="step-title">Price it automatically</div><div class="step-text">Coglass prices the glass per m² or per unit from your catalogue, plus every operation — with trade price-lists and quantity breaks applied.</div></div>
       <div class="step-card"><div class="step-num">6</div><div class="step-title">Print the 1:1 template</div><div class="step-text">Send the lead, Georgian and diamond patterns to a full-size tiled A4 “lay-under” template — the factory lays the glass straight onto it and copies the pattern.</div></div>
@@ -122,12 +122,12 @@
     <div class="features-list">
       <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Full IGU make-ups</strong>DGU and TGU units with the glass type for each leaf, cavity width, spacer bar and gas fill — captured per line, not crammed into one product.</div></div>
       <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Cavity is line-level</strong>Set 12/16/20mm per order line (and a second cavity for triple units) — no exploding your catalogue with a variant of every unit.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Every edge & finish</strong>Polished, bevelled, mitred, arrised edges plus sandblast, acid-etch, brilliant-cut and ceramic frit.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Edge finishing</strong>Add edge-finishing operations to a pane and price each one individually.</div></div>
       <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Every shape</strong>Rectangle, arch, circle, oval, gable, trapezoid, semicircle, triangle and more.</div></div>
       <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Georgian bars</strong>Bar positions, columns, rows, width and colour — priced per metre of bar and drawn on the pane.</div></div>
       <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Lead & diamond</strong>Square, rectangular and diamond lead lattices with cell size and lead width — drawn and priced.</div></div>
       <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Holes & cut-outs</strong>Drilled holes (priced per diameter tier), rectangular cut-outs, letterboxes and corner notches — placed in mm.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Processing operations</strong>Toughening, heat-soak, lamination and filming/tint as first-class operations — made in-house or bought-in.</div></div>
+      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>In-house or bought-in operations</strong>Mark any operation as made in-house or bought in from a processor — Coglass raises the outwork order.</div></div>
       <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Save as a product</strong>Build a unit once, save it to your catalogue, and the survey matcher re-uses it automatically next time.</div></div>
       <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>1:1 lay-under template</strong>Lead, Georgian and diamond patterns print full-size across A4 with crop marks — the factory copies straight onto the glass.</div></div>
       <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Trade price-lists</strong>Per-customer and per-type price lists with quantity breaks and contract windows, applied automatically.</div></div>
