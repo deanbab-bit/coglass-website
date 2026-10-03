@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-invoicing.html",
+ "title": "Glazing Invoice Software | Get Paid Faster | Coglass",
+ "description": "Invoice customers, record payments and track what's outstanding — all in one place. Coglass invoicing software built for UK glazing companies.",
+ "eyebrow": "Feature — Invoicing",
+ "h1": "Get paid faster,",
+ "h1_accent": "see what's owed",
+ "lead": "Deposits, UK VAT, proformas and payments — with overdue invoices flagged automatically, so you can see who to chase. Push to Xero, and let customers pay online from their invoice link.",
+ "steps_label": "How it works",
+ "steps_h2": "From job completion to payment recorded — fully tracked",
+ "steps_sub": "Coglass invoicing follows the natural flow of a glazing job. Here's how it works in practice.",
+ "inc_label": "What's included",
+ "inc_h2": "Invoice features built for glazing businesses",
+ "inc_sub": "Everything you need to get paid on time and keep your accounts in order.",
+ "steps": [
+  [
+   "Create the invoice",
+   "Raise a standard invoice, deposit invoice, or proforma directly from the order. All job details, glass lines, and pricing carry across automatically — no re-entering data."
+  ],
+  [
+   "Set payment terms",
+   "Set the issue date, due date and payment terms (e.g. 14 days, 30 days, on completion). Coglass automatically flags the invoice as overdue if the due date passes without payment."
+  ],
+  [
+   "Send to customer",
+   "Email the PDF invoice to your customer from Coglass, with a link to view it online. The invoice shows every line, the VAT breakdown and how to pay."
+  ],
+  [
+   "Record payment",
+   "When payment arrives, open the invoice and record it: amount, date, method (cash, BACS, card, cheque) and reference. Partial payments are tracked automatically — the outstanding balance updates in real time."
+  ],
+  [
+   "Track what's owed",
+   "The invoices dashboard shows Total Outstanding, Overdue, Paid This Month and Draft at a glance. Filter by status to chase what needs chasing — no mental arithmetic required."
+  ],
+  [
+   "Payment history",
+   "Every payment is logged against the invoice with method, date and reference."
+  ]
+ ],
+ "included": [
+  [
+   "Three invoice types",
+   "Standard invoice, deposit invoice and proforma — all generated from the same order."
+  ],
+  [
+   "UK VAT handling",
+   "VAT calculated automatically. Ex-VAT and inc-VAT totals shown clearly on every PDF."
+  ],
+  [
+   "PDF invoice download and email",
+   "Generate professional PDFs instantly and email them directly to your customer from within Coglass."
+  ],
+  [
+   "Partial payment tracking",
+   "Record payments as they come in. Outstanding balance updates automatically after each payment."
+  ],
+  [
+   "All payment methods",
+   "Record cash, BACS, card, cheque or other payments — with date, amount, reference and notes."
+  ],
+  [
+   "Overdue flagging",
+   "Invoices are automatically marked overdue when the due date passes without full payment."
+  ],
+  [
+   "Invoice status dashboard",
+   "See Outstanding, Overdue, Paid This Month and Draft totals at a glance every time you open invoices."
+  ],
+  [
+   "Pay online",
+   "Customers can pay an invoice online from its link, and webshop orders can be paid by card (Stripe) or PayPal."
+  ],
+  [
+   "Deposit invoices",
+   "Raise a deposit invoice for a percentage or fixed amount before work begins — common on large commercial jobs."
+  ],
+  [
+   "Custom invoice numbering",
+   "Set your own prefix and starting number so Coglass invoices match your existing numbering system."
+  ],
+  [
+   "Void invoices",
+   "Mark invoices as void if cancelled — they remain on record for your accounts but are excluded from totals."
+  ],
+  [
+   "Xero",
+   "Invoices, payments and supplier bills push to Xero, coded to the accounts and VAT rates you map."
+  ]
+ ],
+ "cta_h2": "See what you're owed at a glance",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

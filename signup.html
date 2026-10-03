@@ -1,236 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start Coglass | Glazing Software</title>
-<link rel="icon" type="image/png" href="/coglass-icon.png">
-<link rel="apple-touch-icon" href="/coglass-icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a demo | Coglass</title>
+<meta name="description" content="Book a demo of Coglass, the software for UK glass and glazing companies. Tell us about your business and we will be in touch, usually the same working day.">
+<link rel="canonical" href="https://coglass.co.uk/signup.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coglass">
+<meta property="og:title" content="Book a demo | Coglass">
+<meta property="og:description" content="Book a demo of Coglass, the software for UK glass and glazing companies. Tell us about your business and we will be in touch, usually the same working day.">
+<meta property="og:url" content="https://coglass.co.uk/signup.html">
 <meta property="og:image" content="https://coglass.co.uk/og-image.png">
-<meta name="description" content="Start Coglass free for 14 days on the plan you choose, or talk to us first and we will set you up.">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4;
-    --blue-light: #E0F4FB; --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA;
-    --border: #D6E8F0; --white: #FFFFFF; --green: #16a34a; --red: #dc2626;
-  }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--light); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; }
-  nav { background: var(--teal); padding: 0 5%; height: 64px; display: flex; align-items: center; }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo span { font-size: 19px; font-weight: 700; color: white; letter-spacing: 1px; text-transform: uppercase; }
-  main { flex: 1; padding: 48px 20px; display: flex; flex-direction: column; align-items: center; }
-
-  /* ── Form card ── */
-  .card { background: white; border-radius: 16px; padding: 48px; width: 100%; max-width: 500px; box-shadow: 0 4px 32px rgba(0,74,102,0.10); margin-bottom: 32px; }
-  .card-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-  h1 { font-size: 26px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-  .subtitle { font-size: 15px; color: var(--grey); margin-bottom: 20px; line-height: 1.5; }
-
-  /* ── Trial banner ── */
-  .trial-banner { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 100%); border-radius: 10px; padding: 16px 20px; margin-bottom: 28px; }
-  .trial-banner-title { font-size: 14px; font-weight: 700; color: white; margin-bottom: 6px; }
-  .trial-banner-items { display: flex; flex-direction: column; gap: 4px; }
-  .trial-banner-item { font-size: 13px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 8px; }
-  .trial-banner-item::before { content: '✓'; color: #7DD8F5; font-weight: 700; flex-shrink: 0; }
-
-  /* ── Form fields ── */
-  .field { margin-bottom: 20px; }
-  label { display: block; font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
-  input { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 15px; color: var(--dark); background: white; outline: none; transition: border-color 0.2s; }
-  input:focus { border-color: var(--blue); }
-
-  /* ── SMS preview ── */
-  .sms-preview-wrap { margin-bottom: 20px; }
-  .sms-preview-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
-  .sms-phone { background: #1c1c1e; border-radius: 12px; padding: 14px; }
-  .sms-phone-bar { margin-bottom: 10px; }
-  .sms-sender-label { font-size: 14px; font-weight: 600; color: white; }
-  .sms-phone-sub { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 2px; }
-  .sms-bubble { background: #3a3a3c; color: white; border-radius: 12px 12px 12px 3px; padding: 10px 13px; font-size: 12px; line-height: 1.5; }
-  .sms-hint { padding: 4px 0; }
-  .sms-id-display { display: inline-block; background: var(--blue-light); border: 1.5px solid var(--blue); border-radius: 8px; padding: 8px 16px; font-size: 18px; font-weight: 700; color: var(--teal); letter-spacing: 1px; margin-bottom: 10px; }
-  .sms-hint-text { font-size: 12px; color: var(--grey); line-height: 1.5; margin-bottom: 6px; }
-  .sms-hint-chars { font-size: 12px; font-weight: 600; color: var(--green); }
-  .sms-hint-chars.over { color: var(--red); }
-
-  /* ── Submit ── */
-  .submit-btn { width: 100%; padding: 15px; background: var(--blue); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
-  .submit-btn:hover { background: var(--blue-dark); }
-  .submit-btn:disabled { background: #93c5fd; cursor: not-allowed; }
-  .fine-print { font-size: 12px; color: var(--grey); text-align: center; margin-top: 16px; line-height: 1.6; }
-  .error-msg { background: #fee2e2; color: var(--red); border-radius: 8px; padding: 12px 16px; font-size: 14px; margin-bottom: 20px; display: none; }
-
-  /* ── Plan picker (shown after trial) ── */
-  .plan-section { width: 100%; max-width: 500px; margin-bottom: 48px; }
-  .plan-section-title { font-size: 13px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; text-align: center; }
-  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .plan-card { background: white; border: 1.5px solid var(--border); border-radius: 12px; padding: 20px 16px; text-align: center; }
-  .plan-card.popular { border-color: var(--blue); position: relative; }
-  .popular-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--blue); color: white; font-size: 10px; font-weight: 700; padding: 3px 12px; border-radius: 100px; white-space: nowrap; }
-  .plan-name { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
-  .plan-price { font-size: 22px; font-weight: 700; color: var(--teal); margin-bottom: 2px; }
-  .plan-period { font-size: 11px; color: var(--grey); margin-bottom: 10px; }
-  .plan-users { font-size: 12px; color: var(--grey); padding-top: 10px; border-top: 1px solid var(--border); }
-  .plan-note { font-size: 11px; color: var(--grey); text-align: center; margin-top: 12px; }
-
-  /* ── Success ── */
-  .success-screen { display: none; text-align: center; padding: 24px 0; }
-  .success-icon { width: 64px; height: 64px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 28px; }
-  .success-screen h2 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
-  .success-screen p { font-size: 15px; color: var(--grey); line-height: 1.6; margin-bottom: 24px; }
-  .instance-link { display: inline-block; background: var(--blue); color: white; padding: 13px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; }
-
-  @media(max-width:520px) { .sms-preview-inner { grid-template-columns: 1fr; } .plan-grid { grid-template-columns: 1fr; } .card { padding: 32px 24px; } }
-  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 24px 5%; text-align: center; font-size: 13px; }
-  footer a { color: #29ABE2; text-decoration: none; }
-</style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book a demo | Coglass">
+<meta name="twitter:description" content="Book a demo of Coglass, the software for UK glass and glazing companies. Tell us about your business and we will be in touch, usually the same working day.">
+<meta name="twitter:image" content="https://coglass.co.uk/og-image.png">
+<meta name="theme-color" content="#123447">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Raleway:wght@700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=3">
 </head>
 <body>
-
-<nav>
-  <a href="/" class="nav-logo">
-    <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.1);border-radius:11px;flex-shrink:0;padding:5px;overflow:hidden"><img src="/coglass-icon.png" alt="Coglass" style="width:100%;height:100%;object-fit:contain;border-radius:5px"></span>
-    <span>COGLASS</span>
-  </a>
-</nav>
-
-<main>
-  <div class="card">
-
-    <div id="form-screen">
-      <div class="card-label">Get started</div>
-      <h1>Talk to us first</h1>
-      <p class="subtitle">You can start straight away by <a href="/pricing/">picking a plan</a> &mdash; your first 14 days are free. If you would rather we set it up with you, or you are not sure which plan fits, leave your details and we will call you.</p>
-
-      <div class="trial-banner">
-        <div class="trial-banner-title">Your first 14 days are free</div>
-        <div class="trial-banner-items">
-          <div class="trial-banner-item">Every plan includes the full system &mdash; plans differ by size, not features</div>
-          <div class="trial-banner-item">Card taken at sign-up, nothing charged for 14 days</div>
-          <div class="trial-banner-item">Cancel before the trial ends and you pay nothing</div>
-        </div>
-      </div>
-
-      <div id="error-msg" class="error-msg"></div>
-
-      <form id="request-form" autocomplete="on">
-        <div class="field">
-          <label for="r-company">Company name</label>
-          <input type="text" id="r-company" placeholder="Smith's Glazing Ltd" required>
-        </div>
-        <div class="field">
-          <label for="r-name">Your name</label>
-          <input type="text" id="r-name" placeholder="Dean Smith">
-        </div>
-        <div class="field">
-          <label for="r-email">Work email</label>
-          <input type="email" id="r-email" placeholder="dean@smithsglazing.co.uk" required>
-        </div>
-        <div class="field">
-          <label for="r-phone">Phone</label>
-          <input type="tel" id="r-phone" placeholder="07…">
-        </div>
-        <div class="field">
-          <label for="r-message">Anything else? (optional)</label>
-          <input type="text" id="r-message" placeholder="How many users, what you sell…">
-        </div>
-        <input type="text" id="r-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
-        <button type="submit" class="submit-btn" id="request-btn">Ask us to call you →</button>
-        <p class="fine-print">Or <a href="/pricing/">choose a plan</a> and start now &middot; We usually reply the same working day.</p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Coglass home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#123447"/><rect x="9" y="9" width="46" height="46" rx="9" fill="none" stroke="#3fa9d6" stroke-width="4.5"/><path d="M32 11V53M11 32H53" stroke="#3fa9d6" stroke-width="4.5" stroke-linecap="round"/></svg><span>COGLASS</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="/#features">Features</a><a href="/coglass-for-merchants.html">For merchants</a><a href="/coglass-for-sealed-units.html">Sealed units</a><a href="/coglass-feature-mobile.html">Mobile app</a><a href="/pricing/">Pricing</a><a href="/support/">Help</a></nav>
+    <div class="head-ctas">
+      <a class="btn" href="https://accounts.coglass.co.uk">Sign in</a>
+      <a class="btn pri" href="/signup.html">Book a demo</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-head"><div class="wrap"><h1>Book a demo</h1><p>Tell us a little about your business and we'll call or email to arrange a time — usually the same working day.</p></div></section>
+<section class="sect" style="padding-top:44px">
+  <div class="wrap two-col">
+    <div class="form-card">
+      <form id="lead-form">
+        <div id="lead-error" class="form-error" role="alert"></div>
+        <div class="field"><label for="lead-company">Company name</label><input type="text" id="lead-company" name="company" autocomplete="organization" required></div>
+        <div class="field"><label for="lead-name">Your name <span class="hint">(optional)</span></label><input type="text" id="lead-name" name="name" autocomplete="name"></div>
+        <div class="field"><label for="lead-email">Work email</label><input type="email" id="lead-email" name="email" autocomplete="email" required></div>
+        <div class="field"><label for="lead-phone">Phone <span class="hint">(optional)</span></label><input type="tel" id="lead-phone" name="phone" autocomplete="tel"></div>
+        <div class="field"><label for="lead-message">Anything we should know? <span class="hint">(optional)</span></label><textarea id="lead-message" name="message" placeholder="How many people, what you sell or fit, what you use today…"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="lead-website">Leave this empty</label><input type="text" id="lead-website" name="website" tabindex="-1" autocomplete="off"></div>
+        <div id="turnstile-slot"></div>
+        <button type="submit" class="btn acc lg block" id="lead-submit">Ask us to get in touch</button>
+        <p class="fine">We use these details only to contact you about Coglass. See our <a href="/privacy/">privacy policy</a>.</p>
       </form>
+      <div id="lead-ok" class="form-ok" tabindex="-1">
+        <h2>Thanks — we've got your details</h2>
+        <p>We'll call or email you to arrange a demo, usually the same working day. Nothing has been set up or charged.</p>
+        <p>Want to look around in the meantime? <a href="/#features">See all features</a> or <a href="/pricing/">compare plans</a>.</p>
+      </div>
     </div>
-
-    <div id="success-screen" class="success-screen">
-      <div class="success-icon">✓</div>
-      <h2>Request received!</h2>
-      <p>Thanks — we've got your details. We'll set up your trial and email your login shortly, usually the same working day.</p>
+    <div>
+      <h2 style="font-size:22px">What happens next</h2>
+      <ol class="steps" style="grid-template-columns:1fr">
+        <li><h3>We get in touch</h3><p>A quick call to understand what you make, fit or sell, and how you work today.</p></li>
+        <li><h3>We show you Coglass</h3><p>On screen, using the kind of jobs you do — quotes, the planner, the phone app, invoices.</p></li>
+        <li><h3>You decide</h3><p>If it suits, pick a plan and start a 14-day trial; we'll help you load your products, prices and team.</p></li>
+      </ol>
+      <p class="fine" style="margin-top:18px">Rather email? <a href="mailto:contact@coglass.co.uk">contact@coglass.co.uk</a> · or call <a href="tel:01215170383">0121 517 0383</a>.</p>
+      <p class="fine">Ready to start now? <a href="/pricing/#plans">Pick a plan</a> — your first 14 days are free.</p>
     </div>
-
   </div>
-
-  <!-- Plan picker shown below the form -->
-  <div class="plan-section" id="plan-section">
-    <div class="plan-section-title">Plans after your trial — choose what suits you</div>
-    <div class="plan-grid">
-      <div class="plan-card">
-        <div class="plan-name">Starter</div>
-        <div class="plan-price">£89</div>
-        <div class="plan-period">per month + VAT</div>
-        <div class="plan-users">1 office login · 3 fitters · 150 orders/mo<br>1 email inbox · 1 shop-floor device · 100 SMS/mo<br>Unlimited AI glass scans</div>
-      </div>
-      <div class="plan-card popular">
-        <div class="popular-badge">Most popular</div>
-        <div class="plan-name">Professional</div>
-        <div class="plan-price">£199</div>
-        <div class="plan-period">per month + VAT</div>
-        <div class="plan-users">3 office logins · 8 fitters · 500 orders/mo<br>3 email inboxes · 2 shop-floor devices · 300 SMS/mo<br>Unlimited AI glass scans</div>
-      </div>
-      <div class="plan-card">
-        <div class="plan-name">Business</div>
-        <div class="plan-price">£399</div>
-        <div class="plan-period">per month + VAT</div>
-        <div class="plan-users">7 office logins · 12 fitters · 1,500 orders/mo<br>7 email inboxes · 4 shop-floor devices · 750 SMS/mo<br>Unlimited AI glass scans</div>
-      </div>
-    </div>
-    <p class="plan-note">Need more? Extra email inbox £7.50/mo + VAT. Extra office logins and fitters can be added to any plan, and SMS and WhatsApp credits topped up whenever you need them. AI glass scans are unlimited on every plan.</p>
-    <p class="plan-note">You won't be charged until your trial ends. We'll email you before it does.</p>
-  </div>
-
+</section>
 </main>
-
-<footer>
-  <p>© 2026 Coglass · <a href="/">Home</a> · Built for UK glazing companies</p>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="/" aria-label="Coglass home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#123447"/><rect x="9" y="9" width="46" height="46" rx="9" fill="none" stroke="#3fa9d6" stroke-width="4.5"/><path d="M32 11V53M11 32H53" stroke="#3fa9d6" stroke-width="4.5" stroke-linecap="round"/></svg><span>COGLASS</span></a>
+        <p style="margin:12px 0 0;max-width:340px">Software for UK glass and glazing companies — quotes, surveys, production, fitting and invoicing in one system.</p>
+      </div>
+      <div>
+        <h2>Product</h2>
+        <ul>
+          <li><a href="/#features">All features</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/coglass-feature-mobile.html">Mobile app</a></li>
+          <li><a href="/coglass-feature-webshop.html">Webshop</a></li>
+          <li><a href="/coglass-for-merchants.html">For glass merchants</a></li>
+          <li><a href="/coglass-for-sealed-units.html">For sealed unit makers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="/signup.html">Book a demo</a></li>
+          <li><a href="mailto:contact@coglass.co.uk">contact@coglass.co.uk</a></li>
+          <li><a href="tel:01215170383">0121 517 0383</a></li>
+          <li><a href="/support/">Help &amp; support</a></li>
+          <li><a href="https://accounts.coglass.co.uk">Sign in to your account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/refunds/">Cancellation &amp; refunds</a></li>
+          <li><a href="/dpa/">Data Processing Agreement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">Coglass is a product of Halliday Morrow Ltd, registered in England &amp; Wales, company no. 17358542 · VAT no. 526 4805 84 · Registered office: 39a The Riddings, Sutton Coldfield, England, B76 1RW. © 2026 Halliday Morrow Ltd.</div>
+  </div>
 </footer>
-
-<script>
-  document.getElementById('request-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = document.getElementById('request-btn');
-    const errorEl = document.getElementById('error-msg');
-    errorEl.style.display = 'none';
-
-    const body = {
-      company: document.getElementById('r-company').value.trim(),
-      name: document.getElementById('r-name').value.trim(),
-      email: document.getElementById('r-email').value.trim(),
-      phone: document.getElementById('r-phone').value.trim(),
-      message: document.getElementById('r-message').value.trim(),
-      website: document.getElementById('r-website').value, // honeypot
-    };
-
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    try {
-      const res = await fetch('https://hq.coglass.app/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      const data = await res.json().catch(() => ({}));
-
-      if (!res.ok) {
-        errorEl.textContent = data.error || 'Something went wrong. Please try again.';
-        errorEl.style.display = 'block';
-        btn.disabled = false;
-        btn.textContent = 'Request your trial →';
-        return;
-      }
-
-      document.getElementById('form-screen').style.display = 'none';
-      document.getElementById('plan-section').style.display = 'none';
-      document.getElementById('success-screen').style.display = 'block';
-
-    } catch (err) {
-      errorEl.textContent = 'Could not connect. Please try again.';
-      errorEl.style.display = 'block';
-      btn.disabled = false;
-      btn.textContent = 'Request your trial →';
-    }
-  });
-</script>
-
+<script src="/assets/site.js?v=3" defer></script>
+<script src="/assets/lead-form.js?v=3" defer></script>
 </body>
 </html>

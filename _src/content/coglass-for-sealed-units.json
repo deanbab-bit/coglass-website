@@ -1,0 +1,93 @@
+{
+ "file": "coglass-for-sealed-units.html",
+ "title": "Sealed Unit Manufacturer Software | IGU & Double-Glazing Units | Coglass",
+ "description": "Software for sealed unit manufacturers — take and price DGU/TGU orders by make-up (cavity, spacer, gas per line) on trade accounts, track them through production and out on delivery. Built for how units are made and sold.",
+ "eyebrow": "For sealed unit manufacturers",
+ "h1": "Take, spec and price sealed units —",
+ "h1_accent": "the way they're made",
+ "lead": "The unit you sell is a make-up — 4/16/4, spacer, gas, toughened or laminated leaves. Coglass captures exactly that: full DGU/TGU make-ups with the cavity and spacer per line, priced on trade accounts, tracked through production and out on delivery.",
+ "steps_label": "How it works",
+ "steps_h2": "From unit order to loaded rack",
+ "steps_sub": "Coglass runs the commercial and production side of a sealed unit business, on one system.",
+ "inc_label": "What's included",
+ "inc_h2": "Built around the unit make-up",
+ "inc_sub": "Everything from the trade order to the delivered unit.",
+ "steps": [
+  [
+   "Take the unit order",
+   "Trade customers order by make-up and size — at the counter, by email, or a branded webshop where they reorder on their agreed prices. Quick Go builds a unit order in seconds."
+  ],
+  [
+   "Spec the make-up",
+   "Full DGU/TGU build: the glass for each leaf (clear, toughened, laminated, low-E, obscure), cavity width, spacer bar and gas — captured per line, never baked into the product, so you avoid a 12/16/20mm variant of every unit."
+  ],
+  [
+   "Price it on trade terms",
+   "Per-unit and per-m² pricing with trade price-lists, quantity breaks and per-customer accounts. The right price applies automatically — no retyping rate cards."
+  ],
+  [
+   "Into production",
+   "Every unit order lands on the production board and moves from cut to ready, with barcode labels per piece. Cut and process in-house, or buy in toughened / laminated leaves as outwork."
+  ],
+  [
+   "Onto the rack & out",
+   "Collection with a signature at the counter, or delivery runs planned on the board, with the route on a map for finished units — units go out on stillages, not vans full of fitters."
+  ],
+  [
+   "Get paid",
+   "Deposits, proformas, UK VAT and account invoicing, synced to Xero, with overdue invoices flagged automatically."
+  ]
+ ],
+ "included": [
+  [
+   "Full IGU make-ups",
+   "DGU/TGU with the glass type per leaf, cavity, spacer and gas — the whole unit spec, per line."
+  ],
+  [
+   "Cavity & spacer per line",
+   "12/16/20mm set on the order line (plus a second cavity for triples), never as a product variant — no catalogue explosion."
+  ],
+  [
+   "Save-as-product & auto-match",
+   "Build a unit once, save it to your catalogue, and it auto-matches next time it is ordered."
+  ],
+  [
+   "Trade accounts & price lists",
+   "Per-customer and per-type pricing, quantity breaks and contract windows, applied automatically."
+  ],
+  [
+   "Cut-to-size unit ordering",
+   "Size, make-up and quantity captured cleanly and priced live."
+  ],
+  [
+   "Branded trade webshop",
+   "Trade customers reorder units online on their agreed prices and pay by card."
+  ],
+  [
+   "Production board & barcodes",
+   "Track every unit order from cut to ready; label and scan each piece."
+  ],
+  [
+   "In-house or bought-in",
+   "Toughen and laminate in-house, or buy processed leaves as outwork — Coglass raises the order."
+  ],
+  [
+   "Collections & deliveries",
+   "Signature at the counter, or delivery runs planned on the board for finished units."
+  ],
+  [
+   "Supplier orders",
+   "Raise and chase POs for float and processed glass; AI reads supplier price-list PDFs into live prices."
+  ],
+  [
+   "Invoicing, deposits & Xero",
+   "Proformas, UK VAT, account terms and overdue flagging, synced to Xero."
+  ],
+  [
+   "One live system",
+   "Sales, production and the office all working from the same data."
+  ]
+ ],
+ "cta_h2": "Run your sealed unit business from one app",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-glass-specs.html",
+ "title": "Glass Specification Software | IGU, Edges, Lead & Georgian | Coglass",
+ "description": "Specify any glass in full — DGU/TGU make-ups, every edge and shape, and a drawing canvas for holes, Georgian bars, lead and diamond. Then print a 1:1 template. Built for glass, not a product dropdown.",
+ "eyebrow": "Feature — Glass Specifications",
+ "h1": "Software that",
+ "h1_accent": "actually speaks glass",
+ "lead": "Generic job software makes you cram a window into a “product” box. Coglass doesn't — full IGU make-ups, every edge and shape, and a drawing canvas where you place holes, Georgian bars, lead and diamond, then print a 1:1 template the factory lays the glass straight onto.",
+ "steps_label": "How it works",
+ "steps_h2": "From window on site to glass on the bench",
+ "steps_sub": "Coglass holds the full make-up of every pane, so the right glass gets cut, sealed and fitted — first time.",
+ "inc_label": "What's included",
+ "inc_h2": "Glass detail no generic CRM can hold",
+ "inc_sub": "Every option a real glass order needs — because Coglass was built for glass.",
+ "steps": [
+  [
+   "Choose the make-up",
+   "Pick single glazed, DGU or TGU and Coglass captures the full build — the glass type for each leaf, cavity, spacer and gas."
+  ],
+  [
+   "Set size & shape",
+   "Width × height in mm, quantity, and any shape — rectangle, arch, circle, oval, gable, trapezoid. Stored to the millimetre — no unit conversion, no product-dropdown guesswork."
+  ],
+  [
+   "Add edgework & processing",
+   "Add edge-finishing and glass-processing operations to any pane — each priced as its own operation alongside the glass."
+  ],
+  [
+   "Draw the features on the pane",
+   "Open the drawing canvas and place holes, cut-outs, Georgian bars, lead and diamond lattices right on the glass — sized off the edges in mm."
+  ],
+  [
+   "Price it automatically",
+   "Coglass prices the glass per m² or per unit from your catalogue, plus every operation — with trade price-lists and quantity breaks applied."
+  ],
+  [
+   "Print the 1:1 template",
+   "Send the lead, Georgian and diamond patterns to a full-size tiled A4 “lay-under” template — the factory lays the glass straight onto it and copies the pattern."
+  ]
+ ],
+ "included": [
+  [
+   "Full IGU make-ups",
+   "DGU and TGU units with the glass type for each leaf, cavity width, spacer bar and gas fill — captured per line, not crammed into one product."
+  ],
+  [
+   "Cavity is line-level",
+   "Set 12/16/20mm per order line (and a second cavity for triple units) — no exploding your catalogue with a variant of every unit."
+  ],
+  [
+   "Edge finishing",
+   "Add edge-finishing operations to a pane and price each one individually."
+  ],
+  [
+   "Every shape",
+   "Rectangle, arch, circle, oval, gable, trapezoid, semicircle, triangle and more."
+  ],
+  [
+   "Georgian bars",
+   "Bar positions, columns, rows, width and colour — priced per metre of bar and drawn on the pane."
+  ],
+  [
+   "Lead & diamond",
+   "Square, rectangular and diamond lead lattices with cell size and lead width — drawn and priced."
+  ],
+  [
+   "Holes & cut-outs",
+   "Drilled holes (priced per diameter tier), rectangular cut-outs, letterboxes and corner notches — placed in mm."
+  ],
+  [
+   "In-house or bought-in operations",
+   "Mark any operation as made in-house or bought in from a processor — Coglass raises the outwork order."
+  ],
+  [
+   "Save as a product",
+   "Build a unit once, save it to your catalogue, and the survey matcher re-uses it automatically next time."
+  ],
+  [
+   "1:1 lay-under template",
+   "Lead, Georgian and diamond patterns print full-size across A4 with crop marks — the factory copies straight onto the glass."
+  ],
+  [
+   "Trade price-lists",
+   "Per-customer and per-type price lists with quantity breaks and contract windows, applied automatically."
+  ],
+  [
+   "RAL paint codes",
+   "Record the RAL colour for painted glass and frames against the line."
+  ]
+ ],
+ "cta_h2": "Spec glass the way it’s actually made",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

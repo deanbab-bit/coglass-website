@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-webshop.html",
+ "title": "Glass Webshop for Glaziers | Trade Ordering Portal | Coglass",
+ "description": "Give your trade customers their own online glass ordering portal. Branded webshop, Stripe and PayPal payments, custom Georgian bars and cutouts — all built into Coglass.",
+ "eyebrow": "Feature — Customer Webshop",
+ "h1": "Your own glass shop,",
+ "h1_accent": "open 24/7",
+ "lead": "Let trade customers browse and reorder from a branded webshop on their own agreed prices, and pay by card — orders drop straight into Coglass. New revenue while you sleep.",
+ "steps_label": "How it works",
+ "steps_h2": "From customer order to job in Coglass — automatically",
+ "steps_sub": "The webshop handles the order, the payment and the confirmation. Your team just sees a new order waiting to be processed.",
+ "inc_label": "What's included",
+ "inc_h2": "A complete glass ordering portal — ready to launch",
+ "inc_sub": "No web developer needed. Configure your webshop in Coglass settings and start taking orders the same day.",
+ "steps": [
+  [
+   "Customer visits your shop",
+   "Your trade customers visit your branded glass shop — either at its own URL or embedded directly on your existing website via a copy-paste iframe. They browse your enabled products by category."
+  ],
+  [
+   "Configure the glass",
+   "For each product, they enter dimensions in millimetres and configure options — Georgian bars (positions, colour, width), lead design (diamond or square, cell size, colour), cutouts (circles, rectangles, letterboxes, notches) with live price updating."
+  ],
+  [
+   "Checkout and pay",
+   "Customers enter their details and choose how to pay: submit as an enquiry, pay by card via Stripe, or pay via PayPal. Trade customers who are logged in automatically get their trade discount applied at checkout."
+  ],
+  [
+   "Order lands in Coglass",
+   "The moment the order is placed, it appears in your Coglass admin panel as a webshop enquiry — with full customer details, all glass specifications, dimensions and payment status. No re-entering data, no calls to take the order."
+  ],
+  [
+   "Convert to a live order",
+   "Review the enquiry and convert it to a full Coglass order with one click. All glass lines, dimensions and operations carry across — the job goes straight into production planning and supplier ordering."
+  ],
+  [
+   "Customer tracks their order",
+   "Logged-in customers can view their order history and status in the customer portal — new, awaiting payment, paid, converted. Confirmation emails are sent automatically when orders are placed and updated."
+  ]
+ ],
+ "included": [
+  [
+   "Branded storefront",
+   "Your company name, logo and accent colour. Customers see your brand, not Coglass."
+  ],
+  [
+   "Glass configurator",
+   "Customers enter dimensions and add Georgian bars, lead designs and cutouts with a live visual preview and price update."
+  ],
+  [
+   "Embeddable on your website",
+   "Copy-paste one iframe snippet and the shop runs inside your existing website."
+  ],
+  [
+   "Card payments",
+   "Take card payments online through Stripe, paid into your own Stripe account."
+  ],
+  [
+   "PayPal checkout",
+   "Accept PayPal payments as an alternative — many trade customers prefer it for business purchases."
+  ],
+  [
+   "Enquiry-only option",
+   "Prefer to quote manually? Enable enquiry mode — customers submit the order without paying, you quote from Coglass."
+  ],
+  [
+   "Trade discount pricing",
+   "Logged-in trade customers automatically see their agreed discount applied at checkout — no manual adjustments needed."
+  ],
+  [
+   "Delivery fee configuration",
+   "Set a base delivery fee, free delivery threshold, and postcode-based regional surcharges — all configured in settings."
+  ],
+  [
+   "Customer order history",
+   "Trade customers log in to view their past orders, status and delivery details — reduces calls chasing order updates."
+  ],
+  [
+   "Auto-convert to order",
+   "Configure Coglass to automatically convert paid webshop orders to live jobs — zero manual steps for repeat trade orders."
+  ],
+  [
+   "Confirmation emails",
+   "Customers receive automatic order confirmation emails when they place an order — professional and immediate."
+  ],
+  [
+   "Guest checkout",
+   "Customers can place orders without creating an account — lower friction for one-off or retail orders."
+  ]
+ ],
+ "cta_h2": "Start taking glass orders online today",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

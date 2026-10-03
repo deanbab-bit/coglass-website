@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-mobile.html",
+ "title": "Glazier Mobile App | Glass Job Management on Your Phone | Coglass",
+ "description": "The Coglass mobile app puts your jobs, surveys, schedules and delivery records on your phone. Works offline. iOS and Android. Built for glaziers on site.",
+ "eyebrow": "Feature — Mobile App",
+ "h1": "Your business",
+ "h1_accent": "in your pocket",
+ "lead": "Office staff run the web app; fitters run the iOS and Android apps — survey, fit, clock in, capture photos and signatures on site. Offline-first, so it keeps working when the signal doesn't.",
+ "steps_label": "How it works",
+ "steps_h2": "Your team's full working day — in one app",
+ "steps_sub": "From arriving on site to collecting the customer's signature, the Coglass app handles every step.",
+ "inc_label": "What's included",
+ "inc_h2": "Built for glaziers who work on site every day",
+ "inc_sub": "Not a watered-down version of the desktop — a fully featured field app designed for how glaziers actually work.",
+ "steps": [
+  [
+   "See today's jobs",
+   "Field staff open the app and see their assigned jobs for the day — customer name, address, visit type (survey, fitting, delivery) and time slot. All assigned by the office via the planning board."
+  ],
+  [
+   "Check the job details",
+   "Tap any job to see the full order: customer contact, site address, access notes, special instructions, previous survey photos and glass specifications. Everything they need before ringing the doorbell."
+  ],
+  [
+   "Capture the survey",
+   "Start a survey visit, measure each pane, add drawings and photos. All measurements are captured in millimetres with location labels, shape, operations and notes — synced to the office when back in signal."
+  ],
+  [
+   "Record the fitting",
+   "On a fitting visit, work through the completion checklist. Mark items as fitted, record snag notes and photos, capture GPS proof of location, and note any access issues or follow-up work needed."
+  ],
+  [
+   "Collect signature",
+   "Once work is complete, the customer signs directly on the screen. The signed record is stored against the job — time-stamped, GPS-tagged and available in the office immediately."
+  ],
+  [
+   "Works offline",
+   "No signal on site? The app keeps working. All data is captured and queued locally. The moment signal returns, everything syncs automatically — photos, measurements, signatures, all of it."
+  ]
+ ],
+ "included": [
+  [
+   "Daily jobs list",
+   "See all jobs assigned for today with customer, address, visit type and time — assigned by the office from the planning board."
+  ],
+  [
+   "Full job details on site",
+   "Customer contact, access notes, special instructions, glass specs, previous surveys and photos — all visible before arriving on site."
+  ],
+  [
+   "Survey and measurement capture",
+   "Measure each pane, record shape, operations (Georgian bars, cutouts, lead) and photos — all synced to the order."
+  ],
+  [
+   "Fitting completion record",
+   "Checklist-based fitting record with snag notes, photos and partial fitting tracking with reasons."
+  ],
+  [
+   "Customer digital signature",
+   "Customers sign on screen at completion. Signature stored time-stamped and GPS-tagged against the job."
+  ],
+  [
+   "GPS proof of location",
+   "Location is recorded with arrival, departure and sign-off — proof the team was on site."
+  ],
+  [
+   "Offline mode",
+   "Keeps working without signal. Changes are queued on the phone and sync when the connection returns."
+  ],
+  [
+   "Push notifications",
+   "Staff get a push notification when today's bookings change, when they are tagged in a job update, and for office alerts."
+  ],
+  [
+   "Shop-floor iPad app",
+   "Workshop staff run the shop-floor app on an iPad — cut lists by station, barcode scan to advance, and collection sign-off."
+  ],
+  [
+   "Photo capture",
+   "Take photos on site and attach to measurements, surveys or job notes. Photos upload automatically when back in signal."
+  ],
+  [
+   "Planner view",
+   "See your schedule for the coming days — upcoming jobs, visit types and time slots all visible in the planner tab."
+  ],
+  [
+   "iOS and Android",
+   "Available on both platforms. Field teams can use their own devices — no specific hardware required."
+  ]
+ ],
+ "cta_h2": "Put your whole team on the same page",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

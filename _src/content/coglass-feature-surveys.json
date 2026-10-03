@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-surveys.html",
+ "title": "Glass Survey App for Glaziers | On-Site Measurements | Coglass",
+ "description": "Capture accurate glass measurements on your phone. Drawing tool, all glass shapes, survey photos and offline support — the glazier survey app that works on site.",
+ "eyebrow": "Feature — Surveys & Measurements",
+ "h1": "Survey on site,",
+ "h1_accent": "even with no signal",
+ "lead": "Draw every opening on your phone — any shape, with photos, access notes and GPS — and it syncs the moment you're back in range. The measurements that win or lose the job, captured properly the first time.",
+ "steps_label": "How it works",
+ "steps_h2": "Survey to glass order — without the guesswork",
+ "steps_sub": "The Coglass survey tool captures everything your office needs to order the right glass, first time.",
+ "inc_label": "What's included",
+ "inc_h2": "Every measurement tool a glazier needs on site",
+ "inc_sub": "Built around how glaziers actually work — in the field, often without signal, measuring non-standard shapes.",
+ "steps": [
+  [
+   "Open the job on your phone",
+   "Your surveyor opens the assigned job in the Coglass mobile app. Job address, access notes and survey instructions from the office are all visible before they arrive on site."
+  ],
+  [
+   "Start the survey visit",
+   "Tap Start Survey. Coglass records the time, date and who is on site. The surveyor can record how many operatives are present, access requirements (ladders, scaffolding, powered access), and any special notes."
+  ],
+  [
+   "Add measurements",
+   "For each pane, the surveyor enters a location label (e.g. \"Front bedroom left\"), width and height in millimetres, and quantity. All dimensions are stored to the millimetre, exactly as measured on site — no unit conversion."
+  ],
+  [
+   "Add drawings and operations",
+   "Use the drawing tool to record glass shape (rectangle, arch, circle, oval, gable, trapezoid), Georgian bar positions, lead design patterns, cutouts, holes, notches, and RAL paint codes — all linked to that measurement."
+  ],
+  [
+   "Take photos",
+   "Attach photos to each individual measurement and to the overall survey. Photos are stored against the job and viewable in the office immediately — useful for checking the frame, damage, or unusual details."
+  ],
+  [
+   "Import to order",
+   "Once the survey is finished, office staff click Import to Workbench. Each measurement becomes a product line on the order — dimensions, shape, operations and all — ready for pricing and supplier ordering."
+  ]
+ ],
+ "included": [
+  [
+   "All common shapes",
+   "Rectangle, arch, circle, oval, gable and trapezoid on the survey — more shapes on the office work bench."
+  ],
+  [
+   "Location labels per pane",
+   "Name each pane clearly (e.g. \"Kitchen left, above sink\") so the right glass goes to the right window every time."
+  ],
+  [
+   "Georgian bar configuration",
+   "Record bar positions, columns, rows and colour — all stored digitally and passed to production."
+  ],
+  [
+   "Lead design patterns",
+   "Diamond and square lead patterns with cell size, colour and border-only option recorded against the measurement."
+  ],
+  [
+   "Cutouts and holes",
+   "Record circular holes, rectangular cutouts, letterbox cutouts and corner notches — with position, size and label."
+  ],
+  [
+   "Survey photos",
+   "Take photos per measurement and per survey. All photos are stored against the order, viewable in the office instantly."
+  ],
+  [
+   "Photo comments",
+   "Add comments to photos — useful for flagging damage, unusual frame conditions, or installation notes."
+  ],
+  [
+   "Access and logistics logging",
+   "Record what access equipment is needed (ladders, MEWP, scaffold) and special site conditions for fitters."
+  ],
+  [
+   "Works offline",
+   "No signal on site? No problem. All survey data is captured and queued locally. Syncs automatically when connection is restored."
+  ],
+  [
+   "Survey duration and operatives",
+   "Record how long the survey took and who was on site — useful for labour costing and scheduling future visits."
+  ],
+  [
+   "One-click import to order",
+   "Finished surveys import directly to the order workbench — dimensions, shapes and operations all carry through to the glass order."
+  ],
+  [
+   "Multiple visit types",
+   "Survey, fitting and delivery visits all tracked separately under the same order — full site history in one place."
+  ]
+ ],
+ "cta_h2": "Stop losing measurements on paper",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

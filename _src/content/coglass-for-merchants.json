@@ -1,0 +1,93 @@
+{
+ "file": "coglass-for-merchants.html",
+ "title": "Glass Merchant Software | Cut-to-Size, Processing & Trade Counter | Coglass",
+ "description": "Coglass runs a glass merchant's whole operation — trade counter, cut-to-size webshop, processing & production, stock, trade accounts, collections and deliveries. Built for how glass is sold and made.",
+ "eyebrow": "For glass merchants, processors & sealed unit makers",
+ "h1": "Sell, cut and process glass —",
+ "h1_accent": "all from one system",
+ "lead": "From the trade counter to the toughening line, Coglass runs a glass merchant's day: quick counter quotes, cut-to-size orders online, the processing board, stock, trade accounts and route-planned deliveries — priced the way glass is actually sold.",
+ "steps_label": "How it works",
+ "steps_h2": "From counter to collection — the merchant's day",
+ "steps_sub": "Coglass runs the whole flow a glass merchant works through, on one system.",
+ "inc_label": "What's included",
+ "inc_h2": "Everything a glass merchant runs on",
+ "inc_sub": "The counter, the factory and the office on one live system.",
+ "steps": [
+  [
+   "Take the order",
+   "Counter, phone, email — or a branded webshop where trade customers reorder cut-to-size on their own agreed prices. Quick Go builds a walk-in quote or order in seconds."
+  ],
+  [
+   "Price it like glass",
+   "Per-m² and per-unit pricing with trade price-lists, quantity breaks and per-customer accounts. No retyping rate cards — the right price applies automatically."
+  ],
+  [
+   "Spec every pane",
+   "Full IGU make-ups (DGU/TGU, cavity, spacer, gas), edges, shapes and operations — with the spacer/cavity captured per line, never baked into the product."
+  ],
+  [
+   "Onto the floor",
+   "The production board tracks every order through the shop with barcode scan from cut to ready. Make each operation in-house or send it out as outwork — Coglass raises the processing order automatically."
+  ],
+  [
+   "Collect or deliver",
+   "Collection orders with a signature at the counter, or delivery runs planned on the board, with the route on a map for cut glass — because not everything gets fitted."
+  ],
+  [
+   "Get paid",
+   "Deposits, proformas, UK VAT and account invoicing, pushed to Xero, with overdue invoices flagged automatically."
+  ]
+ ],
+ "included": [
+  [
+   "Trade counter (Quick Go)",
+   "Walk-in quotes, orders and collection signing in seconds."
+  ],
+  [
+   "Branded trade webshop",
+   "Trade customers reorder cut-to-size online on their agreed prices and pay by card."
+  ],
+  [
+   "Trade accounts & price lists",
+   "Per-customer and per-type pricing, quantity breaks and contract windows, applied automatically."
+  ],
+  [
+   "Full glass specification",
+   "IGU make-ups, edges, shapes, Georgian / lead / diamond, holes and cut-outs — cavity captured per line."
+  ],
+  [
+   "Processing & production board",
+   "Track every order through production on one board, with each operation made in-house or bought in from a processor."
+  ],
+  [
+   "Stock & jumbo sheets",
+   "Mark products as held in stock, order jumbo packs from suppliers and see the profit on each cut — with optional live stock levels."
+  ],
+  [
+   "Cut-to-size ordering",
+   "Size, spec and quantity captured cleanly and priced live."
+  ],
+  [
+   "Collections & deliveries",
+   "Collection signing at the counter plus delivery runs planned on the board — not just fitting."
+  ],
+  [
+   "Supplier orders",
+   "Raise and chase purchase orders; AI reads supplier price-list PDFs into live prices."
+  ],
+  [
+   "Barcode labels & scanning",
+   "Label every piece and scan it from cut to ready to received."
+  ],
+  [
+   "Invoicing, deposits & Xero",
+   "Proformas, UK VAT, account terms and overdue flagging, synced to Xero."
+  ],
+  [
+   "One system, no silos",
+   "Counter, factory and office working from the same live data."
+  ]
+ ],
+ "cta_h2": "Run your glass merchant business from one app",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

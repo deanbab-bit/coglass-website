@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-suppliers.html",
+ "title": "Glass Supplier Management Software | Order and Track Deliveries | Coglass",
+ "description": "Order from glass suppliers directly in Coglass. Track deliveries, chase overdue orders automatically, and import price lists with AI. Built for UK glazing companies.",
+ "eyebrow": "Feature — Supplier Management",
+ "h1": "Buy-in glass",
+ "h1_accent": "without the back-and-forth",
+ "lead": "Raise and email purchase orders, track what's received and auto-chase what's late — and let the AI read your suppliers' price-list PDFs straight into live prices. No more typing rate cards by hand.",
+ "steps_label": "How it works",
+ "steps_h2": "From order placed to glass received — all tracked",
+ "steps_sub": "Coglass manages the full supplier ordering cycle so nothing gets forgotten.",
+ "inc_label": "What's included",
+ "inc_h2": "Everything you need to manage glass suppliers",
+ "inc_sub": "From price lists to delivery confirmation — supplier management that saves hours every week.",
+ "steps": [
+  [
+   "Set up your suppliers",
+   "Add your glass suppliers to Coglass with their name, email, phone and lead times. Set a default lead time per supplier — Coglass uses this to automatically calculate expected delivery dates on every order."
+  ],
+  [
+   "Import their price list",
+   "Upload your supplier's PDF price list. Coglass AI reads it and extracts article numbers, descriptions and prices automatically. Products are created or updated in your catalogue — saving hours of manual data entry."
+  ],
+  [
+   "Assign supplier to each glass line",
+   "On each order, assign which supplier is providing each glass item. For IGUs, assign a supplier per pane if different suppliers provide different components. Add notes to the supplier about special requirements."
+  ],
+  [
+   "Send the supplier order",
+   "Click Send Order. Coglass generates a PDF order and emails it to your supplier's address. The order lists every item, dimensions, article numbers and any special instructions. The sent timestamp is recorded automatically."
+  ],
+  [
+   "Track delivery status",
+   "The supplier orders list shows every order with its expected delivery date and current status: On Order, Received or Issue Reported. When glass arrives, mark it as Received — the production board updates automatically."
+  ],
+  [
+   "Chase overdue orders automatically",
+   "If a delivery is overdue, Coglass can automatically send a chase email to the supplier. Chase count and timestamp are recorded so your team knows what's been done and when — no duplicate chasing."
+  ]
+ ],
+ "included": [
+  [
+   "Supplier database",
+   "Store all your suppliers with contact details, VAT and CRO numbers, lead times and payment terms."
+  ],
+  [
+   "Send orders by email",
+   "Generate and email supplier orders directly from Coglass — no copying into separate emails or spreadsheets."
+  ],
+  [
+   "AI price list import",
+   "Upload a PDF price list and AI extracts article numbers, descriptions and prices — products created automatically."
+  ],
+  [
+   "Expected delivery tracking",
+   "Auto-calculated from lead time. Shows days remaining or overdue so you know exactly what to chase."
+  ],
+  [
+   "Auto supplier chasing",
+   "Coglass automatically sends chase emails when delivery is overdue — records chase count and timestamp."
+  ],
+  [
+   "Receipt confirmation",
+   "Mark glass as received when it arrives. Production board updates instantly — no manual cross-referencing."
+  ],
+  [
+   "Issue reporting",
+   "Flag a delivery as Issue Reported if glass arrives damaged or incorrect — tracked against the supplier order."
+  ],
+  [
+   "Delivery note and invoice upload",
+   "Attach delivery notes and supplier invoices directly to the supplier order for your accounts records."
+  ],
+  [
+   "Internal suppliers",
+   "Mark in-house production as an internal supplier — tracks the same way as external suppliers on the board."
+  ],
+  [
+   "Per-pane supplier assignment",
+   "For IGUs, assign different suppliers to different panes — useful when one supplier provides the glass and another the spacer bar."
+  ],
+  [
+   "Supplier notes on order lines",
+   "Add specific notes for the supplier on each glass line — special requirements, reference numbers, delivery instructions."
+  ],
+  [
+   "Numbered POs per job",
+   "Every purchase order raised on a job gets its own reference (0080-1, 0080-2…) that stays with the job."
+  ]
+ ],
+ "cta_h2": "Stop chasing suppliers on the phone",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}
