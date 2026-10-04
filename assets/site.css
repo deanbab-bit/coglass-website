@@ -260,3 +260,10 @@ th{color:var(--navy);font-weight:700;background:var(--bg)}
 .field select:focus{outline:3px solid var(--sky);outline-offset:1px;border-color:var(--accent)}
 @media (max-width:960px){.site-head.open .head-ctas .cty{justify-content:center}}
 @media (min-width:961px) and (max-width:1180px){.site-head .wrap{gap:14px}.nav a{padding:10px 7px;font-size:14.5px}.head-ctas .cty{display:none}}
+/* iPad page + "How a job flows" (feature pages PR) */
+.ipad-frame{background:#0d1b22;border-radius:26px;padding:14px;box-shadow:0 18px 40px rgba(0,0,0,.22)}
+.ipad-frame img{display:block;width:100%;height:auto;border-radius:12px}
+@media (max-width:600px){.ipad-frame{border-radius:18px;padding:8px}.ipad-frame img{border-radius:8px}}
+.steps.flow{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.steps.flow h3 a{color:var(--navy);text-decoration:none}
+.steps.flow h3 a:hover{color:var(--accent);text-decoration:underline}

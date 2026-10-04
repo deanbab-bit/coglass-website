@@ -1,0 +1,73 @@
+{
+ "file": "coglass-feature-paperwork.html",
+ "title": "Glazing Paperwork Done for You | RAMS, Signed Notes, Branded Quotes | Coglass",
+ "description": "RAMS started from the survey, signed collection and delivery notes, purchase orders with the drawing, and branded quotes, invoices and emails — produced by Coglass from the job.",
+ "eyebrow": "Feature — Paperwork",
+ "h1": "The paperwork,",
+ "h1_accent": "done from the job",
+ "lead": "Everything you need to send or keep is built from what is already on the job: a risk assessment started from the survey, signed notes when glass is collected or delivered, purchase orders with the drawing on them, and quotes and invoices in your branding.",
+ "steps_label": "How it works",
+ "steps_h2": "Captured once, used everywhere",
+ "steps_sub": "The survey, the work bench and the sign-off on site feed every document — nobody types it twice.",
+ "steps": [
+  [
+   "Survey",
+   "The access level recorded on the survey starts the equipment list on a new risk assessment in the phone app."
+  ],
+  [
+   "Quote and order",
+   "Branded quote PDFs with the glass drawn on each line; purchase orders to your supplier with the same drawing."
+  ],
+  [
+   "Collection or delivery",
+   "The customer signs on screen; the signed note is stored on the job."
+  ],
+  [
+   "Invoice",
+   "A branded invoice PDF, emailed in your layout, with a link to pay online."
+  ]
+ ],
+ "inc_label": "What's included",
+ "inc_h2": "Documents Coglass produces for you",
+ "inc_sub": "All in your logo and colours, all kept on the job.",
+ "included": [
+  [
+   "RAMS from the survey",
+   "Scaffold, ladders, harness: the access level on the survey fills the equipment list on a new RAMS in the phone app."
+  ],
+  [
+   "RAMS PDF",
+   "Risk assessment and method statement as a branded PDF, kept on the job."
+  ],
+  [
+   "Signed collection notes",
+   "Itemised, signed on screen with the collector's name, and emailed to the customer."
+  ],
+  [
+   "Signed delivery notes",
+   "With the customer's signature and a proof photo, ready to download."
+  ],
+  [
+   "Branded quotes",
+   "Your logo and colour, the glass drawn on each line, and a link to accept online."
+  ],
+  [
+   "Branded invoices",
+   "Deposit, proforma and final invoices with totals, balance and a pay-online link."
+  ],
+  [
+   "Purchase orders with drawings",
+   "Numbered per job, with the pane drawn on the PO, emailed to the supplier with the PDF attached."
+  ],
+  [
+   "Cutting sheets",
+   "A cutting-sheet PDF for the workshop, grouped by station."
+  ],
+  [
+   "Branded emails",
+   "Every customer email uses one layout with your logo — and you can write your own templates."
+  ]
+ ],
+ "cta_h2": "Less typing, fewer missing signatures",
+ "cta_p": "Book a demo and we will show you the documents from one of your own jobs — or pick a plan and start a 14-day trial."
+}

@@ -57,7 +57,7 @@
   ],
   [
    "Auto supplier chasing",
-   "Coglass automatically sends chase emails when delivery is overdue — records chase count and timestamp."
+   "Switch on auto-chase and Coglass emails the supplier when a delivery is overdue, recording each chase — or press Chase yourself."
   ],
   [
    "Receipt confirmation",

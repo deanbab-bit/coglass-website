@@ -4,6 +4,7 @@ Every country has three pages — home, pricing, FAQ — each carrying the full 
 Copy lives in countries.py; the launch-day CTA switch is countries.SUBSCRIBE.
 """
 import countries as CS
+import pages
 from countries import C, ORDER, PLAN_LINES, PLAN_NAMES
 
 ORG_ID = 'https://coglass.net/#org'
@@ -97,7 +98,6 @@ def other_countries(c, kind, label):
 
 def local_features(ctx, c):
     """The feature grid, minus things that only fit the UK today."""
-    import pages
     e, I = ctx['e'], ctx['ICON']
     out = ''
     for i, t, x, bs, l in pages.FEATURES:
@@ -183,12 +183,26 @@ def country_home(ctx, c):
     {img('production')}
   </div>
 </section>
+<section class="sect alt">
+  <div class="wrap split">
+    <div class="split-text">
+      <span class="kicker">Coglass on the iPad</span>
+      <h2>Run the whole business from an iPad</h2>
+      <p>The office CRM in Safari, the production board at the bench, a trade counter with live pricing, and surveys and fittings on site — all on the same jobs.</p>
+      <ul class="checks"><li>Quotes, the planner and invoices in the browser</li><li>Cut list, scan to advance and sealed-unit steps in the workshop</li><li>Counter sales signed for on screen</li></ul>
+      <a class="btn" href="/coglass-ipad.html">Coglass on the iPad</a>
+    </div>
+    <div class="ipad-frame"><img src="{ctx['IMG']['ipad-planner'][0]}" alt="{e(ctx['IMG']['ipad-planner'][1])}" width="1600" height="1112" loading="lazy" decoding="async"></div>
+  </div>
+</section>
 <section class="sect alt" id="features">
   <div class="wrap">
     <div class="sect-head"><span class="kicker">Everything in Coglass</span><h2>From the first enquiry to the final payment</h2><p>Every plan includes all of it. Plans differ by how many people use Coglass and how much you put through it.</p></div>
     <ul class="fgrid" style="list-style:none;padding:0;margin:0">{local_features(ctx, c)}</ul>
+    {pages.more_features_html(ctx)}
   </div>
 </section>
+{pages.flow_html(ctx)}
 <section class="sect">
   <div class="wrap split">
     <div class="split-text">
@@ -361,7 +375,7 @@ def global_home(ctx):
         ('georgian', 'Georgian & lead', 'Georgian bars, square and diamond leaded lights, drawn on the pane.', 'coglass-feature-glass-specs.html'),
         ('igu', 'Sealed-unit make-ups', 'Glass per leaf, cavity, spacer and gas on every line.', 'coglass-for-sealed-units.html'),
         ('po', 'Supplier POs', 'Order glass in a click, with the drawing on the PO.', 'coglass-feature-suppliers.html'),
-        ('ipad', 'Shop-floor iPad', 'Cut list, scan to advance, collection sign-off.', 'coglass-feature-production.html'),
+        ('ipad', 'Runs on an iPad', 'Office, shop floor, trade counter and site — the whole business on one device.', 'coglass-ipad.html'),
     ]
     tiles_html = ''.join(f'<li class="tile">{I[i]}<h3>{e(t)}</h3><p>{e(x)}</p><a href="/{l}">More<span class="sr-only"> about {e(t.lower())}</span> →</a></li>' for i, t, x, l in tiles)
     aud = [
@@ -416,8 +430,10 @@ def global_home(ctx):
   <div class="wrap">
     <div class="sect-head"><span class="kicker">Everything in Coglass</span><h2>From the first enquiry to the final payment</h2><p>Every plan includes all of it. Plans differ by how many people use Coglass and how much you put through it.</p></div>
     <ul class="fgrid" style="list-style:none;padding:0;margin:0">{local_features(ctx, dict(key='global', tax='VAT or GST'))}</ul>
+    {pages.more_features_html(ctx)}
   </div>
 </section>
+{pages.flow_html(ctx)}
 <section class="sect">
   <div class="wrap" style="max-width:860px">
     <div class="sect-head"><span class="kicker">Questions</span><h2>Frequently asked questions</h2></div>

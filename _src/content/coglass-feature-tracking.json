@@ -1,0 +1,69 @@
+{
+ "file": "coglass-feature-tracking.html",
+ "title": "Live Job Tracking for Glaziers | On-Our-Way Texts & Tracking Page | Coglass",
+ "description": "When your fitter taps On my way, Coglass texts the customer a tracking link: an arrival window, where they are in the day's stops, and a chat with the office or the fitter.",
+ "eyebrow": "Feature — Live Tracking",
+ "h1": "“We’re on our way” —",
+ "h1_accent": "sent for you",
+ "lead": "Your fitter taps On my way in the phone app and the customer gets a text with a link to their tracking page: when to expect the team, which stop they are today, and a way to message the office or the fitter directly.",
+ "steps_label": "How it works",
+ "steps_h2": "From the van to the customer's phone",
+ "steps_sub": "Nothing for the office to do — it runs off the day's bookings on the planner.",
+ "steps": [
+  [
+   "The day is planned",
+   "Visits are booked on the planner. Customers can get a booking confirmation when you book them in."
+  ],
+  [
+   "The fitter taps On my way",
+   "In the phone app, or the office presses it on the planner."
+  ],
+  [
+   "The customer gets a link",
+   "A text with the tracking link goes out automatically — once per booking — under your company name."
+  ],
+  [
+   "They follow along",
+   "The page shows the arrival window and which stop they are today, and they can message the office or the fitter."
+  ]
+ ],
+ "inc_label": "What's included",
+ "inc_h2": "What the customer sees",
+ "inc_sub": "A simple page in your branding — no app for the customer to download.",
+ "included": [
+  [
+   "Automatic on-our-way text",
+   "Sent when the fitter taps On my way. You can change the wording, or send it by email instead, in Automations."
+  ],
+  [
+   "Arrival window",
+   "An expected time window worked out from the day's bookings, never earlier than the booked time."
+  ],
+  [
+   "Stop X of Y",
+   "Customers see where they are in today's visits."
+  ],
+  [
+   "Message the office",
+   "Questions about the booking go to the office, on the job."
+  ],
+  [
+   "Message the fitter",
+   "Door codes and parking notes go straight to the person coming."
+  ],
+  [
+   "Call button",
+   "One tap to ring your office."
+  ],
+  [
+   "Your branding",
+   "Your company name, contact details and colour."
+  ],
+  [
+   "Links that expire",
+   "Each link is personal to the customer and stops working a while after the visit."
+  ]
+ ],
+ "cta_h2": "Let customers know you're coming — automatically",
+ "cta_p": "Book a demo and we will walk you through a day on the planner — or pick a plan and start a 14-day trial."
+}

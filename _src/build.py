@@ -28,7 +28,7 @@ PHONE = '0121 517 0383'
 DEMO = '/signup.html'
 TRIAL = '/pricing/#plans'
 SIGN_IN = 'https://accounts.coglass.co.uk'
-ASSET_V = '5'
+ASSET_V = '6'
 PHONE_INTL = '+44 121 517 0383'
 e = html.escape
 
@@ -46,7 +46,7 @@ def nav_for(country):
         return NAV
     s = country['slug']
     return [('Features', f'/{s}/#features'), ('For merchants', '/coglass-for-merchants.html'),
-            ('Mobile app', '/coglass-feature-mobile.html'),
+            ('iPad', '/coglass-ipad.html'), ('Mobile app', '/coglass-feature-mobile.html'),
             ('Pricing', f'/{s}/pricing/'), ('FAQ', f'/{s}/faq/'), ('Help', '/support/')]
 
 
@@ -98,7 +98,10 @@ def footer(country=None):
         <ul>
           <li><a href="/#features">All features</a></li>
           <li><a href="{pricing}">Pricing</a></li>
+          <li><a href="/coglass-ipad.html">Coglass on the iPad</a></li>
           <li><a href="/coglass-feature-mobile.html">Mobile app</a></li>
+          <li><a href="/coglass-feature-customer-portal.html">Customer portal</a></li>
+          <li><a href="/coglass-feature-xero.html">Xero</a></li>
           <li><a href="/coglass-feature-webshop.html">Webshop</a></li>
           <li><a href="/coglass-for-merchants.html">For glass merchants</a></li>
           <li><a href="/coglass-for-sealed-units.html">For sealed unit makers</a></li>
@@ -226,6 +229,8 @@ IMG = {
     'vehicles': ('/assets/img/vehicles.webp', 'The vehicles list with MOT due dates', 1400, 245),
     'quote': ('/assets/img/quote-pdf.webp', 'A quotation PDF with the arched unit drawn on its line', 900, 855),
     'invoice': ('/assets/img/invoice-pdf.webp', 'An invoice PDF with totals and balance due', 900, 643),
+    'ipad-planner': ('/assets/img/ipad-planner.webp', 'The Coglass planner open in a browser at iPad size: a day of fittings, surveys and a delivery across three people', 1600, 1112),
+    'tracking': ('/assets/img/tracking-page.webp', 'A customer tracking page on a phone: fitting today, stop 1 of 2, an expected arrival window and buttons to message the office or the fitter', 600, 1077),
 }
 
 FEATURE_VISUAL = {
@@ -265,6 +270,31 @@ FEATURE_VISUAL = {
         ('d', 'Corridor', 'Not fitted · broken — re-order'),
         ('', 'Customer signature', 'Signed 11:42'),
     ]),
+    'coglass-feature-tracking': ('phoneimg', 'tracking'),
+    'coglass-feature-ai-glass-scan': ('panel', 'Glass found in this email', [
+        ('s', '2 × 1200 × 900 · DGU 4-16-4 Clear/Clear', 'Matched · £68.00/m²'),
+        ('s', '1 × 600 × 400 · 6mm Toughened Clear', 'Matched · £75.00/m²'),
+        ('d', '1 × 450 × 900 · “frosted”', 'Pick a product'),
+        ('f', 'Create order from this email', '3 lines ready to add'),
+    ], 'Drawn illustration of the glass scan in the inbox.'),
+    'coglass-feature-customer-portal': ('phone', 'Your jobs · J. Smith', [
+        ('f', 'Next visit · Tue 8:00–10:00', 'Fitting · add to calendar'),
+        ('s', 'Quote #0002 · £688.00', 'Approve or decline'),
+        ('d', 'Deposit due · £206.40', 'Pay by card'),
+        ('', 'Message the office', 'About job #0002'),
+    ]),
+    'coglass-feature-glass-labels': ('panel', 'Glass label · 100 × 50 mm', [
+        ('s', 'SAMPLE GLAZING LTD · Job 0001', 'J. Smith · 12 Acacia Avenue'),
+        ('f', 'FRONT BEDROOM LEFT · pane 1 of 2', '1200 × 900 mm · DGU 4-16-4 Clear/Clear'),
+        ('', '|| ||| | |||| || ||| |', 'Barcode — scan at goods-in'),
+    ], 'Drawn illustration of a pane label.'),
+    'coglass-feature-paperwork': ('img', 'quote'),
+    'coglass-feature-xero': ('panel', 'Xero · accounts & tax', [
+        ('s', 'Sales account', '200 Sales · glazing jobs'),
+        ('s', 'Payments into', '090 Business bank account'),
+        ('s', 'Supplier bills', '310 Cost of goods sold'),
+        ('f', 'Invoice #1042 sent', 'Pushed to Xero · payment recorded'),
+    ], 'Drawn illustration of the Xero settings.'),
     'coglass-feature-mobile': ('phone', 'Today · Gary', [
         ('f', '08:00 Northgate School', 'Fitting · 1h 30m'),
         ('s', '10:30 Patel', 'Survey · 45m'),
@@ -280,7 +310,10 @@ RELATED = [
     ('coglass-feature-scheduling', 'Scheduling'), ('coglass-feature-fitting', 'Fitting & delivery'),
     ('coglass-feature-invoicing', 'Invoicing'), ('coglass-feature-communication', 'Customer messages'),
     ('coglass-feature-webshop', 'Webshop'), ('coglass-feature-fleet', 'Fleet'),
-    ('coglass-feature-mobile', 'Mobile app'),
+    ('coglass-feature-mobile', 'Mobile app'), ('coglass-ipad', 'iPad'),
+    ('coglass-feature-ai-glass-scan', 'AI glass scan'), ('coglass-feature-customer-portal', 'Customer portal'),
+    ('coglass-feature-tracking', 'Live tracking'), ('coglass-feature-glass-labels', 'Glass labels'),
+    ('coglass-feature-paperwork', 'Paperwork'), ('coglass-feature-xero', 'Xero'),
 ]
 
 
@@ -291,7 +324,17 @@ def visual_html(slug):
         return shot(src, alt, w, h)
     if v[0] == 'panel':
         return panel(v[1], v[2], v[3])
+    if v[0] == 'phoneimg':
+        return phone_img(v[1])
     return big_phone(v[1], v[2])
+
+
+def phone_img(key):
+    """A real phone-sized screenshot inside the same phone frame as big_phone."""
+    src, alt, w, h = IMG[key]
+    return (f'<div style="max-width:300px;margin:0 auto 40px;border-radius:36px;background:#0d1b22;padding:10px;box-shadow:0 18px 40px rgba(0,0,0,.25)">'
+            f'<img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" loading="lazy" decoding="async" '
+            f'style="display:block;width:100%;height:auto;border-radius:28px"></div>')
 
 
 def big_phone(title, rows_data):
@@ -365,7 +408,7 @@ def write(rel, content):
 
 
 def main():
-    ctx = dict(big_phone=big_phone, layout=layout, e=e, trust=trust, shot=shot, cta_band=cta_band, phone=phone, panel=panel, IMG=IMG,
+    ctx = dict(big_phone=big_phone, phone_img=phone_img, visual_html=visual_html, RELATED=RELATED, layout=layout, e=e, trust=trust, shot=shot, cta_band=cta_band, phone=phone, panel=panel, IMG=IMG,
                ICON=ICON, DEMO=DEMO, TRIAL=TRIAL, SIGN_IN=SIGN_IN, CONTACT=CONTACT, PHONE=PHONE, PHONE_INTL=PHONE_INTL, SITE=SITE,
                demo_href=demo_href)
     cdir = os.path.join(SRC, 'content')
