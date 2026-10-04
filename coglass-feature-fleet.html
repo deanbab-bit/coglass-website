@@ -1,165 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Glazing Fleet Management Software | Track Vans and MOTs | Coglass</title>
 <meta name="description" content="Track your glazing vans, MOT dates and daily vehicle assignments from one place. Coglass fleet management keeps your vehicles compliant and your team moving.">
-<meta name="keywords" content="glazing fleet management, van management glaziers, MOT tracking glazing, vehicle assignment software, glazing company vehicles UK, fleet management trades">
 <link rel="canonical" href="https://coglass.co.uk/coglass-feature-fleet.html">
-<link rel="icon" type="image/png" href="/coglass-icon.png">
-<link rel="apple-touch-icon" href="/coglass-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coglass">
+<meta property="og:title" content="Glazing Fleet Management Software">
+<meta property="og:description" content="Track your glazing vans, MOT dates and daily vehicle assignments from one place. Coglass fleet management keeps your vehicles compliant and your team moving.">
+<meta property="og:url" content="https://coglass.co.uk/coglass-feature-fleet.html">
 <meta property="og:image" content="https://coglass.co.uk/og-image.png">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --teal: #004A66; --teal-mid: #005F80; --blue: #29ABE2; --blue-dark: #1A90C4; --blue-light: #E0F4FB; --dark: #0D1F2D; --grey: #5C7A8A; --light: #F4F8FA; --white: #FFFFFF; --green: #16a34a; --border: #D6E8F0; --shadow: 0 2px 16px rgba(0,74,102,0.08); }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; font-size: 16px; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--teal); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; box-shadow: 0 2px 16px rgba(0,0,0,0.2); }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo span { font-family:'Raleway',-apple-system,sans-serif; font-size: 20px; font-weight: 700; color: white; letter-spacing: 1px; text-transform: uppercase; }
-  .nav-right { display: flex; gap: 12px; }
-  .btn { display: inline-flex; align-items: center; padding: 9px 22px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; }
-  .btn-primary { background: var(--blue); color: white; } .btn-primary:hover { background: var(--blue-dark); }
-  .btn-ghost { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.25); }
-  .btn-white { background: white; color: var(--teal); font-weight: 600; }
-  .btn-outline-white { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); }
-  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
-  .hero { padding: 130px 5% 80px; background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); }
-  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .hero-label { font-size: 11px; font-weight: 700; color: #7DD8F5; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
-  h1 { font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.12; color: white; margin-bottom: 20px; } h1 span { color: var(--blue); }
-  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.65; font-weight: 300; margin-bottom: 32px; }
-  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-  .fleet-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
-  .van-card { background: white; border-radius: 8px; padding: 14px 16px; }
-  .van-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-  .van-name { font-size: 14px; font-weight: 600; color: var(--dark); }
-  .van-plate { font-size: 11px; color: var(--grey); margin-top: 2px; font-family: monospace; background: #f5f5f5; padding: 1px 6px; border-radius: 3px; display: inline-block; }
-  .van-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
-  .b-ok { background: #dcfce7; color: var(--green); }
-  .b-soon { background: #fef3c7; color: #d97706; }
-  .b-due { background: #fee2e2; color: #dc2626; }
-  .van-detail { display: flex; justify-content: space-between; font-size: 12px; color: var(--grey); }
-  section { padding: 80px 5%; }
-  .inner { max-width: 1100px; margin: 0 auto; }
-  .section-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-  h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; color: var(--dark); margin-bottom: 16px; }
-  .section-sub { font-size: 17px; color: var(--grey); line-height: 1.65; font-weight: 300; margin-bottom: 48px; max-width: 600px; }
-  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-  .step-card { background: var(--light); border-radius: 10px; padding: 24px; border: 1px solid var(--border); }
-  .step-num { width: 36px; height: 36px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
-  .step-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
-  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; }
-  .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-  .f-item { display: flex; gap: 12px; align-items: flex-start; padding: 16px; background: var(--light); border-radius: 10px; border: 1px solid var(--border); }
-  .f-check { width: 22px; height: 22px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .f-text { font-size: 14px; color: var(--dark); line-height: 1.5; } .f-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
-  .bg-light { background: var(--light); }
-  .cta-section { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #007A9E 100%); text-align: center; padding: 80px 5%; }
-  .cta-section h2 { color: white; margin: 0 auto 16px; max-width: 500px; }
-  .cta-section p { color: rgba(255,255,255,0.65); margin: 0 auto 36px; max-width: 420px; font-size: 17px; font-weight: 300; }
-  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  footer { background: #001F2D; color: rgba(255,255,255,0.4); padding: 32px 5%; text-align: center; font-size: 13px; }
-  footer a { color: var(--blue); text-decoration: none; }
-  .related { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
-  .related a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; } .related a:hover { color: white; }
-  @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } nav { padding: 0 16px; } .nav-right .btn-ghost { display: none; } .nav-right .btn { padding: 8px 15px; font-size: 13px; } section { padding: 56px 20px; } }
-</style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Glazing Fleet Management Software">
+<meta name="twitter:description" content="Track your glazing vans, MOT dates and daily vehicle assignments from one place. Coglass fleet management keeps your vehicles compliant and your team moving.">
+<meta name="twitter:image" content="https://coglass.co.uk/og-image.png">
+<meta name="theme-color" content="#123447">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Raleway:wght@700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=3">
 </head>
 <body>
-<nav>
-  <a href="/" class="nav-logo">
-    <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.1);border-radius:11px;flex-shrink:0;padding:5px;overflow:hidden"><img src="/coglass-icon.png" alt="Coglass" style="width:100%;height:100%;object-fit:contain;border-radius:5px"></span>
-    <span>COGLASS</span>
-  </a>
-  <div class="nav-right">
-    <a href="https://accounts.coglass.co.uk" class="btn btn-ghost">Sign In</a>
-    <a href="#" class="btn btn-primary">Start Free Trial</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Coglass home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#123447"/><rect x="9" y="9" width="46" height="46" rx="9" fill="none" stroke="#3fa9d6" stroke-width="4.5"/><path d="M32 11V53M11 32H53" stroke="#3fa9d6" stroke-width="4.5" stroke-linecap="round"/></svg><span>COGLASS</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="/#features">Features</a><a href="/coglass-for-merchants.html">For merchants</a><a href="/coglass-for-sealed-units.html">Sealed units</a><a href="/coglass-feature-mobile.html">Mobile app</a><a href="/pricing/">Pricing</a><a href="/support/">Help</a></nav>
+    <div class="head-ctas">
+      <a class="btn" href="https://accounts.coglass.co.uk">Sign in</a>
+      <a class="btn pri" href="/signup.html">Book a demo</a>
+    </div>
   </div>
-</nav>
-
+</header>
+<main id="main">
 <section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-label">Feature — Fleet Management</div>
-      <h1>Your whole fleet, <span>under control</span></h1>
-      <p class="hero-sub">Assign vans to jobs, track MOTs and service dates, and see where every vehicle is. No more a fitter turning up without the right glass — or a missed MOT taking a van off the road.</p>
-      <div class="hero-cta">
-        <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
-        <a href="#" class="btn btn-ghost btn-lg">Book a Demo</a>
-      </div>
+  <div class="wrap grid">
+    <div class="copy">
+      <span class="eyebrow">Fleet Management</span>
+      <h1>Your whole fleet, <span style="color:var(--accent)">under control</span></h1>
+      <p class="lead">Assign vans to your team each day, track MOT dates and keep the paperwork with the vehicle. No missed MOT taking a van off the road.</p>
+      <div class="ctas"><a class="btn acc lg" href="/signup.html">Book a demo</a><a class="btn lg" href="/pricing/#plans">Start a 14-day trial</a></div>
+      
+      <ul class="trust"><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>14-day trial</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>iPhone, Android &amp; web</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Every feature on every plan</li></ul>
     </div>
-    <div class="fleet-visual">
-      <div class="van-card">
-        <div class="van-header"><div><div class="van-name">Van 1 — Ford Transit</div><div class="van-plate">AB21 XYZ</div></div><span class="van-badge b-ok">MOT OK</span></div>
-        <div class="van-detail"><span>MOT due: 14 Sep 2026</span><span>Driver: James T.</span></div>
-      </div>
-      <div class="van-card">
-        <div class="van-header"><div><div class="van-name">Van 2 — VW Crafter</div><div class="van-plate">CD19 ABC</div></div><span class="van-badge b-soon">MOT Due Soon</span></div>
-        <div class="van-detail"><span>MOT due: 03 May 2026</span><span>Driver: Mark H.</span></div>
-      </div>
-      <div class="van-card">
-        <div class="van-header"><div><div class="van-name">Van 3 — Mercedes Sprinter</div><div class="van-plate">EF22 DEF</div></div><span class="van-badge b-due">MOT Overdue</span></div>
-        <div class="van-detail"><span>MOT was: 10 Apr 2026</span><span>Unassigned today</span></div>
-      </div>
-    </div>
+    <div class="visual"><div class="shot"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/vehicles.webp" alt="The vehicles list with MOT due dates" width="1400" height="245" loading="lazy" decoding="async"></div></div>
   </div>
 </section>
-
-<section>
-  <div class="inner">
-    <div class="section-label">How it works</div>
-    <h2>Fleet management without a separate system</h2>
-    <p class="section-sub">Everything you need to keep your vehicles compliant and your team mobile — built into the same system you use for jobs.</p>
-    <div class="steps-grid">
-      <div class="step-card"><div class="step-num">1</div><div class="step-title">Add your vehicles</div><div class="step-text">Add each van with its name (e.g. "Van 1"), registration plate, make, model and MOT due date. Coglass uses this to track compliance and send you reminders before the MOT expires.</div></div>
-      <div class="step-card"><div class="step-num">2</div><div class="step-title">Upload certificates</div><div class="step-text">Store MOT certificates, insurance documents and any other vehicle paperwork directly in Coglass against the vehicle record. No more hunting through email or filing cabinets when something needs checking.</div></div>
-      <div class="step-card"><div class="step-num">3</div><div class="step-title">Assign vehicles daily</div><div class="step-text">From the planning board, assign a van to each team member for each day. Field staff see their assigned vehicle in the mobile app and confirm it when starting their day.</div></div>
-      <div class="step-card"><div class="step-num">4</div><div class="step-title">Get MOT reminders</div><div class="step-text">Coglass alerts you when a vehicle's MOT is approaching — configurable days in advance. No vehicle goes overdue because it was forgotten among the noise of running a busy glazing business.</div></div>
-      <div class="step-card"><div class="step-num">5</div><div class="step-title">Track assignment history</div><div class="step-text">Every vehicle assignment is logged — who drove which vehicle on which date. Full history available for insurance queries, incident investigations or simply checking what's been used most.</div></div>
-      <div class="step-card"><div class="step-num">6</div><div class="step-title">DVLA lookup</div><div class="step-text">Look up vehicle information directly from DVLA when adding a new vehicle. Registration plate to full vehicle details in one click — make, model, colour and MOT history pre-filled automatically.</div></div>
+<section class="sect">
+  <div class="wrap">
+    <div class="sect-head"><span class="kicker">How it works</span><h2>Fleet management without a separate system</h2><p>Everything you need to keep your vehicles compliant and your team mobile — built into the same system you use for jobs.</p></div>
+    <ol class="steps"><li><h3>Add your vehicles</h3><p>Add each van with its name (e.g. &quot;Van 1&quot;), registration plate, make, model and MOT due date. Coglass uses this to track compliance and send you reminders before the MOT expires.</p></li><li><h3>Upload documents</h3><p>Store MOT certificates and any other vehicle paperwork in Coglass against the vehicle record.</p></li><li><h3>Assign vehicles daily</h3><p>From the planning board, put a van with each team member for the day. Staff can also pick their vehicle for the day from their phone.</p></li><li><h3>Get MOT reminders</h3><p>Coglass alerts you when a vehicle&#x27;s MOT is approaching — configurable days in advance. No vehicle goes overdue because it was forgotten among the noise of running a busy glazing business.</p></li><li><h3>Track assignment history</h3><p>Every vehicle assignment is logged — who drove which vehicle on which date. Full history available for insurance queries, incident investigations or simply checking what&#x27;s been used most.</p></li><li><h3>Log each MOT</h3><p>When a vehicle passes its MOT, record the date it was done and the next due date, and attach the certificate. The new due date is what the reminders then count down to.</p></li></ol>
+  </div>
+</section>
+<section class="sect alt">
+  <div class="wrap">
+    <div class="sect-head"><span class="kicker">What&#x27;s included</span><h2>Fleet features built for glazing companies</h2><p>Simple, practical vehicle management — exactly what a glazing business needs without the complexity of dedicated fleet software.</p></div>
+    <ul class="incl"><li><strong>Vehicle database</strong>Store all vehicles with name, registration, make, model and MOT date in one searchable list.</li><li><strong>MOT date tracking</strong>MOT due dates visible at a glance. Vehicles flagged as OK, Due Soon or Overdue — colour coded for clarity.</li><li><strong>MOT reminders</strong>Automatic alerts sent before MOT expiry — configurable advance warning so you always have time to book.</li><li><strong>Document storage</strong>Upload MOT certificates and other paperwork against each vehicle.</li><li><strong>MOT history</strong>Full record of past MOTs for each vehicle — useful for insurance, resale value and maintenance planning.</li><li><strong>Daily driver assignment</strong>Assign a vehicle to each team member each day from the planning board.</li><li><strong>Assignment history</strong>Every vehicle assignment logged with driver and date — full audit trail for any vehicle, any time period.</li><li><strong>Visible on planning board</strong>Vehicle assignments show on the same planning board as staff scheduling — full operational view in one screen.</li><li><strong>Pick the van from a phone</strong>Staff can choose the vehicle they are driving today from their phone, which keeps the record accurate.</li></ul>
+  </div>
+</section>
+<section class="sect">
+  <div class="wrap">
+    <h2 style="font-size:22px">More of Coglass</h2>
+    <ul class="related"><li><a href="/coglass-feature-orders.html">Jobs &amp; orders</a></li><li><a href="/coglass-feature-quoting.html">Quoting</a></li><li><a href="/coglass-feature-surveys.html">Surveys</a></li><li><a href="/coglass-feature-glass-specs.html">Glass specs</a></li><li><a href="/coglass-feature-production.html">Production</a></li><li><a href="/coglass-feature-suppliers.html">Suppliers</a></li><li><a href="/coglass-feature-scheduling.html">Scheduling</a></li><li><a href="/coglass-feature-fitting.html">Fitting &amp; delivery</a></li><li><a href="/coglass-feature-invoicing.html">Invoicing</a></li><li><a href="/coglass-feature-communication.html">Customer messages</a></li><li><a href="/coglass-feature-webshop.html">Webshop</a></li><li><a href="/coglass-feature-mobile.html">Mobile app</a></li></ul>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Keep your fleet compliant without the extra admin</h2>
+    <p>Book a demo and we&#x27;ll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial.</p>
+    <div class="ctas"><a class="btn acc lg" href="/signup.html">Book a demo</a><a class="btn ghost-light lg" href="/pricing/#plans">See plans and start a trial</a></div>
+  </div>
+</section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="/" aria-label="Coglass home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#123447"/><rect x="9" y="9" width="46" height="46" rx="9" fill="none" stroke="#3fa9d6" stroke-width="4.5"/><path d="M32 11V53M11 32H53" stroke="#3fa9d6" stroke-width="4.5" stroke-linecap="round"/></svg><span>COGLASS</span></a>
+        <p style="margin:12px 0 0;max-width:340px">Software for UK glass and glazing companies — quotes, surveys, production, fitting and invoicing in one system.</p>
+      </div>
+      <div>
+        <h2>Product</h2>
+        <ul>
+          <li><a href="/#features">All features</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/coglass-feature-mobile.html">Mobile app</a></li>
+          <li><a href="/coglass-feature-webshop.html">Webshop</a></li>
+          <li><a href="/coglass-for-merchants.html">For glass merchants</a></li>
+          <li><a href="/coglass-for-sealed-units.html">For sealed unit makers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="/signup.html">Book a demo</a></li>
+          <li><a href="mailto:contact@coglass.co.uk">contact@coglass.co.uk</a></li>
+          <li><a href="tel:01215170383">0121 517 0383</a></li>
+          <li><a href="/support/">Help &amp; support</a></li>
+          <li><a href="https://accounts.coglass.co.uk">Sign in to your account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/refunds/">Cancellation &amp; refunds</a></li>
+          <li><a href="/dpa/">Data Processing Agreement</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="bg-light">
-  <div class="inner">
-    <div class="section-label">What's included</div>
-    <h2>Fleet features built for glazing companies</h2>
-    <p class="section-sub">Simple, practical vehicle management — exactly what a glazing business needs without the complexity of dedicated fleet software.</p>
-    <div class="features-list">
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Vehicle database</strong>Store all vehicles with name, registration, make, model and MOT date in one searchable list.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>MOT date tracking</strong>MOT due dates visible at a glance. Vehicles flagged as OK, Due Soon or Overdue — colour coded for clarity.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>MOT reminders</strong>Automatic alerts sent before MOT expiry — configurable advance warning so you always have time to book.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>MOT certificate storage</strong>Upload and store MOT certificates, insurance documents and other paperwork against each vehicle.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>MOT history</strong>Full record of past MOTs for each vehicle — useful for insurance, resale value and maintenance planning.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Daily driver assignment</strong>Assign a vehicle to each team member each day from the planning board — or let staff confirm their vehicle from the mobile app.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Assignment history</strong>Every vehicle assignment logged with driver and date — full audit trail for any vehicle, any time period.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>DVLA lookup</strong>Enter a registration plate and look up vehicle details from DVLA automatically — saves time when adding new vehicles.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Visible on planning board</strong>Vehicle assignments show on the same planning board as staff scheduling — full operational view in one screen.</div></div>
-      <div class="f-item"><div class="f-check">✓</div><div class="f-text"><strong>Mobile confirmation</strong>Field staff confirm their vehicle from the mobile app at the start of the day — keeps assignment records accurate without extra admin.</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-section">
-  <h2>Keep your fleet compliant without the extra admin</h2>
-  <p>Free for 14 days on the plan you choose. Cancel before it ends and you pay nothing.</p>
-  <div class="cta-btns">
-    <a href="#" class="btn btn-white btn-lg">Start Free Trial</a>
-    <a href="#" class="btn btn-outline-white btn-lg">See All Features</a>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Coglass · <a href="coglass-website.html">Home</a> · Built for UK glazing companies</p>
-  <div class="related">
-    <a href="coglass-feature-scheduling.html">Scheduling →</a>
-    <a href="coglass-feature-mobile.html">Mobile App →</a>
-    <a href="coglass-feature-communication.html">Communication →</a>
-    <a href="coglass-feature-production.html">Production →</a>
+    <div class="legal">Coglass is a product of Halliday Morrow Ltd, registered in England &amp; Wales, company no. 17358542 · VAT no. 526 4805 84 · Registered office: 39a The Riddings, Sutton Coldfield, England, B76 1RW. © 2026 Halliday Morrow Ltd.</div>
   </div>
 </footer>
+<script src="/assets/site.js?v=3" defer></script>
 </body>
 </html>

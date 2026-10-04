@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-communication.html",
+ "title": "Customer Communication for Glaziers | Email, SMS & Chat | Coglass",
+ "description": "Email, SMS and customer chat tracked against every glazing job, with automatic updates as the job moves. Facebook Messenger and WhatsApp coming soon.",
+ "eyebrow": "Feature — Customer Communication",
+ "h1": "Every message,",
+ "h1_accent": "on the job",
+ "lead": "Email, SMS and the customer chat on your quote and tracking pages — tracked against the order, so nothing is lost in someone's personal phone. Automatic updates go out as the job moves. Facebook Messenger and WhatsApp are coming soon.",
+ "steps_label": "How it works",
+ "steps_h2": "Every customer conversation, linked to the job",
+ "steps_sub": "No more hunting through WhatsApp to find what was said about a job. Every message is stored in Coglass against the order it belongs to.",
+ "inc_label": "What's included",
+ "inc_h2": "Every channel your customers use, in one place",
+ "inc_sub": "Stop juggling WhatsApp on your personal phone, emails in Outlook and texts on another device. Coglass brings them all together.",
+ "steps": [
+  [
+   "Connect your channels",
+   "Connect your Gmail or Outlook mailbox in Settings — a one-time setup you do yourself. Texts go out through Coglass's own SMS service under your company name, with a monthly allowance on every plan. Facebook Messenger and WhatsApp are coming soon, once Meta has approved them."
+  ],
+  [
+   "Message from the order",
+   "Open any order and reply by email or SMS from the order screen. The customer's contact details are pre-filled — no copying numbers between apps."
+  ],
+  [
+   "Replies come in automatically",
+   "Customer emails and messages sent from their quote or tracking page land in the Coglass inbox, and can be linked to the right order in one click."
+  ],
+  [
+   "Set up automated notifications",
+   "Configure automation rules that trigger SMS or email messages automatically when job status changes — glass ready, fitter on the way, job complete. Your customers stay informed without anyone lifting a finger."
+  ],
+  [
+   "Start from templates",
+   "Automation rules come with ready-made messages for the common moments — booking confirmed, glass ready, on the way. Variables like {customerName} and {orderNumber} fill in from the job."
+  ],
+  [
+   "Full message history",
+   "Emails and chat messages are kept with the order, so anyone picking up the job sees what was said."
+  ]
+ ],
+ "included": [
+  [
+   "WhatsApp — coming soon",
+   "Send and receive WhatsApp messages in Coglass. Built, and waiting on Meta's approval before we switch it on for customers."
+  ],
+  [
+   "SMS messaging",
+   "Text customers from any order. Sent under your company name through Coglass's SMS service, with a monthly allowance on every plan."
+  ],
+  [
+   "Gmail integration",
+   "Connect your Gmail account — send and receive emails from within Coglass, tracked against jobs."
+  ],
+  [
+   "Outlook integration",
+   "Connect Microsoft Outlook — full email integration with the same order-linked tracking."
+  ],
+  [
+   "Automated notifications",
+   "Trigger SMS and email automatically when order status changes — glass ready, fitter en route, job complete."
+  ],
+  [
+   "Custom automation rules",
+   "Build your own triggers and actions — any status change, any channel, any message template."
+  ],
+  [
+   "Ready-made messages",
+   "Automation rules come with starter messages using variables like customer name, order number and quote link."
+  ],
+  [
+   "Customer chat portal",
+   "Customers can reply to messages via a web link — no WhatsApp or app required on their side."
+  ],
+  [
+   "Full conversation history",
+   "Emails and chat messages are stored against the order — new staff can see the full picture straight away."
+  ],
+  [
+   "Link messages to jobs",
+   "Incoming emails show up with a one-click \"link to this order\" suggestion, so nothing needs hunting down."
+  ],
+  [
+   "Notification alerts",
+   "Team members are notified when a customer replies — no messages left unread because they came in on someone else's phone."
+  ],
+  [
+   "Facebook Messenger — coming soon",
+   "Answer your Facebook Page's Messenger enquiries from the Coglass inbox. Built, and waiting on Meta's approval."
+  ]
+ ],
+ "cta_h2": "Keep customers informed without the extra effort",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

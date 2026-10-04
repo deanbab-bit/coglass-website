@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-quoting.html",
+ "title": "Glazing Quoting Software | Send Professional Glass Quotes | Coglass",
+ "description": "Create and send professional glass quotes in seconds. Multiple variants, PDF output, online customer acceptance — all built into Coglass glazing software.",
+ "eyebrow": "Feature — Quoting",
+ "h1": "Quote in seconds,",
+ "h1_accent": "not after tea-time",
+ "lead": "Stop retyping quotes in Word. Coglass builds the quote straight from the glass spec and prices it the way glaziers actually price — variants, trade rates, labour and energy — then sends a branded PDF the customer accepts online with one tap.",
+ "steps_label": "How it works",
+ "steps_h2": "From enquiry to accepted quote — without the paperwork",
+ "steps_sub": "Coglass handles every step of the quoting process. Here's exactly how it works.",
+ "inc_label": "What's included",
+ "inc_h2": "Everything you need to quote faster and win more jobs",
+ "inc_sub": "Every quoting feature is on every plan.",
+ "steps": [
+  [
+   "Enquiry comes in",
+   "Customers submit enquiries via the embedded web form on your website, or your team creates an order directly in Coglass. Customer name, address, contact details and job description are all captured."
+  ],
+  [
+   "Add glass specifications",
+   "Add each pane to the quote: dimensions (width × height in mm), quantity, product type (cut size, DGU, toughened, laminated), and any operations like polished edges, cutouts or Georgian bars."
+  ],
+  [
+   "Price is calculated automatically",
+   "Coglass calculates the price based on square metre rates or unit pricing from your product catalogue. Labour and installation charges are added automatically from your settings, or adjusted per job."
+  ],
+  [
+   "Send the PDF quote",
+   "Click Send. Coglass generates a branded PDF quote and emails it to your customer. A unique public link lets them view the quote online without needing a login — on any device."
+  ],
+  [
+   "Customer accepts — or declines — online",
+   "The customer accepts on their quote page and your team is notified. If you ask for a deposit, the job waits for it before going to order. Customers can also decline, with a reason."
+  ],
+  [
+   "Ready to order",
+   "The accepted job keeps every glass specification, ready for supplier ordering, production and scheduling — nothing re-typed."
+  ]
+ ],
+ "included": [
+  [
+   "Branded PDF quotes",
+   "Your company name, logo and colours on every quote."
+  ],
+  [
+   "Multiple quote variants",
+   "Send two or three options in the same quote — e.g. standard vs Low-E glass — and let the customer choose."
+  ],
+  [
+   "Online customer acceptance",
+   "No printing, no signing, no scanning. Customers accept the quote from a link on their phone."
+  ],
+  [
+   "Auto price calculation",
+   "Square metre and unit pricing calculated from your product catalogue the moment you select a product."
+  ],
+  [
+   "Labour and installation costs",
+   "Add labour rates and fitting charges automatically, or override per job."
+  ],
+  [
+   "Trade price lists",
+   "Per-customer and per-type price lists with discounts and quantity breaks, applied automatically."
+  ],
+  [
+   "Quote notes",
+   "Add internal notes for your team and visible notes that appear on the customer's quote PDF."
+  ],
+  [
+   "Quote status",
+   "See every quote as draft, sent, accepted or declined."
+  ],
+  [
+   "Full glass specification",
+   "DGU, TGU, toughened, laminated, Low-E, Georgian bars, lead, cutouts, polished edges — all on the quote."
+  ],
+  [
+   "Embedded enquiry form",
+   "Add a glass enquiry form to your own website. Customer enquiries land directly in Coglass ready to quote."
+  ],
+  [
+   "VAT handling",
+   "Prices shown ex-VAT and inc-VAT. VAT calculated automatically based on your registration settings."
+  ],
+  [
+   "No re-keying",
+   "The quote is already the order — once accepted, its glass specs carry straight through to production."
+  ]
+ ],
+ "cta_h2": "Start sending better quotes today",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

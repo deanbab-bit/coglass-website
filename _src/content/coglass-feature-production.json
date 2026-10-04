@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-production.html",
+ "title": "Glass Production Planning Software | Workshop Management | Coglass",
+ "description": "Manage your glass production queue from a visual board. Track every item from order to ready, flag rush jobs, print barcode labels and never miss a deadline.",
+ "eyebrow": "Feature — Production Planning",
+ "h1": "The whole shop floor,",
+ "h1_accent": "on one board",
+ "lead": "See every pane in the queue, flag the rush jobs and scan barcodes from cut to ready. And the lead, Georgian and diamond patterns drawn on survey print as a 1:1 template the factory lays the glass straight onto.",
+ "steps_label": "How it works",
+ "steps_h2": "From order placed to glass ready — fully tracked",
+ "steps_sub": "The production board keeps your workshop and your office in sync at all times.",
+ "inc_label": "What's included",
+ "inc_h2": "Production tools built for glass workshops",
+ "inc_sub": "Everything your workshop team needs to stay on top of the queue — without spreadsheets or whiteboards.",
+ "steps": [
+  [
+   "Items appear on the board",
+   "When an order is placed, its glass lines appear on the production board under To Plan, with a needed-by date suggested from each product's lead time."
+  ],
+  [
+   "Move items through the workflow",
+   "Drag cards across the board as work progresses: To Plan → Waiting Supplier → Glass In → In Production → Ready → Made."
+  ],
+  [
+   "Flag urgent jobs",
+   "Set a priority — Normal, High or Urgent — and mark rush lines on the order, so the urgent work stands out."
+  ],
+  [
+   "Print barcode labels",
+   "Generate barcode labels directly from the production board. Each label shows the order number, customer, pane description and dimensions. Stick them to the glass in the workshop — scan to confirm receipt or completion."
+  ],
+  [
+   "Scan to advance",
+   "At the bench, the shop-floor iPad scans a pane's barcode to move it to its next step — and works with a keyboard-wedge yard scanner."
+  ],
+  [
+   "Mark as made",
+   "Once glass is made, it moves to Made and the order shows it as ready for fitting, delivery or collection."
+  ]
+ ],
+ "included": [
+  [
+   "Visual kanban board",
+   "Six status columns: To Plan, Waiting Supplier, Glass In, In Production, Ready, Made. Drag to update status instantly."
+  ],
+  [
+   "Priority levels",
+   "Normal, High and Urgent priority flags — colour coded so urgent jobs are impossible to miss."
+  ],
+  [
+   "Rush lines",
+   "Mark any order line as rush so it is easy to spot on the board."
+  ],
+  [
+   "Needed-by dates",
+   "Suggested from each product's lead time, and editable per line."
+  ],
+  [
+   "Shop-floor iPad app",
+   "Cut list by station, per-pane ticks, IGU sealing steps and collection sign-off — on an iPad at the bench."
+  ],
+  [
+   "Barcode label printing",
+   "Print labels for every glass item in your workshop — order number, description, dimensions and barcode all included."
+  ],
+  [
+   "Barcode scanning",
+   "Scan labels on mobile to confirm glass received, mark items as made, or update status from the shopfloor."
+  ],
+  [
+   "Board order or needed-by",
+   "Switch the board between your own order and needed-by date."
+  ],
+  [
+   "Keeps working offline",
+   "The shop-floor app keeps the board on the iPad and syncs changes when the workshop wifi comes back."
+  ],
+  [
+   "Search",
+   "Search the board by order, customer, supplier, location or product."
+  ],
+  [
+   "Works with your scanner",
+   "Barcode scan-to-advance works with the iPad camera or a keyboard-wedge yard scanner."
+  ],
+  [
+   "Linked to orders and suppliers",
+   "Every production card links directly to the full order and supplier order — one click to see what's been ordered and when delivery is expected."
+  ]
+ ],
+ "cta_h2": "Get your workshop organised",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

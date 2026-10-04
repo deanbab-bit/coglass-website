@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-orders.html",
+ "title": "Glazing Job & Order Management Software | Coglass",
+ "description": "Track every glazing job from first enquiry to final paid invoice in one place — statuses, notes, photos, templates and never-reused order numbers. Your whole team on the same page.",
+ "eyebrow": "Feature — Jobs & Orders",
+ "h1": "Every job, start to finish,",
+ "h1_accent": "in one thread",
+ "lead": "From the first enquiry to the final paid invoice, every job lives in one place your whole team can see — statuses, notes, site photos and history. No more \"which spreadsheet was that on?\"",
+ "steps_label": "How it works",
+ "steps_h2": "One place for the whole job lifecycle",
+ "steps_sub": "Coglass moves a job through every stage — and keeps everyone looking at the same record.",
+ "inc_label": "What's included",
+ "inc_h2": "Everything a glazing job needs, attached",
+ "inc_sub": "No more juggling spreadsheets, notebooks and group chats.",
+ "steps": [
+  [
+   "Capture the enquiry",
+   "Phone, email, your website enquiry form or your webshop — the customer, site address, contacts and job description go into a new order."
+  ],
+  [
+   "Quote or survey",
+   "Send a quote or book a survey straight from the order. Everything stays attached to the same job."
+  ],
+  [
+   "Track the status",
+   "Watch the job move through new request → survey → quote → on order → glass ready → fitting → completed, with the right label for collection, delivery or glazing."
+  ],
+  [
+   "Keep notes & photos",
+   "Internal notes, site photos and documents live on the order so the whole team has the full picture — office and field."
+  ],
+  [
+   "Never-reused numbers",
+   "Every order gets a unique, monotonic number that is never re-issued — even after a job is deleted — so your records stay clean."
+  ],
+  [
+   "Through to invoice",
+   "When the job completes, raise the invoice, take payment and push to Xero — all from the same order."
+  ]
+ ],
+ "included": [
+  [
+   "Full order lifecycle",
+   "Statuses from enquiry to paid, with type-aware labels for collection, delivery and glazing jobs."
+  ],
+  [
+   "Order templates",
+   "Save common jobs as templates and spin up repeat work in seconds."
+  ],
+  [
+   "Never-reuse numbering",
+   "Monotonic order numbers that are never re-issued, even after deletion."
+  ],
+  [
+   "Soft-delete & trash",
+   "Delete to a trash bin, restore if needed, or purge — nothing lost by accident."
+  ],
+  [
+   "Site contacts & addresses",
+   "Multiple site and billing addresses with tap-to-call and map links."
+  ],
+  [
+   "Internal notes & photos",
+   "Thread notes and job photos against the order for the whole team."
+  ],
+  [
+   "“Needs attention”",
+   "Forgotten jobs sitting too long in a status are flagged automatically so nothing slips."
+  ],
+  [
+   "Quick Go",
+   "Build a quick walk-in order or quote in seconds for counter trade."
+  ],
+  [
+   "Documents",
+   "RAMS, quotes, invoices and job files all attached to the order."
+  ],
+  [
+   "Whole-team visibility",
+   "Office on the web, fitters on the app — one shared record that keeps itself in sync."
+  ],
+  [
+   "Linked extra jobs",
+   "Create a new linked job from site for the same customer, even offline."
+  ],
+  [
+   "Customer portal",
+   "Optional tokenised tracking, quote and invoice pages for your customers."
+  ]
+ ],
+ "cta_h2": "Run every job from one place",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

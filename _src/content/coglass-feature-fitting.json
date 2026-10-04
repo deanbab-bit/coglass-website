@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-fitting.html",
+ "title": "Glazing Fitting & Delivery App | On-Site Sign-Off | Coglass",
+ "description": "Record fitting and delivery on site — per-pane completion, photos, GPS proof and customer signature. Snags and partial fits logged with reasons, so the office knows exactly what’s left.",
+ "eyebrow": "Feature — Fitting & Delivery",
+ "h1": "Proof the job’s done —",
+ "h1_accent": "signed and photographed",
+ "lead": "Fitters tick off each pane on site with photos, GPS and a customer signature. Snags and partial fits are logged with reasons, so the office knows exactly what’s left to go back for.",
+ "steps_label": "How it works",
+ "steps_h2": "Close the job out properly, on site",
+ "steps_sub": "Coglass turns a finished fitting into clean proof — and tells the office exactly what’s outstanding.",
+ "inc_label": "What's included",
+ "inc_h2": "Everything you need to finish a job",
+ "inc_sub": "Built for the last, most important step — getting signed off and getting paid.",
+ "steps": [
+  [
+   "Open the fitting visit",
+   "The fitter opens the booked visit in the app — the full glass list, drawings and access notes from the survey are already there."
+  ],
+  [
+   "Tick off each pane",
+   "Mark every item Fitted, Partial or Not-fitted. “Mark all as fitted” clears a clean job in one tap."
+  ],
+  [
+   "Log the reason",
+   "Not-fitted or partial? Pick a reason — wrong size, broken, scratched — and Coglass flags it for re-order back at the office."
+  ],
+  [
+   "Add photos & snags",
+   "Attach installation photos and snag notes against each item so the office sees exactly what happened."
+  ],
+  [
+   "Capture the signature",
+   "The customer signs on the phone to confirm completion — stored against the job with GPS and time."
+  ],
+  [
+   "Auto-complete & invoice",
+   "When every pane is fitted, the job moves to completed and a draft invoice is created automatically for the office to send."
+  ]
+ ],
+ "included": [
+  [
+   "Per-item completion",
+   "Fitted, Partial or Not-fitted on every pane — not just a single “done” for the whole job."
+  ],
+  [
+   "Mark all as fitted",
+   "Clean job? One tap closes everything."
+  ],
+  [
+   "Reason chips",
+   "Wrong size, broken, scratched — reasons captured for re-order and reporting."
+  ],
+  [
+   "Re-order flagging",
+   "Any failed pane fires a re-order alert to the office and flags the job so it gets re-booked."
+  ],
+  [
+   "Installation photos",
+   "Photos per item and per visit, stored against the order."
+  ],
+  [
+   "Snag notes",
+   "Record snags and make-good notes for follow-up visits."
+  ],
+  [
+   "Customer signature",
+   "Digital signature capture confirming completion on site."
+  ],
+  [
+   "GPS & time proof",
+   "Location and timestamp recorded for arrival, departure and sign-off."
+  ],
+  [
+   "Partial fit tracking",
+   "Outstanding panes keep the order open so nothing is forgotten."
+  ],
+  [
+   "Delivery proof",
+   "Delivery visits captured with proof photo and GPS."
+  ],
+  [
+   "Auto-invoice on completion",
+   "A draft invoice is raised the moment the job completes."
+  ],
+  [
+   "Offline-first",
+   "Sign-offs captured with no signal and synced automatically later."
+  ]
+ ],
+ "cta_h2": "Close out every job cleanly",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}

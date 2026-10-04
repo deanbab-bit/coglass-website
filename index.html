@@ -1,1391 +1,198 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coglass | Glass Business Software for Glaziers &amp; Glass Merchants (UK)</title>
-<meta name="description" content="All-in-one software for UK glass companies — glaziers, glass merchants and sealed unit manufacturers. Trade counter, cut-to-size webshop, quotes, processing, stock, deliveries, invoicing and your team in one app. Try free.">
-<meta name="keywords" content="sealed unit software, sealed unit manufacturer software, IGU manufacturing software, double glazing unit software, glass merchant software, glass processing software, cut-to-size glass ordering, trade counter glass software, toughened glass manufacturing software, glazing software UK, glazier management app">
-<meta property="og:title" content="Coglass | Glazing Business Management Software">
-<meta property="og:description" content="Built for glass, not borrowed from another trade. Quote, survey, spec, cut, fit and get paid — all in one app for UK glass and glazing companies.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coglass | Software for Glaziers, Glass Merchants &amp; Sealed Unit Makers (UK)</title>
+<meta name="description" content="Quotes with real glass drawings, surveys, production, supplier POs, fitting and invoicing in one system for UK glass and glazing companies. From £89/month + VAT, 14-day trial.">
+<link rel="canonical" href="https://coglass.co.uk/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://coglass.co.uk/">
 <meta property="og:site_name" content="Coglass">
+<meta property="og:title" content="Coglass — every glass job, from enquiry to paid">
+<meta property="og:description" content="Quotes with real glass drawings, surveys, production, supplier POs, fitting and invoicing in one system for UK glass and glazing companies. From £89/month + VAT, 14-day trial.">
+<meta property="og:url" content="https://coglass.co.uk/">
 <meta property="og:image" content="https://coglass.co.uk/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Coglass | Glazing Business Management Software">
-<meta name="twitter:description" content="Built for glass, not borrowed from another trade. Quote, survey, spec, cut, fit and get paid — in one app.">
+<meta name="twitter:title" content="Coglass — every glass job, from enquiry to paid">
+<meta name="twitter:description" content="Quotes with real glass drawings, surveys, production, supplier POs, fitting and invoicing in one system for UK glass and glazing companies. From £89/month + VAT, 14-day trial.">
 <meta name="twitter:image" content="https://coglass.co.uk/og-image.png">
-<meta name="theme-color" content="#004A66">
-<link rel="canonical" href="https://coglass.co.uk/">
-<link rel="icon" type="image/png" href="/coglass-icon.png">
-<link rel="apple-touch-icon" href="/coglass-icon.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://coglass.co.uk/#org",
-      "name": "Coglass",
-      "url": "https://coglass.co.uk/",
-      "logo": "https://coglass.co.uk/og-image.png",
-      "email": "contact@coglass.co.uk",
-      "areaServed": "GB",
-      "description": "Glazing business management software built for UK glass and glazing companies."
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://coglass.co.uk/#website",
-      "url": "https://coglass.co.uk/",
-      "name": "Coglass",
-      "publisher": { "@id": "https://coglass.co.uk/#org" }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "Coglass",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "iOS, Android, Web",
-      "description": "All-in-one glazing business management software for UK glass companies — jobs, quotes, IGU glass specs, surveys, production, suppliers, invoicing and team scheduling.",
-      "url": "https://coglass.co.uk/",
-      "publisher": { "@id": "https://coglass.co.uk/#org" },
-      "offers": { "@type": "AggregateOffer", "priceCurrency": "GBP", "lowPrice": "89", "highPrice": "399", "offerCount": "3", "description": "Monthly plans, excluding VAT. First 14 days free." }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "Is Coglass built specifically for glass and glazing companies?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Coglass is built for glass — full IGU make-ups (DGU/TGU, cavity, spacer, gas), every edge and shape, a drawing canvas for holes, Georgian bars, lead and diamond, and a 1:1 lay-under template the factory copies the glass straight onto. It is not a generic CRM adapted to glass." } },
-        { "@type": "Question", "name": "Does the survey app work offline with no signal?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Site surveys — measurements, drawings, photos, access notes and GPS — are captured offline on your phone and sync automatically when you are back in signal." } },
-        { "@type": "Question", "name": "Can I import my suppliers' price lists?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Coglass uses AI to read your suppliers' price-list PDFs into live prices, so you do not have to type rate cards by hand." } },
-        { "@type": "Question", "name": "Does Coglass work on iOS, Android and web?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — office staff use the web app and field staff use the iOS and Android apps. Everything syncs in real time." } },
-        { "@type": "Question", "name": "Does it integrate with Xero and take card payments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Invoices push to Xero, and you can take card payments online through your webshop checkout (Stripe or PayPal)." } },
-        { "@type": "Question", "name": "How long does it take to get started?", "acceptedAnswer": { "@type": "Answer", "text": "Most glass companies are up and running in under an hour. Pick a plan and your first 14 days are free." } }
-      ]
-    }
-  ]
-}
-</script>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --teal:       #004A66;   /* app sidebar / dark brand */
-    --teal-mid:   #005F80;   /* hover teal */
-    --teal-light: #006E94;   /* lighter teal accent */
-    --blue:       #29ABE2;   /* logo icon / highlight blue */
-    --blue-dark:  #1A90C4;   /* button hover */
-    --blue-light: #E0F4FB;   /* light blue bg */
-    --dark:       #0D1F2D;   /* near-black text */
-    --grey:       #5C7A8A;   /* muted text */
-    --light:      #F4F8FA;   /* light section bg */
-    --white:      #FFFFFF;
-    --green:      #16a34a;
-    --border:     #D6E8F0;
-    --radius:     10px;
-    --shadow:     0 2px 16px rgba(0,74,102,0.08);
-    --shadow-lg:  0 12px 40px rgba(0,74,102,0.15);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    color: var(--dark);
-    background: var(--white);
-    line-height: 1.6;
-    font-size: 16px;
-  }
-
-  /* ─── LOGO SVG ─── */
-  .logo-svg { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .logo-svg svg { flex-shrink: 0; }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: var(--teal);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: rgba(255,255,255,0.7);
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.3px;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: white; }
-
-  .nav-cta { display: flex; gap: 12px; align-items: center; }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 22px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    border: none;
-    letter-spacing: 0.2px;
-  }
-
-  .btn-primary { background: var(--blue); color: white; }
-  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(41,171,226,0.35); }
-
-  .btn-ghost-white {
-    background: rgba(255,255,255,0.12);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.25);
-  }
-  .btn-ghost-white:hover { background: rgba(255,255,255,0.2); }
-
-  .btn-outline-teal {
-    background: transparent;
-    color: var(--teal);
-    border: 1.5px solid var(--teal);
-  }
-  .btn-outline-teal:hover { background: var(--blue-light); }
-
-  .btn-outline-white {
-    background: transparent;
-    color: white;
-    border: 1.5px solid rgba(255,255,255,0.4);
-  }
-  .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
-
-  .btn-lg { padding: 13px 30px; font-size: 15px; border-radius: 8px; }
-  .btn-xl { padding: 16px 36px; font-size: 16px; border-radius: 8px; letter-spacing: 0.3px; }
-
-  .btn-white { background: white; color: var(--teal); font-weight: 600; }
-  .btn-white:hover { background: #f0f9ff; transform: translateY(-1px); }
-
-  /* ─── HERO ─── */
-  .hero {
-    padding: 130px 5% 90px;
-    background: linear-gradient(150deg, var(--teal) 0%, var(--teal-mid) 50%, #007A9E 100%);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -150px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(41,171,226,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -100px; left: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(41,171,226,0.2);
-    color: #7DD8F5;
-    border: 1px solid rgba(41,171,226,0.3);
-    padding: 5px 16px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 500;
-    margin-bottom: 28px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    font-size: clamp(34px, 5.5vw, 60px);
-    font-weight: 700;
-    line-height: 1.12;
-    letter-spacing: -1px;
-    color: white;
-    max-width: 800px;
-    margin: 0 auto 24px;
-  }
-
-  h1 span { color: var(--blue); }
-
-  .hero-sub {
-    font-size: clamp(15px, 2vw, 19px);
-    color: rgba(255,255,255,0.7);
-    max-width: 560px;
-    margin: 0 auto 40px;
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
-  }
-
-  .hero-note { font-size: 13px; color: rgba(255,255,255,0.45); }
-  .hero-note span { color: #7DD8F5; }
-
-  /* ─── APP MOCKUP ─── */
-  .hero-screen {
-    margin: 56px auto 0;
-    max-width: 880px;
-    background: #001F2D;
-    border-radius: 14px;
-    padding: 10px 10px 0;
-    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.08);
-    position: relative;
-  }
-
-  .screen-bar { display: flex; gap: 6px; margin-bottom: 10px; padding-left: 4px; }
-  .screen-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .d1 { background: #ff5f57; } .d2 { background: #febc2e; } .d3 { background: #28c840; }
-
-  .screen-content {
-    background: var(--light);
-    border-radius: 6px 6px 0 0;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    min-height: 300px;
-    overflow: hidden;
-  }
-
-  .screen-sidebar {
-    background: var(--teal);
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sidebar-logo-wrap {
-    padding: 0 16px 18px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 12px;
-  }
-
-  .sidebar-item {
-    padding: 9px 16px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: default;
-    letter-spacing: 0.2px;
-  }
-
-  .sidebar-item.active {
-    background: rgba(41,171,226,0.2);
-    color: #7DD8F5;
-    border-right: 2px solid var(--blue);
-  }
-
-  .screen-main {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .screen-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .screen-title { font-size: 16px; font-weight: 600; color: var(--dark); }
-
-  .screen-btn {
-    background: var(--blue);
-    color: white;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 500;
-  }
-
-  .order-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .order-card {
-    background: white;
-    border-radius: 8px;
-    padding: 14px;
-    border-left: 3px solid var(--blue);
-    box-shadow: var(--shadow);
-  }
-
-  .order-card.green { border-left-color: var(--green); }
-  .order-card.amber { border-left-color: #f59e0b; }
-  .order-card.purple { border-left-color: #7c3aed; }
-
-  .order-num { font-size: 10px; color: var(--grey); margin-bottom: 4px; font-weight: 500; }
-  .order-name { font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
-
-  .order-status {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 100px;
-    background: var(--blue-light);
-    color: var(--teal);
-  }
-  .order-status.green { background: #dcfce7; color: var(--green); }
-  .order-status.amber { background: #fef3c7; color: #d97706; }
-  .order-status.purple { background: #ede9fe; color: #7c3aed; }
-
-  /* ─── STATS ─── */
-  .stats-bar {
-    background: #001F2D;
-    padding: 32px 5%;
-    display: flex;
-    justify-content: center;
-    gap: 64px;
-    flex-wrap: wrap;
-  }
-
-  .stat { text-align: center; }
-  .stat-num { font-size: 28px; font-weight: 700; color: var(--blue); display: block; }
-  .stat-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; letter-spacing: 0.3px; text-transform: uppercase; }
-
-  /* ─── SECTIONS ─── */
-  section { padding: 96px 5%; }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--blue);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-  }
-
-  h2 {
-    font-size: clamp(26px, 3.5vw, 40px);
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1.18;
-    color: var(--dark);
-    margin-bottom: 16px;
-  }
-
-  .section-sub {
-    font-size: 17px;
-    color: var(--grey);
-    max-width: 540px;
-    line-height: 1.65;
-    margin-bottom: 48px;
-    font-weight: 300;
-  }
-
-  /* ─── PROBLEM ─── */
-  .problem { background: var(--light); text-align: center; }
-  .problem h2 { max-width: 680px; margin: 0 auto 16px; }
-  .problem .section-sub { margin: 0 auto 48px; }
-
-  .pain-points {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    max-width: 860px;
-    margin: 0 auto 48px;
-  }
-
-  .pain-point {
-    background: white;
-    border-radius: var(--radius);
-    padding: 24px;
-    text-align: left;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-  }
-
-  .pain-icon { font-size: 26px; margin-bottom: 12px; }
-  .pain-title { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
-  .pain-text { font-size: 13px; color: var(--grey); line-height: 1.5; }
-
-  /* ─── FEATURE CARDS ─── */
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 20px;
-  }
-
-  .feature-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 26px;
-    transition: all 0.2s;
-  }
-
-  .feature-card:hover {
-    border-color: var(--blue);
-    box-shadow: 0 6px 24px rgba(41,171,226,0.12);
-    transform: translateY(-2px);
-  }
-
-  .feature-icon {
-    width: 44px; height: 44px;
-    background: var(--blue-light);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-bottom: 14px;
-  }
-
-  .feature-title { font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
-  .feature-text { font-size: 13px; color: var(--grey); line-height: 1.6; margin-bottom: 14px; }
-
-  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .feature-list li {
-    font-size: 12px;
-    color: #4A6070;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.4;
-  }
-  .feature-list li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-
-  .feature-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 16px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--blue);
-    text-decoration: none;
-    transition: gap 0.2s;
-  }
-  .feature-link:hover { gap: 9px; }
-
-  /* ─── MOBILE SECTION ─── */
-  .bg-light { background: var(--light); }
-
-  .mobile-section {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 72px;
-    align-items: center;
-  }
-
-  .phone-mockup {
-    width: 220px;
-    background: var(--teal);
-    border-radius: 32px;
-    padding: 10px;
-    margin: 0 auto;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .phone-screen {
-    background: white;
-    border-radius: 24px;
-    overflow: hidden;
-    min-height: 440px;
-  }
-
-  .phone-header {
-    background: var(--teal);
-    padding: 18px 14px 14px;
-    color: white;
-  }
-
-  .phone-header-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
-  .phone-header-sub { font-size: 10px; opacity: 0.6; font-weight: 300; }
-
-  .phone-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
-
-  .phone-job {
-    background: var(--light);
-    border-radius: 8px;
-    padding: 10px 12px;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    border-left: 3px solid var(--blue);
-  }
-  .phone-job.green { border-left-color: var(--green); }
-  .phone-job.amber { border-left-color: #f59e0b; }
-
-  .phone-job-name { font-size: 12px; font-weight: 600; color: var(--dark); }
-  .phone-job-addr { font-size: 10px; color: var(--grey); margin-top: 2px; }
-  .phone-job-time { font-size: 10px; color: var(--teal); margin-top: 3px; font-weight: 600; }
-
-  .phone-tab-bar { display: flex; border-top: 1px solid #eee; }
-  .phone-tab {
-    flex: 1; padding: 10px 4px 8px;
-    text-align: center; font-size: 9px; color: var(--grey);
-    display: flex; flex-direction: column; align-items: center; gap: 3px;
-  }
-  .phone-tab.active { color: var(--teal); }
-  .phone-tab-icon { font-size: 15px; }
-
-  /* ─── SPLIT LISTS ─── */
-  .split-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 24px 0 32px;
-  }
-
-  .split-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 15px;
-    color: #3A5060;
-    font-weight: 300;
-  }
-
-  .split-check {
-    width: 20px; height: 20px;
-    background: var(--blue-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--teal);
-    font-size: 11px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  /* ─── SEO FEATURE LIST ─── */
-  .seo-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 14px;
-  }
-
-  .seo-feature { display: flex; align-items: flex-start; gap: 10px; }
-
-  .seo-check {
-    width: 18px; height: 18px;
-    background: var(--teal);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: white; font-size: 10px; font-weight: 700;
-    flex-shrink: 0; margin-top: 2px;
-  }
-
-  .seo-text { font-size: 13px; color: #4A6070; line-height: 1.5; }
-  .seo-text strong { display: block; font-size: 14px; color: var(--dark); margin-bottom: 1px; }
-
-  /* ─── STEPS ─── */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 32px;
-  }
-
-  .step { text-align: center; padding: 0 12px; }
-
-  .step-num {
-    width: 52px; height: 52px;
-    background: var(--teal);
-    color: white;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; font-weight: 700;
-    margin: 0 auto 18px;
-  }
-
-  .step-title { font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
-  .step-text { font-size: 13px; color: var(--grey); line-height: 1.6; font-weight: 300; }
-
-  /* ─── PRICING ─── */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    max-width: 960px;
-    margin: 0 auto 40px;
-  }
-
-  .price-card {
-    background: white;
-    border: 1.5px solid var(--border);
-    border-radius: 14px;
-    padding: 36px 28px;
-    text-align: left;
-    position: relative;
-  }
-
-  .price-card.featured {
-    background: var(--teal);
-    border-color: var(--teal);
-  }
-
-  .price-tier { font-size: 11px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
-  .price-card.featured .price-tier { color: rgba(255,255,255,0.55); }
-
-  .price-amount { font-size: 40px; font-weight: 700; color: var(--dark); letter-spacing: -1px; margin-bottom: 4px; }
-  .price-amount span { font-size: 15px; font-weight: 400; color: var(--grey); }
-  .price-card.featured .price-amount { color: white; }
-  .price-card.featured .price-amount span { color: rgba(255,255,255,0.5); }
-
-  .price-sub { font-size: 12px; color: var(--grey); margin-bottom: 28px; }
-  .price-card.featured .price-sub { color: rgba(255,255,255,0.5); }
-
-  .price-popular {
-    position: absolute;
-    top: -14px; left: 50%;
-    transform: translateX(-50%);
-    background: var(--blue);
-    color: white;
-    font-size: 10px; font-weight: 700;
-    padding: 4px 14px;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    white-space: nowrap;
-  }
-
-  .price-btn {
-    display: block;
-    text-align: center;
-    padding: 11px;
-    border-radius: 7px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    margin-bottom: 28px;
-    transition: all 0.2s;
-  }
-
-  .price-btn-blue { background: var(--blue); color: white; }
-  .price-btn-blue:hover { background: var(--blue-dark); }
-
-  .price-btn-white { background: white; color: var(--teal); }
-  .price-btn-white:hover { background: #f0f9ff; }
-
-  .price-btn-outline { background: transparent; color: var(--teal); border: 1.5px solid var(--border); }
-  .price-btn-outline:hover { border-color: var(--teal); background: var(--blue-light); }
-
-  .price-features { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-  .price-features li {
-    font-size: 13px;
-    color: #3A5060;
-    display: flex; align-items: flex-start; gap: 8px;
-    line-height: 1.4;
-  }
-  .price-features li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
-  .price-card.featured .price-features li { color: rgba(255,255,255,0.8); }
-  .price-card.featured .price-features li::before { color: #7DD8F5; }
-
-  /* ─── CTA ─── */
-  .cta-section {
-    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 60%, #006E94 100%);
-    text-align: center;
-    padding: 96px 5%;
-  }
-  .cta-section h2 { color: white; max-width: 560px; margin: 0 auto 16px; }
-  .cta-section p { color: rgba(255,255,255,0.65); max-width: 440px; margin: 0 auto 40px; font-size: 17px; font-weight: 300; }
-  .cta-note { color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 16px; letter-spacing: 0.3px; }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: #001F2D;
-    color: rgba(255,255,255,0.45);
-    padding: 56px 5% 32px;
-  }
-
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 40px;
-  }
-
-  .footer-brand-text { font-size: 13px; line-height: 1.7; max-width: 220px; margin-top: 14px; font-weight: 300; }
-
-  .footer-col-title { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; transition: color 0.2s; font-weight: 300; }
-  .footer-links a:hover { color: white; }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.07);
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 300;
-  }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 768px) {
-    nav { padding: 0 16px; }
-    .nav-links { display: none; }
-    .nav-cta .btn-ghost-white { display: none; }
-    .nav-cta .btn { padding: 8px 15px; font-size: 13px; }
-    section { padding: 64px 20px; }
-    .mobile-section { grid-template-columns: 1fr; }
-    .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
-    .stats-bar { gap: 28px; }
-    .order-cards { grid-template-columns: 1fr; }
-    .screen-content { grid-template-columns: 1fr; }
-    .screen-sidebar { display: none; }
-    .hero-cta { flex-direction: column; align-items: center; }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  }
-  /* ─── DIFFERENTIATORS STRIP ─── */
-  .diff-strip { background: linear-gradient(160deg, var(--teal) 0%, #00374D 58%, var(--dark) 100%); padding: 74px 5%; }
-  .diff-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
-  .diff-label { color: #7DD8F5; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
-  .diff-h2 { color: white; font-size: clamp(24px, 3.6vw, 36px); font-weight: 700; letter-spacing: -0.5px; max-width: 740px; margin: 0 auto 46px; line-height: 1.2; }
-  .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; text-align: left; }
-  .diff-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(125,216,245,0.18); border-radius: 16px; padding: 28px; transition: transform .2s, border-color .2s; }
-  .diff-card:hover { transform: translateY(-3px); border-color: rgba(125,216,245,0.4); }
-  .diff-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(41,171,226,0.16); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
-  .diff-card h3 { color: white; font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-  .diff-card p { color: rgba(255,255,255,0.72); font-size: 14.5px; line-height: 1.6; }
-  @media (max-width: 860px) { .diff-grid { grid-template-columns: 1fr; } }
-
-  /* ─── FAQ ─── */
-  .faq { max-width: 760px; margin: 0 auto; }
-  .faq-item { border-bottom: 1px solid var(--border); padding: 22px 4px; }
-  .faq-q { font-size: 17px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
-  .faq-a { color: var(--grey); font-size: 15px; line-height: 1.65; }
-
-  /* ─── ICON SVGs ─── */
-  .feature-icon svg { width: 22px; height: 22px; }
-  .pain-icon svg { width: 26px; height: 26px; display: block; }
-
-</style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#123447">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Raleway:wght@700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=3">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://coglass.co.uk/#org", "name": "Coglass", "legalName": "Halliday Morrow Ltd", "url": "https://coglass.co.uk/", "logo": "https://coglass.co.uk/assets/img/coglass-icon-512.png", "email": "contact@coglass.co.uk", "telephone": "+44 121 517 0383", "areaServed": "GB"}, {"@type": "WebSite", "@id": "https://coglass.co.uk/#website", "url": "https://coglass.co.uk/", "name": "Coglass", "publisher": {"@id": "https://coglass.co.uk/#org"}}, {"@type": "SoftwareApplication", "name": "Coglass", "applicationCategory": "BusinessApplication", "operatingSystem": "iOS, Android, Web", "url": "https://coglass.co.uk/", "publisher": {"@id": "https://coglass.co.uk/#org"}, "offers": {"@type": "AggregateOffer", "priceCurrency": "GBP", "lowPrice": "89", "highPrice": "399", "offerCount": "3", "description": "Monthly plans, excluding VAT. 14-day trial."}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Coglass built for glass and glazing companies?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It holds full IGU make-ups (DGU/TGU, cavity, spacer, gas), every edge and shape, and a drawing canvas for holes, Georgian bars, lead and diamond — plus a 1:1 lay-under template the factory copies onto the glass. It is not a general CRM adapted to glass."}}, {"@type": "Question", "name": "Does the survey app work with no signal?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Measurements, drawings, photos, access notes and GPS are captured on the phone and sync when you are back in signal."}}, {"@type": "Question", "name": "Does it work on iPhone, Android and the web?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — the office uses the web app in a browser, fitters use the iPhone or Android app, and the workshop uses the shop-floor app on an iPad."}}, {"@type": "Question", "name": "Does it work with Xero?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Invoices, payments and supplier bills push to Xero, coded to the accounts and VAT rates you choose. Customers can also pay an invoice online from its link."}}, {"@type": "Question", "name": "How does the trial work?", "acceptedAnswer": {"@type": "Answer", "text": "Pick a plan on the pricing page. We take your card at sign-up and charge nothing for 14 days; cancel before the trial ends and you pay nothing. If you would rather see it first, book a demo and we will walk you through it."}}, {"@type": "Question", "name": "Can you help us set it up?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — book a demo and we will go through your products, prices and team with you. There is no setup fee."}}, {"@type": "Question", "name": "Is WhatsApp included?", "acceptedAnswer": {"@type": "Answer", "text": "WhatsApp and Facebook Messenger are built and waiting on Meta's approval, so they are coming soon. Email, SMS and the customer chat on quote and tracking pages work today."}}]}]}</script>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a href="/" class="logo-svg">
-    <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.1);border-radius:11px;flex-shrink:0;padding:6px;overflow:hidden"><img src="/coglass-icon.png" alt="Coglass" style="width:100%;height:100%;object-fit:contain;border-radius:5px"></span>
-    <span style="font-family:'Raleway',-apple-system,sans-serif; font-size:20px; font-weight:700; color:white; letter-spacing:1px; text-transform:uppercase;">COGLASS</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="coglass-for-merchants.html">For merchants</a></li>
-    <li><a href="#mobile">Mobile App</a></li>
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="/pricing/">Pricing</a></li>
-  </ul>
-  <div class="nav-cta">
-    <a href="mailto:contact@coglass.co.uk" class="btn btn-ghost-white">Contact Us</a>
-    <a href="https://accounts.coglass.co.uk" class="btn btn-ghost-white">Sign In</a>
-    <a href="/pricing/" class="btn btn-primary">Start Free Trial</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Coglass home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#123447"/><rect x="9" y="9" width="46" height="46" rx="9" fill="none" stroke="#3fa9d6" stroke-width="4.5"/><path d="M32 11V53M11 32H53" stroke="#3fa9d6" stroke-width="4.5" stroke-linecap="round"/></svg><span>COGLASS</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="/#features">Features</a><a href="/coglass-for-merchants.html">For merchants</a><a href="/coglass-for-sealed-units.html">Sealed units</a><a href="/coglass-feature-mobile.html">Mobile app</a><a href="/pricing/">Pricing</a><a href="/support/">Help</a></nav>
+    <div class="head-ctas">
+      <a class="btn" href="https://accounts.coglass.co.uk">Sign in</a>
+      <a class="btn pri" href="/signup.html">Book a demo</a>
+    </div>
   </div>
-</nav>
-
-<!-- HERO -->
+</header>
+<main id="main">
 <section class="hero">
-  <div class="hero-badge">Built for UK glass merchants, processors &amp; glaziers</div>
-  <h1>Run your glass business<br>from <span>one app</span></h1>
-  <p class="hero-sub">Whether you cut and process glass for the trade or fit it on site — counter sales, quotes, production, deliveries, invoicing and your team, all in one place. Built from the ground up for the glass trade.</p>
-  <div class="hero-cta">
-    <a href="/pricing/" class="btn btn-primary btn-xl">Start Free Trial</a>
-    <a href="mailto:contact@coglass.co.uk?subject=Book%20a%20demo" class="btn btn-outline-white btn-xl">Book a Demo</a>
-  </div>
-  <p class="hero-note"><span>14 days free</span> &nbsp;·&nbsp; Free setup &nbsp;·&nbsp; iOS, Android &amp; web</p>
-
-  <div class="hero-screen">
-    <div class="screen-bar">
-      <div class="screen-dot d1"></div>
-      <div class="screen-dot d2"></div>
-      <div class="screen-dot d3"></div>
+  <div class="wrap grid">
+    <div class="copy">
+      <span class="eyebrow">Built for UK glass &amp; glazing companies</span>
+      <h1>Every job, from enquiry to paid.</h1>
+      <p class="lead">Quotes with real glass drawings, a planner your fitters actually use, purchase orders to suppliers, and invoices that look the part. One system for the office, the van and the workshop.</p>
+      <div class="ctas"><a class="btn acc lg" href="/signup.html">Book a demo</a><a class="btn lg" href="/pricing/#plans">Start a 14-day trial</a></div>
+      <ul class="trust"><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Phone, iPad &amp; web apps</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Xero connected</li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>No setup fee</li></ul>
     </div>
-    <div class="screen-content">
-      <div class="screen-sidebar">
-        <div class="sidebar-logo-wrap">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.1);border-radius:11px;flex-shrink:0;padding:5px;overflow:hidden"><img src="/coglass-icon.png" alt="Coglass" style="width:100%;height:100%;object-fit:contain;border-radius:5px"></span>
-        </div>
-        <div class="sidebar-item active">📋 Orders</div>
-        <div class="sidebar-item">💷 Invoices</div>
-        <div class="sidebar-item">📐 Surveys</div>
-        <div class="sidebar-item">🏭 Production</div>
-        <div class="sidebar-item">👥 Customers</div>
-        <div class="sidebar-item">🚚 Suppliers</div>
-        <div class="sidebar-item">📅 Planner</div>
-        <div class="sidebar-item">🚗 Fleet</div>
-      </div>
-      <div class="screen-main">
-        <div class="screen-header">
-          <div class="screen-title">Orders</div>
-          <button class="screen-btn">+ New Order</button>
-        </div>
-        <div class="order-cards">
-          <div class="order-card">
-            <div class="order-num">ORD-1042</div>
-            <div class="order-name">Johnson Residence</div>
-            <span class="order-status">Quote Accepted</span>
-          </div>
-          <div class="order-card green">
-            <div class="order-num">ORD-1041</div>
-            <div class="order-name">Apex Commercial</div>
-            <span class="order-status green">Glass Ready</span>
-          </div>
-          <div class="order-card amber">
-            <div class="order-num">ORD-1040</div>
-            <div class="order-name">Riverside Flats</div>
-            <span class="order-status amber">On Order</span>
-          </div>
-          <div class="order-card purple">
-            <div class="order-num">ORD-1039</div>
-            <div class="order-name">Williams &amp; Sons</div>
-            <span class="order-status purple">Ready to Fit</span>
-          </div>
-        </div>
-      </div>
+    <div class="visual"><div class="shot"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="/assets/img/planning.webp" alt="The Coglass planning board: a day of fittings, surveys and a delivery booked across two fitters and a surveyor" width="1600" height="867" fetchpriority="high"></div><div class="phone" aria-hidden="true"><div class="scr"><p class="t">Today · Gary</p><div class="pc f"><b>08:00 Northgate School</b>Fitting · 1h 30m</div><div class="pc s"><b>10:30 Patel</b>Survey · 45m</div><div class="pc f"><b>13:00 Riverside Offices</b>Fitting · 2h</div></div></div></div>
+  </div>
+</section>
+<section class="strip" aria-label="At a glance">
+  <div class="wrap"><ul>
+    <li><b>From £89</b>a month + VAT</li>
+    <li><b>14 days</b>free trial</li>
+    <li><b>Every feature</b>on every plan</li>
+    <li><b>iPhone · Android · web</b></li>
+  </ul></div>
+</section>
+<section class="sect">
+  <div class="wrap">
+    <div class="sect-head"><span class="kicker">Made for glass</span><h2>Made for glass, not bolted on</h2><p>The things a general CRM can't do — drawn, priced and sent to the supplier properly.</p></div>
+    <ul class="tiles" style="list-style:none;padding:0;margin:0"><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M5 25V12a10 10 0 0 1 20 0v13z"/><circle cx="11" cy="20" r="1.6"/><circle cx="19" cy="20" r="1.6"/></svg><h3>Shaped glass</h3><p>Arches, gables, holes and cut-outs drawn to size and priced.</p><a href="/coglass-feature-glass-specs.html">More<span class="sr-only"> about shaped glass</span> →</a></li><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="4" y="4" width="22" height="22" rx="2"/><path d="M11.3 4v22M18.6 4v22M4 15h22"/></svg><h3>Georgian &amp; lead</h3><p>Georgian bars, square and diamond leaded lights, drawn on the pane.</p><a href="/coglass-feature-glass-specs.html">More<span class="sr-only"> about georgian &amp; lead</span> →</a></li><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="4" y="6" width="9" height="18" rx="1"/><rect x="17" y="6" width="9" height="18" rx="1"/><path d="M13 15h4"/></svg><h3>IGU make-ups</h3><p>Glass per leaf, cavity, spacer and gas on every line.</p><a href="/coglass-for-sealed-units.html">More<span class="sr-only"> about igu make-ups</span> →</a></li><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M6 4h13l5 5v17H6z"/><path d="M10 13h10M10 17h10M10 21h6"/></svg><h3>Supplier POs</h3><p>Order glass in a click, with the drawing on the PO.</p><a href="/coglass-feature-suppliers.html">More<span class="sr-only"> about supplier pos</span> →</a></li><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="5" y="4" width="20" height="22" rx="3"/><path d="M10 10h10M10 15h6"/><path d="M15 20l3 3 5-6"/></svg><h3>Shop-floor iPad</h3><p>Cut list, scan to advance, collection sign-off.</p><a href="/coglass-feature-production.html">More<span class="sr-only"> about shop-floor ipad</span> →</a></li></ul>
+  </div>
+</section>
+<section class="sect alt">
+  <div class="wrap split">
+    <div class="split-text">
+      <span class="kicker">The work bench</span>
+      <h2>Draw it once. Quote it, order it, make it.</h2>
+      <p>Each pane is drawn to size with its shape, holes, cut-outs, Georgian bars or leaded lights. The same drawing prices the line, goes on the quote, the supplier's purchase order and the workshop's cutting sheet.</p>
+      <ul class="checks"><li>Full DGU/TGU make-ups, cavity set per line</li><li>Edgework, toughening, laminating — in-house or bought in</li><li>Trade price lists and quantity breaks applied automatically</li></ul>
+      <a class="btn" href="/coglass-feature-glass-specs.html">See glass specs</a>
+    </div>
+    <div class="framed"><img src="/assets/img/bench-drawing.webp" alt="An arched double-glazed unit on the work bench, drawn with Georgian bars and two drilled holes" width="1400" height="638" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+<section class="sect">
+  <div class="wrap split rev">
+    <div class="split-text">
+      <span class="kicker">The workshop</span>
+      <h2>The whole shop floor on one board</h2>
+      <p>Every line lands on the production board when the job is ordered — waiting on a supplier, glass in, in production, ready, made. At the bench, the shop-floor iPad shows the cut list and moves panes on with a barcode scan.</p>
+      <ul class="checks"><li>Barcode labels for every pane</li><li>IGU sealing steps checked pane by pane</li><li>Keeps working when the workshop wifi drops</li></ul>
+      <a class="btn" href="/coglass-feature-production.html">See production</a>
+    </div>
+    <div class="framed"><img src="/assets/img/production.webp" alt="The production board with lanes from To plan to Made" width="1600" height="867" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+<section class="sect alt">
+  <div class="wrap">
+    <div class="sect-head"><span class="kicker">What your customers receive</span><h2>Quotes and invoices that look the part</h2><p>Your logo and details, the drawing on every line, and a link to accept the quote — or pay the invoice — online.</p></div>
+    <div class="docs">
+      <figure style="margin:0"><div class="doc"><img src="/assets/img/quote-pdf.webp" alt="A quotation PDF with the arched unit drawn on its line" width="900" height="855" loading="lazy" decoding="async"></div><figcaption class="cap">A real quotation PDF from a demo account with made-up details.</figcaption></figure>
+      <figure style="margin:0"><div class="doc"><img src="/assets/img/invoice-pdf.webp" alt="An invoice PDF with totals and balance due" width="900" height="643" loading="lazy" decoding="async"></div><figcaption class="cap">The matching invoice.</figcaption></figure>
     </div>
   </div>
 </section>
-
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stat"><span class="stat-num">All-in-one</span><span class="stat-label">No extra apps needed</span></div>
-  <div class="stat"><span class="stat-num">iOS &amp; Android</span><span class="stat-label">Full mobile app</span></div>
-  <div class="stat"><span class="stat-num">UK Built</span><span class="stat-label">VAT &amp; compliance ready</span></div>
-  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Glass &amp; glazing specialists</span></div>
-</div>
-
-<!-- PROBLEM -->
-<!-- DIFFERENTIATORS -->
-<section class="diff-strip">
-  <div class="diff-inner">
-    <div class="diff-label">What only Coglass does</div>
-    <h2 class="diff-h2">The glass-specific tools generic software can't touch</h2>
-    <div class="diff-grid">
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7DD8F5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/><circle cx="7.4" cy="7.4" r="1.4" fill="#7DD8F5" stroke="none"/></svg>
-        </div>
-        <h3>Draw the glass, print it 1:1</h3>
-        <p>Place holes, Georgian bars, lead and diamond on the pane — then print a full-size template the factory lays the glass straight onto. No measuring twice, nothing lost in translation.</p>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7DD8F5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg>
-        </div>
-        <h3>It speaks IGU, not "product"</h3>
-        <p>Full DGU and TGU make-ups — cavity, spacer, gas, every edge and shape — handled as a first-class thing, not a text box you fight with. Because a sealed unit isn't a bag of screws.</p>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#7DD8F5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 11-8 11s-8-5-8-11a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-        </div>
-        <h3>Works where the job is</h3>
-        <p>Survey on site with no signal, let AI read your suppliers' price-list PDFs, and drive the shop floor with barcodes. Built for the real world of glass — van, site and factory.</p>
-      </div>
-    </div>
+<section class="sect">
+  <div class="wrap">
+    <div class="sect-head"><span class="kicker">Who it's for</span><h2>One system for every kind of glass business</h2></div>
+    <ul class="tiles" style="list-style:none;padding:0;margin:0"><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M5 25V8h20v17"/><path d="M15 8v17M5 16h20"/><path d="M3 25h24"/></svg><h3>Glaziers</h3><p>Survey, quote, book the van, fit and get paid — office, site and workshop in step.</p><a href="/coglass-feature-fitting.html">How fitting works →</a></li><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M4 25V11l11-6 11 6v14"/><path d="M9 25v-8h12v8M9 21h12"/></svg><h3>Glass merchants</h3><p>Trade counter, cut-to-size webshop, trade price lists, stock and deliveries.</p><a href="/coglass-for-merchants.html">Coglass for merchants →</a></li><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="4" y="6" width="9" height="18" rx="1"/><rect x="17" y="6" width="9" height="18" rx="1"/><path d="M13 15h4"/></svg><h3>Sealed unit makers</h3><p>Take and price DGU/TGU units by make-up, then track them through production.</p><a href="/coglass-for-sealed-units.html">Coglass for unit makers →</a></li><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><circle cx="15" cy="15" r="9"/><circle cx="15" cy="15" r="3"/><path d="M15 3v3M15 24v3M3 15h3M24 15h3"/></svg><h3>Processors</h3><p>Cutting, edgework, toughening and IGU sealing on one board — in-house or bought-in.</p><a href="/coglass-feature-production.html">The production board →</a></li><li class="tile"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M4 13h22v12H4z"/><path d="M6 13l3-7h12l3 7M12 19h6"/></svg><h3>Trade counters</h3><p>Walk-in quotes and orders in seconds with Quick Go, signed off at the counter.</p><a href="/coglass-for-merchants.html">Counter sales →</a></li></ul>
   </div>
 </section>
-
-<section class="problem">
-  <div class="section-label">Sound familiar?</div>
-  <h2>Glass and glazing businesses shouldn't run on spreadsheets and phone calls</h2>
-  <p class="section-sub">Whether you're supplying IGUs to the trade or fitting glass on site, Coglass brings everything into one place.</p>
-  <div class="pain-points">
-    <div class="pain-point">
-      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5C7A8A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
-      <div class="pain-title">Orders lost in WhatsApp</div>
-      <div class="pain-text">Trade customers ringing or messaging for glass — specs, sizes and prices buried in threads no one can find.</div>
-    </div>
-    <div class="pain-point">
-      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5C7A8A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
-      <div class="pain-title">Spreadsheet chaos</div>
-      <div class="pain-text">Quotes in one file, invoices in another, measurements on a notepad. Nothing joined up.</div>
-    </div>
-    <div class="pain-point">
-      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5C7A8A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3 21 8 8 21 3 16 16 3Z"/><path d="M7.5 11.5 9 13M11 8l1.5 1.5M14.5 4.5 16 6"/></svg></div>
-      <div class="pain-title">Wrong specs, wrong glass</div>
-      <div class="pain-text">Incorrect measurements, glass cut to the wrong size or spec — costly mistakes that eat into margin.</div>
-    </div>
-    <div class="pain-point">
-      <div class="pain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5C7A8A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-      <div class="pain-title">Late payments</div>
-      <div class="pain-text">Invoices sent late, chased manually, no visibility on what trade accounts owe you.</div>
-    </div>
-  </div>
-  <a href="#features" class="btn btn-primary btn-lg">See how Coglass fixes this</a>
-</section>
-
-<style>
-  .audience{background:#F4F8FA}
-  .aud-inner{max-width:1100px;margin:0 auto;text-align:center}
-  .aud-inner h2{margin:6px 0 0}
-  .aud-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:42px}
-  .aud-card{background:#fff;border:1px solid #E1EBF0;border-radius:14px;padding:24px 22px;text-align:left;border-top:3px solid #29ABE2}
-  .aud-card h3{font-size:18px;margin:0 0 8px;color:#0D1F2D}
-  .aud-card p{font-size:14px;color:#5C7A8A;line-height:1.55;margin:0}
-  .aud-card a{display:inline-block;margin-top:13px;color:#29ABE2;font-weight:700;font-size:13.5px;text-decoration:none}
-  .aud-card a:hover{text-decoration:underline}
-  .aud-card.lead{border-top-color:#004A66;background:#f0f9fd}
-</style>
-<!-- AUDIENCE -->
-<section class="audience">
-  <div class="aud-inner">
-    <div class="section-label" style="display:flex;justify-content:center">Built for every kind of glass business</div>
-    <h2>One platform — merchants, processors, glaziers &amp; trade counters</h2>
-    <div class="aud-grid">
-      <div class="aud-card lead">
-        <h3>Glass merchants</h3>
-        <p>Trade counter, cut-to-size webshop, processing, stock, trade accounts and deliveries — priced the way glass is actually sold.</p>
-        <a href="coglass-for-merchants.html">See it for merchants →</a>
-      </div>
-      <div class="aud-card lead">
-        <h3>Sealed unit makers</h3>
-        <p>Take, spec and price DGU/TGU units by make-up — cavity and spacer captured per line — then track them through production and out on delivery.</p>
-        <a href="coglass-for-sealed-units.html">See it for unit makers →</a>
-      </div>
-      <div class="aud-card">
-        <h3>Processors</h3>
-        <p>Cutting, edgework, toughening, lamination and IGU sealing on one production board — made in-house or bought-in.</p>
-      </div>
-      <div class="aud-card">
-        <h3>Glaziers</h3>
-        <p>Survey on site, quote, schedule the van, fit and get paid — office, site and factory in sync.</p>
-      </div>
-      <div class="aud-card">
-        <h3>Trade counters</h3>
-        <p>Walk-in quotes and orders in seconds with Quick Go, plus collection signing right at the counter.</p>
-      </div>
-    </div>
+<section class="sect alt" id="features">
+  <div class="wrap">
+    <div class="sect-head"><span class="kicker">Everything in Coglass</span><h2>From the first enquiry to the final payment</h2><p>Every plan includes all of it. Plans differ by how many people use Coglass and how much you put through it.</p></div>
+    <ul class="fgrid" style="list-style:none;padding:0;margin:0"><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="6" y="5" width="18" height="21" rx="2"/><path d="M11 5V3h8v2M10 12h10M10 16h10M10 20h6"/></svg><h3>Jobs &amp; orders</h3><p>Every job from first enquiry to paid invoice in one record the whole team can see.</p><ul><li>Statuses for glazing, collection and delivery jobs</li><li>Notes, photos and documents on the job</li><li>“Needs attention” flags for jobs left sitting</li></ul><a class="more" href="/coglass-feature-orders.html">Jobs &amp; orders in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M7 4h11l5 5v17H7z"/><path d="M11 14h8M11 18h8"/><path d="M15 9.5v-0"/></svg><h3>Quoting</h3><p>Quotes priced from your catalogue and trade price lists, with the drawing on every line.</p><ul><li>Branded PDF quotes and quote options</li><li>Customer accepts or declines online</li><li>Deposits asked for automatically</li></ul><a class="more" href="/coglass-feature-quoting.html">Quoting in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="8" y="3" width="14" height="24" rx="3"/><path d="M12 9h6M12 13h6M12 17h3"/></svg><h3>Surveys</h3><p>Measure on the phone — shapes, photos, access notes and GPS — even with no signal.</p><ul><li>Works offline, syncs later</li><li>Photos per opening</li><li>Survey straight onto the work bench</li></ul><a class="more" href="/coglass-feature-surveys.html">Surveys in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="4" y="6" width="9" height="18" rx="1"/><rect x="17" y="6" width="9" height="18" rx="1"/><path d="M13 15h4"/></svg><h3>Glass specs</h3><p>Full DGU/TGU make-ups, edges, shapes, holes, cut-outs, Georgian bars and leaded lights.</p><ul><li>Cavity and spacer set per line</li><li>Drawn to size in mm</li><li>1:1 lay-under template print</li></ul><a class="more" href="/coglass-feature-glass-specs.html">Glass specs in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="4" y="5" width="6" height="20" rx="1"/><rect x="12" y="5" width="6" height="14" rx="1"/><rect x="20" y="5" width="6" height="9" rx="1"/></svg><h3>Production</h3><p>One board from To plan to Made, with the shop-floor iPad at the bench.</p><ul><li>Barcode labels and scan to advance</li><li>In-house or bought-in operations</li><li>IGU sealing steps</li></ul><a class="more" href="/coglass-feature-production.html">Production in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M6 4h13l5 5v17H6z"/><path d="M10 13h10M10 17h10M10 21h6"/></svg><h3>Suppliers</h3><p>Purchase orders with the drawing on them, receipts, and automatic chasers when glass is late.</p><ul><li>Numbered POs per job</li><li>AI reads supplier price-list PDFs</li><li>Outwork orders to processors</li></ul><a class="more" href="/coglass-feature-suppliers.html">Suppliers in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><rect x="4" y="6" width="22" height="20" rx="2"/><path d="M4 12h22M10 3v6M20 3v6M9 17h4M9 21h8"/></svg><h3>Planning</h3><p>Drag surveys, fittings and deliveries onto people and vans for the day or week.</p><ul><li>Holidays block the board</li><li>Nearby ready jobs suggested</li><li>Fitters see their day on the phone</li></ul><a class="more" href="/coglass-feature-scheduling.html">Planning in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M5 25h20"/><rect x="7" y="5" width="16" height="16" rx="1"/><path d="M11 13l3 3 6-6"/></svg><h3>Fitting &amp; delivery</h3><p>Per-pane sign-off on site with photos, GPS and the customer&#x27;s signature.</p><ul><li>Partial fits and re-orders flagged</li><li>Delivery and collection proof</li><li>Draft invoice raised on completion</li></ul><a class="more" href="/coglass-feature-fitting.html">Fitting &amp; delivery in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M7 4h16v22l-3-2-3 2-2-2-3 2-2-2-3 2z"/><path d="M11 10h8M11 14h8M11 18h5"/></svg><h3>Invoicing</h3><p>Deposit, proforma and final invoices with UK VAT, payments and Xero.</p><ul><li>Overdue invoices flagged</li><li>Customers pay online from the link</li><li>Invoices and payments push to Xero</li></ul><a class="more" href="/coglass-feature-invoicing.html">Invoicing in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M5 6h20v14H13l-6 5v-5H5z"/><path d="M10 12h10M10 15h6"/></svg><h3>Customer messages</h3><p>Email, SMS and quote-page chat on the job, with automatic updates as it moves.</p><ul><li>Gmail and Outlook inbox</li><li>SMS under your company name</li><li>Messenger and WhatsApp coming soon</li></ul><a class="more" href="/coglass-feature-communication.html">Customer messages in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M5 7h3l3 13h12l2-9H10"/><circle cx="13" cy="24" r="1.6"/><circle cx="21" cy="24" r="1.6"/></svg><h3>Webshop</h3><p>A branded shop where trade customers order cut-to-size on their own prices.</p><ul><li>Card or PayPal checkout, or enquiry only</li><li>Embeds in your own website</li><li>Orders drop straight into Coglass</li></ul><a class="more" href="/coglass-feature-webshop.html">Webshop in detail<span aria-hidden="true">&nbsp;→</span></a></li><li class="fcard"><svg class="ico" viewBox="0 0 30 30" aria-hidden="true" focusable="false"><path d="M3 20V9h14v11M17 13h5l4 4v3h-9"/><circle cx="8" cy="21" r="2.4"/><circle cx="21" cy="21" r="2.4"/></svg><h3>Fleet</h3><p>Vans on the planner, MOT dates and reminders, and the paperwork with the vehicle.</p><ul><li>Daily van per person</li><li>MOT history and certificates</li><li>Reminders before the MOT is due</li></ul><a class="more" href="/coglass-feature-fleet.html">Fleet in detail<span aria-hidden="true">&nbsp;→</span></a></li></ul>
   </div>
 </section>
-
-<!-- FEATURES -->
-<section id="features">
-  <div style="text-align:center; margin-bottom:52px;">
-    <div class="section-label">Built for glass</div>
-    <h2>Built for glass.<br>Not borrowed from another trade.</h2>
-    <p class="section-sub" style="margin:0 auto;">Generic job software treats a triple-glazed unit like a bag of screws. Every tool below was made for how glass and glazing companies actually work — quote, survey, spec, cut, fit, get paid — from first enquiry to final payment, in one app.</p>
-  </div>
-
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
-      <div class="feature-title">Every job, start to finish — in one thread</div>
-      <div class="feature-text">From the first WhatsApp enquiry to the final paid invoice, every job lives in one place your whole team can see. No more "which spreadsheet was that on?"</div>
-      <ul class="feature-list">
-        <li>Full order lifecycle tracking</li>
-        <li>Auto-generated order numbers</li>
-        <li>Internal notes and job photos</li>
-        <li>Order templates for repeat work</li>
-        <li>Site contacts and billing addresses</li>
-      </ul>
-      <a href="coglass-feature-orders.html" class="feature-link">Learn more →</a>
+<section class="sect">
+  <div class="wrap split">
+    <div class="split-text">
+      <span class="kicker">For the team on the road</span>
+      <h2>The phone app your fitters will actually use</h2>
+      <p>Today's jobs, surveys drawn on the phone, per-pane sign-off with photos and a signature, clock in and out — and it keeps working with no signal.</p>
+      <div class="ctas">
+        <a class="btn acc" href="https://apps.apple.com/gb/app/coglass-glass-glazing-crm/id6761371345" rel="noopener">Download for iPhone &amp; iPad</a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.coglass.app" rel="noopener">Get it on Google Play</a>
+      </div>
+      <p class="fine">Staff sign in with the login their company gives them. <a href="/coglass-feature-mobile.html">More about the app</a>.</p>
     </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.5 12 21l-9-9V4h8l9.5 9.5a1.4 1.4 0 0 1 0 2Z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></div>
-      <div class="feature-title">Quote in seconds, not after tea-time</div>
-      <div class="feature-text">Build a branded glass quote on the spot, send a link, and the customer accepts online. Variants, trade pricing, labour and energy costs — priced the way glaziers actually price, not a generic line-item box.</div>
-      <ul class="feature-list">
-        <li>Branded PDF quotes</li>
-        <li>Multiple quote variants per job</li>
-        <li>Online customer acceptance portal</li>
-        <li>Labour, installation and energy costs</li>
-        <li>Line and order level discounts</li>
-      </ul>
-      <a href="coglass-feature-quoting.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
-      <div class="feature-title">Get paid faster, chase less</div>
-      <div class="feature-text">Deposits, UK VAT, proformas and payments all handled — with overdue alerts so nothing slips. Push straight to Xero, or take card in your webshop. The money side runs itself.</div>
-      <ul class="feature-list">
-        <li>Standard, deposit and proforma invoices</li>
-        <li>UK VAT calculation and tracking</li>
-        <li>Payment recording (cash, BACS, card)</li>
-        <li>Overdue invoice alerts</li>
-        <li>Stripe and PayPal integration</li>
-      </ul>
-      <a href="coglass-feature-invoicing.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3 21 8 8 21 3 16 16 3Z"/><path d="M7.5 11.5 9 13M11 8l1.5 1.5M14.5 4.5 16 6"/></svg></div>
-      <div class="feature-title">Survey on site — even with no signal</div>
-      <div class="feature-text">Draw every opening on your phone — any shape, with photos, access notes and GPS — and it syncs the moment you're back in range. The measurements that win or lose the job, captured properly the first time.</div>
-      <ul class="feature-list">
-        <li>Mobile measurement drawing tool</li>
-        <li>All shapes: rectangle, arch, circle, oval, gable</li>
-        <li>Survey photos per measurement</li>
-        <li>Access and logistics logging</li>
-        <li>Survey duration and personnel tracking</li>
-      </ul>
-      <a href="coglass-feature-surveys.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg></div>
-      <div class="feature-title">Software that actually speaks glass</div>
-      <div class="feature-text">Generic job software makes you cram a window into a "product" box. Coglass doesn't — full IGU make-ups (DGU/TGU, cavity, spacer, gas), every edge and shape, plus a canvas to place holes, Georgian bars, lead and diamond. Built for glass, not adapted from something else.</div>
-      <ul class="feature-list">
-        <li>DGU and TGU IGU configuration</li>
-        <li>Spacer bar and gas type selection</li>
-        <li>Polished, bevelled and custom edges</li>
-        <li>Georgian bars and lead designs</li>
-        <li>Cutouts, holes, notches and letterboxes</li>
-      </ul>
-      <a href="coglass-feature-glass-specs.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/></svg></div>
-      <div class="feature-title">The whole shop floor, on one board</div>
-      <div class="feature-text">See every pane in the queue, flag the rush jobs, and scan barcodes from cut to ready. And the lead, Georgian and diamond patterns you drew on survey? They print as a 1:1 template the factory lays the glass straight onto — no measuring twice.</div>
-      <ul class="feature-list">
-        <li>Visual production board</li>
-        <li>Rush and urgent item flagging</li>
-        <li>Expected ready date calculation</li>
-        <li>Overdue alerts</li>
-        <li>Barcode labels and scanning</li>
-      </ul>
-      <a href="coglass-feature-production.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div>
-      <div class="feature-title">Buy-in glass without the back-and-forth</div>
-      <div class="feature-text">Raise and email purchase orders, track what's received, auto-chase what's late — and let the AI read your suppliers' price-list PDFs straight into live prices. No more typing rate cards by hand.</div>
-      <ul class="feature-list">
-        <li>Supplier database with full contact info</li>
-        <li>Send purchase orders by email</li>
-        <li>Track ordered and received status</li>
-        <li>Auto-chase emails for overdue orders</li>
-        <li>AI-powered price list import from PDF</li>
-      </ul>
-      <a href="coglass-feature-suppliers.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
-      <div class="feature-title">Right fitter, right van, right job</div>
-      <div class="feature-text">Drag jobs onto your team and vehicles on a visual board, track licences and holidays, and customers get an automatic "on the way". Everyone knows where they're meant to be — without ten phone calls.</div>
-      <ul class="feature-list">
-        <li>Visual planning board for all staff</li>
-        <li>Job and vehicle assignment</li>
-        <li>Employee credentials and licence tracking</li>
-        <li>Holiday and absence management</li>
-        <li>On-the-way status updates</li>
-      </ul>
-      <a href="coglass-feature-scheduling.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
-      <div class="feature-title">Every Messenger, WhatsApp, text and email — on the job</div>
-      <div class="feature-text">Talk to customers however they prefer, tracked against the order so nothing's lost in someone's personal phone. Automatic updates fire as the job moves, so they're never left wondering.</div>
-      <ul class="feature-list">
-        <li>Facebook Messenger enquiries in your inbox</li>
-        <li>WhatsApp send and receive</li>
-        <li>SMS messaging to customers</li>
-        <li>Gmail and Outlook integration</li>
-        <li>Built-in customer chat portal</li>
-        <li>Automated notifications on job events</li>
-      </ul>
-      <a href="coglass-feature-communication.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5 11 15l5-6"/></svg></div>
-      <div class="feature-title">Proof the job's done — signed and photographed</div>
-      <div class="feature-text">Fitters tick off each pane on site with photos, GPS and a customer signature. Snags and partial fits are logged with reasons, so the office knows exactly what's left to go back for.</div>
-      <ul class="feature-list">
-        <li>Fitting checklist and completion record</li>
-        <li>GPS proof of location</li>
-        <li>Customer digital signature capture</li>
-        <li>Snag notes and photos</li>
-        <li>Partial fitting tracking with reasons</li>
-      </ul>
-      <a href="coglass-feature-fitting.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
-      <div class="feature-title">Your own glass shop, open 24/7</div>
-      <div class="feature-text">Let trade customers browse and reorder from a branded webshop on their own agreed prices, and pay by card — orders drop straight into Coglass. New revenue while you sleep.</div>
-      <ul class="feature-list">
-        <li>Your own branded webshop</li>
-        <li>Trade discount pricing per customer</li>
-        <li>Stripe and PayPal checkout</li>
-        <li>Embeddable on your own website</li>
-        <li>Auto-convert orders to jobs</li>
-      </ul>
-      <a href="coglass-feature-webshop.html" class="feature-link">Learn more →</a>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#006E94" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11M4 11h16v5H4zM4 16v2M20 16v2"/><circle cx="7.5" cy="13.5" r="1.2"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></div>
-      <div class="feature-title">Fleet Management</div>
-      <div class="feature-text">Track your vehicles, MOT dates and assign vans to your team each day.</div>
-      <ul class="feature-list">
-        <li>Vehicle database with full details</li>
-        <li>Daily vehicle assignment for staff</li>
-        <li>MOT date tracking and reminders</li>
-        <li>MOT certificate storage</li>
-        <li>DVLA lookup integration</li>
-      </ul>
-      <a href="coglass-feature-fleet.html" class="feature-link">Learn more →</a>
-    </div>
+    <div role="img" aria-label="Fitting · Northgate School on the Coglass phone app (drawn illustration)" style="max-width:300px;margin:0 auto 40px;border-radius:36px;background:#0d1b22;padding:10px;box-shadow:0 18px 40px rgba(0,0,0,.25)"><div style="background:var(--bg);border-radius:28px;padding:22px 14px 26px"><p style="font-weight:800;color:var(--navy);margin:0 0 12px">Fitting · Northgate School</p><div class="pc f" style="font-size:13px;padding:10px 12px;margin-bottom:8px"><b style="font-size:14px">Classroom 1 — left</b>Fitted · 2 photos</div><div class="pc f" style="font-size:13px;padding:10px 12px;margin-bottom:8px"><b style="font-size:14px">Classroom 1 — right</b>Fitted</div><div class="pc d" style="font-size:13px;padding:10px 12px;margin-bottom:8px"><b style="font-size:14px">Corridor</b>Not fitted · broken — re-order</div><div class="pc " style="font-size:13px;padding:10px 12px;margin-bottom:8px"><b style="font-size:14px">Customer signature</b>Signed 11:42</div></div></div>
   </div>
 </section>
-
-<!-- MOBILE -->
-<section id="mobile" class="bg-light">
-  <div class="mobile-section">
-    <div>
-      <div class="section-label">Mobile app</div>
-      <h2>Your team on the road<br>and in the yard, fully connected</h2>
-      <p class="section-sub">The Coglass mobile app gives fitters everything they need on site, and gives warehouse and production staff a shopfloor mode for scanning and tracking glass — with offline support for when signal drops.</p>
-      <ul class="split-list">
-        <li><div class="split-check">✓</div>View assigned jobs and daily schedule</li>
-        <li><div class="split-check">✓</div>Capture site measurements with the drawing tool</li>
-        <li><div class="split-check">✓</div>Take photos, log GPS and collect customer signatures</li>
-        <li><div class="split-check">✓</div>Works offline — syncs when back in signal</li>
-        <li><div class="split-check">✓</div>Push notifications for job updates</li>
-        <li><div class="split-check">✓</div>Shopfloor barcode scanning for glass tracking in the yard</li>
-      </ul>
-      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
-        <a href="https://apps.apple.com/gb/app/coglass-glass-glazing-crm/id6761371345" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Download for iOS</a>
-        <a href="https://play.google.com/store/apps/details?id=com.coglass.app" class="btn btn-outline-teal btn-lg" target="_blank" rel="noopener">Download for Android</a>
+<section class="sect alt">
+  <div class="wrap">
+    <div class="sect-head"><span class="kicker">Pricing</span><h2>Simple monthly plans</h2><p>Every plan includes the web app, the phone app for fitters and the shop-floor iPad app. Prices exclude VAT. No setup fee, no minimum term.</p></div>
+    <div class="plans"><div class="plan"><h3>Starter</h3><p class="pr">£89</p><p class="per">per month + VAT</p><ul><li>1 office login</li><li>3 fitters on the phone app</li><li>150 orders a month</li><li>1 email inbox</li></ul><a class="btn block" href="/pricing/#plans">See the Starter plan</a></div><div class="plan pop"><span class=tag>Most popular</span><h3>Professional</h3><p class="pr">£199</p><p class="per">per month + VAT</p><ul><li>3 office logins</li><li>8 fitters on the phone app</li><li>500 orders a month</li><li>3 email inboxes</li></ul><a class="btn acc block" href="/pricing/#plans">See the Professional plan</a></div><div class="plan"><h3>Business</h3><p class="pr">£399</p><p class="per">per month + VAT</p><ul><li>7 office logins</li><li>12 fitters on the phone app</li><li>1,500 orders a month</li><li>7 email inboxes</li></ul><a class="btn block" href="/pricing/#plans">See the Business plan</a></div></div>
+  </div>
+</section>
+<section class="sect">
+  <div class="wrap" style="max-width:860px">
+    <div class="sect-head"><span class="kicker">Questions</span><h2>Frequently asked questions</h2></div>
+    <div class="faq"><details><summary>Is Coglass built for glass and glazing companies?</summary><p>Yes. It holds full IGU make-ups (DGU/TGU, cavity, spacer, gas), every edge and shape, and a drawing canvas for holes, Georgian bars, lead and diamond — plus a 1:1 lay-under template the factory copies onto the glass. It is not a general CRM adapted to glass.</p></details><details><summary>Does the survey app work with no signal?</summary><p>Yes. Measurements, drawings, photos, access notes and GPS are captured on the phone and sync when you are back in signal.</p></details><details><summary>Does it work on iPhone, Android and the web?</summary><p>Yes — the office uses the web app in a browser, fitters use the iPhone or Android app, and the workshop uses the shop-floor app on an iPad.</p></details><details><summary>Does it work with Xero?</summary><p>Yes. Invoices, payments and supplier bills push to Xero, coded to the accounts and VAT rates you choose. Customers can also pay an invoice online from its link.</p></details><details><summary>How does the trial work?</summary><p>Pick a plan on the pricing page. We take your card at sign-up and charge nothing for 14 days; cancel before the trial ends and you pay nothing. If you would rather see it first, book a demo and we will walk you through it.</p></details><details><summary>Can you help us set it up?</summary><p>Yes — book a demo and we will go through your products, prices and team with you. There is no setup fee.</p></details><details><summary>Is WhatsApp included?</summary><p>WhatsApp and Facebook Messenger are built and waiting on Meta&#x27;s approval, so they are coming soon. Email, SMS and the customer chat on quote and tracking pages work today.</p></details></div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap">
+    <h2>See it on your own kind of jobs</h2>
+    <p>Book a demo and we will walk you through Coglass with the glass you sell and the way you work — or pick a plan and start a 14-day trial.</p>
+    <div class="ctas"><a class="btn acc lg" href="/signup.html">Book a demo</a><a class="btn ghost-light lg" href="/pricing/#plans">See plans and start a trial</a></div>
+  </div>
+</section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="/" aria-label="Coglass home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#123447"/><rect x="9" y="9" width="46" height="46" rx="9" fill="none" stroke="#3fa9d6" stroke-width="4.5"/><path d="M32 11V53M11 32H53" stroke="#3fa9d6" stroke-width="4.5" stroke-linecap="round"/></svg><span>COGLASS</span></a>
+        <p style="margin:12px 0 0;max-width:340px">Software for UK glass and glazing companies — quotes, surveys, production, fitting and invoicing in one system.</p>
       </div>
-      <a href="coglass-feature-mobile.html" class="feature-link" style="color:var(--teal);">See all mobile features →</a>
-    </div>
-
-    <div class="phone-mockup">
-      <div class="phone-screen">
-        <div class="phone-header">
-          <div class="phone-header-title">My Jobs — Today</div>
-          <div class="phone-header-sub">Monday 20 April · 3 jobs assigned</div>
-        </div>
-        <div class="phone-body">
-          <div class="phone-job">
-            <div>
-              <div class="phone-job-name">ORD-1042 · Johnson</div>
-              <div class="phone-job-addr">14 Maple Close, Bristol</div>
-              <div class="phone-job-time">Survey · 9:00am</div>
-            </div>
-          </div>
-          <div class="phone-job green">
-            <div>
-              <div class="phone-job-name">ORD-1039 · Williams</div>
-              <div class="phone-job-addr">Riverside Business Park</div>
-              <div class="phone-job-time">Fitting · 11:30am</div>
-            </div>
-          </div>
-          <div class="phone-job amber">
-            <div>
-              <div class="phone-job-name">ORD-1041 · Apex</div>
-              <div class="phone-job-addr">72 Commerce St, Bath</div>
-              <div class="phone-job-time">Delivery · 2:00pm</div>
-            </div>
-          </div>
-        </div>
-        <div class="phone-tab-bar">
-          <div class="phone-tab active"><div class="phone-tab-icon">💼</div>Jobs</div>
-          <div class="phone-tab"><div class="phone-tab-icon">📅</div>Planner</div>
-          <div class="phone-tab"><div class="phone-tab-icon">🔔</div>Alerts</div>
-          <div class="phone-tab"><div class="phone-tab-icon">⚙️</div>Settings</div>
-        </div>
+      <div>
+        <h2>Product</h2>
+        <ul>
+          <li><a href="/#features">All features</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/coglass-feature-mobile.html">Mobile app</a></li>
+          <li><a href="/coglass-feature-webshop.html">Webshop</a></li>
+          <li><a href="/coglass-for-merchants.html">For glass merchants</a></li>
+          <li><a href="/coglass-for-sealed-units.html">For sealed unit makers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="/signup.html">Book a demo</a></li>
+          <li><a href="mailto:contact@coglass.co.uk">contact@coglass.co.uk</a></li>
+          <li><a href="tel:01215170383">0121 517 0383</a></li>
+          <li><a href="/support/">Help &amp; support</a></li>
+          <li><a href="https://accounts.coglass.co.uk">Sign in to your account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/refunds/">Cancellation &amp; refunds</a></li>
+          <li><a href="/dpa/">Data Processing Agreement</a></li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- FULL FEATURE LIST -->
-<section>
-  <div style="text-align:center; margin-bottom:52px;">
-    <div class="section-label">Complete feature list</div>
-    <h2>Everything included,<br>nothing extra to buy</h2>
-    <p class="section-sub" style="margin:0 auto;">Every Coglass subscription includes the full platform — whether you supply glass, glaze, or both. No add-ons, no hidden extras.</p>
-  </div>
-  <div class="seo-features">
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Job &amp; order management</strong>Full lifecycle from enquiry to completion</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>PDF quote generation</strong>Branded professional quotes in seconds</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Online quote acceptance</strong>Customers accept via a shared link</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Invoice &amp; payment management</strong>Standard, deposit and proforma invoices</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>UK VAT tracking</strong>VAT calculation built in</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Stripe &amp; PayPal payments</strong>Take card payments in your webshop</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Site survey capture</strong>Mobile measurement drawings on your phone</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>All glass shapes</strong>Rectangle, arch, circle, oval, gable, trapezoid</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>IGU specification</strong>DGU and TGU with gas and spacer selection</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Cutouts &amp; operations</strong>Holes, notches, polished edges, drilling</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Georgian bars &amp; lead</strong>Full decorative glazing configuration</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Production planning board</strong>Visual queue with priority and status</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Glass barcode labels</strong>Print and scan labels for glass tracking</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Supplier management</strong>Order and track supplier deliveries</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Supplier price list import</strong>Upload supplier PDFs and Coglass reads the pricing automatically</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Auto supplier chasing</strong>Chase overdue orders automatically</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Team scheduling</strong>Visual planner with staff and job allocation</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Fleet &amp; vehicle management</strong>MOT tracking and daily vehicle assignment</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Facebook Messenger inbox</strong>Answer Page enquiries without leaving Coglass</div></div>
-          <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>WhatsApp integration</strong>Send and receive WhatsApp messages</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>SMS messaging</strong>Text customers directly from the app</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Gmail &amp; Outlook integration</strong>Full email in your inbox</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Automated notifications</strong>SMS and email triggered on job events</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Customer signature capture</strong>Digital signatures on job completion</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>GPS proof of completion</strong>Location logged at job sign-off</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Customer webshop</strong>Trade ordering portal with your branding</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Compliance guidance</strong>GGF, FENSA and Building Regs reference</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Mobile app (iOS &amp; Android)</strong>Full offline-capable field app</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Window frame templates</strong>Reusable multi-pane configurations</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Role-based access control</strong>Admin, manager, staff, field and viewer roles</div></div>
-    <div class="seo-feature"><div class="seo-check">✓</div><div class="seo-text"><strong>Full edit &amp; payment history</strong>See every change and who made it</div></div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section id="how-it-works" class="bg-light" style="text-align:center;">
-  <div class="section-label">Simple to get started</div>
-  <h2>Up and running in under an hour</h2>
-  <p class="section-sub" style="margin:0 auto 56px;">No complicated setup. If you can use a smartphone, you can use Coglass.</p>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-title">Sign up free</div>
-      <div class="step-text">Create your company account in minutes. Add your logo, VAT number and team members.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-title">Add your products &amp; pricing</div>
-      <div class="step-text">Import your glass products and pricing. Upload supplier price lists and Coglass reads them for you.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-title">Start taking jobs &amp; orders</div>
-      <div class="step-text">Create your first job, send a quote, take a trade order through the webshop, or get your fitters surveying on the mobile app — the same day.</div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-title">Get paid faster</div>
-      <div class="step-text">Invoice on completion, track trade account balances and watch your outstanding payments drop.</div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<!-- CTA -->
-<!-- FAQ -->
-<section style="padding:84px 5%;">
-  <div style="text-align:center; margin-bottom:44px;">
-    <div class="section-label">Questions</div>
-    <h2>Frequently asked questions</h2>
-  </div>
-  <div class="faq">
-    <div class="faq-item"><div class="faq-q">Is Coglass built specifically for glass and glazing companies?</div><div class="faq-a">Yes. Coglass is built for glass — full IGU make-ups (DGU/TGU, cavity, spacer, gas), every edge and shape, a drawing canvas for holes, Georgian bars, lead and diamond, and a 1:1 lay-under template the factory copies the glass straight onto. It's not a generic CRM adapted to glass.</div></div>
-    <div class="faq-item"><div class="faq-q">Does the survey app work offline with no signal?</div><div class="faq-a">Yes. Site surveys — measurements, drawings, photos, access notes and GPS — are captured offline on your phone and sync automatically when you're back in signal.</div></div>
-    <div class="faq-item"><div class="faq-q">Can I import my suppliers' price lists?</div><div class="faq-a">Yes. Coglass uses AI to read your suppliers' price-list PDFs into live prices, so you don't have to type rate cards by hand.</div></div>
-    <div class="faq-item"><div class="faq-q">Does Coglass work on iOS, Android and web?</div><div class="faq-a">Yes — office staff use the web app and field staff use the iOS and Android apps. Everything syncs in real time.</div></div>
-    <div class="faq-item"><div class="faq-q">Does it integrate with Xero and take card payments?</div><div class="faq-a">Yes. Invoices push to Xero, and you can take card payments online through your webshop checkout (Stripe or PayPal).</div></div>
-    <div class="faq-item"><div class="faq-q">How long does it take to get started?</div><div class="faq-a">Most glass companies are up and running in under an hour. Pick a plan and your first 14 days are free.</div></div>
-  </div>
-</section>
-
-<section class="cta-section">
-  <h2>Ready to run a better glass business?</h2>
-  <p>Join glass suppliers and glazing companies across the UK who manage their jobs, trade accounts and teams with Coglass.</p>
-  <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-    <a href="/pricing/" class="btn btn-white btn-xl">Start Free Trial</a>
-    <a href="mailto:contact@coglass.co.uk?subject=Book%20a%20demo" class="btn btn-outline-white btn-xl">Book a Demo</a>
-    <a href="mailto:contact@coglass.co.uk" class="btn btn-outline-white btn-xl">Contact Us</a>
-  </div>
-  <p class="cta-note">14 days free &nbsp;·&nbsp; Free onboarding support &nbsp;·&nbsp; Cancel any time</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <a href="/" class="logo-svg">
-        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.1);border-radius:11px;flex-shrink:0;padding:5px;overflow:hidden"><img src="/coglass-icon.png" alt="Coglass" style="width:100%;height:100%;object-fit:contain;border-radius:5px"></span>
-        <span style="font-family:'Raleway',-apple-system,sans-serif; font-size:15px; font-weight:700; color:rgba(255,255,255,0.85); letter-spacing:1px; text-transform:uppercase;">COGLASS</span>
-      </a>
-      <p class="footer-brand-text">The all-in-one business management software built for UK glass suppliers and glazing companies.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Product</div>
-      <ul class="footer-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#mobile">Mobile App</a></li>
-        <li><a href="coglass-feature-webshop.html">Webshop</a></li>
-        <li><a href="/pricing/">Pricing</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Company</div>
-      <ul class="footer-links">
-        <li><a href="mailto:contact@coglass.co.uk">contact@coglass.co.uk</a></li>
-        <li><a href="tel:01215170383">0121 517 0383</a></li>
-        <li><a href="/privacy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms of Service</a></li>
-        <li><a href="/refunds/">Cancellation &amp; Refunds</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">For Glaziers</div>
-      <ul class="footer-links">
-        <li><a href="/">Glazing Software UK</a></li>
-        <li><a href="coglass-feature-orders.html">Glass Company CRM</a></li>
-        <li><a href="coglass-feature-quoting.html">Glazier Quoting App</a></li>
-        <li><a href="coglass-feature-glass-specs.html">IGU Software</a></li>
-        <li><a href="coglass-feature-fitting.html">FENSA Compliance</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Coglass. All rights reserved. &nbsp;·&nbsp; coglass.co.uk</span>
-    <span>Built for UK glazing companies</span>
-  </div>
-  <div class="footer-legal" style="max-width:1100px;margin:18px auto 0;padding:16px 5% 0;border-top:1px solid rgba(255,255,255,0.08);font-size:12px;line-height:1.7;color:rgba(255,255,255,0.42);text-align:center;">
-    Coglass is a product of <strong style="color:rgba(255,255,255,0.62);font-weight:600;">Halliday Morrow Ltd</strong>, registered in England &amp; Wales &nbsp;·&nbsp; Company no. 17358542 &nbsp;·&nbsp; VAT no. 526 4805 84
+    <div class="legal">Coglass is a product of Halliday Morrow Ltd, registered in England &amp; Wales, company no. 17358542 · VAT no. 526 4805 84 · Registered office: 39a The Riddings, Sutton Coldfield, England, B76 1RW. © 2026 Halliday Morrow Ltd.</div>
   </div>
 </footer>
-
+<script src="/assets/site.js?v=3" defer></script>
 </body>
 </html>

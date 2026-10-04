@@ -1,0 +1,93 @@
+{
+ "file": "coglass-feature-scheduling.html",
+ "title": "Glazing Team Scheduling Software | Plan Fitters and Surveyors | Coglass",
+ "description": "Schedule your glazing team with a visual planning board. Assign jobs to fitters, manage absences and vehicle allocation — all synced to the mobile app instantly.",
+ "eyebrow": "Feature — Team Scheduling",
+ "h1": "Right fitter, right van,",
+ "h1_accent": "right job",
+ "lead": "Drag jobs onto your team and vehicles on a visual board, track licences and holidays, and customers get an automatic “on the way”. Everyone knows where they're meant to be — without ten phone calls.",
+ "steps_label": "How it works",
+ "steps_h2": "Your whole team's week, planned in minutes",
+ "steps_sub": "The Coglass planning board gives managers a full view of who is doing what, when — and pushes the schedule straight to everyone's phones.",
+ "inc_label": "What's included",
+ "inc_h2": "Team management tools built for glazing companies",
+ "inc_sub": "From scheduling fitters to tracking holidays — everything you need to manage a field team.",
+ "steps": [
+  [
+   "Open the planning board",
+   "The scheduling view shows your full team in rows and upcoming dates in columns. At a glance you can see who's free, who's booked, and which days have gaps — for the week or the next two weeks."
+  ],
+  [
+   "Assign jobs to team members",
+   "Drag an order onto a team member's slot for a specific date. Set the visit type (survey, fitting, delivery), start time and duration. The assignment appears in that person's mobile app immediately — no call needed."
+  ],
+  [
+   "Allocate vehicles",
+   "Put a van with each team member for each day from the same board."
+  ],
+  [
+   "Block absences",
+   "Record holidays, sick days and training in the absence calendar. Absent team members show as blocked on the planning board — you can't accidentally book them in on a day they're off."
+  ],
+  [
+   "Team see their schedule on their phone",
+   "Bookings show in the field team's app — customer, address, visit type and time — without a call from the office."
+  ],
+  [
+   "Manage your people",
+   "The employees section tracks staff details, roles, certifications, and mobile app access. Monitor seat usage, manage who has access to which parts of the system, and view each person's upcoming schedule at a glance."
+  ]
+ ],
+ "included": [
+  [
+   "Visual planning board",
+   "Drag-and-drop schedule with all staff in one view. See the full week or two-week outlook at a glance."
+  ],
+  [
+   "Job assignment with time slots",
+   "Assign any order to any team member with specific start time and duration — survey, fitting or delivery."
+  ],
+  [
+   "On their phone",
+   "Bookings show in the team member's app, with a push notification when today's plan changes."
+  ],
+  [
+   "Vehicle allocation",
+   "Assign a vehicle to each team member per day from the planning board."
+  ],
+  [
+   "Holiday and absence management",
+   "Record holidays, sick days and training. Absences block the planner so you can't double-book unavailable staff."
+  ],
+  [
+   "Holiday chart",
+   "Visual overview of all staff absences for the coming weeks — plan your resourcing before gaps appear."
+  ],
+  [
+   "Employee management",
+   "Store staff details, roles, employee types, contact info and mobile app access in one place."
+  ],
+  [
+   "Employee credentials",
+   "Track driving licences, CSCS cards, accreditations and other certifications per team member."
+  ],
+  [
+   "Roles and permissions",
+   "Control who can see and do what. Starts with owner, office manager, estimator, surveyor, fitter and shop-floor roles, each adjustable."
+  ],
+  [
+   "Nearby jobs",
+   "After you book someone, Coglass suggests other ready jobs close to their route that day."
+  ],
+  [
+   "Assignment notes",
+   "Add notes to any slot — special access instructions, customer preferences, equipment needed."
+  ],
+  [
+   "Seat licence management",
+   "See desktop and mobile user counts versus your plan limits — manage who has access without overpaying."
+  ]
+ ],
+ "cta_h2": "Stop coordinating your team over WhatsApp",
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+}
