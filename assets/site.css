@@ -217,7 +217,9 @@ th{color:var(--navy);font-weight:700;background:var(--bg)}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
 .foot-grid h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8fb3c4;margin:0 0 10px}
 .foot-grid ul{list-style:none;margin:0;padding:0}
-.site-foot .logo{color:#fff}
+/* .site-foot a (display:inline-block; padding) outranks .logo, which dropped the flex row: icon and wordmark lost their gap and centring */
+.site-foot .logo{color:#fff;display:inline-flex;align-items:center;gap:10px;padding:0;min-height:44px}
+.site-foot .logo:hover{text-decoration:none}
 .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:20px;font-size:13.5px;color:#9fb8c5}
 @media (max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>div:first-child{grid-column:1/-1}}
 @media (max-width:600px){.site-foot a{padding:0;min-height:44px;display:inline-flex;align-items:center}}
