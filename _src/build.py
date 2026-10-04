@@ -21,13 +21,15 @@ sys.path.insert(0, SRC)
 from icons import ICON  # noqa: E402
 import pages  # noqa: E402
 
-SITE = 'https://coglass.co.uk'
+# The main international site. coglass.co.uk forwards page-for-page to it (nginx.conf).
+SITE = 'https://coglass.net'
 CONTACT = 'contact@coglass.co.uk'
 PHONE = '0121 517 0383'
 DEMO = '/signup.html'
 TRIAL = '/pricing/#plans'
 SIGN_IN = 'https://accounts.coglass.co.uk'
-ASSET_V = '3'
+ASSET_V = '4'
+PHONE_INTL = '+44 121 517 0383'
 e = html.escape
 
 LOGO_SVG = ('<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#123447"/>'
@@ -39,38 +41,63 @@ NAV = [('Features', '/#features'), ('For merchants', '/coglass-for-merchants.htm
        ('Pricing', '/pricing/'), ('Help', '/support/')]
 
 
-def header(current):
+def nav_for(country):
+    if not country:
+        return NAV
+    s = country['slug']
+    return [('Features', f'/{s}/#features'), ('For merchants', '/coglass-for-merchants.html'),
+            ('Mobile app', '/coglass-feature-mobile.html'),
+            ('Pricing', f'/{s}/pricing/'), ('FAQ', f'/{s}/faq/'), ('Help', '/support/')]
+
+
+def demo_href(country):
+    return f'{DEMO}?country={country["slug"]}' if country else DEMO
+
+
+def header(current, country=None):
     links = ''.join(
-        f'<a href="{href}"{" aria-current=page" if href == current else ""}>{e(t)}</a>' for t, href in NAV)
+        f'<a href="{href}"{" aria-current=page" if href == current else ""}>{e(t)}</a>' for t, href in nav_for(country))
+    home = f'/{country["slug"]}/' if country else '/'
+    cty = (f'<a class="cty" href="/#countries"><span class="sr-only">Country: </span>{e(country["short"])}'
+           f'<span class="sr-only"> (change country)</span></a>') if country else \
+          '<a class="cty" href="/#countries">Country</a>'
     return f'''<a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap">
-    <a class="logo" href="/" aria-label="Coglass home">{LOGO_SVG}<span>COGLASS</span></a>
+    <a class="logo" href="{home}" aria-label="Coglass home">{LOGO_SVG}<span>COGLASS</span></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
     <nav class="nav" id="site-nav" aria-label="Main">{links}</nav>
     <div class="head-ctas">
+      {cty}
       <a class="btn" href="{SIGN_IN}">Sign in</a>
-      <a class="btn pri" href="{DEMO}">Book a demo</a>
+      <a class="btn pri" href="{demo_href(country)}">Book a demo</a>
     </div>
   </div>
 </header>'''
 
 
-FOOTER = f'''<footer class="site-foot">
+def footer(country=None):
+    import countries as _cs
+    uk = (not country) or country['key'] == 'uk'
+    phone_txt, phone_tel = (PHONE, '01215170383') if uk else (PHONE_INTL, '+441215170383')
+    clinks = ' · '.join(f'<a href="/{k}/"{" aria-current=page" if country and country["key"] == k else ""}>{_cs.C[k]["name"]}</a>'
+                        for k in _cs.ORDER)
+    pricing = f'/{country["slug"]}/pricing/' if country else '/pricing/'
+    return f'''<footer class="site-foot">
   <div class="wrap">
     <div class="foot-grid">
       <div>
         <a class="logo" href="/" aria-label="Coglass home">{LOGO_SVG}<span>COGLASS</span></a>
-        <p style="margin:12px 0 0;max-width:340px">Software for UK glass and glazing companies — quotes, surveys, production, fitting and invoicing in one system.</p>
+        <p style="margin:12px 0 0;max-width:340px">Software for glass and glazing companies — quotes, surveys, production, fitting and invoicing in one system. Made in the UK.</p>
       </div>
       <div>
         <h2>Product</h2>
         <ul>
           <li><a href="/#features">All features</a></li>
-          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="{pricing}">Pricing</a></li>
           <li><a href="/coglass-feature-mobile.html">Mobile app</a></li>
           <li><a href="/coglass-feature-webshop.html">Webshop</a></li>
           <li><a href="/coglass-for-merchants.html">For glass merchants</a></li>
@@ -80,9 +107,9 @@ FOOTER = f'''<footer class="site-foot">
       <div>
         <h2>Get in touch</h2>
         <ul>
-          <li><a href="{DEMO}">Book a demo</a></li>
+          <li><a href="{demo_href(country)}">Book a demo</a></li>
           <li><a href="mailto:{CONTACT}">{CONTACT}</a></li>
-          <li><a href="tel:01215170383">{PHONE}</a></li>
+          <li><a href="tel:{phone_tel}">{phone_txt}</a></li>
           <li><a href="/support/">Help &amp; support</a></li>
           <li><a href="{SIGN_IN}">Sign in to your account</a></li>
         </ul>
@@ -97,25 +124,28 @@ FOOTER = f'''<footer class="site-foot">
         </ul>
       </div>
     </div>
+    <p class="countries"><span>Coglass in:</span> {clinks}. The UK site also covers the Isle of Man, Jersey, Guernsey and Gibraltar.</p>
     <div class="legal">Coglass is a product of Halliday Morrow Ltd, registered in England &amp; Wales, company no. 17358542 · VAT no. 526 4805 84 · Registered office: 39a The Riddings, Sutton Coldfield, England, B76 1RW. © 2026 Halliday Morrow Ltd.</div>
   </div>
 </footer>'''
 
 
-def layout(*, path, title, description, body, current=None, og_title=None, jsonld=None, scripts='', noindex=False):
+def layout(*, path, title, description, body, current=None, og_title=None, jsonld=None, scripts='', noindex=False,
+           lang='en-GB', og_locale='en_GB', alternates=None, country=None):
     url = SITE + path
+    alt = ''.join(f'<link rel="alternate" hreflang="{h}" href="{SITE}{p}">\n' for h, p in (alternates or []))
     og_t = og_title or title
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>\n' if jsonld else ''
     robots = '<meta name="robots" content="noindex">\n' if noindex else ''
     canonical = '' if noindex else f'<link rel="canonical" href="{url}">\n'
     return f'''<!doctype html>
-<html lang="en-GB" class="no-js">
+<html lang="{lang}" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(description)}">
-{robots}{canonical}<meta property="og:type" content="website">
+{robots}{canonical}{alt}<meta property="og:type" content="website">
 <meta property="og:site_name" content="Coglass">
 <meta property="og:title" content="{e(og_t)}">
 <meta property="og:description" content="{e(description)}">
@@ -123,7 +153,7 @@ def layout(*, path, title, description, body, current=None, og_title=None, jsonl
 <meta property="og:image" content="{SITE}/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="en_GB">
+<meta property="og:locale" content="{og_locale}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(og_t)}">
 <meta name="twitter:description" content="{e(description)}">
@@ -138,11 +168,12 @@ def layout(*, path, title, description, body, current=None, og_title=None, jsonl
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">
 {ld}</head>
 <body>
-{header(current)}
+{header(current, country)}
+<div class="suggest" id="cty-suggest" data-current="{country['key'] if country else ''}" hidden></div>
 <main id="main">
 {body}
 </main>
-{FOOTER}
+{footer(country)}
 <script src="/assets/site.js?v={ASSET_V}" defer></script>
 {scripts}</body>
 </html>
@@ -335,7 +366,8 @@ def write(rel, content):
 
 def main():
     ctx = dict(big_phone=big_phone, layout=layout, e=e, trust=trust, shot=shot, cta_band=cta_band, phone=phone, panel=panel, IMG=IMG,
-               ICON=ICON, DEMO=DEMO, TRIAL=TRIAL, SIGN_IN=SIGN_IN, CONTACT=CONTACT, PHONE=PHONE, SITE=SITE)
+               ICON=ICON, DEMO=DEMO, TRIAL=TRIAL, SIGN_IN=SIGN_IN, CONTACT=CONTACT, PHONE=PHONE, PHONE_INTL=PHONE_INTL, SITE=SITE,
+               demo_href=demo_href)
     cdir = os.path.join(SRC, 'content')
     for f in sorted(os.listdir(cdir)):
         slug = f[:-5]

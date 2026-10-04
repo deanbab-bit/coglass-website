@@ -22,3 +22,8 @@ under `_src/` and re-run `python3 _src/build.py`.
 | D13 | **Support address** — the brand mockup shows support@coglass.co.uk; every page and the legal documents use contact@coglass.co.uk. | contact@coglass.co.uk everywhere. | footer, legal |
 | D14 | **Testimonials** — the approved mockup had a placeholder quote. No real testimonial exists, so none is shown. | None. | home |
 | D15 | **WhatsApp / Messenger launch.** | "Coming soon — waiting on Meta's approval." | communication, home, FAQ, privacy |
+| D16 | **Country launch switch.** Non-UK plan buttons say "Book a demo" because accounts.coglass.co.uk only bills in GBP. | Per-country `SUBSCRIBE` flag at the top of `_src/countries.py`; flip to True when Stripe prices exist in that currency, rebuild. Subscribe links then carry `&country=<slug>`. | `_src/countries.py` |
+| D17 | **IE / MT customers without a VAT number** — DECIDED 2026-10-04: they can buy from launch (Ireland non-Union OSS registration submitted). | Valid VAT number → reverse charge, no VAT added; no VAT number → Irish VAT 23% / Maltese VAT 18% added at checkout. | /ie/pricing/, /mt/pricing/ |
+| D18 | **Botswana prices** — converted at the Bank of Botswana rate for 2 Oct 2026 (BWP 1 = GBP 0.0563): P1,579 / P3,539 / P7,089, inbox P135. Confirm. | Published. | `_src/countries.py` |
+| D19 | **Crown Dependencies / Gibraltar VAT wording** (IoM = UK VAT; JE/GG/GI = no UK VAT) — accountant to confirm. | Table on /uk/pricing/#crown. | `_src/countries.py` |
+| D20 | **WhatsApp live?** One flag, `WHATSAPP_LIVE`, switches every country page from "coming soon" to live wording. | Coming soon. | `_src/countries.py` |

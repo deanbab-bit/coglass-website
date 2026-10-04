@@ -3,4 +3,4 @@ Allow: /
 Disallow: /_src/
 Disallow: /og-image.html
 
-Sitemap: https://coglass.co.uk/sitemap.xml
+Sitemap: https://coglass.net/sitemap.xml

@@ -44,9 +44,10 @@ p{margin:0 0 1em}
 .logo svg{width:34px;height:34px;flex-shrink:0}
 .logo span{font-family:'Raleway',var(--font);font-weight:700;font-size:19px;letter-spacing:.12em}
 .nav{display:flex;align-items:center;gap:6px;flex:1}
-.nav a{color:var(--ink2);font-weight:600;font-size:15px;text-decoration:none;padding:10px 10px;border-radius:8px}
+.nav a{color:var(--ink2);font-weight:600;font-size:15px;text-decoration:none;padding:10px 10px;border-radius:8px;white-space:nowrap}
 .nav a:hover,.nav a[aria-current=page]{color:var(--navy);background:var(--bg)}
 .head-ctas{display:flex;gap:10px;align-items:center}
+.head-ctas .btn{white-space:nowrap}
 .menu-btn{display:none;margin-left:auto;width:46px;height:46px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;align-items:center;justify-content:center}
 .menu-btn svg{width:22px;height:22px;stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round}
 .menu-btn .x{display:none}
@@ -229,3 +230,31 @@ th{color:var(--navy);font-weight:700;background:var(--bg)}
 .related{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
 .related a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-weight:600;color:var(--ink2);background:#fff}
 .related a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- countries ---------- */
+.cty{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:999px;font-weight:700;font-size:14px;color:var(--ink2);text-decoration:none;border:1px solid var(--line);background:var(--bg);white-space:nowrap}
+.cty:hover{color:var(--navy);border-color:#c7d2d9}
+.suggest{background:var(--tint);border-bottom:1px solid #c9e3ec;font-size:15px;color:var(--ink2)}
+.suggest[hidden]{display:none}
+.suggest .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding-top:10px;padding-bottom:10px}
+.suggest p{margin:0;flex:1 1 260px}
+.suggest a.btn{min-height:44px;padding:0 16px;font-size:14.5px}
+.suggest button{min-height:44px;min-width:44px;border:0;background:transparent;color:var(--ink2);font:600 14.5px var(--font);cursor:pointer;border-radius:8px;padding:0 10px}
+.suggest button:hover{background:rgba(255,255,255,.6)}
+.cgrid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.ccard{display:flex;flex-direction:column;gap:4px;height:100%;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;background:#fff;text-decoration:none;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.ccard:hover{border-color:var(--accent);box-shadow:var(--shadow);color:var(--ink)}
+.ccard .code{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);background:var(--tint);border-radius:6px;padding:2px 8px}
+.ccard .nm{font-size:18px;font-weight:800;color:var(--navy);margin-top:6px}
+.ccard .sub{font-size:13.5px;color:var(--muted)}
+.ccard .pr{font-size:14.5px;color:var(--ink2);margin-top:auto;padding-top:6px}
+.ccard.is-suggested{border:2px solid var(--accent)}
+.tiles.why{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.tiles.why .tile h3{margin-top:0}
+.other-cty a{display:inline-block;padding:6px 0}
+.site-foot .countries{border-top:1px solid rgba(255,255,255,.12);margin:30px 0 0;padding-top:18px;font-size:14px;color:#9fb8c5}
+.site-foot .countries span{color:#8fb3c4;font-weight:700}
+.field select{width:100%;min-height:48px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font:16px var(--font);background:#fff;color:var(--ink)}
+.field select:focus{outline:3px solid var(--sky);outline-offset:1px;border-color:var(--accent)}
+@media (max-width:960px){.site-head.open .head-ctas .cty{justify-content:center}}
+@media (min-width:961px) and (max-width:1180px){.site-head .wrap{gap:14px}.nav a{padding:10px 7px;font-size:14.5px}.head-ctas .cty{display:none}}

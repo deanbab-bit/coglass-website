@@ -24,6 +24,20 @@
   var errorEl = document.getElementById('lead-error');
   var turnstileToken = '';
 
+  // Country: from ?country= (country-section CTAs pass it), else the visitor's earlier pick or
+  // browser guess (site.js), else left for them to choose. Sent to HQ as `country` (ISO code)
+  // and also written at the top of the message, so it reaches HQ even if /api/leads ignores
+  // unknown fields. ?plan= (plan buttons) is passed on the same way.
+  var CODES = { uk: 'GB', ie: 'IE', au: 'AU', nz: 'NZ', za: 'ZA', na: 'NA', bw: 'BW', mt: 'MT', other: '' };
+  var params = new URLSearchParams(window.location.search);
+  var countrySel = document.getElementById('lead-country');
+  var plan = (params.get('plan') || '').replace(/[^a-z]/g, '').slice(0, 20);
+  if (countrySel) {
+    var pre = (params.get('country') || '').toLowerCase();
+    if (!(pre in CODES) && window.coglassGuessCountry) pre = window.coglassGuessCountry() || '';
+    if (pre in CODES) countrySel.value = pre;
+  }
+
   if (TURNSTILE_SITE_KEY) {
     window.coglassTurnstileOk = function (t) { turnstileToken = t; };
     var slot = document.getElementById('turnstile-slot');
@@ -56,12 +70,17 @@
     if (honeypot || Date.now() - startedAt < MIN_FILL_MS) { showSuccess(); return; }
     if (TURNSTILE_SITE_KEY && !turnstileToken) { showError('Please complete the check above the button.'); return; }
 
+    var cKey = countrySel ? countrySel.value : '';
+    var cName = countrySel && countrySel.selectedIndex > 0 ? countrySel.options[countrySel.selectedIndex].text : '';
+    var tags = (cName ? '[Country: ' + cName + '] ' : '') + (plan ? '[Plan: ' + plan + '] ' : '');
     var body = {
       company: val('lead-company'),
       name: val('lead-name'),
       email: val('lead-email'),
       phone: val('lead-phone'),
-      message: val('lead-message'),
+      message: (tags + val('lead-message')).trim(),
+      country: CODES[cKey] || cKey,
+      plan: plan,
       website: honeypot,
     };
     if (TURNSTILE_SITE_KEY) body.turnstileToken = turnstileToken;
