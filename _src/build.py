@@ -230,7 +230,7 @@ IMG = {
     'production': ('/assets/img/production.webp', 'The production board with lanes from To plan to Made', 1600, 867),
     'orders': ('/assets/img/orders.webp', 'The Orders list with status, job type and amount owed for each job', 1600, 867),
     'bench': ('/assets/img/bench-drawing.webp', 'An arched double-glazed unit on the work bench, drawn with Georgian bars and two drilled holes', 1400, 638),
-    'vehicles': ('/assets/img/vehicles.webp', 'The vehicles list with MOT due dates', 1400, 245),
+    'vehicles': ('/assets/img/vehicles.webp', 'The vehicles list with vehicle test due dates', 1400, 245),
     'quote': ('/assets/img/quote-pdf.webp', 'A quotation PDF with the arched unit drawn on its line', 900, 855),
     'invoice': ('/assets/img/invoice-pdf.webp', 'An invoice PDF with totals and balance due', 900, 643),
     'ipad-planner': ('/assets/img/ipad-planner.webp', 'The Coglass planner open in a browser at iPad size: a day of fittings, surveys and a delivery across three people', 1600, 1112),

@@ -35,7 +35,7 @@
   ],
   [
    "Get paid",
-   "Deposits, proformas, UK VAT and account invoicing, synced to Xero, with overdue invoices flagged automatically."
+   "Deposits, proformas, VAT or GST and account invoicing, synced to Xero, with overdue invoices flagged automatically."
   ]
  ],
  "included": [
@@ -81,7 +81,7 @@
   ],
   [
    "Invoicing, deposits & Xero",
-   "Proformas, UK VAT, account terms and overdue flagging, synced to Xero."
+   "Proformas, VAT or GST, account terms and overdue flagging, synced to Xero."
   ],
   [
    "One live system",

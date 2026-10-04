@@ -1,11 +1,11 @@
 {
  "file": "coglass-feature-fleet.html",
- "title": "Glazing Fleet Management Software | Track Vans and MOTs | Coglass",
- "description": "Track your glazing vans, MOT dates and daily vehicle assignments from one place. Coglass fleet management keeps your vehicles compliant and your team moving.",
+ "title": "Glazing Fleet Management Software | Track Vans and Vehicle Tests | Coglass",
+ "description": "Track your glazing vans, MOT or roadworthiness test dates and daily vehicle assignments from one place. Coglass fleet management keeps your vehicles compliant and your team moving.",
  "eyebrow": "Feature — Fleet Management",
  "h1": "Your whole fleet,",
  "h1_accent": "under control",
- "lead": "Assign vans to your team each day, track MOT dates and keep the paperwork with the vehicle. No missed MOT taking a van off the road.",
+ "lead": "Assign vans to your team each day, track MOT or roadworthiness test dates (NCT, WoF, rego and more) and keep the paperwork with the vehicle. No missed test taking a van off the road.",
  "steps_label": "How it works",
  "steps_h2": "Fleet management without a separate system",
  "steps_sub": "Everything you need to keep your vehicles compliant and your team mobile — built into the same system you use for jobs.",
@@ -15,49 +15,49 @@
  "steps": [
   [
    "Add your vehicles",
-   "Add each van with its name (e.g. \"Van 1\"), registration plate, make, model and MOT due date. Coglass uses this to track compliance and send you reminders before the MOT expires."
+   "Add each van with its name (e.g. \"Van 1\"), registration plate, make, model and the date its MOT or roadworthiness test is due. Coglass uses this to track compliance and send you reminders before it expires."
   ],
   [
    "Upload documents",
-   "Store MOT certificates and any other vehicle paperwork in Coglass against the vehicle record."
+   "Store test certificates and any other vehicle paperwork in Coglass against the vehicle record."
   ],
   [
    "Assign vehicles daily",
    "From the planning board, put a van with each team member for the day. Staff can also pick their vehicle for the day from their phone."
   ],
   [
-   "Get MOT reminders",
-   "Coglass alerts you when a vehicle's MOT is approaching — configurable days in advance. No vehicle goes overdue because it was forgotten among the noise of running a busy glazing business."
+   "Get vehicle test reminders",
+   "Coglass alerts you when a vehicle's MOT or roadworthiness test is approaching — configurable days in advance. No vehicle goes overdue because it was forgotten among the noise of running a busy glazing business."
   ],
   [
    "Track assignment history",
    "Every vehicle assignment is logged — who drove which vehicle on which date. Full history available for insurance queries, incident investigations or simply checking what's been used most."
   ],
   [
-   "Log each MOT",
-   "When a vehicle passes its MOT, record the date it was done and the next due date, and attach the certificate. The new due date is what the reminders then count down to."
+   "Log each test",
+   "When a vehicle passes its test, record the date it was done and the next due date, and attach the certificate. The new due date is what the reminders then count down to."
   ]
  ],
  "included": [
   [
    "Vehicle database",
-   "Store all vehicles with name, registration, make, model and MOT date in one searchable list."
+   "Store all vehicles with name, registration, make, model and test due date in one searchable list."
   ],
   [
-   "MOT date tracking",
-   "MOT due dates visible at a glance. Vehicles flagged as OK, Due Soon or Overdue — colour coded for clarity."
+   "Test date tracking",
+   "Test due dates visible at a glance. Vehicles flagged as OK, Due Soon or Overdue — colour coded for clarity."
   ],
   [
-   "MOT reminders",
-   "Automatic alerts sent before MOT expiry — configurable advance warning so you always have time to book."
+   "Test reminders",
+   "Automatic alerts sent before the test expires — configurable advance warning so you always have time to book."
   ],
   [
    "Document storage",
-   "Upload MOT certificates and other paperwork against each vehicle."
+   "Upload test certificates and other paperwork against each vehicle."
   ],
   [
-   "MOT history",
-   "Full record of past MOTs for each vehicle — useful for insurance, resale value and maintenance planning."
+   "Test history",
+   "Full record of past tests for each vehicle — useful for insurance, resale value and maintenance planning."
   ],
   [
    "Daily driver assignment",
