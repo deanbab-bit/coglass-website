@@ -304,7 +304,7 @@ def feature_page(slug, d):
     eyebrow = d['eyebrow'].replace('Feature — ', '')
     h1 = e(d['h1']) + (f' <span style="color:var(--accent)">{e(d["h1_accent"])}</span>' if d['h1_accent'] else '')
     if slug == 'coglass-feature-mobile':
-        ctas = ('<a class="btn acc lg" href="https://apps.apple.com/gb/app/coglass-glass-glazing-crm/id6761371345" rel="noopener">Download for iPhone &amp; iPad</a>'
+        ctas = ('<a class="btn acc lg" href="https://apps.apple.com/app/coglass-glass-glazing-crm/id6761371345" rel="noopener">Download for iPhone &amp; iPad</a>'
                 '<a class="btn lg" href="https://play.google.com/store/apps/details?id=com.coglass.app" rel="noopener">Get it on Google Play</a>')
         note = '<p class="fine">The app is for staff of companies that use Coglass — you sign in with the login your company gives you.</p>'
     else:
