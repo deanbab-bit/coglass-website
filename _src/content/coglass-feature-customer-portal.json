@@ -1,0 +1,85 @@
+{
+ "file": "coglass-feature-customer-portal.html",
+ "title": "Customer Portal for Glaziers | Homeowner & Trade Logins | Coglass",
+ "description": "A branded customer portal for your homeowners and trade accounts: next appointment, quotes to approve, deposits and invoices to pay online, sites, statements and supply orders.",
+ "eyebrow": "Feature — Customer Portal",
+ "h1": "Your customers can see their jobs",
+ "h1_accent": "without ringing the office",
+ "lead": "Give homeowners and trade customers their own login, in your colours and with your logo. Homeowners see their next visit, approve quotes and pay the deposit. Trade customers get their sites, a statement and supply-only ordering at their own prices.",
+ "steps_label": "How it works",
+ "steps_h2": "One portal, set up for each kind of customer",
+ "steps_sub": "Homeowner or trade is chosen per customer — or left to Coglass, which goes by the customer type.",
+ "steps": [
+  [
+   "Invite the customer",
+   "Send a portal invite from the customer record. They set their own password."
+  ],
+  [
+   "They see their jobs",
+   "Every job with its status, the quotes waiting for them and the invoices they owe."
+  ],
+  [
+   "They act on them",
+   "Approve or decline a quote, pay a deposit or an invoice by card, and send the office a message on the job."
+  ],
+  [
+   "Trade accounts go further",
+   "Sites, colleagues with their own logins, a statement, and supply-only orders for glass and sealed units."
+  ]
+ ],
+ "inc_label": "What's included",
+ "inc_h2": "What your customers can do in the portal",
+ "inc_sub": "Branded with your logo and colour, on phone or computer.",
+ "included": [
+  [
+   "Next appointment",
+   "The date, arrival window, the crew's first names and the address — with buttons to add it to Apple, Google or Outlook calendars."
+  ],
+  [
+   "Tracking on the day",
+   "On the day of the visit, a \"Track your team\" button opens the live tracking page."
+  ],
+  [
+   "Pick your dates",
+   "When the office asks for availability, the customer picks the days that suit them in the portal."
+  ],
+  [
+   "Approve or decline quotes",
+   "Accept or decline online. Trade accounts can set who may approve and send a quote to a colleague for approval."
+  ],
+  [
+   "Pay the deposit",
+   "Pay a deposit by card straight from the quote, through your own Stripe account."
+  ],
+  [
+   "Pay invoices",
+   "See invoices and pay them by card, through the same checkout as the invoice link."
+  ],
+  [
+   "Messages on the job",
+   "Customers message the office about a job; the office replies from the order."
+  ],
+  [
+   "Trade: sites",
+   "Keep each site or property separate, with its own jobs."
+  ],
+  [
+   "Trade: team logins",
+   "Invite colleagues with their own logins and roles — admin, approver, requester, accounts."
+  ],
+  [
+   "Trade: statement",
+   "A running balance with ageing and the credit limit, and a PDF statement to download."
+  ],
+  [
+   "Trade: supply-only orders",
+   "Order glass and sealed units at their own agreed prices, for delivery or collection, on account or by card."
+  ],
+  [
+   "Your branding",
+   "Your logo and colour on every portal page, including the sign-in and password pages."
+  ]
+ ],
+ "cta_h2": "Fewer \"where are we up to?\" calls",
+ "cta_p": "Book a demo and we will show you the portal from your customer's side — or pick a plan and start a 14-day trial."
+}

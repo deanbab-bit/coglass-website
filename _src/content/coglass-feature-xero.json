@@ -1,0 +1,65 @@
+{
+ "file": "coglass-feature-xero.html",
+ "title": "Glazing Software with Xero | Invoices, Payments & Supplier Bills | Coglass",
+ "description": "Coglass pushes invoices, payments and supplier bills to Xero, coded to the sales accounts, bank account and VAT or GST rates you choose from your own Xero organisation.",
+ "eyebrow": "Feature — Xero",
+ "h1": "Invoices, payments and bills",
+ "h1_accent": "into Xero, coded properly",
+ "lead": "Connect your Xero organisation once. Invoices go to Xero when you send them, payments you record in Coglass follow, and supplier bills go in as bills — each coded to the accounts and tax rates you pick from your own Xero.",
+ "steps_label": "How it works",
+ "steps_h2": "Set it up once, then forget about it",
+ "steps_sub": "Mapping uses your real Xero accounts and tax rates, read from your organisation.",
+ "steps": [
+  [
+   "Connect Xero",
+   "Sign in to Xero from Settings and pick your organisation."
+  ],
+  [
+   "Map your accounts",
+   "Choose the sales account, the bank account for payments, the expense account for supplier bills and the tax rate for each VAT or GST rate."
+  ],
+  [
+   "Send invoices as normal",
+   "An invoice goes to Xero when it is sent; the customer is created as a Xero contact the first time."
+  ],
+  [
+   "Record payments",
+   "Payments recorded in Coglass are added to the invoice in Xero, against the bank account you chose."
+  ]
+ ],
+ "inc_label": "What's included",
+ "inc_h2": "What goes to Xero",
+ "inc_sub": "No exporting spreadsheets, no typing invoices twice.",
+ "included": [
+  [
+   "Invoices",
+   "Deposit and final invoices, with line amounts and tax."
+  ],
+  [
+   "Payments",
+   "Recorded against the invoice in Xero, into the bank account you map."
+  ],
+  [
+   "Supplier bills",
+   "Supplier invoices go in as Xero bills, with purchase tax coded separately from sales."
+  ],
+  [
+   "Sales account mapping",
+   "One sales account, or different ones per job type or product category."
+  ],
+  [
+   "Tax rate mapping",
+   "Each of your sales and purchase rates mapped to the matching Xero tax rate."
+  ],
+  [
+   "Contacts",
+   "Customers are created in Xero the first time they are invoiced, and you can import your Xero contacts into Coglass."
+  ],
+  [
+   "No duplicates",
+   "Each invoice is pushed once and remembered, so re-sending does not create a second copy."
+  ]
+ ],
+ "cta_h2": "Let Xero keep up with the job",
+ "cta_p": "Book a demo and we will connect a Xero demo company — or pick a plan and start a 14-day trial."
+}

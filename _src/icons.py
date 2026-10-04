@@ -23,5 +23,9 @@ ICON = {
     'counter': _i('<path d="M4 13h22v12H4z"/><path d="M6 13l3-7h12l3 7M12 19h6"/>'),
     'merchant': _i('<path d="M4 25V11l11-6 11 6v14"/><path d="M9 25v-8h12v8M9 21h12"/>'),
     'glazier': _i('<path d="M5 25V8h20v17"/><path d="M15 8v17M5 16h20"/><path d="M3 25h24"/>'),
+    'scan': _i('<path d="M4 9V5h4M22 5h4v4M26 21v4h-4M8 25H4v-4"/><path d="M9 11h12M9 15h12M9 19h7"/>'),
+    'portal': _i('<rect x="4" y="5" width="22" height="20" rx="2"/><path d="M4 10h22"/><circle cx="15" cy="16" r="2.6"/><path d="M10.5 22.5a4.5 4.5 0 0 1 9 0"/>'),
+    'track': _i('<path d="M15 26s-8-7.2-8-13a8 8 0 0 1 16 0c0 5.8-8 13-8 13z"/><circle cx="15" cy="13" r="3"/>'),
+    'label': _i('<path d="M4 8h22v14H4z"/><path d="M8 12v6M11 12v6M13 12v6M16 12v6M20 12v6M22 12v6"/>'),
     'processor': _i('<circle cx="15" cy="15" r="9"/><circle cx="15" cy="15" r="3"/><path d="M15 3v3M15 24v3M3 15h3M24 15h3"/>'),
 }

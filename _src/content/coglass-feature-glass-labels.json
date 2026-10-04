@@ -1,0 +1,69 @@
+{
+ "file": "coglass-feature-glass-labels.html",
+ "title": "Glass Labels with Barcodes | Pane Labels for Glaziers & Processors | Coglass",
+ "description": "Print a barcode label for every pane — job number, customer, site, opening, size and make-up — and scan glass in at goods-in so the job shows ready for fitting.",
+ "eyebrow": "Feature — Glass Labels",
+ "h1": "A label on every pane,",
+ "h1_accent": "scanned in at goods-in",
+ "lead": "Print a label for each pane with the job number, customer, site, the opening it's for and its size. When glass arrives, scan the labels in — and once every pane on a job is in, the job shows as glass ready so the office can book the fitting.",
+ "steps_label": "How it works",
+ "steps_h2": "From the supplier's delivery to ready for fitting",
+ "steps_sub": "Labels and scanning work on any job with glass on it.",
+ "steps": [
+  [
+   "Print the labels",
+   "One label per pane, printed from the job on a label roll printer."
+  ],
+  [
+   "Stick them on the glass",
+   "Each label says which job, which opening and which size — \"pane 2 of 4, KITCHEN LEFT\"."
+  ],
+  [
+   "Scan at goods-in",
+   "Scan each label as the delivery comes in — with the shop-floor app's camera, a barcode scanner, or the scan box in the office."
+  ],
+  [
+   "Job ready for fitting",
+   "When the last pane on a job is in, the job moves to glass ready and your \"order ready\" automations run."
+  ]
+ ],
+ "inc_label": "What's included",
+ "inc_h2": "What goes on the label",
+ "inc_sub": "A clear, high-contrast design for 100 × 50 mm rolls, with a classic layout too.",
+ "included": [
+  [
+   "Job number and customer",
+   "So the right glass goes on the right van."
+  ],
+  [
+   "Site and opening",
+   "The location from the survey in capitals — \"FRONT BEDROOM LEFT\"."
+  ],
+  [
+   "Pane n of N",
+   "Know at a glance whether the whole job is there."
+  ],
+  [
+   "Size and make-up",
+   "Width × height in mm, the glass make-up and any processes."
+  ],
+  [
+   "Barcode",
+   "Scanned with the shop-floor app's camera or a barcode scanner."
+  ],
+  [
+   "Your company name",
+   "A company strip across the top of the label."
+  ],
+  [
+   "Receipt by scan",
+   "Scanning a label marks that pane as received against the supplier order."
+  ],
+  [
+   "Automations on scan",
+   "Text the customer, add a to-do or notify the office when glass is in."
+  ]
+ ],
+ "cta_h2": "Know which pane is which",
+ "cta_p": "Book a demo and we will print a label from one of your jobs — or pick a plan and start a 14-day trial."
+}

@@ -11,7 +11,7 @@
  "steps_sub": "The webshop handles the order, the payment and the confirmation. Your team just sees a new order waiting to be processed.",
  "inc_label": "What's included",
  "inc_h2": "A complete glass ordering portal — ready to launch",
- "inc_sub": "No web developer needed. Configure your webshop in Coglass settings and start taking orders the same day.",
+ "inc_sub": "Included on every plan — no add-on, no extra fee. No web developer needed: configure your webshop in Coglass settings and start taking orders the same day.",
  "steps": [
   [
    "Customer visits your shop",
@@ -65,7 +65,7 @@
   ],
   [
    "Trade discount pricing",
-   "Logged-in trade customers automatically see their agreed discount applied at checkout — no manual adjustments needed."
+   "Logged-in trade customers see their own price list — the same one their quotes use — with the price updating as they type their sizes."
   ],
   [
    "Delivery fee configuration",

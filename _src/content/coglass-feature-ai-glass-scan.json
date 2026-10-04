@@ -1,0 +1,77 @@
+{
+ "file": "coglass-feature-ai-glass-scan.html",
+ "title": "AI Glass Scan | Turn Customer Emails into Priced Glass Orders | Coglass",
+ "description": "Coglass reads the glass sizes out of a customer's email or message, matches them to your products and prices, and adds them to a new or existing order for you to check.",
+ "eyebrow": "Feature — AI Glass Scan",
+ "h1": "Sizes in the email,",
+ "h1_accent": "priced lines on the order",
+ "lead": "A customer emails \"two panes 1200 x 900 and one 600 x 400, toughened\". Press Scan and Coglass reads the sizes, matches each pane to a product in your catalogue at your price, and shows you the lines to check before they go on the order. No retyping.",
+ "steps_label": "How it works",
+ "steps_h2": "From an enquiry to a priced order in a few clicks",
+ "steps_sub": "The scan works on the message text in your Coglass inbox and on the messages kept against a job.",
+ "steps": [
+  [
+   "Open the enquiry",
+   "A customer email lands in the Coglass inbox, or a message arrives on a job from the chat on your quote or tracking page."
+  ],
+  [
+   "Scan it for glass",
+   "Press Scan. The AI picks out each pane — quantity, width, height and the type of glass described."
+  ],
+  [
+   "Check the matches",
+   "Each pane is matched to a product in your catalogue and shown with its selling price. Anything it can't match waits for you to pick the product."
+  ],
+  [
+   "Add to an order",
+   "Create a new order from the message, or add the lines to one you already have. Several jobs in one message can be grouped separately."
+  ]
+ ],
+ "inc_label": "What's included",
+ "inc_h2": "Built for the way glass enquiries arrive",
+ "inc_sub": "Plain-English emails with sizes in any order — the scan does the reading, you stay in charge of what goes on the job.",
+ "included": [
+  [
+   "Reads the message text",
+   "Quantities, widths, heights and glass descriptions picked out of the email or message text."
+  ],
+  [
+   "Matched to your catalogue",
+   "Each pane is matched to one of your own products, priced from your catalogue."
+  ],
+  [
+   "You check before it's added",
+   "Nothing goes on an order until you've looked at the lines; unmatched panes wait for you."
+  ],
+  [
+   "New or existing order",
+   "Start a new order from the message, or add the panes to a job you already have."
+  ],
+  [
+   "More than one job in a message",
+   "When a message describes panes for different places, they are grouped so you can keep them apart."
+  ],
+  [
+   "Personal details stripped",
+   "Email addresses, phone numbers and postcodes are removed from the text before it is sent to the AI."
+  ],
+  [
+   "Email inbox",
+   "Works on emails in your connected Gmail, Outlook or other mailbox."
+  ],
+  [
+   "Messages on the job",
+   "Also works on customer messages kept against an order, like the chat on your quote and tracking pages."
+  ],
+  [
+   "WhatsApp and Messenger — coming soon",
+   "Scanning WhatsApp and Messenger enquiries switches on with those channels, once Meta has approved them."
+  ],
+  [
+   "On every plan",
+   "AI glass scans are included on every plan."
+  ]
+ ],
+ "cta_h2": "Stop retyping sizes from emails",
+ "cta_p": "Book a demo and we will scan one of your own enquiries — or pick a plan and start a 14-day trial."
+}
