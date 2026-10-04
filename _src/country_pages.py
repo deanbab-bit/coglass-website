@@ -221,7 +221,7 @@ def country_home(ctx, c):
 </section>
 <section class="sect alt">
   <div class="wrap">
-    <div class="sect-head"><span class="kicker">Pricing in {e(c['in_name'])}</span><h2>Simple monthly plans in {e(c['currency'])}</h2><p>Every plan includes the web app, the phone app for fitters and the shop-floor iPad app. Prices exclude {e(c['tax'])}. No setup fee, no minimum term.</p></div>
+    <div class="sect-head"><span class="kicker">Pricing in {e(c['in_name'])}</span><h2>Simple monthly plans in {e(c['currency'])}</h2><p>Every plan includes the web app, the phone app for fitters and the shop-floor iPad app. {e(c['price_basis'])} No setup fee, no minimum term.</p></div>
     <div class="plans">{plans_html(ctx, c, full=False)}</div>
   </div>
 </section>
@@ -257,9 +257,15 @@ def country_pricing(ctx, c):
     tax = ''.join(f'<p>{e(t)}</p>' for t in c['tax_notes'])
     crown = ''
     if c.get('crown'):
-        rows = ''.join(f'<tr><th scope="row">{e(n)}</th><td>{e(t)}</td></tr>' for n, t in c['crown'])
+        # Each place gets its own sign-up link so the accounts site pre-selects it (country decides the tax rule);
+        # without it the buyer lands on the UK default and has to change the dropdown themselves.
+        sub = c['subscribe']
+        the = lambda n: ('the ' if n == 'Isle of Man' else '') + n
+        rows = ''.join(f'<tr><th scope="row">{e(n)}</th><td>{e(t)}'
+                       + (f'<br><a href="{SIGNUP_URL}?country={cc}">Start a trial in {e(the(n))}</a>' if sub else '')
+                       + '</td></tr>' for n, cc, t in c['crown'])
         crown = f'''<h2 id="crown">Isle of Man, Jersey, Guernsey and Gibraltar</h2>
-    <p>Businesses in the Crown Dependencies and Gibraltar use the UK site and pay the UK prices in pounds.</p>
+    <p>Businesses in the Crown Dependencies and Gibraltar use the UK site and pay the UK prices in pounds.{' Start your trial from the link for your island or Gibraltar, so the right tax is applied.' if sub else ''}</p>
     <div class="table-wrap"><table>
       <tr><th scope="col">Where</th><th scope="col">VAT on your Coglass subscription</th></tr>
       {rows}
@@ -267,7 +273,7 @@ def country_pricing(ctx, c):
     <p class="fine">This is how we bill you, not tax advice for your own business.</p>'''
     sms = f'<p class="fine">{e(c["sms_note"])}</p>' if c.get('sms_note') else ''
     tz = f'<p>{e(c["support"])}</p>'
-    body = f'''<section class="page-head"><div class="wrap"><h1>Coglass pricing in {e(c['in_name'])}</h1><p>Everything in Coglass on every plan, priced in {e(c['currency'])} by the size of your team. Prices exclude {e(c['tax'])}. Last updated: October 2026.</p></div></section>
+    body = f'''<section class="page-head"><div class="wrap"><h1>Coglass pricing in {e(c['in_name'])}</h1><p>Everything in Coglass on every plan, priced in {e(c['currency'])} by the size of your team. {e(c['price_basis'])} Last updated: October 2026.</p></div></section>
 <section class="sect" style="padding-top:44px">
   <div class="wrap">
     <p style="max-width:780px;color:var(--ink2)">All plans include the full system — orders and quoting, surveys, the work bench, production, supplier orders, scheduling, invoicing, the phone app for fitters, the shop-floor iPad app and the customer portal. Plans differ by how many people use Coglass and how much you put through it, not by which features you get.</p>
@@ -283,7 +289,7 @@ def country_pricing(ctx, c):
     <p>Need more than your plan includes? Email <a href="mailto:{CONTACT}">{CONTACT}</a> and we'll add it to your subscription — you can't yet buy extras yourself from your account.</p>
     <div class="table-wrap"><table>
       <tr><th scope="col">Extra</th><th scope="col">Price</th></tr>
-      <tr><td>Additional shared email inbox</td><td>{c['inbox']} a month + {e(c['tax'])}</td></tr>
+      <tr><td>Additional shared email inbox</td><td>{c['inbox']} a month{e(c['price_tax'])}</td></tr>
       <tr><td>Additional office login (comes with its own inbox)</td><td>Ask us</td></tr>
       <tr><td>Additional fitter on the phone app</td><td>Ask us</td></tr>
       <tr><td>More SMS credit</td><td>Ask us — bought in advance, never billed in arrears</td></tr>
@@ -314,9 +320,9 @@ def country_pricing(ctx, c):
     url = site + cpath(c, 'pricing')
     jsonld = {'@context': 'https://schema.org', '@graph': [org(site), software(site, url, offers(site, c))]}
     low = c['prices']['starter']
-    desc = (f'Coglass plans in {c["in_name"]} from {low} a month + {c["tax"]}, every feature on every plan. '
+    desc = (f'Coglass plans in {c["in_name"]} from {low} a month{c["price_tax"]}, every feature on every plan. '
             f'Billed monthly in {c["currency"]}, no setup fee, no minimum term.')
-    return ctx['layout'](path=cpath(c, 'pricing'), title=f'Pricing in {c["in_name"]} | Coglass glazing software — from {low}/month + {c["tax"]}',
+    return ctx['layout'](path=cpath(c, 'pricing'), title=f'Pricing in {c["in_name"]} | Coglass glazing software — from {low}/month{c["price_tax"]}',
                          description=desc, body=body, current=cpath(c, 'pricing'), og_title=f'Coglass pricing — {c["name"]}',
                          jsonld=jsonld, lang=c['lang'], og_locale=c['og_locale'], alternates=alternates('pricing'), country=c)
 
@@ -350,7 +356,7 @@ def chooser_cards(ctx, kind):
         extra = '<span class="sub">Also the Isle of Man, Jersey, Guernsey &amp; Gibraltar</span>' if k == 'uk' else ''
         cards += (f'<li><a class="ccard" href="{cpath(c, kind)}" data-country="{k}" hreflang="{c["lang"]}">'
                   f'<span class="code" aria-hidden="true">{c["code"]}</span><span class="nm">{e(c["name"])}</span>{extra}'
-                  f'<span class="pr">From {c["prices"]["starter"]} a month + {c["tax"]}</span></a></li>')
+                  f'<span class="pr">From {c["prices"]["starter"]} a month{e(c["price_tax"])}</span></a></li>')
     return f'<ul class="cgrid">{cards}</ul>'
 
 
@@ -467,7 +473,7 @@ def pricing_chooser(ctx):
     e, site = ctx['e'], ctx['SITE']
     rows = ''.join(
         f'<tr><th scope="row"><a href="{cpath(C[k], "pricing")}" data-country="{k}">{e(C[k]["name"])}</a></th>'
-        + ''.join(f'<td>{C[k]["prices"][p]}</td>' for _, p, _ in PLAN_NAMES) + f'<td>{C[k]["tax"]}</td></tr>'
+        + ''.join(f'<td>{C[k]["prices"][p]}</td>' for _, p, _ in PLAN_NAMES) + f'<td>{e(C[k]["tax_short"])}</td></tr>'
         for k in ORDER)
     body = f'''<section class="page-head"><div class="wrap"><h1>Pricing</h1><p>Everything in Coglass on every plan, priced in your currency by the size of your team. Choose your country for its plans, tax and billing details. Last updated: October 2026.</p></div></section>
 <section class="sect" style="padding-top:44px" id="plans">
@@ -475,9 +481,9 @@ def pricing_chooser(ctx):
     <h2>Choose your country</h2>
     {chooser_cards(ctx, 'pricing')}
     <h2 style="margin-top:44px">Monthly prices at a glance</h2>
-    <p style="color:var(--ink2)">Every plan includes the full system. Prices are per month and exclude local VAT or GST.</p>
+    <p style="color:var(--ink2)">Every plan includes the full system. Prices are per month. UK prices exclude VAT; in the other countries no VAT or GST is added, and prices are for VAT- or GST-registered businesses.</p>
     <div class="table-wrap"><table>
-      <tr><th scope="col">Country</th><th scope="col">Starter</th><th scope="col">Professional</th><th scope="col">Business</th><th scope="col">Plus</th></tr>
+      <tr><th scope="col">Country</th><th scope="col">Starter</th><th scope="col">Professional</th><th scope="col">Business</th><th scope="col">Tax</th></tr>
       {rows}
     </table></div>
     <p class="fine">The UK prices also apply in the Isle of Man, Jersey, Guernsey and Gibraltar. Elsewhere? <a href="{ctx['DEMO']}">Get in touch</a>.</p>

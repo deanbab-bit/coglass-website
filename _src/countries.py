@@ -77,6 +77,8 @@ C['uk'] = dict(
     hreflang=['en-GB', 'en-IM', 'en-JE', 'en-GG', 'en-GI'],
     currency='GBP', sym='£', prices={'starter': '£89', 'professional': '£199', 'business': '£399'},
     num={'starter': 89, 'professional': 199, 'business': 399}, inbox='£7.50', tax='VAT', per='per month + VAT',
+    price_tax=' + VAT', tax_short='+ VAT',
+    price_basis='Prices exclude VAT.',
     eyebrow='Built for UK glass &amp; glazing companies',
     h1='Every job, from enquiry to paid.',
     lead='Quotes with real glass drawings, a planner your fitters actually use, purchase orders to suppliers, and VAT invoices '
@@ -105,12 +107,13 @@ C['uk'] = dict(
     tax_notes=[
         'All prices exclude VAT, which is added at the UK rate (currently 20%).',
     ],
+    # (name, accounts-site country code for /subscribe?country=…, how we bill there)
     crown=[
-        ('Isle of Man', 'The Isle of Man is in the UK VAT area, so UK VAT is added at 20% as it is in the UK.'),
-        ('Jersey', 'Jersey is outside the UK VAT area, so no UK VAT is added for a Jersey business. Jersey GST is a local tax; '
+        ('Isle of Man', 'im', 'The Isle of Man is in the UK VAT area, so UK VAT is added at 20% as it is in the UK.'),
+        ('Jersey', 'je', 'Jersey is outside the UK VAT area, so no UK VAT is added for a Jersey business. Jersey GST is a local tax; '
                    'check with your accountant whether you need to account for it.'),
-        ('Guernsey', 'Guernsey is outside the UK VAT area and has no VAT or GST, so no UK VAT is added for a Guernsey business.'),
-        ('Gibraltar', 'Gibraltar is outside the UK VAT area and has no VAT, so no UK VAT is added for a Gibraltar business.'),
+        ('Guernsey', 'gg', 'Guernsey is outside the UK VAT area and has no VAT or GST, so no UK VAT is added for a Guernsey business.'),
+        ('Gibraltar', 'gi', 'Gibraltar is outside the UK VAT area and has no VAT, so no UK VAT is added for a Gibraltar business.'),
     ],
     faq=[
         ('Is Coglass built for UK glass and glazing companies?', 'Yes. It holds full IGU make-ups (DGU/TGU, cavity, spacer, gas), '
@@ -118,7 +121,8 @@ C['uk'] = dict(
          'the factory copies onto the glass. It is not a general CRM adapted to glass.'),
         ('Do you cover the Isle of Man, Jersey, Guernsey and Gibraltar?', 'Yes — they are covered by the UK site and priced in '
          'pounds. The Isle of Man is in the UK VAT area, so UK VAT is added; for businesses in Jersey, Guernsey and Gibraltar no '
-         'UK VAT is added. See the pricing page for the detail.'),
+         'UK VAT is added. When you sign up, choose your island or Gibraltar as the country — the pricing page has a link for '
+         'each.'),
         ('How does the trial work?', 'Pick a plan on the pricing page. We take your card at sign-up and charge nothing for 14 '
          'days; cancel before the trial ends and you pay nothing. If you would rather see it first, book a demo.'),
         XERO_FAQ,
@@ -134,14 +138,16 @@ C['ie'] = dict(
     code='IE', slug='ie', name='Ireland', short='Ireland', in_name='Ireland', lang='en-IE', og_locale='en_IE',
     hreflang=['en-IE'],
     currency='EUR', sym='€', prices={'starter': '€109', 'professional': '€239', 'business': '€469'},
-    num={'starter': 109, 'professional': 239, 'business': 469}, inbox='€9.00', tax='VAT', per='per month + VAT',
+    num={'starter': 109, 'professional': 239, 'business': 469}, inbox='€9.00', tax='VAT', per='per month, no VAT added',
+    price_tax=', no VAT added', tax_short='No VAT added',
+    price_basis='No VAT added — prices are for VAT-registered businesses (reverse charge).',
     eyebrow='Built for glaziers in Ireland',
     h1='Glazing software for Irish glaziers — from enquiry to paid.',
     lead='Quotes priced in euro with the glass drawn on every line, surveys on the phone even where there is no signal, supplier '
          'orders, scheduling and invoices. One system for the office, the van and the workshop.',
     title='Coglass Ireland | Glazing Software for Irish Glaziers & Glass Merchants',
     description='Glazing software for Irish glaziers: quotes in euro with glass drawings, offline surveys, supplier orders, '
-                'scheduling, Irish VAT invoices and Xero. From €109 a month + VAT.',
+                'scheduling, Irish VAT invoices and Xero. From €109 a month for VAT-registered businesses, no VAT added.',
     why_h2='Why Coglass suits glaziers in Ireland',
     why=[
         ('Euro quotes and Irish VAT', 'Quotes and invoices in euro, with your VAT number on them and the Irish VAT rates — '
@@ -156,24 +162,26 @@ C['ie'] = dict(
         ('Xero, set up your way', 'Invoices, payments and supplier bills push to your Xero organisation, coded to your own '
          'accounts and VAT rates.'),
     ],
-    proof=[('From €109', 'a month + VAT'), ('Hosted in the EU', 'data held in Germany'), ('Same clock', 'as our UK team'), ('iPhone · Android · web', '')],
+    proof=[('From €109', 'a month, no VAT added'), ('Hosted in the EU', 'data held in Germany'), ('Same clock', 'as our UK team'), ('iPhone · Android · web', '')],
     support='Our team is in the UK, on the same clock as Ireland. Email or call during business hours and we usually reply '
             'within one working day; inside Coglass there is also a chat button.',
     tz_note=None,
+    # TODO(OSS): once the EU non-Union OSS registration is in Stripe Tax, buyers without a VAT number can be
+    # sold to again (Irish VAT at 23% added at checkout). Then restore the "No VAT number? You can still sign up"
+    # line below, the matching FAQ sentence, and the per/price_tax/price_basis wording above ("+ VAT").
     tax_notes=[
-        'Prices exclude VAT. Coglass is sold to businesses by Halliday Morrow Ltd, a UK company.',
-        'If your business has a valid Irish VAT number, give it to us when you sign up: no VAT is added to our '
+        'Coglass is sold to VAT-registered businesses by Halliday Morrow Ltd, a UK company. No VAT is added to our prices.',
+        'Give us your Irish VAT number when you sign up (we check it on the EU VIES register): no VAT is added to our '
         'invoice and you account for it yourself under the reverse charge.',
-        'No VAT number? You can still sign up: Irish VAT at 23% is added at checkout and shown on your invoice.',
     ],
     sms_note='Irish SMS sender IDs must be registered with ComReg before texts show your business name; until yours is, '
              'use email or the quote-page chat.',
     faq=[
         ('Can I use Coglass in Ireland?', 'Yes. Coglass is sold in Ireland in euro, and quotes and invoices go out in euro with '
          'Irish VAT.'),
-        ('How is VAT handled on my Coglass subscription?', 'Prices exclude VAT. If your business has a valid Irish VAT number, '
-         'no VAT is added to our invoice — you account for it under the reverse charge. Without a VAT number, Irish VAT at 23% is '
-         'added at checkout and shown on your invoice.'),
+        ('How is VAT handled on my Coglass subscription?', 'Coglass is sold to VAT-registered businesses. Give us your Irish VAT '
+         'number when you sign up: no VAT is added to our invoice — you account for it under the reverse charge. For now you '
+         'need a VAT number to subscribe.'),
         ('Which VAT rates can I use on my own quotes?', 'Irish glazing work usually needs two: 13.5% for supply-and-fit and 23% '
          'for supply only. Both are available, so each job can carry the rate that applies to it.'),
         ('Where is my data held?', 'In the EU — on servers in Germany.'),
@@ -190,14 +198,16 @@ C['au'] = dict(
     code='AU', slug='au', name='Australia', short='Australia', in_name='Australia', lang='en-AU', og_locale='en_AU',
     hreflang=['en-AU'],
     currency='AUD', sym='A$', prices={'starter': 'A$169', 'professional': 'A$379', 'business': 'A$759'},
-    num={'starter': 169, 'professional': 379, 'business': 759}, inbox='A$14.50', tax='GST', per='per month + GST',
+    num={'starter': 169, 'professional': 379, 'business': 759}, inbox='A$14.50', tax='GST', per='per month, no GST added',
+    price_tax=', no GST added', tax_short='No GST added',
+    price_basis='No GST added — prices are for GST-registered businesses with an ABN.',
     eyebrow='Built for glaziers in Australia',
     h1='Glazing software for Australian glaziers — quote, fit and get paid.',
     lead='Quotes with the glass drawn on every line, surveys on the phone even out of range, purchase orders to suppliers, '
          'scheduling and GST tax invoices. One system for the office, the ute and the workshop.',
     title='Coglass Australia | Glazing Software for Australian Glaziers',
     description='Glazing software for Australian glaziers: quotes with glass drawings, offline surveys, supplier orders, '
-                'scheduling, GST tax invoices with your ABN, and Xero. From A$169 a month + GST.',
+                'scheduling, GST tax invoices with your ABN, and Xero. From A$169 a month for GST-registered businesses, no GST added.',
     why_h2='Why Coglass suits glaziers in Australia',
     why=[
         ('GST tax invoices', 'Invoices headed "Tax invoice", with your ABN and GST at 10% — and quotes in Australian dollars.'),
@@ -211,21 +221,21 @@ C['au'] = dict(
         ('Drawn and priced properly', 'Shapes, holes, cut-outs and IGU make-ups drawn to size in mm, priced from your own '
          'catalogue and trade price lists.'),
     ],
-    proof=[('From A$169', 'a month + GST'), ('Every feature', 'on every plan'), ('No setup fee', 'no minimum term'), ('iPhone · Android · web', '')],
+    proof=[('From A$169', 'a month, no GST added'), ('Every feature', 'on every plan'), ('No setup fee', 'no minimum term'), ('iPhone · Android · web', '')],
     support='Our team is in the UK. Australian business hours overlap our early morning and late evening — the east coast is '
             '9 to 11 hours ahead of the UK, depending on the season and your state. Email any time and we usually reply within '
             'one UK working day; we will agree a demo time that suits you.',
     tz_note='The east coast is 9 to 11 hours ahead of the UK (Perth 7 to 8).',
     tax_notes=[
-        'Prices exclude GST. Coglass is sold to registered businesses (B2B) by Halliday Morrow Ltd, a UK company.',
-        'Give us your ABN when you sign up. Any tax that applies to your subscription is shown on your invoice before you pay.',
+        'Coglass is sold to GST-registered businesses by Halliday Morrow Ltd, a UK company. No GST is added to our prices.',
+        'Give us your ABN when you sign up and confirm your business is registered for GST.',
     ],
     faq=[
-        ('Can I use Coglass in Australia?', 'Yes. Coglass is sold in Australia in Australian dollars, to registered businesses.'),
+        ('Can I use Coglass in Australia?', 'Yes. Coglass is sold in Australia in Australian dollars, to GST-registered businesses.'),
         ('Will my invoices say "Tax invoice" and show my ABN?', 'Yes. Invoices are headed "Tax invoice" and show your ABN and the '
          'GST at 10%.'),
-        ('Is my Coglass subscription charged GST?', 'Prices are shown excluding GST. Coglass is sold business-to-business; give '
-         'us your ABN when you sign up and any tax that applies is shown on your invoice before you pay.'),
+        ('Is my Coglass subscription charged GST?', 'No GST is added. Coglass is sold to GST-registered businesses: give us your '
+         'ABN when you sign up and confirm you are registered for GST.'),
         ('What hours is support?', 'Our team is in the UK, which is 9 to 11 hours behind the east coast. Email any time and we '
          'usually reply within one UK working day; demos are booked at a time that suits you.'),
         OFFLINE_FAQ,
@@ -239,14 +249,16 @@ C['nz'] = dict(
     code='NZ', slug='nz', name='New Zealand', short='New Zealand', in_name='New Zealand', lang='en-NZ', og_locale='en_NZ',
     hreflang=['en-NZ'],
     currency='NZD', sym='NZ$', prices={'starter': 'NZ$209', 'professional': 'NZ$469', 'business': 'NZ$939'},
-    num={'starter': 209, 'professional': 469, 'business': 939}, inbox='NZ$17.50', tax='GST', per='per month + GST',
+    num={'starter': 209, 'professional': 469, 'business': 939}, inbox='NZ$17.50', tax='GST', per='per month, no GST added',
+    price_tax=', no GST added', tax_short='No GST added',
+    price_basis='No GST added — prices are for GST-registered businesses.',
     eyebrow='Built for glaziers in New Zealand',
     h1='Glazing software for New Zealand glaziers.',
     lead='Quotes with the glass drawn on every line, surveys on the phone even out of coverage, purchase orders to suppliers, '
          'scheduling and GST invoices. One system for the office, the van and the workshop.',
     title='Coglass New Zealand | Glazing Software for NZ Glaziers',
     description='Glazing software for New Zealand glaziers: quotes with glass drawings, offline surveys, supplier orders, '
-                'scheduling, GST invoices and Xero. From NZ$209 a month + GST.',
+                'scheduling, GST invoices and Xero. From NZ$209 a month for GST-registered businesses, no GST added.',
     why_h2='Why Coglass suits glaziers in New Zealand',
     why=[
         ('GST at 15%', 'Quotes and invoices in New Zealand dollars, with your GST number and GST at 15%.'),
@@ -259,20 +271,20 @@ C['nz'] = dict(
          'accounts and GST rates.'),
         ('Customers pay by card', 'Connect your Stripe account and customers can pay an invoice by card from its link.'),
     ],
-    proof=[('From NZ$209', 'a month + GST'), ('Every feature', 'on every plan'), ('No setup fee', 'no minimum term'), ('iPhone · Android · web', '')],
+    proof=[('From NZ$209', 'a month, no GST added'), ('Every feature', 'on every plan'), ('No setup fee', 'no minimum term'), ('iPhone · Android · web', '')],
     support='Our team is in the UK, 11 to 13 hours behind New Zealand depending on the season, so our working day is your '
             'evening and night. Email any time and we usually reply within one UK working day; we will agree a demo time that '
             'suits you.',
     tz_note='New Zealand is 11 to 13 hours ahead of the UK.',
     tax_notes=[
-        'Prices exclude GST. Coglass is sold to registered businesses (B2B) by Halliday Morrow Ltd, a UK company.',
-        'Give us your GST number when you sign up. Any tax that applies to your subscription is shown on your invoice before you pay.',
+        'Coglass is sold to GST-registered businesses by Halliday Morrow Ltd, a UK company. No GST is added to our prices.',
+        'Give us your GST number when you sign up.',
     ],
     faq=[
-        ('Can I use Coglass in New Zealand?', 'Yes. Coglass is sold in New Zealand in NZ dollars, to registered businesses.'),
+        ('Can I use Coglass in New Zealand?', 'Yes. Coglass is sold in New Zealand in NZ dollars, to GST-registered businesses.'),
         ('Do my invoices show GST?', 'Yes — your GST number and GST at 15%, with quotes and invoices in NZ dollars.'),
-        ('Is my Coglass subscription charged GST?', 'Prices are shown excluding GST. Coglass is sold business-to-business; give '
-         'us your GST number when you sign up and any tax that applies is shown on your invoice before you pay.'),
+        ('Is my Coglass subscription charged GST?', 'No GST is added. Coglass is sold to GST-registered businesses: give us your '
+         'GST number when you sign up.'),
         ('What hours is support?', 'Our team is in the UK, 11 to 13 hours behind you. Email any time and we usually reply within '
          'one UK working day; demos are booked at a time that suits you.'),
         _wa_faq('New Zealand'),
@@ -286,14 +298,16 @@ C['za'] = dict(
     code='ZA', slug='za', name='South Africa', short='South Africa', in_name='South Africa', lang='en-ZA', og_locale='en_ZA',
     hreflang=['en-ZA'],
     currency='ZAR', sym='R', prices={'starter': 'R1,969', 'professional': 'R4,399', 'business': 'R8,809'},
-    num={'starter': 1969, 'professional': 4399, 'business': 8809}, inbox='R165', tax='VAT', per='per month + VAT',
+    num={'starter': 1969, 'professional': 4399, 'business': 8809}, inbox='R165', tax='VAT', per='per month, no VAT added',
+    price_tax=', no VAT added', tax_short='No VAT added',
+    price_basis='No VAT added — prices are for VAT-registered businesses.',
     eyebrow='Built for glaziers in South Africa',
     h1='Glazing software for South African glaziers.',
     lead='Quotes in rand with the glass drawn on every line, surveys on your cellphone even without signal, purchase orders to '
          'suppliers, scheduling and tax invoices. One system for the office, the bakkie and the workshop.',
     title='Coglass South Africa | Glazing Software for South African Glaziers',
     description='Glazing software for South African glaziers: quotes in rand with glass drawings, offline surveys, supplier '
-                'orders, scheduling, VAT tax invoices and Xero. From R1,969 a month + VAT.',
+                'orders, scheduling, VAT tax invoices and Xero. From R1,969 a month for VAT-registered businesses, no VAT added.',
     why_h2='Why Coglass suits glaziers in South Africa',
     why=[
         ('Rand quotes and VAT tax invoices', 'Quotes and invoices in rand, with your VAT number and VAT at 15% — and your '
@@ -308,20 +322,20 @@ C['za'] = dict(
         ('Xero, set up your way', 'Invoices, payments and supplier bills push to your Xero organisation, coded to your own '
          'accounts and VAT rates.'),
     ],
-    proof=[('From R1,969', 'a month + VAT'), ('Every feature', 'on every plan'), ('1–2 hours', 'from our UK team'), ('iPhone · Android · web', '')],
+    proof=[('From R1,969', 'a month, no VAT added'), ('Every feature', 'on every plan'), ('1–2 hours', 'from our UK team'), ('iPhone · Android · web', '')],
     support='Our team is in the UK, one to two hours behind South Africa, so our working days largely overlap. Email or call '
             'during business hours and we usually reply within one working day.',
     tz_note='South Africa is 1 to 2 hours ahead of the UK.',
     tax_notes=[
-        'Prices exclude VAT. Coglass is sold to registered businesses (B2B) by Halliday Morrow Ltd, a UK company.',
-        'Give us your VAT number when you sign up. Any tax that applies to your subscription is shown on your invoice before you pay.',
+        'Coglass is sold to VAT-registered businesses by Halliday Morrow Ltd, a UK company. No VAT is added to our prices.',
+        'Give us your VAT number when you sign up.',
     ],
     faq=[
-        ('Can I use Coglass in South Africa?', 'Yes. Coglass is sold in South Africa in rand, to registered businesses.'),
+        ('Can I use Coglass in South Africa?', 'Yes. Coglass is sold in South Africa in rand, to VAT-registered businesses.'),
         ('Do my quotes and invoices show VAT?', 'Yes — in rand, with your VAT number and VAT at 15%, and your banking details '
          'on the invoice for EFT.'),
-        ('Is my Coglass subscription charged VAT?', 'Prices are shown excluding VAT. Coglass is sold business-to-business; give '
-         'us your VAT number when you sign up and any tax that applies is shown on your invoice before you pay.'),
+        ('Is my Coglass subscription charged VAT?', 'No VAT is added. Coglass is sold to VAT-registered businesses: give us your '
+         'VAT number when you sign up.'),
         ('What happens when the power or signal goes?', 'The phone and iPad apps keep working: surveys, fitting sign-offs and '
          'the production board are saved on the device and sync when the connection is back. The office web app needs an '
          'internet connection.'),
@@ -337,14 +351,16 @@ C['na'] = dict(
     code='NA', slug='na', name='Namibia', short='Namibia', in_name='Namibia', lang='en-NA', og_locale='en_NA',
     hreflang=['en-NA'],
     currency='NAD', sym='N$', prices={'starter': 'N$1,969', 'professional': 'N$4,399', 'business': 'N$8,809'},
-    num={'starter': 1969, 'professional': 4399, 'business': 8809}, inbox='N$165', tax='VAT', per='per month + VAT',
+    num={'starter': 1969, 'professional': 4399, 'business': 8809}, inbox='N$165', tax='VAT', per='per month, no VAT added',
+    price_tax=', no VAT added', tax_short='No VAT added',
+    price_basis='No VAT added — prices are for VAT-registered businesses.',
     eyebrow='Built for glaziers in Namibia',
     h1='Glazing software for Namibian glaziers.',
     lead='Quotes with the glass drawn on every line, surveys on your phone even far from signal, purchase orders to suppliers, '
          'scheduling and invoices. One system for the office, the bakkie and the workshop.',
     title='Coglass Namibia | Glazing Software for Namibian Glaziers',
     description='Glazing software for glaziers in Namibia: quotes with glass drawings, offline surveys, supplier orders, '
-                'scheduling and invoicing. Priced in Namibian dollars, from N$1,969 a month + VAT.',
+                'scheduling and invoicing. Priced in Namibian dollars, from N$1,969 a month for VAT-registered businesses, no VAT added.',
     why_h2='Why Coglass suits glaziers in Namibia',
     why=[
         ('Priced in Namibian dollars', 'Your subscription is priced in N$. Quotes and invoices go out in your currency, with '
@@ -359,18 +375,18 @@ C['na'] = dict(
         ('Close to our working day', 'Namibia is one to two hours ahead of our UK team, so support and demos fit your '
          'business hours.'),
     ],
-    proof=[('From N$1,969', 'a month + VAT'), ('Every feature', 'on every plan'), ('1–2 hours', 'from our UK team'), ('iPhone · Android · web', '')],
+    proof=[('From N$1,969', 'a month, no VAT added'), ('Every feature', 'on every plan'), ('1–2 hours', 'from our UK team'), ('iPhone · Android · web', '')],
     support='Our team is in the UK, one to two hours behind Namibia, so our working days largely overlap. Email or call during '
             'business hours and we usually reply within one working day.',
     tz_note='Namibia is 1 to 2 hours ahead of the UK.',
     tax_notes=[
-        'Prices exclude VAT. Coglass is sold to registered businesses (B2B) by Halliday Morrow Ltd, a UK company.',
-        'Give us your VAT number when you sign up. Any tax that applies to your subscription is shown on your invoice before you pay.',
+        'Coglass is sold to VAT-registered businesses by Halliday Morrow Ltd, a UK company. No VAT is added to our prices.',
+        'Give us your VAT number when you sign up.',
     ],
     faq=[
-        ('Can I use Coglass in Namibia?', 'Yes. Coglass is sold in Namibia in Namibian dollars, to registered businesses.'),
-        ('Is my Coglass subscription charged VAT?', 'Prices are shown excluding VAT. Coglass is sold business-to-business; give '
-         'us your VAT number when you sign up and any tax that applies is shown on your invoice before you pay.'),
+        ('Can I use Coglass in Namibia?', 'Yes. Coglass is sold in Namibia in Namibian dollars, to VAT-registered businesses.'),
+        ('Is my Coglass subscription charged VAT?', 'No VAT is added. Coglass is sold to VAT-registered businesses: give us your '
+         'VAT number when you sign up.'),
         ('What hours is support?', 'Our team is in the UK, one to two hours behind you. Email or call during business hours; we '
          'usually reply within one working day.'),
         _wa_faq('Namibia'),
@@ -387,14 +403,16 @@ C['bw'] = dict(
     code='BW', slug='bw', name='Botswana', short='Botswana', in_name='Botswana', lang='en-BW', og_locale='en_BW',
     hreflang=['en-BW'],
     currency='BWP', sym='P', prices={'starter': 'P1,579', 'professional': 'P3,539', 'business': 'P7,089'},
-    num={'starter': 1579, 'professional': 3539, 'business': 7089}, inbox='P135', tax='VAT', per='per month + VAT',
+    num={'starter': 1579, 'professional': 3539, 'business': 7089}, inbox='P135', tax='VAT', per='per month, no VAT added',
+    price_tax=', no VAT added', tax_short='No VAT added',
+    price_basis='No VAT added — prices are for VAT-registered businesses.',
     eyebrow='Built for glaziers in Botswana',
     h1='Glazing software for glaziers in Botswana.',
     lead='Quotes with the glass drawn on every line, surveys on your phone even far from signal, purchase orders to suppliers, '
          'scheduling and invoices. One system for the office, the van and the workshop.',
     title='Coglass Botswana | Glazing Software for Glaziers in Botswana',
     description='Glazing software for glaziers in Botswana: quotes with glass drawings, offline surveys, supplier orders, '
-                'scheduling and invoicing. Priced in pula, from P1,579 a month + VAT.',
+                'scheduling and invoicing. Priced in pula, from P1,579 a month for VAT-registered businesses, no VAT added.',
     why_h2='Why Coglass suits glaziers in Botswana',
     why=[
         ('Priced in pula', 'Your subscription is priced in pula. Quotes and invoices go out in your currency, with your VAT '
@@ -409,18 +427,18 @@ C['bw'] = dict(
         ('Close to our working day', 'Botswana is one to two hours ahead of our UK team, so support and demos fit your '
          'business hours.'),
     ],
-    proof=[('From P1,579', 'a month + VAT'), ('Every feature', 'on every plan'), ('1–2 hours', 'from our UK team'), ('iPhone · Android · web', '')],
+    proof=[('From P1,579', 'a month, no VAT added'), ('Every feature', 'on every plan'), ('1–2 hours', 'from our UK team'), ('iPhone · Android · web', '')],
     support='Our team is in the UK, one to two hours behind Botswana, so our working days largely overlap. Email or call during '
             'business hours and we usually reply within one working day.',
     tz_note='Botswana is 1 to 2 hours ahead of the UK.',
     tax_notes=[
-        'Prices exclude VAT. Coglass is sold to registered businesses (B2B) by Halliday Morrow Ltd, a UK company.',
-        'Give us your VAT number when you sign up. Any tax that applies to your subscription is shown on your invoice before you pay.',
+        'Coglass is sold to VAT-registered businesses by Halliday Morrow Ltd, a UK company. No VAT is added to our prices.',
+        'Give us your VAT number when you sign up.',
     ],
     faq=[
-        ('Can I use Coglass in Botswana?', 'Yes. Coglass is sold in Botswana in pula, to registered businesses.'),
-        ('Is my Coglass subscription charged VAT?', 'Prices are shown excluding VAT. Coglass is sold business-to-business; give '
-         'us your VAT number when you sign up and any tax that applies is shown on your invoice before you pay.'),
+        ('Can I use Coglass in Botswana?', 'Yes. Coglass is sold in Botswana in pula, to VAT-registered businesses.'),
+        ('Is my Coglass subscription charged VAT?', 'No VAT is added. Coglass is sold to VAT-registered businesses: give us your '
+         'VAT number when you sign up.'),
         ('What hours is support?', 'Our team is in the UK, one to two hours behind you. Email or call during business hours; we '
          'usually reply within one working day.'),
         _wa_faq('Botswana'),
@@ -434,14 +452,16 @@ C['mt'] = dict(
     code='MT', slug='mt', name='Malta', short='Malta', in_name='Malta', lang='en-MT', og_locale='en_MT',
     hreflang=['en-MT'],
     currency='EUR', sym='€', prices={'starter': '€109', 'professional': '€239', 'business': '€469'},
-    num={'starter': 109, 'professional': 239, 'business': 469}, inbox='€9.00', tax='VAT', per='per month + VAT',
+    num={'starter': 109, 'professional': 239, 'business': 469}, inbox='€9.00', tax='VAT', per='per month, no VAT added',
+    price_tax=', no VAT added', tax_short='No VAT added',
+    price_basis='No VAT added — prices are for VAT-registered businesses (reverse charge).',
     eyebrow='Built for glaziers in Malta',
     h1='Glazing software for glaziers in Malta.',
     lead='Quotes in euro with the glass drawn on every line, surveys on the phone, purchase orders to suppliers, scheduling and '
          'VAT invoices. One system for the office, the van and the workshop.',
     title='Coglass Malta | Glazing Software for Glaziers in Malta & Gozo',
     description='Glazing software for glaziers in Malta and Gozo: quotes in euro with glass drawings, surveys on the phone, '
-                'supplier orders, scheduling and VAT invoicing. From €109 a month + VAT.',
+                'supplier orders, scheduling and VAT invoicing. From €109 a month for VAT-registered businesses, no VAT added.',
     why_h2='Why Coglass suits glaziers in Malta',
     why=[
         ('Euro quotes and invoices', 'Quotes and invoices in euro, with your VAT number on them.'),
@@ -454,21 +474,23 @@ C['mt'] = dict(
          'barcode labels for every pane.'),
         ('Hosted in the EU', 'Your data is held on servers in Germany, and our team is one hour behind you in the UK.'),
     ],
-    proof=[('From €109', 'a month + VAT'), ('Hosted in the EU', 'data held in Germany'), ('1 hour', 'from our UK team'), ('iPhone · Android · web', '')],
+    proof=[('From €109', 'a month, no VAT added'), ('Hosted in the EU', 'data held in Germany'), ('1 hour', 'from our UK team'), ('iPhone · Android · web', '')],
     support='Our team is in the UK, one hour behind Malta. Email or call during business hours and we usually reply within one '
             'working day.',
     tz_note='Malta is 1 hour ahead of the UK.',
+    # TODO(OSS): once the EU non-Union OSS registration is in Stripe Tax, buyers without a VAT number can be
+    # sold to again (Maltese VAT at 18% added at checkout). Then restore the "No VAT number? You can still sign up"
+    # line below, the matching FAQ sentence, and the per/price_tax/price_basis wording above ("+ VAT").
     tax_notes=[
-        'Prices exclude VAT. Coglass is sold to businesses by Halliday Morrow Ltd, a UK company.',
-        'If your business has a valid Maltese VAT number, give it to us when you sign up: no VAT is added to our invoice '
+        'Coglass is sold to VAT-registered businesses by Halliday Morrow Ltd, a UK company. No VAT is added to our prices.',
+        'Give us your Maltese VAT number when you sign up (we check it on the EU VIES register): no VAT is added to our invoice '
         'and you account for it yourself under the reverse charge.',
-        'No VAT number? You can still sign up: Maltese VAT at 18% is added at checkout and shown on your invoice.',
     ],
     faq=[
         ('Can I use Coglass in Malta and Gozo?', 'Yes. Coglass is sold in Malta in euro, and quotes and invoices go out in euro.'),
-        ('How is VAT handled on my Coglass subscription?', 'Prices exclude VAT. If your business has a valid Maltese VAT number, no '
-         'VAT is added to our invoice — you account for it under the reverse charge. Without a VAT number, Maltese VAT at 18% is '
-         'added at checkout and shown on your invoice.'),
+        ('How is VAT handled on my Coglass subscription?', 'Coglass is sold to VAT-registered businesses. Give us your Maltese VAT '
+         'number when you sign up: no VAT is added to our invoice — you account for it under the reverse charge. For now you '
+         'need a VAT number to subscribe.'),
         ('Where is my data held?', 'In the EU — on servers in Germany.'),
         ('What hours is support?', 'Our team is in the UK, one hour behind Malta. Email or call during business hours; we usually '
          'reply within one working day.'),
