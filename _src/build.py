@@ -81,6 +81,7 @@ def header(current, country=None):
 
 def footer(country=None):
     import countries as _cs
+    import local_guides as _lg
     uk = (not country) or country['key'] == 'uk'
     phone_txt, phone_tel = (PHONE, '01215170383') if uk else (PHONE_INTL, '+441215170383')
     clinks = ' · '.join(f'<a href="/{k}/"{" aria-current=page" if country and country["key"] == k else ""}>{_cs.C[k]["name"]}</a>'
@@ -127,7 +128,7 @@ def footer(country=None):
         </ul>
       </div>
     </div>
-    <p class="countries"><span>Coglass in:</span> {clinks}. The UK site also covers the Isle of Man, Jersey, Guernsey and Gibraltar.</p>
+    <p class="countries"><span>Coglass in:</span> {clinks}. The UK site also covers the Isle of Man, Jersey, Guernsey and Gibraltar.</p>{_lg.footer_links(country)}
     <div class="legal">Coglass is a product of Halliday Morrow Ltd, registered in England &amp; Wales, company no. 17358542 · VAT no. 526 4805 84 · Registered office: 39a The Riddings, Sutton Coldfield, England, B76 1RW. © 2026 Halliday Morrow Ltd.</div>
   </div>
 </footer>'''
@@ -140,12 +141,15 @@ def layout(*, path, title, description, body, current=None, og_title=None, jsonl
     og_t = og_title or title
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>\n' if jsonld else ''
     robots = '<meta name="robots" content="noindex">\n' if noindex else ''
+    # Bing's geo signal: the country's language-region on country pages, plain 'en' on global pages.
+    content_lang = country['lang'].lower() if country else 'en'
     canonical = '' if noindex else f'<link rel="canonical" href="{url}">\n'
     return f'''<!doctype html>
 <html lang="{lang}" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-language" content="{content_lang}">
 <title>{e(title)}</title>
 <meta name="description" content="{e(description)}">
 {robots}{canonical}{alt}<meta property="og:type" content="website">
