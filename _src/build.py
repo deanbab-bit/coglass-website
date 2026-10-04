@@ -28,7 +28,7 @@ PHONE = '0121 517 0383'
 DEMO = '/signup.html'
 TRIAL = '/pricing/#plans'
 SIGN_IN = 'https://accounts.coglass.co.uk'
-ASSET_V = '4'
+ASSET_V = '5'
 PHONE_INTL = '+44 121 517 0383'
 e = html.escape
 
