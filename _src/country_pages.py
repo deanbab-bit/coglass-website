@@ -4,6 +4,7 @@ Every country has three pages — home, pricing, FAQ — each carrying the full 
 Copy lives in countries.py; the launch-day CTA switch is countries.SUBSCRIBE.
 """
 import countries as CS
+import local_guides as LG
 import pages
 from countries import C, ORDER, PLAN_LINES, PLAN_NAMES
 
@@ -224,7 +225,7 @@ def country_home(ctx, c):
     <div class="plans">{plans_html(ctx, c, full=False)}</div>
   </div>
 </section>
-<section class="sect">
+{LG.guides_section(ctx, c)}<section class="sect">
   <div class="wrap" style="max-width:860px">
     <div class="sect-head"><span class="kicker">Questions</span><h2>Coglass in {e(c['in_name'])}: common questions</h2></div>
     <div class="faq">{faq_html(ctx, faq_items)}</div>
@@ -499,6 +500,8 @@ def build(ctx):
         out[f'{c["slug"]}/index.html'] = country_home(ctx, c)
         out[f'{c["slug"]}/pricing/index.html'] = country_pricing(ctx, c)
         out[f'{c["slug"]}/faq/index.html'] = country_faq(ctx, c)
+        for g in LG.guides_for(c):
+            out[f'{c["slug"]}/{g["slug"]}/index.html'] = LG.guide_page(ctx, c, g, org, cta_band)
     return out
 
 
@@ -510,4 +513,6 @@ def sitemap_entries():
         out += [(cpath(c, 'home'), '0.9', 'weekly', alternates('home')),
                 (cpath(c, 'pricing'), '0.8', 'monthly', alternates('pricing')),
                 (cpath(c, 'faq'), '0.6', 'monthly', alternates('faq'))]
+        # Local guides have no equivalent in other countries: no hreflang alternates.
+        out += [(LG.gpath(c, g), '0.7', 'monthly', None) for g in LG.guides_for(c)]
     return out
