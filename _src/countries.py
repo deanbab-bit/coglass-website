@@ -162,18 +162,18 @@ C['ie'] = dict(
     tz_note=None,
     tax_notes=[
         'Prices exclude VAT. Coglass is sold to businesses by Halliday Morrow Ltd, a UK company.',
-        'If your business is VAT-registered in Ireland, give us your VAT number when you sign up: no VAT is added to our '
+        'If your business has a valid Irish VAT number, give it to us when you sign up: no VAT is added to our '
         'invoice and you account for it yourself under the reverse charge.',
-        'Not VAT-registered? Get in touch before you sign up and we will tell you how VAT applies.',
+        'No VAT number? You can still sign up: Irish VAT at 23% is added at checkout and shown on your invoice.',
     ],
     sms_note='Irish SMS sender IDs must be registered with ComReg before texts show your business name; until yours is, '
              'use email or the quote-page chat.',
     faq=[
         ('Can I use Coglass in Ireland?', 'Yes. Coglass is sold in Ireland in euro, and quotes and invoices go out in euro with '
          'Irish VAT.'),
-        ('How is VAT handled on my Coglass subscription?', 'Prices exclude VAT. If your business is VAT-registered in Ireland, '
-         'no VAT is added to our invoice — you account for it under the reverse charge. If you are not VAT-registered, talk to us '
-         'before you sign up.'),
+        ('How is VAT handled on my Coglass subscription?', 'Prices exclude VAT. If your business has a valid Irish VAT number, '
+         'no VAT is added to our invoice — you account for it under the reverse charge. Without a VAT number, Irish VAT at 23% is '
+         'added at checkout and shown on your invoice.'),
         ('Which VAT rates can I use on my own quotes?', 'Irish glazing work usually needs two: 13.5% for supply-and-fit and 23% '
          'for supply only. Both are available, so each job can carry the rate that applies to it.'),
         ('Where is my data held?', 'In the EU — on servers in Germany.'),
@@ -460,15 +460,15 @@ C['mt'] = dict(
     tz_note='Malta is 1 hour ahead of the UK.',
     tax_notes=[
         'Prices exclude VAT. Coglass is sold to businesses by Halliday Morrow Ltd, a UK company.',
-        'If your business is VAT-registered in Malta, give us your VAT number when you sign up: no VAT is added to our invoice '
+        'If your business has a valid Maltese VAT number, give it to us when you sign up: no VAT is added to our invoice '
         'and you account for it yourself under the reverse charge.',
-        'Not VAT-registered? Get in touch before you sign up and we will tell you how VAT applies.',
+        'No VAT number? You can still sign up: Maltese VAT at 18% is added at checkout and shown on your invoice.',
     ],
     faq=[
         ('Can I use Coglass in Malta and Gozo?', 'Yes. Coglass is sold in Malta in euro, and quotes and invoices go out in euro.'),
-        ('How is VAT handled on my Coglass subscription?', 'Prices exclude VAT. If your business is VAT-registered in Malta, no '
-         'VAT is added to our invoice — you account for it under the reverse charge. If you are not VAT-registered, talk to us '
-         'before you sign up.'),
+        ('How is VAT handled on my Coglass subscription?', 'Prices exclude VAT. If your business has a valid Maltese VAT number, no '
+         'VAT is added to our invoice — you account for it under the reverse charge. Without a VAT number, Maltese VAT at 18% is '
+         'added at checkout and shown on your invoice.'),
         ('Where is my data held?', 'In the EU — on servers in Germany.'),
         ('What hours is support?', 'Our team is in the UK, one hour behind Malta. Email or call during business hours; we usually '
          'reply within one working day.'),
