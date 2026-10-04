@@ -5,7 +5,7 @@
  "eyebrow": "Feature — Invoicing",
  "h1": "Get paid faster,",
  "h1_accent": "see what's owed",
- "lead": "Deposits, UK VAT, proformas and payments — with overdue invoices flagged automatically, so you can see who to chase. Push to Xero, and let customers pay online from their invoice link.",
+ "lead": "Deposits, VAT or GST, proformas and payments — with overdue invoices flagged automatically, so you can see who to chase. Push to Xero, and let customers pay online from their invoice link.",
  "steps_label": "How it works",
  "steps_h2": "From job completion to payment recorded — fully tracked",
  "steps_sub": "Coglass invoicing follows the natural flow of a glazing job. Here's how it works in practice.",
@@ -23,7 +23,7 @@
   ],
   [
    "Send to customer",
-   "Email the PDF invoice to your customer from Coglass, with a link to view it online. The invoice shows every line, the VAT breakdown and how to pay."
+   "Email the PDF invoice to your customer from Coglass, with a link to view it online. The invoice shows every line, the tax breakdown and how to pay."
   ],
   [
    "Record payment",
@@ -44,8 +44,8 @@
    "Standard invoice, deposit invoice and proforma — all generated from the same order."
   ],
   [
-   "UK VAT handling",
-   "VAT calculated automatically. Ex-VAT and inc-VAT totals shown clearly on every PDF."
+   "VAT and GST handling",
+   "VAT or GST calculated automatically at your country's rates. Totals before and after tax shown clearly on every PDF."
   ],
   [
    "PDF invoice download and email",
