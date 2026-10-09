@@ -11,6 +11,12 @@ country to True and re-run `python3 _src/build.py`. Nothing else needs to change
 `WHATSAPP_LIVE` does the same for the WhatsApp wording: False = "coming soon, waiting on
 Meta's approval" (true today, see DECISIONS.md D15); True = WhatsApp described as live.
 
+`PORTAL_LIVE` / `WEBSHOP_LIVE` do the same for the customer portal and the webshop: False =
+"coming soon, included in your plan when it launches" (Dean, 9 Oct 2026 — both are off in the
+app until their PORTAL_LIVE / WEBSHOP_LIVE instance switch is on); True = described as live.
+In the JSON content, write `{{portal::live text::soon text}}` or `{{webshop::live text::soon text}}`
+(see launch_text below); in Python, `portal(live, soon)` / `shop(live, soon)`.
+
 Content rules (see the PR): only claim what the app does today or what the region/tax
 launch PRs deliver. Values marked `unconfirmed` in the app's src/lib/region.ts (NA, BW, MT
 standards, phone ranges, bank fields…) are deliberately NOT mentioned here.
@@ -28,6 +34,11 @@ SUBSCRIBE = {
 }
 
 WHATSAPP_LIVE = False
+PORTAL_LIVE = False
+WEBSHOP_LIVE = False
+
+# The one line used wherever both are mentioned together while they're coming soon.
+PORTAL_SHOP_SOON = 'The customer portal and the online shop are coming soon, and will be included in your plan when they launch.'
 
 ORDER = ['uk', 'ie', 'au', 'nz', 'za', 'na', 'bw', 'mt']
 
@@ -42,6 +53,55 @@ PLAN_NAMES = [('Starter', 'starter', False), ('Professional', 'professional', Tr
 
 def wa(live, soon):
     return live if WHATSAPP_LIVE else soon
+
+
+def portal(live, soon):
+    return live if PORTAL_LIVE else soon
+
+
+def shop(live, soon):
+    return live if WEBSHOP_LIVE else soon
+
+
+def portal_shop_soon_sentence():
+    """One sentence for whichever of the two is still coming soon ('' once both are live)."""
+    if not PORTAL_LIVE and not WEBSHOP_LIVE:
+        return PORTAL_SHOP_SOON
+    if not PORTAL_LIVE:
+        return 'The customer portal is coming soon, and will be included in your plan when it launches.'
+    if not WEBSHOP_LIVE:
+        return 'The online shop is coming soon, and will be included in your plan when it launches.'
+    return ''
+
+
+def feature_live(key):
+    """Is this feature (FEATURES key / page slug part) live? Unknown keys are live."""
+    if key in ('portal', 'customer-portal', 'coglass-feature-customer-portal'):
+        return PORTAL_LIVE
+    if key in ('webshop', 'coglass-feature-webshop'):
+        return WEBSHOP_LIVE
+    return True
+
+
+_LAUNCH = __import__('re').compile(r'\{\{(portal|webshop)::(.*?)::(.*?)\}\}', __import__('re').S)
+
+
+def launch_text(s):
+    """`{{portal::live::soon}}` / `{{webshop::live::soon}}` → the text for today's switch."""
+    if not isinstance(s, str):
+        return s
+    return _LAUNCH.sub(lambda m: m.group(2) if (PORTAL_LIVE if m.group(1) == 'portal' else WEBSHOP_LIVE) else m.group(3), s)
+
+
+def launch_data(v):
+    """launch_text over a whole content JSON value (strings, lists, dicts)."""
+    if isinstance(v, str):
+        return launch_text(v)
+    if isinstance(v, list):
+        return [launch_data(x) for x in v]
+    if isinstance(v, dict):
+        return {k: launch_data(x) for k, x in v.items()}
+    return v
 
 
 def _wa_point(where):

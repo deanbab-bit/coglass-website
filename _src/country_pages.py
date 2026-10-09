@@ -97,6 +97,16 @@ def other_countries(c, kind, label):
     return f'<p class="fine other-cty">{label} {links}</p>'
 
 
+def pricing_includes():
+    """'orders and quoting, … the shop-floor iPad app and the customer portal.' — the portal only once
+    it's live (countries.py PORTAL_LIVE); the coming-soon sentence after it covers the rest."""
+    parts = ['orders and quoting', 'surveys', 'the work bench', 'production', 'supplier orders', 'scheduling', 'invoicing',
+             'the phone app for fitters', 'the shop-floor iPad app']
+    if CS.PORTAL_LIVE:
+        parts.append('the customer portal')
+    return ', '.join(parts[:-1]) + ' and ' + parts[-1] + '.'
+
+
 def local_features(ctx, c):
     """The feature grid, minus things that only fit the UK today."""
     e, I = ctx['e'], ctx['ICON']
@@ -110,7 +120,8 @@ def local_features(ctx, c):
         if i == 'chat':
             bs = (['Gmail and Outlook inbox', 'SMS under your company name', CS.wa('WhatsApp and Messenger', 'Messenger and WhatsApp coming soon')]
                   if c['key'] == 'uk' else ['Gmail and Outlook inbox', 'SMS and email updates', CS.wa('WhatsApp messages', 'WhatsApp coming soon')])
-        out += (f'<li class="fcard">{I[i]}<h3>{e(t)}</h3><p>{e(x)}</p><ul>{"".join(f"<li>{e(b)}</li>" for b in bs)}</ul>'
+        # Customer portal / webshop: a "Coming soon" pill while they aren't live (countries.py).
+        out += (f'<li class="fcard">{I[i]}<h3>{e(t)}{ctx["soon_badge"](i)}</h3><p>{e(x)}</p><ul>{"".join(f"<li>{e(b)}</li>" for b in bs)}</ul>'
                 f'<a class="more" href="/{l}">{e(t)} in detail<span aria-hidden="true">&nbsp;→</span></a></li>')
     return out
 
@@ -276,7 +287,7 @@ def country_pricing(ctx, c):
     body = f'''<section class="page-head"><div class="wrap"><h1>Coglass pricing in {e(c['in_name'])}</h1><p>Everything in Coglass on every plan, priced in {e(c['currency'])} by the size of your team. {e(c['price_basis'])} Last updated: October 2026.</p></div></section>
 <section class="sect" style="padding-top:44px">
   <div class="wrap">
-    <p style="max-width:780px;color:var(--ink2)">All plans include the full system — orders and quoting, surveys, the work bench, production, supplier orders, scheduling, invoicing, the phone app for fitters, the shop-floor iPad app and the customer portal. Plans differ by how many people use Coglass and how much you put through it, not by which features you get.</p>
+    <p style="max-width:780px;color:var(--ink2)">All plans include the full system — {e(pricing_includes())} Plans differ by how many people use Coglass and how much you put through it, not by which features you get.{e((' ' + CS.portal_shop_soon_sentence()) if CS.portal_shop_soon_sentence() else '')}</p>
     <h2 class="sr-only">Plans</h2>
     <div class="plans" id="plans">{plans_html(ctx, c)}</div>
     {start}

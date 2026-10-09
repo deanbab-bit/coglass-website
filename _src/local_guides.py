@@ -19,6 +19,7 @@ Copy lives in GUIDES below; rendering is `guide_page`. Built from country_pages.
 import html
 
 from countries import C
+import countries as CS
 
 UPDATED = 'October 2026'
 DATE_MODIFIED = '2026-10-04'
@@ -588,7 +589,7 @@ GUIDES['uk'] = [
         coglass=[
             '<strong>A heads-up on the line.</strong> On the work bench, when a pane is larger than a quick-reference UK guide for its glass type and thickness, Coglass shows a note; and for larger annealed panes it reminds you that doors, side panels and low-level glazing normally need safety glass. Guidance only, never a hard stop.',
             '<strong>A safety-glazing library.</strong> Coglass comes with notes on doors, low-level glazing, side panels, shower and bath screens, balustrades and overhead glazing that you can edit, switch off or add to.',
-            '<strong>Online sales checked.</strong> If you sell glass through the Coglass webshop, customers are asked where the glass is going: non-safety glass is blocked for doors, glass within 300 mm of a door, low-level glazing and bathrooms, and balustrades and overhead glass come to you as an enquiry.',
+            '<strong>Online sales checked.</strong> ' + CS.shop('If you sell glass through the Coglass webshop', 'When the Coglass webshop launches (coming soon) and you sell glass through it') + ', customers are asked where the glass is going: non-safety glass is blocked for doors, glass within 300 mm of a door, low-level glazing and bathrooms, and balustrades and overhead glass come to you as an enquiry.',
             FIT_SURVEY, FIT_SPEC],
         sources=[
             ('GOV.UK — Approved Document K: protection from falling, collision and impact', 'https://www.gov.uk/government/publications/protection-from-falling-collision-and-impact-approved-document-k'),

@@ -15,7 +15,7 @@
  "steps": [
   [
    "Take the unit order",
-   "Trade customers order by make-up and size — at the counter, by email, or a branded webshop where they reorder on their agreed prices. Quick Go builds a unit order in seconds."
+   "{{webshop::Trade customers order by make-up and size — at the counter, by email, or a branded webshop where they reorder on their agreed prices.::Trade customers order by make-up and size — at the counter or by email, and soon on a branded webshop where they reorder on their agreed prices.}} Quick Go builds a unit order in seconds."
   ],
   [
    "Spec the make-up",
@@ -60,8 +60,8 @@
    "Size, make-up and quantity captured cleanly and priced live."
   ],
   [
-   "Branded trade webshop",
-   "Trade customers reorder units online on their agreed prices and pay by card."
+   "{{webshop::Branded trade webshop::Branded trade webshop — coming soon}}",
+   "{{webshop::Trade customers reorder units online on their agreed prices and pay by card.::Trade customers will reorder units online on their agreed prices and pay by card — included in your plan when it launches.}}"
   ],
   [
    "Production board & barcodes",

@@ -1,7 +1,8 @@
 {
  "file": "coglass-feature-customer-portal.html",
- "title": "Customer Portal for Glaziers | Homeowner & Trade Logins | Coglass",
- "description": "A branded customer portal for your homeowners and trade accounts: next appointment, quotes to approve, deposits and invoices to pay online, sites, statements and supply orders.",
+ "title": "{{portal::Customer Portal for Glaziers | Homeowner & Trade Logins | Coglass::Customer Portal for Glaziers — Coming Soon | Coglass}}",
+ "soon_note": "The customer portal is on its way. It will be included in your plan when it launches. Today your customers already get their own quote, invoice (pay online) and live tracking links — no login needed.",
+ "description": "{{portal::::Coming soon: }}A branded customer portal for your homeowners and trade accounts: next appointment, quotes to approve, deposits and invoices to pay online, sites, statements and supply orders.",
  "eyebrow": "Feature — Customer Portal",
  "h1": "Your customers can see their jobs",
  "h1_accent": "without ringing the office",

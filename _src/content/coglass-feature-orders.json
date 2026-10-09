@@ -15,7 +15,7 @@
  "steps": [
   [
    "Capture the enquiry",
-   "Phone, email, your website enquiry form or your webshop — the customer, site address, contacts and job description go into a new order."
+   "{{webshop::Phone, email, your website enquiry form or your webshop::Phone, email or your website enquiry form}} — the customer, site address, contacts and job description go into a new order."
   ],
   [
    "Quote or survey",
@@ -84,7 +84,7 @@
    "Create a new linked job from site for the same customer, even offline."
   ],
   [
-   "Customer portal",
+   "{{portal::Customer portal::Customer quote, invoice and tracking pages}}",
    "Optional tokenised tracking, quote and invoice pages for your customers."
   ]
  ],

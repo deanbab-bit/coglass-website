@@ -1,7 +1,7 @@
 {
  "file": "coglass-for-merchants.html",
  "title": "Glass Merchant Software | Cut-to-Size, Processing & Trade Counter | Coglass",
- "description": "Coglass runs a glass merchant's whole operation — trade counter, cut-to-size webshop, processing & production, stock, trade accounts, collections and deliveries. Built for how glass is sold and made.",
+ "description": "Coglass runs a glass merchant's whole operation — trade counter, {{webshop::cut-to-size webshop::cut-to-size webshop (coming soon)}}, processing & production, stock, trade accounts, collections and deliveries. Built for how glass is sold and made.",
  "eyebrow": "For glass merchants, processors & sealed unit makers",
  "h1": "Sell, cut and process glass —",
  "h1_accent": "all from one system",
@@ -15,7 +15,7 @@
  "steps": [
   [
    "Take the order",
-   "Counter, phone, email — or a branded webshop where trade customers reorder cut-to-size on their own agreed prices. Quick Go builds a walk-in quote or order in seconds."
+   "{{webshop::Counter, phone, email — or a branded webshop where trade customers reorder cut-to-size on their own agreed prices.::Counter, phone or email — and soon a branded webshop where trade customers reorder cut-to-size on their own agreed prices.}} Quick Go builds a walk-in quote or order in seconds."
   ],
   [
    "Price it like glass",
@@ -44,8 +44,8 @@
    "Walk-in quotes, orders and collection signing in seconds."
   ],
   [
-   "Branded trade webshop",
-   "Trade customers reorder cut-to-size online on their agreed prices and pay by card."
+   "{{webshop::Branded trade webshop::Branded trade webshop — coming soon}}",
+   "{{webshop::Trade customers reorder cut-to-size online on their agreed prices and pay by card.::Trade customers will reorder cut-to-size online on their agreed prices and pay by card — included in your plan when it launches.}}"
   ],
   [
    "Trade accounts & price lists",
