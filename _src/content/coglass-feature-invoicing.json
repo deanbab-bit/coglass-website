@@ -69,7 +69,7 @@
   ],
   [
    "Pay online",
-   "Customers can pay an invoice online from its link, and webshop orders can be paid by card (Stripe) or PayPal."
+   "Customers can pay an invoice online from its link{{webshop::, and webshop orders can be paid by card (Stripe) or PayPal.::. Card and PayPal checkout on your own webshop is coming soon.}}"
   ],
   [
    "Deposit invoices",

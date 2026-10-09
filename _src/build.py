@@ -20,6 +20,7 @@ SRC = os.path.join(ROOT, '_src')
 sys.path.insert(0, SRC)
 from icons import ICON  # noqa: E402
 import pages  # noqa: E402
+import countries as CS  # noqa: E402
 
 # The main international site. coglass.co.uk forwards page-for-page to it (nginx.conf).
 SITE = 'https://coglass.net'
@@ -101,9 +102,9 @@ def footer(country=None):
           <li><a href="{pricing}">Pricing</a></li>
           <li><a href="/coglass-ipad.html">Coglass on the iPad</a></li>
           <li><a href="/coglass-feature-mobile.html">Mobile app</a></li>
-          <li><a href="/coglass-feature-customer-portal.html">Customer portal</a></li>
+          <li><a href="/coglass-feature-customer-portal.html">Customer portal</a>{soon_badge('portal')}</li>
           <li><a href="/coglass-feature-xero.html">Xero</a></li>
-          <li><a href="/coglass-feature-webshop.html">Webshop</a></li>
+          <li><a href="/coglass-feature-webshop.html">Webshop</a>{soon_badge('webshop')}</li>
           <li><a href="/coglass-for-merchants.html">For glass merchants</a></li>
           <li><a href="/coglass-for-sealed-units.html">For sealed unit makers</a></li>
         </ul>
@@ -307,6 +308,15 @@ FEATURE_VISUAL = {
     ]),
 }
 
+def soon_badge(key):
+    """The small "Coming soon" pill after a portal / webshop mention while it isn't live (countries.py)."""
+    return '' if CS.feature_live(key) else ' <span class="soon">Coming soon</span>'
+
+
+def related_html(exclude=None):
+    return ''.join(f'<li><a href="/{s}.html">{e(n)}</a>{soon_badge(s)}</li>' for s, n in RELATED if s != exclude)
+
+
 RELATED = [
     ('coglass-feature-orders', 'Jobs & orders'), ('coglass-feature-quoting', 'Quoting'),
     ('coglass-feature-surveys', 'Surveys'), ('coglass-feature-glass-specs', 'Glass specs'),
@@ -348,6 +358,8 @@ def big_phone(title, rows_data):
 
 
 def feature_page(slug, d):
+    d = CS.launch_data(d)
+    live = CS.feature_live(slug)
     eyebrow = d['eyebrow'].replace('Feature — ', '')
     h1 = e(d['h1']) + (f' <span style="color:var(--accent)">{e(d["h1_accent"])}</span>' if d['h1_accent'] else '')
     if slug == 'coglass-feature-mobile':
@@ -365,11 +377,14 @@ def feature_page(slug, d):
         else:
             t = e(t)
         incl += f'<li><strong>{t}</strong>{e(x)}</li>'
-    rel = ''.join(f'<li><a href="/{s}.html">{e(n)}</a></li>' for s, n in RELATED if s != slug)
-    body = f'''<section class="hero">
+    rel = related_html(exclude=slug)
+    banner = '' if live else (
+        '<div class="wrap"><p class="note" role="note" style="margin:18px auto 0"><strong>Coming soon.</strong> '
+        f'{e(d.get("soon_note") or "This part of Coglass is on its way — it will be included in your plan when it launches. Everything else on this site works today.")}</p></div>')
+    body = f'''{banner}<section class="hero">
   <div class="wrap grid">
     <div class="copy">
-      <span class="eyebrow">{e(eyebrow)}</span>
+      <span class="eyebrow">{e(eyebrow)}{soon_badge(slug)}</span>
       <h1>{h1}</h1>
       <p class="lead">{e(d['lead'])}</p>
       <div class="ctas">{ctas}</div>
@@ -412,7 +427,7 @@ def write(rel, content):
 
 
 def main():
-    ctx = dict(big_phone=big_phone, phone_img=phone_img, visual_html=visual_html, RELATED=RELATED, layout=layout, e=e, trust=trust, shot=shot, cta_band=cta_band, phone=phone, panel=panel, IMG=IMG,
+    ctx = dict(related_html=related_html, soon_badge=soon_badge, big_phone=big_phone, phone_img=phone_img, visual_html=visual_html, RELATED=RELATED, layout=layout, e=e, trust=trust, shot=shot, cta_band=cta_band, phone=phone, panel=panel, IMG=IMG,
                ICON=ICON, DEMO=DEMO, TRIAL=TRIAL, SIGN_IN=SIGN_IN, CONTACT=CONTACT, PHONE=PHONE, PHONE_INTL=PHONE_INTL, SITE=SITE,
                demo_href=demo_href)
     cdir = os.path.join(SRC, 'content')

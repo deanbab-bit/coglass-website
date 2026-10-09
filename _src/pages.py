@@ -258,7 +258,7 @@ def ipad(ctx):
 <section class="sect alt">
   <div class="wrap">
     <h2 style="font-size:22px">More of Coglass</h2>
-    <ul class="related">{''.join(f'<li><a href="/{s}.html">{e(n)}</a></li>' for s, n in ctx['RELATED'] if s != 'coglass-ipad')}</ul>
+    <ul class="related">{ctx['related_html']('coglass-ipad')}</ul>
   </div>
 </section>
 {ctx['cta_band']('See it on an iPad', 'Book a demo and we will show you the office, the shop floor and the counter on the kind of jobs you do.')}'''

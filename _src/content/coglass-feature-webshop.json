@@ -1,7 +1,8 @@
 {
  "file": "coglass-feature-webshop.html",
- "title": "Glass Webshop for Glaziers | Trade Ordering Portal | Coglass",
- "description": "Give your trade customers their own online glass ordering portal. Branded webshop, Stripe and PayPal payments, custom Georgian bars and cutouts — all built into Coglass.",
+ "title": "{{webshop::Glass Webshop for Glaziers | Trade Ordering Portal | Coglass::Glass Webshop for Glaziers — Coming Soon | Coglass}}",
+ "soon_note": "The Coglass webshop is on its way. It will be included in your plan when it launches — no add-on, no extra fee. Everything else on this site works today.",
+ "description": "{{webshop::::Coming soon: }}Give your trade customers their own online glass ordering portal. Branded webshop, Stripe and PayPal payments, custom Georgian bars and cutouts — all built into Coglass.",
  "eyebrow": "Feature — Customer Webshop",
  "h1": "Your own glass shop,",
  "h1_accent": "open 24/7",
@@ -10,8 +11,8 @@
  "steps_h2": "From customer order to job in Coglass — automatically",
  "steps_sub": "The webshop handles the order, the payment and the confirmation. Your team just sees a new order waiting to be processed.",
  "inc_label": "What's included",
- "inc_h2": "A complete glass ordering portal — ready to launch",
- "inc_sub": "Included on every plan — no add-on, no extra fee. No web developer needed: configure your webshop in Coglass settings and start taking orders the same day.",
+ "inc_h2": "{{webshop::A complete glass ordering portal — ready to launch::A complete glass ordering portal — coming soon}}",
+ "inc_sub": "{{webshop::Included on every plan — no add-on, no extra fee. No web developer needed: configure your webshop in Coglass settings and start taking orders the same day.::Coming soon, and included in your plan when it launches — no add-on, no extra fee. No web developer needed: you will set it up in Coglass settings.}}",
  "steps": [
   [
    "Customer visits your shop",
@@ -88,6 +89,6 @@
    "Customers can place orders without creating an account — lower friction for one-off or retail orders."
   ]
  ],
- "cta_h2": "Start taking glass orders online today",
+ "cta_h2": "{{webshop::Start taking glass orders online today::Get set up now, sell online when the shop launches}}",
  "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
 }
