@@ -64,7 +64,7 @@ def legal(ctx, name, path, title, description):
     raw = open(os.path.join(HERE, 'legal', f'{name}.html')).read()
     h1 = re.search(r'<!-- h1: (.*?) -->', raw).group(1)
     intro = re.search(r'<!-- intro: (.*?) -->', raw).group(1)
-    body_src = re.sub(r'<!-- (h1|intro): .*? -->\n', '', raw)
+    body_src = _CS.launch_text(re.sub(r'<!-- (h1|intro): .*? -->\n', '', raw))
     body = f'''<section class="page-head"><div class="wrap"><h1>{h1}</h1><p>{intro}</p></div></section>
 <article class="prose">
 {body_src}</article>'''

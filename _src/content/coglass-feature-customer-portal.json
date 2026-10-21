@@ -82,5 +82,5 @@
   ]
  ],
  "cta_h2": "Fewer \"where are we up to?\" calls",
- "cta_p": "Book a demo and we will show you the portal from your customer's side — or pick a plan and start a 14-day trial."
+ "cta_p": "Book a demo and we will show you the portal from your customer's side{{trial:: — or pick a plan and start a 14-day trial.::.}}"
 }

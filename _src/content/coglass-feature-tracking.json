@@ -65,5 +65,5 @@
   ]
  ],
  "cta_h2": "Let customers know you're coming — automatically",
- "cta_p": "Book a demo and we will walk you through a day on the planner — or pick a plan and start a 14-day trial."
+ "cta_p": "Book a demo and we will walk you through a day on the planner{{trial:: — or pick a plan and start a 14-day trial.::.}}"
 }

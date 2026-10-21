@@ -37,6 +37,10 @@ SUBSCRIBE = {
 }
 
 WHATSAPP_LIVE = True
+
+# Country-neutral pages (feature pages, /support) offer "start a 14-day trial" only while at least one
+# country's SUBSCRIBE is on; otherwise they say "book a demo" / "see pricing". JSON/legal: `{{trial::live::soon}}`.
+TRIAL_LIVE = any(SUBSCRIBE.values())
 PORTAL_LIVE = False
 WEBSHOP_LIVE = False
 
@@ -101,8 +105,9 @@ def feature_live(key):
     return True
 
 
-_LAUNCH = __import__('re').compile(r'\{\{(portal|webshop|whatsapp)::(.*?)::(.*?)\}\}', __import__('re').S)
-_LAUNCH_FLAG = {'portal': lambda: PORTAL_LIVE, 'webshop': lambda: WEBSHOP_LIVE, 'whatsapp': lambda: WHATSAPP_LIVE}
+_LAUNCH = __import__('re').compile(r'\{\{(portal|webshop|whatsapp|trial)::(.*?)::(.*?)\}\}', __import__('re').S)
+_LAUNCH_FLAG = {'portal': lambda: PORTAL_LIVE, 'webshop': lambda: WEBSHOP_LIVE, 'whatsapp': lambda: WHATSAPP_LIVE,
+                'trial': lambda: TRIAL_LIVE}
 
 
 def launch_text(s):
@@ -207,8 +212,11 @@ C['uk'] = dict(
          'pounds. The Isle of Man is in the UK VAT area, so UK VAT is added; for businesses in Jersey, Guernsey and Gibraltar no '
          'UK VAT is added. When you sign up, choose your island or Gibraltar as the country — the pricing page has a link for '
          'each.'),
-        ('How does the trial work?', 'Pick a plan on the pricing page. We take your card at sign-up and charge nothing for 14 '
-         'days; cancel before the trial ends and you pay nothing. If you would rather see it first, book a demo.'),
+        (('How does the trial work?', 'Pick a plan on the pricing page. We take your card at sign-up and charge nothing for 14 '
+          'days; cancel before the trial ends and you pay nothing. If you would rather see it first, book a demo.')
+         if SUBSCRIBE['uk'] else
+         ('How do I get started?', 'Book a demo. We will show you Coglass on the kind of jobs you do, then set your account up '
+          'with you — your products, prices and team. You are billed monthly from the day your account goes live.')),
         XERO_FAQ,
         OFFLINE_FAQ,
         ('Can you help us set it up?', 'Yes — book a demo and we will go through your products, prices and team with you. There '

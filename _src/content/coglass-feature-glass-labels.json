@@ -65,5 +65,5 @@
   ]
  ],
  "cta_h2": "Know which pane is which",
- "cta_p": "Book a demo and we will print a label from one of your jobs — or pick a plan and start a 14-day trial."
+ "cta_p": "Book a demo and we will print a label from one of your jobs{{trial:: — or pick a plan and start a 14-day trial.::.}}"
 }

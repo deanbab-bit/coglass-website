@@ -73,5 +73,5 @@
   ]
  ],
  "cta_h2": "Stop retyping sizes from emails",
- "cta_p": "Book a demo and we will scan one of your own enquiries — or pick a plan and start a 14-day trial."
+ "cta_p": "Book a demo and we will scan one of your own enquiries{{trial:: — or pick a plan and start a 14-day trial.::.}}"
 }
