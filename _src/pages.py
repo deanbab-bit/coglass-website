@@ -2,6 +2,7 @@
 
 Home, pricing and the country sections are in country_pages.py."""
 import os, re, json
+import countries as _CS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LASTMOD = '2026-10-04'
@@ -17,7 +18,7 @@ FEATURES = [
     ('schedule', 'Planning', 'Drag surveys, fittings and deliveries onto people and vans for the day or week.', ['Holidays block the board', 'Nearby ready jobs suggested', 'Fitters see their day on the phone'], 'coglass-feature-scheduling.html'),
     ('fitting', 'Fitting & delivery', 'Per-pane sign-off on site with photos, GPS and the customer\'s signature.', ['Partial fits and re-orders flagged', 'Delivery and collection proof', 'Draft invoice raised on completion'], 'coglass-feature-fitting.html'),
     ('invoice', 'Invoicing', 'Deposit, proforma and final invoices with VAT, payments and Xero.', ['Overdue invoices flagged', 'Customers pay online from the link', 'Invoices and payments push to Xero'], 'coglass-feature-invoicing.html'),
-    ('chat', 'Customer messages', 'Email, SMS and quote-page chat on the job, with automatic updates as it moves.', ['Gmail and Outlook inbox', 'SMS under your company name', 'Messenger and WhatsApp coming soon'], 'coglass-feature-communication.html'),
+    ('chat', 'Customer messages', 'Email, SMS and quote-page chat on the job, with automatic updates as it moves.', ['Gmail and Outlook inbox', 'SMS under your company name', _CS.wa('WhatsApp, with Messenger coming soon', 'Messenger and WhatsApp coming soon')], 'coglass-feature-communication.html'),
     ('webshop', 'Webshop', 'A branded shop where trade customers order cut-to-size on their own prices.', ['Card or PayPal checkout, or enquiry only', 'Embeds in your own website', 'Orders drop straight into Coglass'], 'coglass-feature-webshop.html'),
     ('fleet', 'Fleet', 'Vans on the planner, MOT or roadworthiness dates and reminders, and the paperwork with the vehicle.', ['Daily van per person', 'Test history and certificates', 'Reminders before the vehicle test is due'], 'coglass-feature-fleet.html'),
     ('scan', 'AI glass scan', 'Glass sizes read out of a customer\'s email, matched to your products and prices, and added to an order.', ['Reads quantities and sizes', 'Matched to your catalogue', 'You check before it\'s added'], 'coglass-feature-ai-glass-scan.html'),

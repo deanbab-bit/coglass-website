@@ -6,7 +6,7 @@ Copy lives in countries.py; the launch-day CTA switch is countries.SUBSCRIBE.
 import countries as CS
 import local_guides as LG
 import pages
-from countries import C, ORDER, PLAN_LINES, PLAN_NAMES
+from countries import C, ORDER, PLAN_NAMES
 
 ORG_ID = 'https://coglass.net/#org'
 SIGNUP_URL = 'https://accounts.coglass.co.uk/subscribe'
@@ -60,7 +60,7 @@ def plans_html(ctx, c, full=True):
     e = ctx['e']
     out = ''
     for n, k, pop in PLAN_NAMES:
-        lines = PLAN_LINES[k] if full else PLAN_LINES[k][:4]
+        lines = CS.plan_lines(k) if full else CS.plan_lines(k)[:4]
         if full:
             href, label = plan_cta(ctx, c, k, n)
         else:
@@ -118,7 +118,7 @@ def local_features(ctx, c):
             x = f'Deposit, proforma and final invoices with {c["tax"]}, payments recorded, and Xero.'
             bs = ['Overdue invoices flagged', f'{c["tax"]} on every invoice', 'Invoices and payments push to Xero']
         if i == 'chat':
-            bs = (['Gmail and Outlook inbox', 'SMS under your company name', CS.wa('WhatsApp and Messenger', 'Messenger and WhatsApp coming soon')]
+            bs = (['Gmail and Outlook inbox', 'SMS under your company name', CS.wa('WhatsApp, with Messenger coming soon', 'Messenger and WhatsApp coming soon')]
                   if c['key'] == 'uk' else ['Gmail and Outlook inbox', 'SMS and email updates', CS.wa('WhatsApp messages', 'WhatsApp coming soon')])
         # Customer portal / webshop: a "Coming soon" pill while they aren't live (countries.py).
         out += (f'<li class="fcard">{I[i]}<h3>{e(t)}{ctx["soon_badge"](i)}</h3><p>{e(x)}</p><ul>{"".join(f"<li>{e(b)}</li>" for b in bs)}</ul>'
@@ -253,6 +253,68 @@ def country_home(ctx, c):
 
 
 # ---------------------------------------------------------------------------- country pricing
+ACCOUNTS = 'https://accounts.coglass.co.uk'
+
+
+def extras_html(ctx, c):
+    """The Extras section, and the 'reach your logins limit' answer, for one country.
+
+    Where extra logins have a price (c['seats'] — UK only today, in GBP) they're bought self-serve from
+    accounts.coglass.co.uk → Billing → Extra logins; everywhere else they're still "Ask us"."""
+    e, CONTACT = ctx['e'], ctx['CONTACT']
+    tax = e(c['price_tax'])
+    seats = c.get('seats')
+    if not seats:
+        extras = f'''<p>Need more than your plan includes? Email <a href="mailto:{CONTACT}">{CONTACT}</a> and we'll add it to your subscription — you can't yet buy extras yourself from your account.</p>
+    <div class="table-wrap"><table>
+      <tr><th scope="col">Extra</th><th scope="col">Price</th></tr>
+      <tr><td>Additional shared email inbox</td><td>{c['inbox']} a month{tax}</td></tr>
+      <tr><td>Additional office login (comes with its own inbox)</td><td>Ask us</td></tr>
+      <tr><td>Additional fitter on the phone app</td><td>Ask us</td></tr>
+      <tr><td>More SMS credit</td><td>Ask us — bought in advance, never billed in arrears</td></tr>
+      <tr><td>The app in your own branding (iPhone/Android)</td><td>Ask us</td></tr>
+    </table></div>'''
+        return extras, "The next person can't sign in until a place is free, or until we add another login to your plan."
+    office, fitter = seats['office'], seats['fitter']
+    rows = ''.join(f'<tr><th scope="row">{n}</th><td>{o}</td><td>{f}</td><td>{xo}</td><td>{xf}</td></tr>'
+                   for n, o, f, xo, xf in [
+                       ('Starter', '1', '3', f'{office} a month', f'{fitter} a month'),
+                       ('Professional', '3', '8', f'{office} a month', f'{fitter} a month'),
+                       ('Business', '7', '12', f'{office} a month', f'{fitter} a month'),
+                       ('Enterprise', 'Unlimited', 'Unlimited', '—', '—'),
+                   ])
+    vat = ''
+    if c.get('crown'):
+        vat = (' UK VAT is added for businesses in the UK and the Isle of Man; it isn\'t added for businesses in Jersey, '
+               'Guernsey or Gibraltar (see <a href="#crown">below</a>).')
+    extras = f'''<p>Need more people on Coglass? Add or remove extra office logins and fitter logins yourself: sign in at <a href="{ACCOUNTS}">accounts.coglass.co.uk</a> and open <strong>Billing → Extra logins</strong>. For the other extras below, email <a href="mailto:{CONTACT}">{CONTACT}</a> and we'll add them to your subscription.</p>
+    <div class="table-wrap"><table>
+      <tr><th scope="col">Extra</th><th scope="col">Price</th></tr>
+      <tr><td>Extra office login (comes with its own inbox)</td><td>{office} a month{tax} — add it yourself</td></tr>
+      <tr><td>Extra fitter login on the phone app</td><td>{fitter} a month{tax} — add it yourself</td></tr>
+      <tr><td>Additional shared email inbox</td><td>{c['inbox']} a month{tax}</td></tr>
+      <tr><td>More SMS credit</td><td>Ask us — bought in advance, never billed in arrears</td></tr>
+      <tr><td>The app in your own branding (iPhone/Android)</td><td>Ask us</td></tr>
+    </table></div>
+    <h3>Logins on each plan</h3>
+    <div class="table-wrap"><table>
+      <tr><th scope="col">Plan</th><th scope="col">Office logins included</th><th scope="col">Fitter logins included</th><th scope="col">Extra office login</th><th scope="col">Extra fitter login</th></tr>
+      {rows}
+    </table></div>
+    <p class="fine">Extra login prices exclude VAT.{vat} Enterprise is for larger and multi-branch companies — <a href="mailto:{CONTACT}">email us</a>.</p>
+    <h3>How extra logins are billed</h3>
+    <ul>
+      <li>An extra login you add is charged straight away for the rest of your current billing month (a part-month, pro rata), then monthly with your plan.</li>
+      <li>Removing extra logins credits the difference on your next invoice.</li>
+      <li>You can't remove extras below the number of logins in use. Remove a login in Coglass first, then lower the number.</li>
+      <li>During the free trial every login is unlimited, so there's nothing to add until your plan has started.</li>
+    </ul>'''
+    limit = (f"The next person can't be added until a place is free, or until you add an extra login at "
+             f'<a href="{ACCOUNTS}">accounts.coglass.co.uk</a> → <strong>Billing → Extra logins</strong> '
+             f'({office} a month per office login, {fitter} per fitter login{tax}).')
+    return extras, limit
+
+
 def country_pricing(ctx, c):
     e, site = ctx['e'], ctx['SITE']
     CONTACT = ctx['CONTACT']
@@ -283,6 +345,9 @@ def country_pricing(ctx, c):
     </table></div>
     <p class="fine">This is how we bill you, not tax advice for your own business.</p>'''
     sms = f'<p class="fine">{e(c["sms_note"])}</p>' if c.get('sms_note') else ''
+    extras, seat_limit = extras_html(ctx, c)
+    wa_limit = ('\n      <tr><td>Your WhatsApp allowance</td><td>WhatsApp messages to customers pause until next month\'s allowance; '
+                'send by email or SMS in the meantime. Replies from customers are free and never count.</td></tr>') if CS.WHATSAPP_LIVE else ''
     tz = f'<p>{e(c["support"])}</p>'
     body = f'''<section class="page-head"><div class="wrap"><h1>Coglass pricing in {e(c['in_name'])}</h1><p>Everything in Coglass on every plan, priced in {e(c['currency'])} by the size of your team. {e(c['price_basis'])} Last updated: October 2026.</p></div></section>
 <section class="sect" style="padding-top:44px">
@@ -296,23 +361,15 @@ def country_pricing(ctx, c):
 </section>
 <section class="sect alt">
   <div class="wrap" style="max-width:900px">
-    <h2>Extras</h2>
-    <p>Need more than your plan includes? Email <a href="mailto:{CONTACT}">{CONTACT}</a> and we'll add it to your subscription — you can't yet buy extras yourself from your account.</p>
-    <div class="table-wrap"><table>
-      <tr><th scope="col">Extra</th><th scope="col">Price</th></tr>
-      <tr><td>Additional shared email inbox</td><td>{c['inbox']} a month{e(c['price_tax'])}</td></tr>
-      <tr><td>Additional office login (comes with its own inbox)</td><td>Ask us</td></tr>
-      <tr><td>Additional fitter on the phone app</td><td>Ask us</td></tr>
-      <tr><td>More SMS credit</td><td>Ask us — bought in advance, never billed in arrears</td></tr>
-      <tr><td>The app in your own branding (iPhone/Android)</td><td>Ask us</td></tr>
-    </table></div>
+    <h2 id="extras">Extras</h2>
+    {extras}
     {sms}
     <h2>If you reach a limit</h2>
     <div class="table-wrap"><table>
       <tr><th scope="col">When you reach…</th><th scope="col">What happens</th></tr>
       <tr><td>Your monthly orders</td><td>Nothing stops. You keep working, we let you know you are close, and you can move up a plan whenever it works out cheaper.</td></tr>
-      <tr><td>Your office logins or fitters</td><td>The next person can't sign in until a place is free, or until we add another login to your plan.</td></tr>
-      <tr><td>Your SMS allowance</td><td>Texts pause until the next month's allowance or until more credit is added. Email us and we'll add it.</td></tr>
+      <tr><td>Your office logins or fitters</td><td>{seat_limit}</td></tr>
+      <tr><td>Your SMS allowance</td><td>Texts pause until the next month's allowance or until more credit is added. Email us and we'll add it.</td></tr>{wa_limit}
       <tr><td>AI glass scans</td><td>There is no limit on any plan.</td></tr>
     </table></div>
     <h2>Billing</h2>
