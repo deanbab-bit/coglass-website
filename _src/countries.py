@@ -23,7 +23,7 @@ standards, phone ranges, bank fields…) are deliberately NOT mentioned here.
 """
 
 SUBSCRIBE = {
-    'uk': True,
+    'uk': False,  # OFF until accounts Stripe is on LIVE keys (21 Oct: test keys + live provisioning = free instances with the public test card)
     'ie': False,
     'au': False,
     'nz': False,
