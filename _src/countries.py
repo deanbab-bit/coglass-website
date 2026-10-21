@@ -8,9 +8,10 @@ The accounts site only bills in GBP today, so every country except the UK is Fal
 On launch day, once accounts.coglass.co.uk has Stripe prices in that currency, flip the
 country to True and re-run `python3 _src/build.py`. Nothing else needs to change.
 
-`WHATSAPP_LIVE` does the same for the WhatsApp wording: False = "coming soon, waiting on
-Meta's approval"; True = WhatsApp described as live (Dean, 21 Oct 2026: Meta approved WhatsApp
-messaging on 8 Oct; a company connects its own WhatsApp Business number in Settings → WhatsApp).
+`WHATSAPP_LIVE` does the same for the WhatsApp wording: False = "approved by Meta, one-click connect
+switching on shortly, included in your plan" (true on 21 Oct 2026: Meta approved WhatsApp messaging on
+8 Oct, but a brand-new instance can't connect a number yet); True = WhatsApp described as live (a company
+connects its own WhatsApp Business number in Settings → WhatsApp). Flip it once a new instance can connect.
 Facebook Messenger is NOT covered by this flag — it stays "coming soon" everywhere.
 In the JSON content, write `{{whatsapp::live text::soon text}}`; in Python, `wa(live, soon)`.
 
@@ -36,7 +37,7 @@ SUBSCRIBE = {
     'mt': False,
 }
 
-WHATSAPP_LIVE = True
+WHATSAPP_LIVE = False  # 21 Oct: Meta approved messaging, but a new instance can't connect yet (relay key / one-click connect pending)
 
 # Country-neutral pages (feature pages, /support) offer "start a 14-day trial" only while at least one
 # country's SUBSCRIBE is on; otherwise they say "book a demo" / "see pricing". JSON/legal: `{{trial::live::soon}}`.
@@ -58,8 +59,8 @@ PLAN_LINES = {
 PLAN_NAMES = [('Starter', 'starter', False), ('Professional', 'professional', True), ('Business', 'business', False)]
 
 # Outbound WhatsApp messages a month (replies from customers are free) — the app's PLAN_TIERS
-# maxWhatsappPerMonth (src/lib/plan-tiers.ts). Enterprise is unlimited. Shown on the plan cards only
-# while WhatsApp is live; inserted straight after the SMS line.
+# maxWhatsappPerMonth (src/lib/plan-tiers.ts). Enterprise is unlimited. Inserted straight after the SMS
+# line on the plan cards, labelled "when WhatsApp switches on" while WHATSAPP_LIVE is False.
 WHATSAPP_LINES = {'starter': '500 WhatsApp messages a month', 'professional': '1,500 WhatsApp messages a month',
                   'business': '3,000 WhatsApp messages a month'}
 
@@ -69,11 +70,11 @@ def wa(live, soon):
 
 
 def plan_lines(k):
-    """The bullet list for one plan card: PLAN_LINES, plus the WhatsApp allowance after SMS once it's live."""
+    """The bullet list for one plan card: PLAN_LINES, plus the WhatsApp allowance after SMS
+    (labelled "when WhatsApp switches on" until it's live)."""
     lines = list(PLAN_LINES[k])
-    if WHATSAPP_LIVE:
-        i = next(n for n, x in enumerate(lines) if 'SMS' in x)
-        lines.insert(i + 1, WHATSAPP_LINES[k])
+    i = next(n for n, x in enumerate(lines) if 'SMS' in x)
+    lines.insert(i + 1, WHATSAPP_LINES[k] + wa('', ' (when WhatsApp switches on)'))
     return lines
 
 
@@ -133,8 +134,9 @@ def _wa_point(where):
             wa(f'Customers in {where} would rather WhatsApp than text. Connect your WhatsApp Business number in Settings, '
                'then send quotes and invoices on WhatsApp and answer customers from the Coglass inbox, with their '
                'messages and photos kept on the job.',
-               f'Customers in {where} would rather WhatsApp than text. WhatsApp messaging is built into Coglass and waiting on '
-               "Meta's approval; until it switches on, email, SMS and the chat on your quote and tracking pages work today."))
+               f'Customers in {where} would rather WhatsApp than text. WhatsApp in Coglass is approved by Meta, and one-click '
+               'connect is switching on shortly — included in your plan. Email, SMS and the chat on your quote and tracking '
+               'pages work today.'))
 
 
 def _wa_faq(where):
@@ -142,7 +144,8 @@ def _wa_faq(where):
             wa('Yes. Connect your own WhatsApp Business number in Coglass Settings, then send quotes and invoices on '
                'WhatsApp and answer customers from the Coglass inbox, with their messages and photos kept on the job. Every '
                'plan includes a monthly allowance of WhatsApp messages; replies from customers are free.',
-               "WhatsApp is built and waiting on Meta's approval, so it's coming soon. Until then you can reach customers by "
+               'Soon. WhatsApp in Coglass is approved by Meta, and one-click connect is switching on shortly — included in '
+               'your plan, with a monthly allowance of WhatsApp messages. Until then you can reach customers by '
                'email, SMS and the chat on your quote and tracking pages.'))
 
 
