@@ -17,6 +17,7 @@ Rules for the copy (same as countries.py, stricter because these pages talk abou
 Copy lives in GUIDES below; rendering is `guide_page`. Built from country_pages.build().
 """
 import html
+from countries import SUBSCRIBE as _SUB
 
 from countries import C
 import countries as CS
@@ -632,7 +633,7 @@ GUIDES['uk'] = [
             ('GOV.UK — Find software for Making Tax Digital for Income Tax', 'https://www.gov.uk/guidance/find-software-thats-compatible-with-making-tax-digital-for-income-tax'),
             ('Xero — Making Tax Digital', 'https://www.xero.com/uk/programme/making-tax-digital/income-tax/'),
         ],
-        cta=('From invoice to Xero without re-typing', 'Book a demo or start a 14-day trial and connect your Xero organisation.'),
+        cta=('From invoice to Xero without re-typing', ('Book a demo or start a 14-day trial and connect your Xero organisation.' if _SUB['uk'] else 'Book a demo and we will connect a Xero demo company with you.')),
     ),
     dict(
         slug='van-mot-reminders', nav='Van MOTs and reminders',
@@ -666,7 +667,7 @@ GUIDES['uk'] = [
             ('GOV.UK — Get an MOT reminder', 'https://www.gov.uk/mot-reminder'),
             ('nidirect — How the MOT scheme works', 'https://www.nidirect.gov.uk/articles/how-mot-scheme-works'),
         ],
-        cta=('Keep every van on the road', 'Book a demo or start a 14-day trial and add your fleet.'),
+        cta=('Keep every van on the road', ('Book a demo or start a 14-day trial and add your fleet.' if _SUB['uk'] else 'Book a demo and we will show you how Coglass keeps track of your vans.')),
     ),
 ]
 

@@ -89,5 +89,5 @@
   ]
  ],
  "cta_h2": "Get your workshop organised",
- "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do — or pick a plan and start a 14-day trial."
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}"
 }

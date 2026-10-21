@@ -8,8 +8,12 @@ The accounts site only bills in GBP today, so every country except the UK is Fal
 On launch day, once accounts.coglass.co.uk has Stripe prices in that currency, flip the
 country to True and re-run `python3 _src/build.py`. Nothing else needs to change.
 
-`WHATSAPP_LIVE` does the same for the WhatsApp wording: False = "coming soon, waiting on
-Meta's approval" (true today, see DECISIONS.md D15); True = WhatsApp described as live.
+`WHATSAPP_LIVE` does the same for the WhatsApp wording: False = "approved by Meta, one-click connect
+switching on shortly, included in your plan" (true on 21 Oct 2026: Meta approved WhatsApp messaging on
+8 Oct, but a brand-new instance can't connect a number yet); True = WhatsApp described as live (a company
+connects its own WhatsApp Business number in Settings → WhatsApp). Flip it once a new instance can connect.
+Facebook Messenger is NOT covered by this flag — it stays "coming soon" everywhere.
+In the JSON content, write `{{whatsapp::live text::soon text}}`; in Python, `wa(live, soon)`.
 
 `PORTAL_LIVE` / `WEBSHOP_LIVE` do the same for the customer portal and the webshop: False =
 "coming soon, included in your plan when it launches" (Dean, 9 Oct 2026 — both are off in the
@@ -33,7 +37,11 @@ SUBSCRIBE = {
     'mt': False,
 }
 
-WHATSAPP_LIVE = False
+WHATSAPP_LIVE = False  # 21 Oct: Meta approved messaging, but a new instance can't connect yet (relay key / one-click connect pending)
+
+# Country-neutral pages (feature pages, /support) offer "start a 14-day trial" only while at least one
+# country's SUBSCRIBE is on; otherwise they say "book a demo" / "see pricing". JSON/legal: `{{trial::live::soon}}`.
+TRIAL_LIVE = any(SUBSCRIBE.values())
 PORTAL_LIVE = False
 WEBSHOP_LIVE = False
 
@@ -50,9 +58,24 @@ PLAN_LINES = {
 }
 PLAN_NAMES = [('Starter', 'starter', False), ('Professional', 'professional', True), ('Business', 'business', False)]
 
+# Outbound WhatsApp messages a month (replies from customers are free) — the app's PLAN_TIERS
+# maxWhatsappPerMonth (src/lib/plan-tiers.ts). Enterprise is unlimited. Inserted straight after the SMS
+# line on the plan cards, labelled "when WhatsApp switches on" while WHATSAPP_LIVE is False.
+WHATSAPP_LINES = {'starter': '500 WhatsApp messages a month', 'professional': '1,500 WhatsApp messages a month',
+                  'business': '3,000 WhatsApp messages a month'}
+
 
 def wa(live, soon):
     return live if WHATSAPP_LIVE else soon
+
+
+def plan_lines(k):
+    """The bullet list for one plan card: PLAN_LINES, plus the WhatsApp allowance after SMS
+    (labelled "when WhatsApp switches on" until it's live)."""
+    lines = list(PLAN_LINES[k])
+    i = next(n for n, x in enumerate(lines) if 'SMS' in x)
+    lines.insert(i + 1, WHATSAPP_LINES[k] + wa('', ' (when WhatsApp switches on)'))
+    return lines
 
 
 def portal(live, soon):
@@ -83,14 +106,16 @@ def feature_live(key):
     return True
 
 
-_LAUNCH = __import__('re').compile(r'\{\{(portal|webshop)::(.*?)::(.*?)\}\}', __import__('re').S)
+_LAUNCH = __import__('re').compile(r'\{\{(portal|webshop|whatsapp|trial)::(.*?)::(.*?)\}\}', __import__('re').S)
+_LAUNCH_FLAG = {'portal': lambda: PORTAL_LIVE, 'webshop': lambda: WEBSHOP_LIVE, 'whatsapp': lambda: WHATSAPP_LIVE,
+                'trial': lambda: TRIAL_LIVE}
 
 
 def launch_text(s):
-    """`{{portal::live::soon}}` / `{{webshop::live::soon}}` → the text for today's switch."""
+    """`{{portal::live::soon}}` / `{{webshop::…}}` / `{{whatsapp::…}}` → the text for today's switch."""
     if not isinstance(s, str):
         return s
-    return _LAUNCH.sub(lambda m: m.group(2) if (PORTAL_LIVE if m.group(1) == 'portal' else WEBSHOP_LIVE) else m.group(3), s)
+    return _LAUNCH.sub(lambda m: m.group(2) if _LAUNCH_FLAG[m.group(1)]() else m.group(3), s)
 
 
 def launch_data(v):
@@ -105,18 +130,22 @@ def launch_data(v):
 
 
 def _wa_point(where):
-    return ('WhatsApp-first messaging',
-            wa(f'Booking confirmations, on-the-way messages and quotes go out on WhatsApp — the way customers in {where} '
-               'expect to hear from you — with replies landing on the job.',
-               f'Customers in {where} would rather WhatsApp than text. WhatsApp messaging is built into Coglass and waiting on '
-               "Meta's approval; until it switches on, email, SMS and the chat on your quote and tracking pages work today."))
+    return (wa('WhatsApp built in', 'WhatsApp-first messaging'),
+            wa(f'Customers in {where} would rather WhatsApp than text. Connect your WhatsApp Business number in Settings, '
+               'then send quotes and invoices on WhatsApp and answer customers from the Coglass inbox, with their '
+               'messages and photos kept on the job.',
+               f'Customers in {where} would rather WhatsApp than text. WhatsApp in Coglass is approved by Meta, and one-click '
+               'connect is switching on shortly — included in your plan. Email, SMS and the chat on your quote and tracking '
+               'pages work today.'))
 
 
 def _wa_faq(where):
     return ('Can I message customers on WhatsApp?',
-            wa(f'Yes. WhatsApp is the default way Coglass messages customers in {where}: booking confirmations, on-the-way '
-               'messages and quotes, with replies in your inbox and on the job.',
-               "WhatsApp is built and waiting on Meta's approval, so it's coming soon. Until then you can reach customers by "
+            wa('Yes. Connect your own WhatsApp Business number in Coglass Settings, then send quotes and invoices on '
+               'WhatsApp and answer customers from the Coglass inbox, with their messages and photos kept on the job. Every '
+               'plan includes a monthly allowance of WhatsApp messages; replies from customers are free.',
+               'Soon. WhatsApp in Coglass is approved by Meta, and one-click connect is switching on shortly — included in '
+               'your plan, with a monthly allowance of WhatsApp messages. Until then you can reach customers by '
                'email, SMS and the chat on your quote and tracking pages.'))
 
 
@@ -137,6 +166,9 @@ C['uk'] = dict(
     hreflang=['en-GB', 'en-IM', 'en-JE', 'en-GG', 'en-GI'],
     currency='GBP', sym='£', prices={'starter': '£89', 'professional': '£199', 'business': '£399'},
     num={'starter': 89, 'professional': 199, 'business': 399}, inbox='£7.50', tax='VAT', per='per month + VAT',
+    # Extra logins bought self-serve at accounts.coglass.co.uk → Billing → Extra logins (Dean, 21 Oct 2026).
+    # Only priced in GBP today, so other countries still say "Ask us".
+    seats={'office': '£29', 'fitter': '£6'},
     price_tax=' + VAT', tax_short='+ VAT',
     price_basis='Prices exclude VAT.',
     eyebrow='Built for UK glass &amp; glazing companies',
@@ -183,8 +215,11 @@ C['uk'] = dict(
          'pounds. The Isle of Man is in the UK VAT area, so UK VAT is added; for businesses in Jersey, Guernsey and Gibraltar no '
          'UK VAT is added. When you sign up, choose your island or Gibraltar as the country — the pricing page has a link for '
          'each.'),
-        ('How does the trial work?', 'Pick a plan on the pricing page. We take your card at sign-up and charge nothing for 14 '
-         'days; cancel before the trial ends and you pay nothing. If you would rather see it first, book a demo.'),
+        (('How does the trial work?', 'Pick a plan on the pricing page. We take your card at sign-up and charge nothing for 14 '
+          'days; cancel before the trial ends and you pay nothing. If you would rather see it first, book a demo.')
+         if SUBSCRIBE['uk'] else
+         ('How do I get started?', 'Book a demo. We will show you Coglass on the kind of jobs you do, then set your account up '
+          'with you — your products, prices and team. You are billed monthly from the day your account goes live.')),
         XERO_FAQ,
         OFFLINE_FAQ,
         ('Can you help us set it up?', 'Yes — book a demo and we will go through your products, prices and team with you. There '

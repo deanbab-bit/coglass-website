@@ -69,5 +69,5 @@
   ]
  ],
  "cta_h2": "Less typing, fewer missing signatures",
- "cta_p": "Book a demo and we will show you the documents from one of your own jobs — or pick a plan and start a 14-day trial."
+ "cta_p": "Book a demo and we will show you the documents from one of your own jobs{{trial:: — or pick a plan and start a 14-day trial.::.}}"
 }

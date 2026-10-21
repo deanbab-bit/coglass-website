@@ -200,11 +200,13 @@ def shot(src, alt, w, h, bar=True):
 
 
 def cta_band(h, p):
+    second = (f'<a class="btn ghost-light lg" href="{TRIAL}">See plans and start a trial</a>' if CS.TRIAL_LIVE
+              else '<a class="btn ghost-light lg" href="/pricing/">See pricing</a>')
     return f'''<section class="cta-band">
   <div class="wrap">
     <h2>{e(h)}</h2>
     <p>{e(p)}</p>
-    <div class="ctas"><a class="btn acc lg" href="{DEMO}">Book a demo</a><a class="btn ghost-light lg" href="{TRIAL}">See plans and start a trial</a></div>
+    <div class="ctas"><a class="btn acc lg" href="{DEMO}">Book a demo</a>{second}</div>
   </div>
 </section>'''
 
@@ -367,7 +369,9 @@ def feature_page(slug, d):
                 '<a class="btn lg" href="https://play.google.com/store/apps/details?id=com.coglass.app" rel="noopener">Get it on Google Play</a>')
         note = '<p class="fine">The app is for staff of companies that use Coglass — you sign in with the login your company gives you.</p>'
     else:
-        ctas = f'<a class="btn acc lg" href="{DEMO}">Book a demo</a><a class="btn lg" href="{TRIAL}">Start a 14-day trial</a>'
+        ctas = f'<a class="btn acc lg" href="{DEMO}">Book a demo</a>' + (
+            f'<a class="btn lg" href="{TRIAL}">Start a 14-day trial</a>' if CS.TRIAL_LIVE
+            else '<a class="btn lg" href="/pricing/">See pricing</a>')
         note = ''
     steps = ''.join(f'<li><h3>{e(t)}</h3><p>{e(x)}</p></li>' for t, x in d['steps'])
     incl = ''
@@ -389,7 +393,7 @@ def feature_page(slug, d):
       <p class="lead">{e(d['lead'])}</p>
       <div class="ctas">{ctas}</div>
       {note}
-      {trust(['14-day trial', 'iPhone, Android & web', 'Every feature on every plan'])}
+      {trust(['14-day trial' if CS.TRIAL_LIVE else 'No setup fee', 'iPhone, Android & web', 'Every feature on every plan'])}
     </div>
     <div class="visual">{visual_html(slug)}</div>
   </div>

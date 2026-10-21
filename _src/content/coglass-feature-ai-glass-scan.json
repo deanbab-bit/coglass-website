@@ -64,8 +64,8 @@
    "Also works on customer messages kept against an order, like the chat on your quote and tracking pages."
   ],
   [
-   "WhatsApp and Messenger — coming soon",
-   "Scanning WhatsApp and Messenger enquiries switches on with those channels, once Meta has approved them."
+   "{{whatsapp::WhatsApp too, Messenger coming soon::WhatsApp and Messenger — coming soon}}",
+   "{{whatsapp::Works on WhatsApp enquiries in your Coglass inbox. Messenger enquiries follow when Messenger switches on.::Scanning WhatsApp enquiries switches on with WhatsApp, which is approved by Meta and switching on shortly. Messenger follows when Messenger switches on.}}"
   ],
   [
    "On every plan",
@@ -73,5 +73,5 @@
   ]
  ],
  "cta_h2": "Stop retyping sizes from emails",
- "cta_p": "Book a demo and we will scan one of your own enquiries — or pick a plan and start a 14-day trial."
+ "cta_p": "Book a demo and we will scan one of your own enquiries{{trial:: — or pick a plan and start a 14-day trial.::.}}"
 }
