@@ -203,7 +203,7 @@ def country_home(ctx, c):
       <ul class="checks"><li>Barcode labels for every pane</li><li>Sealed-unit steps checked pane by pane</li><li>Keeps working when the workshop wifi drops</li></ul>
       <a class="btn" href="/coglass-feature-production.html">See production</a>
     </div>
-    {img('production')}
+    <div>{ctx['visual_html']('coglass-feature-production')}</div>
   </div>
 </section>
 <section class="sect alt">

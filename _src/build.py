@@ -230,7 +230,6 @@ def panel(title, rows, note=''):
 # otherwise a drawn panel in the app's style.
 IMG = {
     'planning': ('/assets/img/planning.webp', 'The Coglass planning board: a day of fittings, surveys and a delivery booked across two fitters and a surveyor', 1600, 867),
-    'production': ('/assets/img/production.webp', 'The production board with jobs in every lane, from To plan to Made', 1600, 867),
     'orders': ('/assets/img/orders.webp', 'The Orders list with status, job type and amount owed for each job', 1600, 867),
     'bench': ('/assets/img/bench-drawing.webp', 'A double-glazed unit on the work bench, with its drawing open beside the line: Georgian bars 3×2 and two drilled holes', 1400, 638),
     'vehicles': ('/assets/img/vehicles.webp', 'The Coglass vehicles page, where each van’s MOT due date, reminder timing and certificates are kept', 1400, 489),
@@ -268,15 +267,24 @@ def gallery_html(slug):
     return f'\n    <div class="docs" style="grid-template-columns:1fr;max-width:640px;margin:36px auto 0">{figs}</div>'
 
 
+# TODO(DECISIONS D23): re-add the production board screenshot (production.webp) after board v2 is live.
+# Until then the production pages and "The workshop" section use this drawn panel.
+PRODUCTION_PANEL = ('panel', 'Shop floor', [
+    ('s', '#0106 Ashgrove Dental · 2 panes', 'Cut ✓ · Edges ✓ · Toughening bought in — due back Thu'),
+    ('f', '#0107 Fernbrook Primary · TGU', 'Sealing: 2 of 3 panes ready · scan to advance'),
+    ('d', '#0116 Calder Shopfitting · 10mm toughened shelves', 'Labelled · for delivery Tue 3 Nov'),
+], 'Drawn illustration of the shop floor.')
+
+
 FEATURE_VISUAL = {
     'coglass-feature-orders': ('img', 'orders'),
     'coglass-feature-quoting': ('img', 'quote'),
     'coglass-feature-invoicing': ('img', 'invoice'),
     'coglass-feature-scheduling': ('img', 'planning'),
-    'coglass-feature-production': ('img', 'production'),
+    'coglass-feature-production': PRODUCTION_PANEL,
     'coglass-feature-glass-specs': ('img', 'bench'),
     'coglass-feature-fleet': ('img', 'vehicles'),
-    'coglass-for-merchants': ('img', 'production'),
+    'coglass-for-merchants': PRODUCTION_PANEL,
     'coglass-for-sealed-units': ('img', 'quote'),
     'coglass-feature-communication': ('panel', 'Inbox', [
         ('s', 'Mrs A. Patel · Email', '“Could you quote for the two misted units in the bay?” — linked to order #0002'),
