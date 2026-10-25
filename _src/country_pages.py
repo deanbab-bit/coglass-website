@@ -126,6 +126,17 @@ def local_features(ctx, c):
     return out
 
 
+def ai_note(ctx, c, pricing=False):
+    """Coglass AI: a short note with a "Coming soon" pill (countries.AI_LIVE). UK pages only — the home
+    page's feature section and the pricing page. Never added to a plan's included features."""
+    if c['key'] != 'uk':
+        return ''
+    e = ctx['e']
+    extra = CS.ai('', ' ' + CS.AI_SOON_TEXT + ((' ' + CS.AI_SOON_PRICING) if pricing else ''))
+    return (f'<div class="note" id="coglass-ai"><strong>Coglass AI</strong>{ctx["soon_badge"]("ai")} '
+            f'{e(CS.AI_TEXT + extra)}</div>')
+
+
 def faq_html(ctx, items):
     e = ctx['e']
     return ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in items)
@@ -210,7 +221,7 @@ def country_home(ctx, c):
 <section class="sect alt" id="features">
   <div class="wrap">
     <div class="sect-head"><span class="kicker">Everything in Coglass</span><h2>From the first enquiry to the final payment</h2><p>Every plan includes all of it. Plans differ by how many people use Coglass and how much you put through it.</p></div>
-    <ul class="fgrid" style="list-style:none;padding:0;margin:0">{local_features(ctx, c)}</ul>
+    <ul class="fgrid" style="list-style:none;padding:0;margin:0">{local_features(ctx, c)}</ul>{ai_note(ctx, c)}
     {pages.more_features_html(ctx)}
   </div>
 </section>
@@ -355,7 +366,7 @@ def country_pricing(ctx, c):
     <p style="max-width:780px;color:var(--ink2)">All plans include the full system — {e(pricing_includes())} Plans differ by how many people use Coglass and how much you put through it, not by which features you get.{e((' ' + CS.portal_shop_soon_sentence()) if CS.portal_shop_soon_sentence() else '')}</p>
     <h2 class="sr-only">Plans</h2>
     <div class="plans" id="plans">{plans_html(ctx, c)}</div>
-    {start}
+    {start}{ai_note(ctx, c, pricing=True)}
     {other_countries(c, 'pricing', 'Prices for another country:')}
   </div>
 </section>

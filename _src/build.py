@@ -233,7 +233,7 @@ IMG = {
     'production': ('/assets/img/production.webp', 'The production board with lanes from To plan to Made', 1600, 867),
     'orders': ('/assets/img/orders.webp', 'The Orders list with status, job type and amount owed for each job', 1600, 867),
     'bench': ('/assets/img/bench-drawing.webp', 'An arched double-glazed unit on the work bench, drawn with Georgian bars and two drilled holes', 1400, 638),
-    'vehicles': ('/assets/img/vehicles.webp', 'The vehicles list with vehicle test due dates', 1400, 245),
+    'vehicles': ('/assets/img/vehicles.webp', 'The Coglass vehicles page, where each van’s MOT due date, reminder timing and certificates are kept', 1400, 245),
     'quote': ('/assets/img/quote-pdf.webp', 'A quotation PDF with the arched unit drawn on its line', 900, 855),
     'invoice': ('/assets/img/invoice-pdf.webp', 'An invoice PDF with totals and balance due', 900, 643),
     'ipad-planner': ('/assets/img/ipad-planner.webp', 'The Coglass planner open in a browser at iPad size: a day of fittings, surveys and a delivery across three people', 1600, 1112),
@@ -256,12 +256,12 @@ FEATURE_VISUAL = {
         ('d', 'D. Harris · Quote page chat', '“Is the arched top-light toughened?”'),
     ], 'Drawn illustration of the inbox.'),
     'coglass-feature-suppliers': ('panel', 'Supplier orders', [
-        ('s', '0008-1 · Purchase order', 'DGU 4-16-4 arched, Georgian 3×2 · Expected Thu'),
-        ('d', '0009-1 · Overdue — chased once', '12 × DGU 4-20-4 Low-E Argon'),
+        ('s', '0008-1 · Purchase order', 'DGU 4mm Clear / 4mm Clear · 16mm · arched, Georgian 3×2 · Expected Thu'),
+        ('d', '0009-1 · Overdue — chased once', '12 × DGU 4mm Clear / 4mm Low-E · 20mm Argon'),
         ('f', '0005-1 · Received', '2 × DGU obscure · into Glass in'),
     ], 'Drawn illustration of the supplier orders list.'),
     'coglass-feature-webshop': ('panel', 'Your webshop', [
-        ('s', 'DGU 4-16-4 Clear', 'Enter your sizes · price updates as you type'),
+        ('s', 'DGU 4mm Clear / 4mm Clear', 'Enter your sizes · price updates as you type'),
         ('f', '6mm Toughened Clear', 'Trade price applied for logged-in accounts'),
         ('d', 'Checkout', 'Pay by card, PayPal, or send as an enquiry'),
     ], 'Drawn illustration of a webshop.'),
@@ -279,7 +279,7 @@ FEATURE_VISUAL = {
     ]),
     'coglass-feature-tracking': ('phoneimg', 'tracking'),
     'coglass-feature-ai-glass-scan': ('panel', 'Glass found in this email', [
-        ('s', '2 × 1200 × 900 · DGU 4-16-4 Clear/Clear', 'Matched · £68.00/m²'),
+        ('s', '2 × 1200 × 900 · DGU 4mm Clear / 4mm Clear', 'Matched · £68.00/m²'),
         ('s', '1 × 600 × 400 · 6mm Toughened Clear', 'Matched · £75.00/m²'),
         ('d', '1 × 450 × 900 · “frosted”', 'Pick a product'),
         ('f', 'Create order from this email', '3 lines ready to add'),
@@ -291,8 +291,8 @@ FEATURE_VISUAL = {
         ('', 'Message the office', 'About job #0002'),
     ]),
     'coglass-feature-glass-labels': ('panel', 'Glass label · 100 × 50 mm', [
-        ('s', 'SAMPLE GLAZING LTD · Job 0001', 'J. Smith · 12 Acacia Avenue'),
-        ('f', 'FRONT BEDROOM LEFT · pane 1 of 2', '1200 × 900 mm · DGU 4-16-4 Clear/Clear'),
+        ('s', 'EXAMPLE GLAZING LTD · Job 0001', 'J. Smith · 12 Acacia Avenue'),
+        ('f', 'FRONT BEDROOM LEFT · pane 1 of 2', '1200 × 900 mm · DGU 4mm Clear / 4mm Clear · 16mm'),
         ('', '|| ||| | |||| || ||| |', 'Barcode — scan at goods-in'),
     ], 'Drawn illustration of a pane label.'),
     'coglass-feature-paperwork': ('img', 'quote'),
@@ -306,7 +306,7 @@ FEATURE_VISUAL = {
         ('f', '08:00 Northgate School', 'Fitting · 1h 30m'),
         ('s', '10:30 Patel', 'Survey · 45m'),
         ('f', '13:00 Riverside Offices', 'Fitting · 2h'),
-        ('', 'Clocked in 07:42', 'Van NV21 GLZ'),
+        ('', 'Clocked in 07:42', 'Van 1 · Transit'),
     ]),
 }
 
