@@ -21,6 +21,10 @@ app until their PORTAL_LIVE / WEBSHOP_LIVE instance switch is on); True = descri
 In the JSON content, write `{{portal::live text::soon text}}` or `{{webshop::live text::soon text}}`
 (see launch_text below); in Python, `portal(live, soon)` / `shop(live, soon)`.
 
+`AI_LIVE` does the same for Coglass AI (the assistant): False = a short "Coming soon" note on the UK home
+page's feature section and the UK pricing page only, never in a plan's list of included features (25 Oct 2026:
+designed, not built, no price or date set). In JSON, `{{ai::live::soon}}`; in Python, `ai(live, soon)`.
+
 Content rules (see the PR): only claim what the app does today or what the region/tax
 launch PRs deliver. Values marked `unconfirmed` in the app's src/lib/region.ts (NA, BW, MT
 standards, phone ranges, bank fields…) are deliberately NOT mentioned here.
@@ -44,6 +48,14 @@ WHATSAPP_LIVE = False  # 21 Oct: Meta approved messaging, but a new instance can
 TRIAL_LIVE = any(SUBSCRIBE.values())
 PORTAL_LIVE = False
 WEBSHOP_LIVE = False
+AI_LIVE = False  # 25 Oct 2026: Coglass AI is designed, not built — "Coming soon", no price, no date
+
+# Coglass AI note (UK home features + UK pricing only, see country_pages.ai_note). Keep it to what the
+# design covers: answers questions, drafts replies and quotes for a person to check, voice on phone and desktop.
+AI_TEXT = ('An assistant built into Coglass. Ask it about your jobs, have it draft customer replies and quotes '
+           'for you to check before anything is sent, and talk to it on the phone app or at your desk.')
+AI_SOON_TEXT = 'Early access for launch customers.'
+AI_SOON_PRICING = "It isn't part of the plans above yet."
 
 # The one line used wherever both are mentioned together while they're coming soon.
 PORTAL_SHOP_SOON = 'The customer portal and the online shop are coming soon, and will be included in your plan when they launch.'
@@ -86,6 +98,10 @@ def shop(live, soon):
     return live if WEBSHOP_LIVE else soon
 
 
+def ai(live, soon):
+    return live if AI_LIVE else soon
+
+
 def portal_shop_soon_sentence():
     """One sentence for whichever of the two is still coming soon ('' once both are live)."""
     if not PORTAL_LIVE and not WEBSHOP_LIVE:
@@ -103,12 +119,14 @@ def feature_live(key):
         return PORTAL_LIVE
     if key in ('webshop', 'coglass-feature-webshop'):
         return WEBSHOP_LIVE
+    if key == 'ai':
+        return AI_LIVE
     return True
 
 
-_LAUNCH = __import__('re').compile(r'\{\{(portal|webshop|whatsapp|trial)::(.*?)::(.*?)\}\}', __import__('re').S)
+_LAUNCH = __import__('re').compile(r'\{\{(portal|webshop|whatsapp|trial|ai)::(.*?)::(.*?)\}\}', __import__('re').S)
 _LAUNCH_FLAG = {'portal': lambda: PORTAL_LIVE, 'webshop': lambda: WEBSHOP_LIVE, 'whatsapp': lambda: WHATSAPP_LIVE,
-                'trial': lambda: TRIAL_LIVE}
+                'trial': lambda: TRIAL_LIVE, 'ai': lambda: AI_LIVE}
 
 
 def launch_text(s):
@@ -465,7 +483,7 @@ C['na'] = dict(
         _wa_point('Namibia'),
         ('Drawn and priced properly', 'Shapes, holes, cut-outs and IGU make-ups drawn to size in mm, priced from your own '
          'catalogue and trade price lists.'),
-        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Made, and '
+        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Ready to go, and '
          'barcode labels for every pane.'),
         ('Close to our working day', 'Namibia is one to two hours ahead of our UK team, so support and demos fit your '
          'business hours.'),
@@ -517,7 +535,7 @@ C['bw'] = dict(
         _wa_point('Botswana'),
         ('Drawn and priced properly', 'Shapes, holes, cut-outs and IGU make-ups drawn to size in mm, priced from your own '
          'catalogue and trade price lists.'),
-        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Made, and '
+        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Ready to go, and '
          'barcode labels for every pane.'),
         ('Close to our working day', 'Botswana is one to two hours ahead of our UK team, so support and demos fit your '
          'business hours.'),
@@ -565,7 +583,7 @@ C['mt'] = dict(
          'catalogue and trade price lists.'),
         ('A planner for a busy island', 'Drag surveys, fittings and deliveries onto people and vans, and see which ready jobs '
          'are close to the day\'s other stops.'),
-        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Made, and '
+        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Ready to go, and '
          'barcode labels for every pane.'),
         ('Hosted in the EU', 'Your data is held on servers in Germany, and our team is one hour behind you in the UK.'),
     ],

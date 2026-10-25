@@ -230,25 +230,61 @@ def panel(title, rows, note=''):
 # otherwise a drawn panel in the app's style.
 IMG = {
     'planning': ('/assets/img/planning.webp', 'The Coglass planning board: a day of fittings, surveys and a delivery booked across two fitters and a surveyor', 1600, 867),
-    'production': ('/assets/img/production.webp', 'The production board with lanes from To plan to Made', 1600, 867),
     'orders': ('/assets/img/orders.webp', 'The Orders list with status, job type and amount owed for each job', 1600, 867),
-    'bench': ('/assets/img/bench-drawing.webp', 'An arched double-glazed unit on the work bench, drawn with Georgian bars and two drilled holes', 1400, 638),
-    'vehicles': ('/assets/img/vehicles.webp', 'The vehicles list with vehicle test due dates', 1400, 245),
-    'quote': ('/assets/img/quote-pdf.webp', 'A quotation PDF with the arched unit drawn on its line', 900, 855),
-    'invoice': ('/assets/img/invoice-pdf.webp', 'An invoice PDF with totals and balance due', 900, 643),
-    'ipad-planner': ('/assets/img/ipad-planner.webp', 'The Coglass planner open in a browser at iPad size: a day of fittings, surveys and a delivery across three people', 1600, 1112),
-    'tracking': ('/assets/img/tracking-page.webp', 'A customer tracking page on a phone: fitting today, stop 1 of 2, an expected arrival window and buttons to message the office or the fitter', 600, 1077),
+    'bench': ('/assets/img/bench-drawing.webp', 'A double-glazed unit on the work bench, with its drawing open beside the line: Georgian bars 3×2 and two drilled holes', 1400, 638),
+    'vehicles': ('/assets/img/vehicles.webp', 'The Coglass vehicles page, where each van’s MOT due date, reminder timing and certificates are kept', 1400, 489),
+    'quote': ('/assets/img/quote-pdf.webp', 'A quotation PDF with the unit drawn on its line and a link to accept it online', 1200, 1140),
+    'invoice': ('/assets/img/invoice-pdf.webp', 'The matching invoice PDF for the same job, with an amount on every line, totals and balance due', 1200, 857),
+    'ipad-planner': ('/assets/img/ipad-planner.webp', 'The Coglass planner open in a browser at iPad size: a week of fittings, surveys and a delivery across three teams', 1600, 1112),
+    'mirror': ('/assets/img/mirror-holes.webp', 'The drawing editor for a 6mm silver mirror, 900 × 600 mm, with four Ø10 mm holes each set 50 mm in from the corners and every dimension shown', 1200, 836),
+    'diamond': ('/assets/img/diamond-lead.webp', 'The drawing editor for a 600 × 900 mm double-glazed unit with diamond lead: 100 × 140 mm diamonds and 6 mm self-colour came', 1200, 1232),
+    'tracking': ('/assets/img/tracking-page.webp', 'A customer tracking page on a phone: the booked fitting day and time, and buttons to message the office or the fitter', 600, 1077),
 }
+
+# Extra real screenshots shown under "How it works" on a feature page: (IMG key, caption).
+FEATURE_GALLERY = {
+    'coglass-feature-glass-specs': [
+        ('mirror', 'Holes are placed off the edges in mm — every hole shows its size and where it sits.'),
+        ('diamond', 'Diamond lead: set the diamond size and came width, and drag the first full diamond into place.'),
+    ],
+    'coglass-for-sealed-units': [
+        ('diamond', 'A leaded sealed unit drawn on the line — diamond size, came width and finish, ready for the workshop.'),
+    ],
+}
+
+
+def gallery_html(slug):
+    items = FEATURE_GALLERY.get(slug)
+    if not items:
+        return ''
+    figs = ''
+    for key, cap in items:
+        src, alt, w, h = IMG[key]
+        figs += (f'<figure style="margin:0"><div class="doc"><img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" '
+                 f'loading="lazy" decoding="async"></div><figcaption class="cap">{e(cap)}</figcaption></figure>')
+    if len(items) > 1:
+        return f'\n    <div class="docs" style="margin-top:36px">{figs}</div>'
+    return f'\n    <div class="docs" style="grid-template-columns:1fr;max-width:640px;margin:36px auto 0">{figs}</div>'
+
+
+# TODO(DECISIONS D23): re-add the production board screenshot (production.webp) after board v2 is live.
+# Until then the production pages and "The workshop" section use this drawn panel.
+PRODUCTION_PANEL = ('panel', 'Shop floor', [
+    ('s', '#0106 Ashgrove Dental · 2 panes', 'Cut ✓ · Edges ✓ · Toughening bought in — due back Thu'),
+    ('f', '#0107 Fernbrook Primary · TGU', 'Sealing: 2 of 3 panes ready · scan to advance'),
+    ('d', '#0116 Calder Shopfitting · 10mm toughened shelves', 'Labelled · for delivery Tue 3 Nov'),
+], 'Drawn illustration of the shop floor.')
+
 
 FEATURE_VISUAL = {
     'coglass-feature-orders': ('img', 'orders'),
     'coglass-feature-quoting': ('img', 'quote'),
     'coglass-feature-invoicing': ('img', 'invoice'),
     'coglass-feature-scheduling': ('img', 'planning'),
-    'coglass-feature-production': ('img', 'production'),
+    'coglass-feature-production': PRODUCTION_PANEL,
     'coglass-feature-glass-specs': ('img', 'bench'),
     'coglass-feature-fleet': ('img', 'vehicles'),
-    'coglass-for-merchants': ('img', 'production'),
+    'coglass-for-merchants': PRODUCTION_PANEL,
     'coglass-for-sealed-units': ('img', 'quote'),
     'coglass-feature-communication': ('panel', 'Inbox', [
         ('s', 'Mrs A. Patel · Email', '“Could you quote for the two misted units in the bay?” — linked to order #0002'),
@@ -256,12 +292,12 @@ FEATURE_VISUAL = {
         ('d', 'D. Harris · Quote page chat', '“Is the arched top-light toughened?”'),
     ], 'Drawn illustration of the inbox.'),
     'coglass-feature-suppliers': ('panel', 'Supplier orders', [
-        ('s', '0008-1 · Purchase order', 'DGU 4-16-4 arched, Georgian 3×2 · Expected Thu'),
-        ('d', '0009-1 · Overdue — chased once', '12 × DGU 4-20-4 Low-E Argon'),
+        ('s', '0008-1 · Purchase order', 'DGU 4mm Clear / 4mm Clear · 16mm · arched, Georgian 3×2 · Expected Thu'),
+        ('d', '0009-1 · Overdue — chased once', '12 × DGU 4mm Clear / 4mm Low-E · 20mm Argon'),
         ('f', '0005-1 · Received', '2 × DGU obscure · into Glass in'),
     ], 'Drawn illustration of the supplier orders list.'),
     'coglass-feature-webshop': ('panel', 'Your webshop', [
-        ('s', 'DGU 4-16-4 Clear', 'Enter your sizes · price updates as you type'),
+        ('s', 'DGU 4mm Clear / 4mm Clear', 'Enter your sizes · price updates as you type'),
         ('f', '6mm Toughened Clear', 'Trade price applied for logged-in accounts'),
         ('d', 'Checkout', 'Pay by card, PayPal, or send as an enquiry'),
     ], 'Drawn illustration of a webshop.'),
@@ -279,7 +315,7 @@ FEATURE_VISUAL = {
     ]),
     'coglass-feature-tracking': ('phoneimg', 'tracking'),
     'coglass-feature-ai-glass-scan': ('panel', 'Glass found in this email', [
-        ('s', '2 × 1200 × 900 · DGU 4-16-4 Clear/Clear', 'Matched · £68.00/m²'),
+        ('s', '2 × 1200 × 900 · DGU 4mm Clear / 4mm Clear', 'Matched · £68.00/m²'),
         ('s', '1 × 600 × 400 · 6mm Toughened Clear', 'Matched · £75.00/m²'),
         ('d', '1 × 450 × 900 · “frosted”', 'Pick a product'),
         ('f', 'Create order from this email', '3 lines ready to add'),
@@ -291,8 +327,8 @@ FEATURE_VISUAL = {
         ('', 'Message the office', 'About job #0002'),
     ]),
     'coglass-feature-glass-labels': ('panel', 'Glass label · 100 × 50 mm', [
-        ('s', 'SAMPLE GLAZING LTD · Job 0001', 'J. Smith · 12 Acacia Avenue'),
-        ('f', 'FRONT BEDROOM LEFT · pane 1 of 2', '1200 × 900 mm · DGU 4-16-4 Clear/Clear'),
+        ('s', 'EXAMPLE GLAZING LTD · Job 0001', 'J. Smith · 12 Acacia Avenue'),
+        ('f', 'FRONT BEDROOM LEFT · pane 1 of 2', '1200 × 900 mm · DGU 4mm Clear / 4mm Clear · 16mm'),
         ('', '|| ||| | |||| || ||| |', 'Barcode — scan at goods-in'),
     ], 'Drawn illustration of a pane label.'),
     'coglass-feature-paperwork': ('img', 'quote'),
@@ -306,7 +342,7 @@ FEATURE_VISUAL = {
         ('f', '08:00 Northgate School', 'Fitting · 1h 30m'),
         ('s', '10:30 Patel', 'Survey · 45m'),
         ('f', '13:00 Riverside Offices', 'Fitting · 2h'),
-        ('', 'Clocked in 07:42', 'Van NV21 GLZ'),
+        ('', 'Clocked in 07:42', 'Van 1 · Transit'),
     ]),
 }
 
@@ -401,7 +437,7 @@ def feature_page(slug, d):
 <section class="sect">
   <div class="wrap">
     <div class="sect-head"><span class="kicker">{e(d['steps_label'])}</span><h2>{e(d['steps_h2'])}</h2><p>{e(d['steps_sub'])}</p></div>
-    <ol class="steps">{steps}</ol>
+    <ol class="steps">{steps}</ol>{gallery_html(slug)}
   </div>
 </section>
 <section class="sect alt">

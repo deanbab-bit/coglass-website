@@ -13,7 +13,7 @@ FEATURES = [
     ('quote', 'Quoting', 'Quotes priced from your catalogue and trade price lists, with the drawing on every line.', ['Branded PDF quotes and quote options', 'Customer accepts or declines online', 'Deposits asked for automatically'], 'coglass-feature-quoting.html'),
     ('survey', 'Surveys', 'Measure on the phone — shapes, photos, access notes and GPS — even with no signal.', ['Works offline, syncs later', 'Photos per opening', 'Survey straight onto the work bench'], 'coglass-feature-surveys.html'),
     ('igu', 'Glass specs', 'Full DGU/TGU make-ups, edges, shapes, holes, cut-outs, Georgian bars and leaded lights.', ['Cavity and spacer set per line', 'Drawn to size in mm', '1:1 lay-under template print'], 'coglass-feature-glass-specs.html'),
-    ('production', 'Production', 'One board from To plan to Made, with the shop-floor iPad at the bench.', ['Barcode labels and scan to advance', 'In-house or bought-in operations', 'IGU sealing steps'], 'coglass-feature-production.html'),
+    ('production', 'Production', 'One board from To plan to Ready to go, with the shop-floor iPad at the bench.', ['Barcode labels and scan to advance', 'In-house or bought-in operations', 'IGU sealing steps'], 'coglass-feature-production.html'),
     ('po', 'Suppliers', 'Purchase orders with the drawing on them, receipts, and automatic chasers when glass is late.', ['Numbered POs per job', 'AI reads supplier price-list PDFs', 'Outwork orders to processors'], 'coglass-feature-suppliers.html'),
     ('schedule', 'Planning', 'Drag surveys, fittings and deliveries onto people and vans for the day or week.', ['Holidays block the board', 'Nearby ready jobs suggested', 'Fitters see their day on the phone'], 'coglass-feature-scheduling.html'),
     ('fitting', 'Fitting & delivery', 'Per-pane sign-off on site with photos, GPS and the customer\'s signature.', ['Partial fits and re-orders flagged', 'Delivery and collection proof', 'Draft invoice raised on completion'], 'coglass-feature-fitting.html'),
@@ -199,7 +199,7 @@ def ipad(ctx):
                    ctx['shot']('/assets/img/orders.webp', ctx['IMG']['orders'][1], 1600, 867), ('See jobs & orders', '/coglass-feature-orders.html'))
     shop = block('The shop floor', 'The production board on an iPad at the bench',
                  'The shop-floor app is part of the Coglass app on the App Store. Lay it on the bench and the workshop sees every pane that needs making, in the order it needs making.',
-                 ['Six lanes: To plan, Waiting supplier, Glass in, In production, Ready, Made', 'Cut list by station, with the glass drawing beside it',
+                 ['Six lanes: To plan, Waiting supplier, Glass in, In production, Final checks, Ready to go', 'Cut list by station, with the glass drawing beside it',
                   'Scan to advance — with the iPad camera or a keyboard-wedge yard scanner', 'Sealed units: “Sealed” stays locked until every pane is ready',
                   'Keeps working when the workshop wifi drops, and catches up after', 'One shared iPad, with a PIN for each person'],
                  ctx['panel']('Shop floor · cut list', [('s', 'Cutting · 4 panes', '0003 · 6mm Toughened Clear · 900 × 1800 × 4'),

@@ -126,6 +126,17 @@ def local_features(ctx, c):
     return out
 
 
+def ai_note(ctx, c, pricing=False):
+    """Coglass AI: a short note with a "Coming soon" pill (countries.AI_LIVE). UK pages only — the home
+    page's feature section and the pricing page. Never added to a plan's included features."""
+    if c['key'] != 'uk':
+        return ''
+    e = ctx['e']
+    extra = CS.ai('', ' ' + CS.AI_SOON_TEXT + ((' ' + CS.AI_SOON_PRICING) if pricing else ''))
+    return (f'<div class="note" id="coglass-ai"><strong>Coglass AI</strong>{ctx["soon_badge"]("ai")} '
+            f'{e(CS.AI_TEXT + extra)}</div>')
+
+
 def faq_html(ctx, items):
     e = ctx['e']
     return ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in items)
@@ -188,11 +199,11 @@ def country_home(ctx, c):
     <div class="split-text">
       <span class="kicker">The workshop</span>
       <h2>The whole shop floor on one board</h2>
-      <p>Every line lands on the production board when the job is ordered — waiting on a supplier, glass in, in production, ready, made. At the bench, the shop-floor iPad shows the cut list and moves panes on with a barcode scan.</p>
+      <p>Every line lands on the production board when the job is ordered — waiting on a supplier, glass in, in production, final checks, ready to go. At the bench, the shop-floor iPad shows the cut list and moves panes on with a barcode scan.</p>
       <ul class="checks"><li>Barcode labels for every pane</li><li>Sealed-unit steps checked pane by pane</li><li>Keeps working when the workshop wifi drops</li></ul>
       <a class="btn" href="/coglass-feature-production.html">See production</a>
     </div>
-    {img('production')}
+    <div>{ctx['visual_html']('coglass-feature-production')}</div>
   </div>
 </section>
 <section class="sect alt">
@@ -210,7 +221,7 @@ def country_home(ctx, c):
 <section class="sect alt" id="features">
   <div class="wrap">
     <div class="sect-head"><span class="kicker">Everything in Coglass</span><h2>From the first enquiry to the final payment</h2><p>Every plan includes all of it. Plans differ by how many people use Coglass and how much you put through it.</p></div>
-    <ul class="fgrid" style="list-style:none;padding:0;margin:0">{local_features(ctx, c)}</ul>
+    <ul class="fgrid" style="list-style:none;padding:0;margin:0">{local_features(ctx, c)}</ul>{ai_note(ctx, c)}
     {pages.more_features_html(ctx)}
   </div>
 </section>
@@ -355,7 +366,7 @@ def country_pricing(ctx, c):
     <p style="max-width:780px;color:var(--ink2)">All plans include the full system — {e(pricing_includes())} Plans differ by how many people use Coglass and how much you put through it, not by which features you get.{e((' ' + CS.portal_shop_soon_sentence()) if CS.portal_shop_soon_sentence() else '')}</p>
     <h2 class="sr-only">Plans</h2>
     <div class="plans" id="plans">{plans_html(ctx, c)}</div>
-    {start}
+    {start}{ai_note(ctx, c, pricing=True)}
     {other_countries(c, 'pricing', 'Prices for another country:')}
   </div>
 </section>
@@ -490,8 +501,8 @@ def global_home(ctx):
   <div class="wrap">
     <div class="sect-head"><span class="kicker">What your customers receive</span><h2>Quotes and invoices that look the part</h2><p>Your logo and details, the drawing on every line, and a link to accept the quote online.</p></div>
     <div class="docs">
-      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['quote'][0]}" alt="{e(ctx['IMG']['quote'][1])}" width="900" height="855" loading="lazy" decoding="async"></div><figcaption class="cap">A real quotation PDF from a UK demo account with made-up details.</figcaption></figure>
-      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['invoice'][0]}" alt="{e(ctx['IMG']['invoice'][1])}" width="900" height="643" loading="lazy" decoding="async"></div><figcaption class="cap">The matching invoice.</figcaption></figure>
+      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['quote'][0]}" alt="{e(ctx['IMG']['quote'][1])}" width="{ctx['IMG']['quote'][2]}" height="{ctx['IMG']['quote'][3]}" loading="lazy" decoding="async"></div><figcaption class="cap">A real quotation PDF from a UK demo account with made-up details.</figcaption></figure>
+      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['invoice'][0]}" alt="{e(ctx['IMG']['invoice'][1])}" width="{ctx['IMG']['invoice'][2]}" height="{ctx['IMG']['invoice'][3]}" loading="lazy" decoding="async"></div><figcaption class="cap">The matching invoice.</figcaption></figure>
     </div>
   </div>
 </section>
