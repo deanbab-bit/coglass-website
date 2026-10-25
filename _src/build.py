@@ -237,8 +237,36 @@ IMG = {
     'quote': ('/assets/img/quote-pdf.webp', 'A quotation PDF with the unit drawn on its line and a link to accept it online', 1200, 1140),
     'invoice': ('/assets/img/invoice-pdf.webp', 'The matching invoice PDF for the same job, with an amount on every line, totals and balance due', 1200, 857),
     'ipad-planner': ('/assets/img/ipad-planner.webp', 'The Coglass planner open in a browser at iPad size: a week of fittings, surveys and a delivery across three teams', 1600, 1112),
+    'mirror': ('/assets/img/mirror-holes.webp', 'The drawing editor for a 6mm silver mirror, 900 × 600 mm, with four Ø10 mm holes each set 50 mm in from the corners and every dimension shown', 1200, 836),
+    'diamond': ('/assets/img/diamond-lead.webp', 'The drawing editor for a 600 × 900 mm double-glazed unit with diamond lead: 100 × 140 mm diamonds and 6 mm self-colour came', 1200, 1232),
     'tracking': ('/assets/img/tracking-page.webp', 'A customer tracking page on a phone: the booked fitting day and time, and buttons to message the office or the fitter', 600, 1077),
 }
+
+# Extra real screenshots shown under "How it works" on a feature page: (IMG key, caption).
+FEATURE_GALLERY = {
+    'coglass-feature-glass-specs': [
+        ('mirror', 'Holes are placed off the edges in mm — every hole shows its size and where it sits.'),
+        ('diamond', 'Diamond lead: set the diamond size and came width, and drag the first full diamond into place.'),
+    ],
+    'coglass-for-sealed-units': [
+        ('diamond', 'A leaded sealed unit drawn on the line — diamond size, came width and finish, ready for the workshop.'),
+    ],
+}
+
+
+def gallery_html(slug):
+    items = FEATURE_GALLERY.get(slug)
+    if not items:
+        return ''
+    figs = ''
+    for key, cap in items:
+        src, alt, w, h = IMG[key]
+        figs += (f'<figure style="margin:0"><div class="doc"><img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" '
+                 f'loading="lazy" decoding="async"></div><figcaption class="cap">{e(cap)}</figcaption></figure>')
+    if len(items) > 1:
+        return f'\n    <div class="docs" style="margin-top:36px">{figs}</div>'
+    return f'\n    <div class="docs" style="grid-template-columns:1fr;max-width:640px;margin:36px auto 0">{figs}</div>'
+
 
 FEATURE_VISUAL = {
     'coglass-feature-orders': ('img', 'orders'),
@@ -401,7 +429,7 @@ def feature_page(slug, d):
 <section class="sect">
   <div class="wrap">
     <div class="sect-head"><span class="kicker">{e(d['steps_label'])}</span><h2>{e(d['steps_h2'])}</h2><p>{e(d['steps_sub'])}</p></div>
-    <ol class="steps">{steps}</ol>
+    <ol class="steps">{steps}</ol>{gallery_html(slug)}
   </div>
 </section>
 <section class="sect alt">
