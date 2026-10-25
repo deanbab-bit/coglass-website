@@ -19,7 +19,7 @@
   ],
   [
    "Move items through the workflow",
-   "Drag cards across the board as work progresses: To Plan → Waiting Supplier → Glass In → In Production → Ready → Made."
+   "Drag cards across the board as work progresses: To Plan → Waiting Supplier → Glass In → In Production → Final Checks → Ready to Go."
   ],
   [
    "Flag urgent jobs",
@@ -35,13 +35,13 @@
   ],
   [
    "Mark as made",
-   "Once glass is made, it moves to Made and the order shows it as ready for fitting, delivery or collection."
+   "Once the glass is made and checked, it moves to Ready to Go and the order shows it as ready for fitting, delivery or collection."
   ]
  ],
  "included": [
   [
    "Visual kanban board",
-   "Six status columns: To Plan, Waiting Supplier, Glass In, In Production, Ready, Made. Drag to update status instantly."
+   "Six status columns: To Plan, Waiting Supplier, Glass In, In Production, Final Checks, Ready to Go. Drag to update status instantly."
   ],
   [
    "Priority levels",

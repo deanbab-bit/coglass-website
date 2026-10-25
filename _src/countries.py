@@ -483,7 +483,7 @@ C['na'] = dict(
         _wa_point('Namibia'),
         ('Drawn and priced properly', 'Shapes, holes, cut-outs and IGU make-ups drawn to size in mm, priced from your own '
          'catalogue and trade price lists.'),
-        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Made, and '
+        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Ready to go, and '
          'barcode labels for every pane.'),
         ('Close to our working day', 'Namibia is one to two hours ahead of our UK team, so support and demos fit your '
          'business hours.'),
@@ -535,7 +535,7 @@ C['bw'] = dict(
         _wa_point('Botswana'),
         ('Drawn and priced properly', 'Shapes, holes, cut-outs and IGU make-ups drawn to size in mm, priced from your own '
          'catalogue and trade price lists.'),
-        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Made, and '
+        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Ready to go, and '
          'barcode labels for every pane.'),
         ('Close to our working day', 'Botswana is one to two hours ahead of our UK team, so support and demos fit your '
          'business hours.'),
@@ -583,7 +583,7 @@ C['mt'] = dict(
          'catalogue and trade price lists.'),
         ('A planner for a busy island', 'Drag surveys, fittings and deliveries onto people and vans, and see which ready jobs '
          'are close to the day\'s other stops.'),
-        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Made, and '
+        ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Ready to go, and '
          'barcode labels for every pane.'),
         ('Hosted in the EU', 'Your data is held on servers in Germany, and our team is one hour behind you in the UK.'),
     ],
