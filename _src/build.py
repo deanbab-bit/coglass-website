@@ -230,14 +230,14 @@ def panel(title, rows, note=''):
 # otherwise a drawn panel in the app's style.
 IMG = {
     'planning': ('/assets/img/planning.webp', 'The Coglass planning board: a day of fittings, surveys and a delivery booked across two fitters and a surveyor', 1600, 867),
-    'production': ('/assets/img/production.webp', 'The production board with lanes from To plan to Made', 1600, 867),
+    'production': ('/assets/img/production.webp', 'The production board with jobs in every lane, from To plan to Made', 1600, 867),
     'orders': ('/assets/img/orders.webp', 'The Orders list with status, job type and amount owed for each job', 1600, 867),
-    'bench': ('/assets/img/bench-drawing.webp', 'An arched double-glazed unit on the work bench, drawn with Georgian bars and two drilled holes', 1400, 638),
-    'vehicles': ('/assets/img/vehicles.webp', 'The Coglass vehicles page, where each van’s MOT due date, reminder timing and certificates are kept', 1400, 245),
-    'quote': ('/assets/img/quote-pdf.webp', 'A quotation PDF with the arched unit drawn on its line', 900, 855),
-    'invoice': ('/assets/img/invoice-pdf.webp', 'An invoice PDF with totals and balance due', 900, 643),
-    'ipad-planner': ('/assets/img/ipad-planner.webp', 'The Coglass planner open in a browser at iPad size: a day of fittings, surveys and a delivery across three people', 1600, 1112),
-    'tracking': ('/assets/img/tracking-page.webp', 'A customer tracking page on a phone: fitting today, stop 1 of 2, an expected arrival window and buttons to message the office or the fitter', 600, 1077),
+    'bench': ('/assets/img/bench-drawing.webp', 'A double-glazed unit on the work bench, with its drawing open beside the line: Georgian bars 3×2 and two drilled holes', 1400, 638),
+    'vehicles': ('/assets/img/vehicles.webp', 'The Coglass vehicles page, where each van’s MOT due date, reminder timing and certificates are kept', 1400, 489),
+    'quote': ('/assets/img/quote-pdf.webp', 'A quotation PDF with the unit drawn on its line and a link to accept it online', 1200, 1140),
+    'invoice': ('/assets/img/invoice-pdf.webp', 'The matching invoice PDF for the same job, with an amount on every line, totals and balance due', 1200, 857),
+    'ipad-planner': ('/assets/img/ipad-planner.webp', 'The Coglass planner open in a browser at iPad size: a week of fittings, surveys and a delivery across three teams', 1600, 1112),
+    'tracking': ('/assets/img/tracking-page.webp', 'A customer tracking page on a phone: the booked fitting day and time, and buttons to message the office or the fitter', 600, 1077),
 }
 
 FEATURE_VISUAL = {

@@ -501,8 +501,8 @@ def global_home(ctx):
   <div class="wrap">
     <div class="sect-head"><span class="kicker">What your customers receive</span><h2>Quotes and invoices that look the part</h2><p>Your logo and details, the drawing on every line, and a link to accept the quote online.</p></div>
     <div class="docs">
-      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['quote'][0]}" alt="{e(ctx['IMG']['quote'][1])}" width="900" height="855" loading="lazy" decoding="async"></div><figcaption class="cap">A real quotation PDF from a UK demo account with made-up details.</figcaption></figure>
-      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['invoice'][0]}" alt="{e(ctx['IMG']['invoice'][1])}" width="900" height="643" loading="lazy" decoding="async"></div><figcaption class="cap">The matching invoice.</figcaption></figure>
+      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['quote'][0]}" alt="{e(ctx['IMG']['quote'][1])}" width="{ctx['IMG']['quote'][2]}" height="{ctx['IMG']['quote'][3]}" loading="lazy" decoding="async"></div><figcaption class="cap">A real quotation PDF from a UK demo account with made-up details.</figcaption></figure>
+      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['invoice'][0]}" alt="{e(ctx['IMG']['invoice'][1])}" width="{ctx['IMG']['invoice'][2]}" height="{ctx['IMG']['invoice'][3]}" loading="lazy" decoding="async"></div><figcaption class="cap">The matching invoice.</figcaption></figure>
     </div>
   </div>
 </section>
