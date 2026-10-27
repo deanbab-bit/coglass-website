@@ -30,8 +30,8 @@
    "Internal notes, site photos and documents live on the order so the whole team has the full picture — office and field."
   ],
   [
-   "Never-reused numbers",
-   "Every order gets a unique, monotonic number that is never re-issued — even after a job is deleted — so your records stay clean."
+   "Numbers never reused",
+   "Every order gets the next number in line, and a number is never used twice — even after a job is deleted — so your records stay clean."
   ],
   [
    "Through to invoice",
@@ -48,12 +48,12 @@
    "Save common jobs as templates and spin up repeat work in seconds."
   ],
   [
-   "Never-reuse numbering",
-   "Monotonic order numbers that are never re-issued, even after deletion."
+   "Numbers never reused",
+   "Order numbers always go up and are never used twice, even after a job is deleted."
   ],
   [
-   "Soft-delete & trash",
-   "Delete to a trash bin, restore if needed, or purge — nothing lost by accident."
+   "Trash and restore",
+   "Deleted orders go to the Trash first — bring one back, or remove it for good. Nothing lost by accident."
   ],
   [
    "Site contacts & addresses",
@@ -85,7 +85,7 @@
   ],
   [
    "{{portal::Customer portal::Customer quote, invoice and tracking pages}}",
-   "Optional tokenised tracking, quote and invoice pages for your customers."
+   "Each customer gets their own private link to track the job, see the quote and pay the invoice."
   ]
  ],
  "cta_h2": "Run every job from one place",

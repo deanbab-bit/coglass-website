@@ -111,7 +111,7 @@
     "fix": "Press Split into separate quotes on the work bench and drag each pane into a section. Coglass offers a quote for each section next to one for the whole job.",
     "see": [
      "Quote A for the complete job, plus sections B, C and so on",
-     "Accepting one marks the others as superseded",
+     "Accept the whole job or the sections — whichever isn’t chosen shows as superseded",
      "Each section invoiced on its own"
     ]
    },
