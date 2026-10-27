@@ -6,6 +6,7 @@ fitting, invoicing — and to link out to the feature pages that go deeper. Keep
 to the app: the webshop and customer portal follow countries.WEBSHOP_LIVE / PORTAL_LIVE.
 """
 import countries as CS
+from country_pages import ORG_ID
 
 PATH = '/glass-software/'
 TITLE = 'Glass Software for Quoting, Production & Fitting | Coglass'
@@ -13,6 +14,7 @@ H1 = 'Glass software: quoting, production and fitting for glass businesses'
 DESCRIPTION = ('What glass software should do for glass shops, glaziers, merchants and sealed unit makers — quoting, '
                'production, fitting, invoicing — and how to choose it.')
 UPDATED = 'October 2026'
+DATE_PUBLISHED = '2026-10-27'
 DATE_MODIFIED = '2026-10-27'
 
 
@@ -65,7 +67,7 @@ FAQ = [
     ('What is glass software?', 'Business software built for companies that sell, process or fit glass. It understands panes and sealed '
      'units — sizes, make-ups, shapes, holes and processes — and runs the job from enquiry and quote through production and '
      'fitting to invoice.'),
-    ('Is Coglass only for glaziers?', 'No. It is used by glaziers who survey and fit, glass merchants with a trade counter and '
+    ('Is Coglass only for glaziers?', 'No. It\'s built for glaziers who survey and fit, glass merchants with a trade counter and '
      'deliveries, processors who cut, edge and toughen, and sealed unit makers. Every plan includes every feature.'),
     ('Which countries can I use Coglass in?', 'Coglass is sold in the United Kingdom (including the Isle of Man, Jersey, Guernsey and '
      'Gibraltar), Ireland, Australia, New Zealand, South Africa, Namibia, Botswana and Malta, with prices in local currency and '
@@ -89,7 +91,7 @@ def page(ctx, org, cta_band):
     faq = ''.join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in FAQ)
     body = f'''<section class="page-head"><div class="wrap">
   <h1>{e(H1)}</h1>
-  <p>Coglass is glass software for glass shops, glaziers, merchants, processors and sealed unit makers. This page explains what glass software should do for a glass business, where Coglass fits, and what to check before you choose.</p>
+  <p>Whether you run a glass shop, fit glass, sell it to the trade, process it or make sealed units, this page explains what glass software should do for a glass business, where Coglass fits, and what to check before you choose.</p>
   <p class="updated" style="margin-top:14px">Last updated: {UPDATED}.</p>
 </div></section>
 <article class="prose">
@@ -107,8 +109,8 @@ def page(ctx, org, cta_band):
     jsonld = {'@context': 'https://schema.org', '@graph': [
         org(site),
         {'@type': 'Article', 'headline': H1, 'description': DESCRIPTION, 'inLanguage': 'en',
-         'dateModified': DATE_MODIFIED, 'mainEntityOfPage': url, 'author': {'@id': 'https://coglass.net/#org'},
-         'publisher': {'@id': 'https://coglass.net/#org'}},
+         'image': f'{site}/og-image.png', 'datePublished': DATE_PUBLISHED, 'dateModified': DATE_MODIFIED,
+         'mainEntityOfPage': url, 'author': {'@id': ORG_ID}, 'publisher': {'@id': ORG_ID}},
         {'@type': 'BreadcrumbList', 'itemListElement': [
             {'@type': 'ListItem', 'position': 1, 'name': 'Coglass', 'item': f'{site}/'},
             {'@type': 'ListItem', 'position': 2, 'name': 'Glass software', 'item': url}]},
