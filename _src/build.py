@@ -228,17 +228,21 @@ def panel(title, rows, note=''):
 
 # Real screenshots (from a local demo instance with made-up data) where we have one,
 # otherwise a drawn panel in the app's style.
+# ?v=2: the 27 Oct 2026 recapture — /assets/ is cached for 7 days and the sizes changed.
 IMG = {
-    'planning': ('/assets/img/planning.webp', 'The Coglass planning board: a day of fittings, surveys and a delivery booked across two fitters and a surveyor', 1600, 867),
-    'orders': ('/assets/img/orders.webp', 'The Orders list with status, job type and amount owed for each job', 1600, 867),
-    'bench': ('/assets/img/bench-drawing.webp', 'A double-glazed unit on the work bench, with its drawing open beside the line: Georgian bars 3×2 and two drilled holes', 1400, 638),
-    'vehicles': ('/assets/img/vehicles.webp', 'The Coglass vehicles page, where each van’s MOT due date, reminder timing and certificates are kept', 1400, 489),
-    'quote': ('/assets/img/quote-pdf.webp', 'A quotation PDF with the unit drawn on its line and a link to accept it online', 1200, 1140),
-    'invoice': ('/assets/img/invoice-pdf.webp', 'The matching invoice PDF for the same job, with an amount on every line, totals and balance due', 1200, 857),
-    'ipad-planner': ('/assets/img/ipad-planner.webp', 'The Coglass planner open in a browser at iPad size: a week of fittings, surveys and a delivery across three teams', 1600, 1112),
-    'mirror': ('/assets/img/mirror-holes.webp', 'The drawing editor for a 6mm silver mirror, 900 × 600 mm, with four Ø10 mm holes each set 50 mm in from the corners and every dimension shown', 1200, 836),
-    'diamond': ('/assets/img/diamond-lead.webp', 'The drawing editor for a 600 × 900 mm double-glazed unit with diamond lead: 100 × 140 mm diamonds and 6 mm self-colour came', 1200, 1232),
-    'tracking': ('/assets/img/tracking-page.webp', 'A customer tracking page on a phone: the booked fitting day and time, and buttons to message the office or the fitter', 600, 1077),
+    'planning': ('/assets/img/planning.webp?v=2', 'The Coglass planning board for a Tuesday: 16 visits — fittings, surveys and a delivery — booked across five teams, with the jobs ready to book listed on the left', 1600, 867),
+    'orders': ('/assets/img/orders.webp?v=2', 'The Orders list: each job’s customer, job type, status, glass progress and amount owed, with a Needs attention tab', 1600, 867),
+    'bench': ('/assets/img/bench-drawing.webp?v=2', 'A line on the work bench: an arched DGU 4mm Clear / 4mm Clear hall top-light, 900 × 700 mm with a 16 mm air gap, its drawing thumbnail with Georgian bars, and the arch shaping and Georgian bar operations under it', 1400, 730),
+    'vehicles': ('/assets/img/vehicles.webp?v=2', 'The Coglass vehicles page: five vans, each with its MOT due date and days left, reminder settings and who has the van', 1400, 714),
+    'quote': ('/assets/img/quote-pdf.webp?v=2', 'Quotation 0101 for David Harris: an arched DGU top-light with Georgian bars drawn on its line, two Low-E side panels and a 10 mm toughened splashback with two holes drawn to size — £550.37 inc VAT, with a link and QR code to accept online', 1200, 1458),
+    'invoice': ('/assets/img/invoice-pdf.webp?v=2', 'Invoice INV-0042 for David Harris’s job: an amount on every line, VAT at 20% and a balance due of £550.37', 1200, 991),
+    'ipad-planner': ('/assets/img/ipad-planner.webp?v=2', 'The Coglass planner open in a browser at iPad width: the same Tuesday, with 16 visits across five teams and the jobs ready to book', 1600, 1112),
+    'mirror': ('/assets/img/mirror-holes.webp?v=2', 'The operations editor for a 6mm silver mirror, 900 × 600 mm, with four Ø10 mm holes each set 50 mm in from the corners and every dimension shown', 1200, 840),
+    'diamond': ('/assets/img/diamond-lead.webp?v=2', 'The operations editor for a 600 × 900 mm double-glazed unit with diamond lead: 100 × 140 mm diamonds and 6 mm self-colour came', 1200, 1227),
+    'tracking': ('/assets/img/tracking-page.webp?v=2', 'A customer tracking page on a phone on a Tuesday: “Gary is heading to you next”, expected 10:15–11:00, stop 2 of 3, with buttons to message the office or Gary', 600, 1231),
+    # Not shown yet: the production page, merchants hero and "The workshop" section belong to PR #16 (DECISIONS D23).
+    'production': ('/assets/img/production.webp?v=2', 'The production board: 11 stages from To plan onwards, with a toughening job running late at the processor and a sealed unit waiting for its panes', 1600, 900),
+    'quick-go': ('/assets/img/quick-go.webp?v=2', 'The Quick Go panel pricing a walk-in quote: one 10 mm toughened clear pane, 900 × 600 mm, £71.28 inc VAT, ready to create and send or save as a draft', 1600, 900),
 }
 
 # Extra real screenshots shown under "How it works" on a feature page: (IMG key, caption).
@@ -246,6 +250,9 @@ FEATURE_GALLERY = {
     'coglass-feature-glass-specs': [
         ('mirror', 'Holes are placed off the edges in mm — every hole shows its size and where it sits.'),
         ('diamond', 'Diamond lead: set the diamond size and came width, and drag the first full diamond into place.'),
+    ],
+    'coglass-feature-orders': [
+        ('quick-go', 'Quick Go opens from any page: a walk-in quote for one 10 mm toughened pane, priced at £71.28 inc VAT.'),
     ],
     'coglass-for-sealed-units': [
         ('diamond', 'A leaded sealed unit drawn on the line — diamond size, came width and finish, ready for the workshop.'),
