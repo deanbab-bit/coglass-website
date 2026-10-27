@@ -30,6 +30,16 @@ DEMO = '/signup.html'
 TRIAL = '/pricing/#plans'
 SIGN_IN = 'https://accounts.coglass.co.uk'
 ASSET_V = '6'
+# App Store links must carry a storefront code: without one Apple sends visitors to the US store, where
+# the app isn't listed (404). Live in these storefronts; the Isle of Man, Jersey, Guernsey and Gibraltar
+# have no store of their own and use gb, as do the global pages.
+APP_STORE_CC = {'gb', 'ie', 'au', 'nz', 'za', 'na', 'bw', 'mt'}
+
+
+def app_store(cc='gb'):
+    cc = (cc or 'gb').lower()
+    cc = cc if cc in APP_STORE_CC else 'gb'
+    return f'https://apps.apple.com/{cc}/app/coglass-glass-glazing-crm/id6761371345'
 PHONE_INTL = '+44 121 517 0383'
 e = html.escape
 
@@ -465,7 +475,7 @@ def feature_page(slug, d):
     eyebrow = d['eyebrow'].replace('Feature — ', '')
     h1 = e(d['h1']) + (f' <span style="color:var(--accent)">{e(d["h1_accent"])}</span>' if d['h1_accent'] else '')
     if slug == 'coglass-feature-mobile':
-        ctas = ('<a class="btn acc lg" href="https://apps.apple.com/app/coglass-glass-glazing-crm/id6761371345" rel="noopener">Download for iPhone &amp; iPad</a>'
+        ctas = (f'<a class="btn acc lg" href="{app_store()}" rel="noopener">Download for iPhone &amp; iPad</a>'
                 '<a class="btn lg" href="https://play.google.com/store/apps/details?id=com.coglass.app" rel="noopener">Get it on Google Play</a>')
         note = '<p class="fine">The app is for staff of companies that use Coglass — you sign in with the login your company gives you.</p>'
     else:
@@ -534,7 +544,7 @@ def write(rel, content):
 def main():
     ctx = dict(related_html=related_html, soon_badge=soon_badge, big_phone=big_phone, phone_img=phone_img, visual_html=visual_html, RELATED=RELATED, layout=layout, e=e, trust=trust, shot=shot, cta_band=cta_band, phone=phone, panel=panel, IMG=IMG,
                ICON=ICON, DEMO=DEMO, TRIAL=TRIAL, SIGN_IN=SIGN_IN, CONTACT=CONTACT, PHONE=PHONE, PHONE_INTL=PHONE_INTL, SITE=SITE,
-               demo_href=demo_href, try_demo=try_demo, try_note=try_note, TRY_DEMO=TRY_DEMO)
+               demo_href=demo_href, app_store=app_store, try_demo=try_demo, try_note=try_note, TRY_DEMO=TRY_DEMO)
     cdir = os.path.join(SRC, 'content')
     for f in sorted(os.listdir(cdir)):
         slug = f[:-5]

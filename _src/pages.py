@@ -237,7 +237,7 @@ def ipad(ctx):
                     ctx['big_phone']('Planning · Tue', [('f', '08:00 Gary · Fitting', 'Riverside Offices · hold to move'), ('s', '10:00 Sam · Survey', 'Mrs A. Patel'),
                                                         ('d', '13:00 Dan · Delivery', 'D. Harris'), ('', 'Messages · 2 new', 'Reply by email')]),
                     ('More about the app', '/coglass-feature-mobile.html'))
-    apps = ('<div class="ctas"><a class="btn acc lg" href="https://apps.apple.com/app/coglass-glass-glazing-crm/id6761371345" rel="noopener">Download for iPhone &amp; iPad</a>'
+    apps = (f'<div class="ctas"><a class="btn acc lg" href="{ctx["app_store"]()}" rel="noopener">Download for iPhone &amp; iPad</a>'
             f'<a class="btn lg" href="{ctx["DEMO"]}">Book a demo</a>{ctx["try_demo"]()}</div>')
     body = f'''<section class="hero">
   <div class="wrap grid">
