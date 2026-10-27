@@ -49,7 +49,7 @@
   ],
   [
    "Lanes your workshop uses",
-   "To plan, To order, Ordered, Cut, Edges & holes, Toughen & laminate, Decorate, Out for processing, Sealed units, Check & label, Ready to go — the board shows only the ones your routes use."
+   "To plan, To order, Ordered, Cut, Edges & holes, Toughen & laminate, Decorate, Out for processing, Sealed units, Check & label, Check delivery, Ready to go — the board shows only the ones your routes use."
   ],
   [
    "Outwork and toughening",
@@ -65,7 +65,7 @@
   ],
   [
    "Classic board too",
-   "We switch the new board on for your company when you're set up. The classic six-lane board stays one click away, and both share the same ticks."
+   "The new board is on from day one. Prefer the six lanes? The classic board is one click away, shares the same ticks, and adds search by order, customer, supplier or product, and needed-by dates from each product's lead time."
   ],
   [
    "Shop-floor iPad app",
@@ -78,10 +78,6 @@
   [
    "Keeps working offline",
    "The shop-floor app keeps the board on the iPad and syncs changes when the workshop wifi comes back."
-  ],
-  [
-   "Search and needed-by dates",
-   "Search by order, customer, supplier or product; needed-by dates from each product's lead time."
   ],
   [
    "Coming soon",
