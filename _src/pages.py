@@ -33,7 +33,7 @@ MORE_FEATURES = [('Coglass on the iPad', 'coglass-ipad.html'), ('Paperwork done 
 
 # "How a job flows" — the home pages' timeline. (title, text, link)
 FLOW = [
-    ('Enquiry', 'An email or a call becomes an order — the AI glass scan reads the sizes out of the email for you.', 'coglass-feature-ai-glass-scan.html'),
+    ('Enquiry', 'An email or a call becomes an order — the AI glass scan reads the sizes out of an email, and Quick Go prices a phone enquiry from any page.', 'coglass-feature-ai-glass-scan.html'),
     ('Survey', 'Measure, draw and photograph every opening on the phone or iPad, even with no signal.', 'coglass-feature-surveys.html'),
     ('Quote', 'Priced from your catalogue with the glass drawn on each line; the customer accepts online.', 'coglass-feature-quoting.html'),
     ('Glass ordered', 'Purchase orders to your supplier from the job, with the drawing on them — or onto your own production board.', 'coglass-feature-suppliers.html'),

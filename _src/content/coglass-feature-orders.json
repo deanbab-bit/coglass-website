@@ -69,7 +69,7 @@
   ],
   [
    "Quick Go",
-   "Build a quick walk-in order or quote in seconds for counter trade."
+   "Opens from any page: price a phone or walk-in enquiry, then send the quote or sell it there and then."
   ],
   [
    "Documents",
@@ -94,8 +94,21 @@
   "id": "needs-attention",
   "label": "Nothing forgotten",
   "h2": "Jobs don’t go quiet without someone noticing",
-  "sub": "In a busy week the jobs that get lost aren’t the big ones — they are the quote nobody chased and the order nobody placed.",
+  "sub": "In a busy week the jobs that get lost aren’t the big ones — they are the phone enquiry nobody wrote down, the quote nobody chased and the order nobody placed.",
   "items": [
+   {
+    "title": "Quick Go",
+    "problem": "The phone rings while you are mid-invoice: “How much for a 600 × 400 toughened pane?” Opening a new order, finding the customer and building a quote means losing your place.",
+    "fix": "Press Quick Go on any page. A panel opens beside what you were doing: pick the customer, or Walk-in / phone for someone new, add the glass and size, and the price shows straight away. Send the quote by text or email, save it as a draft, or sell it there and then.",
+    "see": [
+     "Sealed units with the gap and spacer bar set on the line",
+     "Scaffold and access hire charged once per job",
+     "Delivery or fitting asks for the address",
+     "Cash sale for the counter: record cash, card or on account, then the receipt and the collection sign-off",
+     "Show their saving on this quote, when their price list saves them money",
+     "Message shortcuts: your own ready-made texts, set in Settings → Quick Go"
+    ]
+   },
    {
     "title": "Needs attention",
     "problem": "A quote goes out, the customer goes quiet, and three weeks later nobody has chased it. An order sits at To order because everyone thought someone else had placed it.",

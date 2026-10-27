@@ -89,5 +89,24 @@
   ]
  ],
  "cta_h2": "Run your glass merchant business from one app",
- "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}"
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}",
+ "stories": {
+  "id": "quick-go",
+  "label": "At the counter and on the phone",
+  "h2": "Price it while they wait",
+  "sub": "Most merchant enquiries are one pane and one question: how much? Quick Go answers it without leaving what you are doing.",
+  "items": [
+   {
+    "title": "Quick Go",
+    "problem": "A trade customer rings or walks in for a price, and someone has to drop what they are doing to open a new order and find the account.",
+    "fix": "Press Quick Go on any page in Coglass. Pick the account, or Walk-in / phone, add the glass and size, and their price list is applied as you go. Send the quote by text or email, or sell it there and then.",
+    "see": [
+     "Sealed units with the gap and spacer bar set on the line",
+     "Cash sale: record cash, card or on account, print the receipt and sign the collection off",
+     "Show their saving on the quote, when their price list saves them money",
+     "Ready-made texts for the usual replies, set in Settings → Quick Go"
+    ]
+   }
+  ]
+ }
 }
