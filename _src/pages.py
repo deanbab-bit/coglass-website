@@ -109,6 +109,7 @@ def demo(ctx):
       </ol>
       <p class="fine" style="margin-top:18px">Rather email? <a href="mailto:{ctx['CONTACT']}">{ctx['CONTACT']}</a> · or call <a href="tel:+441215170383">{ctx['PHONE_INTL']}</a> (UK).</p>
       <p class="fine">Want to see prices first? <a href="/pricing/">Pricing for your country</a>.</p>
+      <p class="fine">Rather look around on your own first? <a href="{ctx['TRY_DEMO']}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and nothing you do is sent to anyone.</p>
     </div>
   </div>
 </section>'''
@@ -237,7 +238,7 @@ def ipad(ctx):
                                                         ('d', '13:00 Dan · Delivery', 'D. Harris'), ('', 'Messages · 2 new', 'Reply by email')]),
                     ('More about the app', '/coglass-feature-mobile.html'))
     apps = ('<div class="ctas"><a class="btn acc lg" href="https://apps.apple.com/app/coglass-glass-glazing-crm/id6761371345" rel="noopener">Download for iPhone &amp; iPad</a>'
-            f'<a class="btn lg" href="{ctx["DEMO"]}">Book a demo</a></div>')
+            f'<a class="btn lg" href="{ctx["DEMO"]}">Book a demo</a>{ctx["try_demo"]()}</div>')
     body = f'''<section class="hero">
   <div class="wrap grid">
     <div class="copy">
