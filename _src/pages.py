@@ -174,7 +174,7 @@ def ipad(ctx):
     e, I = ctx['e'], ctx['ICON']
     src, alt, w, h = ctx['IMG']['ipad-planner']
     hero = (f'<div class="ipad-frame"><img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" fetchpriority="high"></div>'
-            '<p class="cap">The real planner in a browser at iPad landscape size (1180 × 820), on a local demo account with made-up details.</p>')
+            '<p class="cap">The real planner in a browser at iPad width: a Tuesday with 16 visits across five teams, on the demo company Example Glazing Ltd with made-up details.</p>')
     checks = lambda xs: '<ul class="checks">' + ''.join(f'<li>{e(x)}</li>' for x in xs) + '</ul>'
 
     def block(kicker, h2, p, items, visual, link=None, rev=False, alt_bg=False):
@@ -196,7 +196,7 @@ def ipad(ctx):
                    'Coglass runs in the browser, so the iPad gets the same office system as the desktop — no separate app to learn. Sign in at your own Coglass address and work from the sofa, the showroom or the customer\'s kitchen table.',
                    ['Orders, quotes and the work bench', 'The planner — drag jobs onto people and vans', 'Invoices, payments and the inbox', 'Customers, products, suppliers and settings',
                     'Best in landscape; fold the side menu away for more room'],
-                   ctx['shot']('/assets/img/orders.webp', ctx['IMG']['orders'][1], 1600, 867), ('See jobs & orders', '/coglass-feature-orders.html'))
+                   ctx['shot'](*ctx['IMG']['orders']), ('See jobs & orders', '/coglass-feature-orders.html'))
     shop = block('The shop floor', 'The production board on an iPad at the bench',
                  'The shop-floor app is part of the Coglass app on the App Store. Lay it on the bench and the workshop sees every pane that needs making, in the order it needs making.',
                  ['Six lanes: To plan, Waiting supplier, Glass in, In production, Final checks, Ready to go', 'Cut list by station, with the glass drawing beside it',
