@@ -305,9 +305,9 @@ def gallery_html(slug):
 # TODO(DECISIONS D23): re-add the production board screenshot (production.webp) after board v2 is live.
 # Until then the production pages and "The workshop" section use this drawn panel.
 PRODUCTION_PANEL = ('panel', 'Shop floor', [
-    ('s', '#0106 Ashgrove Dental · 2 panes', 'Cut ✓ · Edges ✓ · Toughening bought in — due back Thu'),
-    ('f', '#0107 Fernbrook Primary · TGU', 'Sealing: 2 of 3 panes ready · scan to advance'),
-    ('d', '#0116 Calder Shopfitting · 10mm toughened shelves', 'Labelled · for delivery Tue 3 Nov'),
+    ('s', '#0106 Ashgrove Dental · 2 panes', 'Cut ✓ · Edges & holes ✓ · Out for toughening — back Thu'),
+    ('f', '#0107 Fernbrook Primary · TGU', 'Waiting for panes — 2 of 3 in · then Assemble & seal'),
+    ('d', '#0116 Calder Shopfitting · 10mm toughened shelves', 'Check & label ✓ · Ready to go for Tue 3 Nov'),
 ], 'Drawn illustration of the shop floor.')
 
 

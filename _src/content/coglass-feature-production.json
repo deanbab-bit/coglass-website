@@ -1,91 +1,91 @@
 {
  "file": "coglass-feature-production.html",
  "title": "Glass Production Planning Software | Workshop Management | Coglass",
- "description": "Manage your glass production queue from a visual board. Track every item from order to ready, flag rush jobs, print barcode labels and never miss a deadline.",
+ "description": "A production board that follows how your workshop works: stations and steps from your own set-up, a tick for every step and pane, outwork tracked while it's away, barcode labels and scanning.",
  "eyebrow": "Feature — Production Planning",
  "h1": "The whole shop floor,",
  "h1_accent": "on one board",
- "lead": "See every pane in the queue, flag the rush jobs and scan barcodes from cut to ready. And the lead, Georgian and diamond patterns drawn on survey print as a 1:1 template the factory lays the glass straight onto.",
+ "lead": "Every line follows its own route through your workshop — cut, edges, toughening, sealing, check & label — built from how you actually work. Tick each step and pane as it's done, see what's out at the processor, and scan barcodes at the bench. And the lead, Georgian and diamond patterns drawn on survey print as a 1:1 template the factory lays the glass straight onto.",
  "steps_label": "How it works",
- "steps_h2": "From order placed to glass ready — fully tracked",
+ "steps_h2": "From order placed to ready to go — every step tracked",
  "steps_sub": "The production board keeps your workshop and your office in sync at all times.",
  "inc_label": "What's included",
  "inc_h2": "Production tools built for glass workshops",
  "inc_sub": "Everything your workshop team needs to stay on top of the queue — without spreadsheets or whiteboards.",
  "steps": [
   [
-   "Items appear on the board",
-   "When an order is placed, its glass lines appear on the production board under To Plan, with a needed-by date suggested from each product's lead time."
+   "Set up your workshop once",
+   "Answer three short questions and Coglass builds your stations and processes from your How you work settings — what you cut and finish yourself, and what you buy in or send out. Rename, reorder or add steps whenever you like."
   ],
   [
-   "Move items through the workflow",
-   "Drag cards across the board as work progresses: To Plan → Waiting Supplier → Glass In → In Production → Final Checks → Ready to Go."
+   "Every line gets its own route",
+   "When the job is ordered, each line lands on the board with only the steps it needs: a bought-in pane waits for delivery and a check, a pane you cut goes Cut → Edges & holes → Check & label. A route preview shows which process a product gets, and why."
   ],
   [
-   "Flag urgent jobs",
-   "Set a priority — Normal, High or Urgent — and mark rush lines on the order, so the urgent work stands out."
+   "Tick each step as it's done",
+   "The card says what's next and where. Tick it and the card moves on, skipping lanes it doesn't need. Made a mistake? Undo it straight away, or untick the step later."
   ],
   [
-   "Print barcode labels",
-   "Generate barcode labels directly from the production board. Each label shows the order number, customer, pane description and dimensions. Stick them to the glass in the workshop — scan to confirm receipt or completion."
+   "Outwork and toughening tracked",
+   "Glass sent to a processor gets Send out and Back in steps, with the days until it's due back. If it's late, the card turns red with a Chase supplier button."
   ],
   [
-   "Scan to advance",
-   "At the bench, the shop-floor iPad scans a pane's barcode to move it to its next step — and works with a keyboard-wedge yard scanner."
+   "Sealed units pane by pane",
+   "Each pane of a unit you make has its own card. Assemble & seal stays locked until every pane is in, then the unit goes to Check & label."
   ],
   [
-   "Mark as made",
-   "Once the glass is made and checked, it moves to Ready to Go and the order shows it as ready for fitting, delivery or collection."
+   "Ready to go",
+   "When the last step is ticked the card reaches Ready to go. The office is told only when every line of the order is ready, and your automations — a fitting to-do, the collection email — run once."
   ]
  ],
  "included": [
   [
-   "Visual kanban board",
-   "Six status columns: To Plan, Waiting Supplier, Glass In, In Production, Final Checks, Ready to Go. Drag to update status instantly."
+   "Built from how you work",
+   "Stations and steps start from your In-house / Order in answers. Default processes for bought-in, cut-and-finish and sealed-unit work; copy and edit them, or build your own."
   ],
   [
-   "Priority levels",
-   "Normal, High and Urgent priority flags — colour coded so urgent jobs are impossible to miss."
+   "A tick for every step",
+   "Steps come from the operations on the line — polish, drill, sandblast — plus Cut, Assemble & seal and Check & label. Add your own, such as Wash & inspect or Wrap & rack."
   ],
   [
-   "Rush lines",
-   "Mark any order line as rush so it is easy to spot on the board."
+   "Lanes your workshop uses",
+   "To plan, To order, Ordered, Cut, Edges & holes, Toughen & laminate, Decorate, Out for processing, Sealed units, Check & label, Ready to go — the board shows only the ones your routes use."
   ],
   [
-   "Needed-by dates",
-   "Suggested from each product's lead time, and editable per line."
+   "Outwork and toughening",
+   "Send out and Back in steps with the processor and due date, LATE warnings and a Chase supplier button."
+  ],
+  [
+   "Sealed units, pane by pane",
+   "A card per pane still to come, and sealing locked until every pane is in."
+  ],
+  [
+   "Rules for the odd job",
+   "Send a customer, customer type, job type or operation down a different process when you need to."
+  ],
+  [
+   "Classic board too",
+   "We switch the new board on for your company when you're set up. The classic six-lane board stays one click away, and both share the same ticks."
   ],
   [
    "Shop-floor iPad app",
-   "Cut list by station, per-pane ticks, IGU sealing steps and collection sign-off — on an iPad at the bench."
+   "Work bench, board and cut list by station on an iPad at the bench, with per-pane ticks and collection sign-off."
   ],
   [
-   "Barcode label printing",
-   "Print labels for every glass item in your workshop — order number, description, dimensions and barcode all included."
-  ],
-  [
-   "Barcode scanning",
-   "Scan labels on mobile to confirm glass received, mark items as made, or update status from the shopfloor."
-  ],
-  [
-   "Board order or needed-by",
-   "Switch the board between your own order and needed-by date."
+   "Barcode labels and scanning",
+   "Barcode labels for every pane. Scan a works-order barcode to tick the next step, or a glass label to book it in — with the iPad camera or a keyboard-wedge yard scanner."
   ],
   [
    "Keeps working offline",
    "The shop-floor app keeps the board on the iPad and syncs changes when the workshop wifi comes back."
   ],
   [
-   "Search",
-   "Search the board by order, customer, supplier, location or product."
+   "Search and needed-by dates",
+   "Search by order, customer, supplier or product; needed-by dates from each product's lead time."
   ],
   [
-   "Works with your scanner",
-   "Barcode scan-to-advance works with the iPad camera or a keyboard-wedge yard scanner."
-  ],
-  [
-   "Linked to orders and suppliers",
-   "Every production card links directly to the full order and supplier order — one click to see what's been ordered and when delivery is expected."
+   "Coming soon",
+   "A station screen that scans the same glass label at every station, and the Coglass desktop app for workshop PCs — station, counter and deliveries-in modes."
   ]
  ],
  "cta_h2": "Get your workshop organised",

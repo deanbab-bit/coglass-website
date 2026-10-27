@@ -217,8 +217,8 @@ def country_home(ctx, c):
     <div class="split-text">
       <span class="kicker">The workshop</span>
       <h2>The whole shop floor on one board</h2>
-      <p>Every line lands on the production board when the job is ordered — waiting on a supplier, glass in, in production, final checks, ready to go. At the bench, the shop-floor iPad shows the cut list and moves panes on with a barcode scan.</p>
-      <ul class="checks"><li>Barcode labels for every pane</li><li>Sealed-unit steps checked pane by pane</li><li>Keeps working when the workshop wifi drops</li></ul>
+      <p>Every line lands on the production board when the job is ordered, with its own route through your workshop — built from what you make yourself and what you buy in or send out. Tick each step as it's done; at the bench, the shop-floor iPad shows the cut list and moves work on with a barcode scan.</p>
+      <ul class="checks"><li>Stations and steps set up from how you work</li><li>Outwork and toughening tracked until it's back</li><li>Sealed units checked pane by pane</li></ul>
       <a class="btn" href="/coglass-feature-production.html">See production</a>
     </div>
     <div>{ctx['visual_html']('coglass-feature-production')}</div>
