@@ -49,7 +49,7 @@
   ],
   [
    "AI price list import",
-   "Upload a PDF price list and AI extracts article numbers, descriptions and prices — products created automatically."
+   "Upload a PDF price list and AI reads the article numbers, descriptions and prices for you to check, then adds them as products."
   ],
   [
    "Expected delivery tracking",
@@ -77,7 +77,7 @@
   ],
   [
    "Per-pane supplier assignment",
-   "For IGUs, assign different suppliers to different panes — useful when one supplier provides the glass and another the spacer bar."
+   "For sealed units, choose a supplier for each pane when different suppliers make different panes."
   ],
   [
    "Supplier notes on order lines",
@@ -86,8 +86,40 @@
   [
    "Numbered POs per job",
    "Every purchase order raised on a job gets its own reference (0080-1, 0080-2…) that stays with the job."
+  ],
+  [
+   "Hire orders",
+   "Scaffold and access hire raised as an order to the hire company, delivered to the site or to your yard."
   ]
  ],
  "cta_h2": "Stop chasing suppliers on the phone",
- "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}"
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}",
+ "stories": {
+  "id": "price-lists-and-chasing",
+  "label": "Less admin",
+  "h2": "Price lists without the typing, late glass without the surprise",
+  "sub": "Two jobs that eat hours every month: keeping supplier prices up to date, and noticing glass is late before the fitter does.",
+  "items": [
+   {
+    "title": "Supplier price lists, read for you",
+    "problem": "A supplier sends a 20-page PDF price list. Someone spends two days typing it in — and does it again at the next price rise.",
+    "fix": "Upload the PDF, a photo or a spreadsheet on the supplier’s page and press Parse uploaded file. Coglass reads the rows; you check them, set your markup and add the ones you want. PDFs and photos are read by AI, which we switch on for your company; spreadsheets are read without it.",
+    "see": [
+     "Possible duplicates flagged before anything is added",
+     "Glass becomes products; edgework, holes and other process charges become bought-in operations",
+     "Bulk price update: a % per category when the supplier puts prices up, and your selling prices follow"
+    ]
+   },
+   {
+    "title": "Late glass, chased for you",
+    "problem": "Glass due on Tuesday hasn’t turned up, and nobody noticed until the fitter went to load the van.",
+    "fix": "Every purchase order has an expected date. Switch on auto-chase and Coglass emails the supplier when an order passes it — or press Chase supplier and check the email first.",
+    "see": [
+     "Open and overdue orders for each supplier",
+     "When each order was last chased",
+     "On the planner, a booking turns hatched red when its glass won’t arrive in time"
+    ]
+   }
+  ]
+ }
 }

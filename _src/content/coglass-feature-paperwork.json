@@ -12,7 +12,7 @@
  "steps": [
   [
    "Survey",
-   "The access level recorded on the survey starts the equipment list on a new risk assessment in the phone app."
+   "The access level recorded on the survey starts the equipment list on a new risk assessment, on the desktop and in the phone app."
   ],
   [
    "Quote and order",
@@ -33,11 +33,11 @@
  "included": [
   [
    "RAMS from the survey",
-   "Scaffold, ladders, harness: the access level on the survey fills the equipment list on a new RAMS in the phone app."
+   "Scaffold, ladders, MEWP: the access level on the survey fills the equipment list on a new RAMS."
   ],
   [
    "RAMS PDF",
-   "Risk assessment and method statement as a branded PDF, kept on the job."
+   "Risk assessment and method statement as a branded PDF, approved before it goes out and kept on the job."
   ],
   [
    "Signed collection notes",
@@ -69,5 +69,32 @@
   ]
  ],
  "cta_h2": "Less typing, fewer missing signatures",
- "cta_p": "Book a demo and we will show you the documents from one of your own jobs{{trial:: — or pick a plan and start a 14-day trial.::.}}"
+ "cta_p": "Book a demo and we will show you the documents from one of your own jobs{{trial:: — or pick a plan and start a 14-day trial.::.}}",
+ "stories": {
+  "id": "rams",
+  "label": "The documents that matter",
+  "h2": "RAMS and purchase orders, from the job",
+  "sub": "The two documents that cause the most trouble when they are wrong: the RAMS a main contractor asks for, and the PO a supplier makes the glass from.",
+  "items": [
+   {
+    "title": "RAMS a main contractor will accept",
+    "problem": "Commercial work needs a risk assessment and method statement before you are allowed on site, and writing one from scratch for every school or office takes an evening.",
+    "fix": "On the job’s Documents tab, Create RAMS reads the survey, the order and the booking and fills in a draft — the access equipment from the survey’s access level, and the hazards and work steps from your own RAMS rules. Save good ones as templates.",
+    "see": [
+     "Draft, ready for approval, approved and issued — with versions, so an approved PDF never changes",
+     "A warning if someone on the crew is missing a safety card the job needs, such as a CSCS card",
+     "Send to main contractor emails the PDF; fitters see the approved version on their phones"
+    ]
+   },
+   {
+    "title": "Purchase orders the supplier can’t misread",
+    "problem": "A supplier makes a unit with the holes in the wrong place because the order said “holes as discussed”.",
+    "fix": "Every purchase order is built from the work bench line, with the pane drawn on it and a number tied to the job (0080-1, 0080-2…).",
+    "see": [
+     "The drawing, sizes and make-up on the PO PDF",
+     "The PO number on the job, so delivery notes and supplier invoices match straight back"
+    ]
+   }
+  ]
+ }
 }

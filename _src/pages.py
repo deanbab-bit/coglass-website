@@ -10,12 +10,12 @@ LASTMOD = '2026-10-04'
 FEATURES = [
     # icon, title, text, bullets, link
     ('orders', 'Jobs & orders', 'Every job from first enquiry to paid invoice in one record the whole team can see.', ['Statuses for glazing, collection and delivery jobs', 'Notes, photos and documents on the job', '“Needs attention” flags for jobs left sitting'], 'coglass-feature-orders.html'),
-    ('quote', 'Quoting', 'Quotes priced from your catalogue and trade price lists, with the drawing on every line.', ['Branded PDF quotes and quote options', 'Customer accepts or declines online', 'Deposits asked for automatically'], 'coglass-feature-quoting.html'),
+    ('quote', 'Quoting', 'Quotes priced from your catalogue and trade price lists, with the drawing on every line.', ['Branded PDF quotes and quote options', 'Customer accepts or declines online', 'Scaffold charged once per job, not per pane'], 'coglass-feature-quoting.html'),
     ('survey', 'Surveys', 'Measure on the phone — shapes, photos, access notes and GPS — even with no signal.', ['Works offline, syncs later', 'Photos per opening', 'Survey straight onto the work bench'], 'coglass-feature-surveys.html'),
     ('igu', 'Glass specs', 'Full DGU/TGU make-ups, edges, shapes, holes, cut-outs, Georgian bars and leaded lights.', ['Cavity and spacer set per line', 'Drawn to size in mm', '1:1 lay-under template print'], 'coglass-feature-glass-specs.html'),
     ('production', 'Production', 'One board from To plan to Ready to go, with the shop-floor iPad at the bench.', ['Barcode labels and scan to advance', 'In-house or bought-in operations', 'IGU sealing steps'], 'coglass-feature-production.html'),
     ('po', 'Suppliers', 'Purchase orders with the drawing on them, receipts, and automatic chasers when glass is late.', ['Numbered POs per job', 'AI reads supplier price-list PDFs', 'Outwork orders to processors'], 'coglass-feature-suppliers.html'),
-    ('schedule', 'Planning', 'Drag surveys, fittings and deliveries onto people and vans for the day or week.', ['Holidays block the board', 'Nearby ready jobs suggested', 'Fitters see their day on the phone'], 'coglass-feature-scheduling.html'),
+    ('schedule', 'Planning', 'Drag surveys, fittings and deliveries onto people and vans, with runs of nearby jobs suggested for you.', ['Customers tick the times that suit them', 'Nearby ready jobs suggested for each day', 'Fitters see their day on the phone'], 'coglass-feature-scheduling.html'),
     ('fitting', 'Fitting & delivery', 'Per-pane sign-off on site with photos, GPS and the customer\'s signature.', ['Partial fits and re-orders flagged', 'Delivery and collection proof', 'Draft invoice raised on completion'], 'coglass-feature-fitting.html'),
     ('invoice', 'Invoicing', 'Deposit, proforma and final invoices with VAT, payments and Xero.', ['Overdue invoices flagged', 'Customers pay online from the link', 'Invoices and payments push to Xero'], 'coglass-feature-invoicing.html'),
     ('chat', 'Customer messages', 'Email, SMS and quote-page chat on the job, with automatic updates as it moves.', ['Gmail and Outlook inbox', 'SMS under your company name', _CS.wa('WhatsApp, with Messenger coming soon', 'WhatsApp switching on shortly')], 'coglass-feature-communication.html'),
@@ -38,7 +38,7 @@ FLOW = [
     ('Quote', 'Priced from your catalogue with the glass drawn on each line; the customer accepts online.', 'coglass-feature-quoting.html'),
     ('Glass ordered', 'Purchase orders to your supplier from the job, with the drawing on them — or onto your own production board.', 'coglass-feature-suppliers.html'),
     ('Labels', 'A barcode label on every pane; scan it in when the glass arrives and the job shows ready.', 'coglass-feature-glass-labels.html'),
-    ('Fitting', 'Booked on the planner, an on-our-way text to the customer, per-pane sign-off and a signature on site.', 'coglass-feature-fitting.html'),
+    ('Fitting', 'The customer ticks the times that suit them, Coglass suggests the run, an on-our-way text goes out, and every pane is signed off on site.', 'coglass-feature-fitting.html'),
     ('Paid', 'The invoice is drafted when the fitting is signed off; the customer pays online and it goes to Xero.', 'coglass-feature-invoicing.html'),
 ]
 

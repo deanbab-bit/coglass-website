@@ -395,6 +395,28 @@ def big_phone(title, rows_data):
             f'<div style="background:var(--bg);border-radius:28px;padding:22px 14px 26px"><p style="font-weight:800;color:var(--navy);margin:0 0 12px">{e(title)}</p>{rows}</div></div>')
 
 
+def stories_html(d):
+    """Optional "problem → how Coglass fixes it → what you see" cards on a feature page, from the
+    content JSON's `stories` block: {id, label, h2, sub, items: [{title, problem, fix, see: [..]}]}."""
+    st = d.get('stories')
+    if not st:
+        return ''
+    cards = ''
+    for it in st['items']:
+        see = ''.join(f'<li>{e(x)}</li>' for x in it['see'])
+        cards += (f'<li class="fcard"><h3>{e(it["title"])}</h3>'
+                  f'<p><strong>The problem.</strong> {e(it["problem"])}</p>'
+                  f'<p><strong>How Coglass fixes it.</strong> {e(it["fix"])}</p>'
+                  f'<p style="margin:0 0 4px;font-weight:700;color:var(--ink);font-size:14.5px">What you see</p><ul>{see}</ul></li>')
+    return f'''<section class="sect alt" id="{e(st['id'])}">
+  <div class="wrap">
+    <div class="sect-head"><span class="kicker">{e(st['label'])}</span><h2>{e(st['h2'])}</h2><p>{e(st['sub'])}</p></div>
+    <ul class="fgrid" style="list-style:none;padding:0;margin:0">{cards}</ul>
+  </div>
+</section>
+'''
+
+
 def feature_page(slug, d):
     d = CS.launch_data(d)
     live = CS.feature_live(slug)
@@ -418,6 +440,7 @@ def feature_page(slug, d):
             t = e(t)
         incl += f'<li><strong>{t}</strong>{e(x)}</li>'
     rel = related_html(exclude=slug)
+    stories = stories_html(d)
     banner = '' if live else (
         '<div class="wrap"><p class="note" role="note" style="margin:18px auto 0"><strong>Coming soon.</strong> '
         f'{e(d.get("soon_note") or "This part of Coglass is on its way — it will be included in your plan when it launches. Everything else on this site works today.")}</p></div>')
@@ -434,7 +457,7 @@ def feature_page(slug, d):
     <div class="visual">{visual_html(slug)}</div>
   </div>
 </section>
-<section class="sect">
+{stories}<section class="sect">
   <div class="wrap">
     <div class="sect-head"><span class="kicker">{e(d['steps_label'])}</span><h2>{e(d['steps_h2'])}</h2><p>{e(d['steps_sub'])}</p></div>
     <ol class="steps">{steps}</ol>{gallery_html(slug)}

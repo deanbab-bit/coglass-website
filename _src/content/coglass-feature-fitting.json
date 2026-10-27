@@ -19,11 +19,11 @@
   ],
   [
    "Tick off each pane",
-   "Mark every item Fitted, Partial or Not-fitted. “Mark all as fitted” clears a clean job in one tap."
+   "Mark every item Fitted, Partly or Not fitted. “All fitted” clears a clean job in one tap."
   ],
   [
    "Log the reason",
-   "Not-fitted or partial? Pick a reason — wrong size, broken, scratched — and Coglass flags it for re-order back at the office."
+   "Not fitted or partly fitted? Pick a reason — wrong size, scratched, broken in transit and more. If the glass needs replacing, Coglass flags the pane for re-order."
   ],
   [
    "Add photos & snags",
@@ -44,16 +44,16 @@
    "Fitted, Partial or Not-fitted on every pane — not just a single “done” for the whole job."
   ],
   [
-   "Mark all as fitted",
-   "Clean job? One tap closes everything."
+   "All fitted",
+   "Clean job? One tap marks every item fitted."
   ],
   [
-   "Reason chips",
-   "Wrong size, broken, scratched — reasons captured for re-order and reporting."
+   "Reasons for anything not fitted",
+   "Wrong size, scratched, broken in transit, awaiting materials, access problem and more — a reason is needed before the job can be finished."
   ],
   [
    "Re-order flagging",
-   "Any failed pane fires a re-order alert to the office and flags the job so it gets re-booked."
+   "Panes that need new glass send the office a notification and keep the job in Needs attention until it is re-booked."
   ],
   [
    "Installation photos",
@@ -86,8 +86,49 @@
   [
    "Offline-first",
    "Sign-offs captured with no signal and synced automatically later."
+  ],
+  [
+   "Mark it done from the office",
+   "For staff who don’t use the app, the office can mark a job fitted, delivered or collected from the order page."
   ]
  ],
  "cta_h2": "Close out every job cleanly",
- "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}"
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}",
+ "stories": {
+  "id": "re-orders",
+  "label": "When it doesn’t all go in",
+  "h2": "Short fits, extra work and signed hand-overs",
+  "sub": "The awkward part of fitting is the pane that didn’t go in. Coglass makes sure the office hears about it before the customer rings.",
+  "items": [
+   {
+    "title": "The fitting re-order",
+    "problem": "A unit is the wrong size or arrives scratched. The fitter tells someone in the yard, the re-order waits for a quiet moment, and the customer waits longer.",
+    "fix": "The fitter marks the pane Not fitted and picks a reason. If the reason means new glass — wrong size, scratched, broken — the pane is flagged for re-order and the office gets a notification.",
+    "see": [
+     "“Office will re-order this pane” on the fitter’s screen",
+     "The job stays open, at the top of Needs attention with a Re-order badge, until it is re-booked",
+     "Everything else on the job recorded as fitted, with photos"
+    ]
+   },
+   {
+    "title": "Extra work found on site",
+    "problem": "The fitter spots another cracked pane while they are there. It gets mentioned in the van and forgotten.",
+    "fix": "In the phone app, Extra job at this site makes a new job for the same customer with a description and photos — with or without signal.",
+    "see": [
+     "A new job for the office to quote, for the same customer",
+     "Sent by itself once the phone has signal again"
+    ]
+   },
+   {
+    "title": "Signed collection notes",
+    "problem": "A trade customer collects, then rings next week to say the third pane was never there — and all you have is a scribble in a book.",
+    "fix": "On the shop-floor iPad, Hand over opens a signing screen. The customer signs, you type the name of the person collecting, and for account customers take their photo.",
+    "see": [
+     "A signed collection note listing every item, with the signature and photo",
+     "Emailed to the order’s contact straight away, and kept on the job’s Documents tab",
+     "The office can record a collection from the order page too, and email the proof"
+    ]
+   }
+  ]
+ }
 }

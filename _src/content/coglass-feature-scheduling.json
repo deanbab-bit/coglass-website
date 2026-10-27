@@ -1,11 +1,11 @@
 {
  "file": "coglass-feature-scheduling.html",
- "title": "Glazing Team Scheduling Software | Plan Fitters and Surveyors | Coglass",
- "description": "Schedule your glazing team with a visual planning board. Assign jobs to fitters, manage absences and vehicle allocation — all synced to the mobile app instantly.",
+ "title": "Glazing Scheduling Software | Plan Fitters, Runs and Routes | Coglass",
+ "description": "Glazing scheduling software: customers pick the times that suit them, Coglass groups nearby jobs into runs, and bookings go straight to your fitters’ phones.",
  "eyebrow": "Feature — Team Scheduling",
  "h1": "Right fitter, right van,",
  "h1_accent": "right job",
- "lead": "Drag jobs onto your team and vehicles on a visual board, track licences and holidays, and customers get an automatic “on the way”. Everyone knows where they're meant to be — without ten phone calls.",
+ "lead": "Drag jobs onto your team and vans, let customers tick the times that suit them, and let Coglass group nearby jobs into runs. Holidays block the board and bookings go straight to the fitters’ phones — without ten phone calls.",
  "steps_label": "How it works",
  "steps_h2": "Your whole team's week, planned in minutes",
  "steps_sub": "The Coglass planning board gives managers a full view of who is doing what, when — and pushes the schedule straight to everyone's phones.",
@@ -34,8 +34,8 @@
    "Bookings show in the field team's app — customer, address, visit type and time — without a call from the office."
   ],
   [
-   "Manage your people",
-   "The employees section tracks staff details, roles, certifications, and mobile app access. Monitor seat usage, manage who has access to which parts of the system, and view each person's upcoming schedule at a glance."
+   "See who’s on site",
+   "The Map view shows the day’s stops and where clocked-in staff are. When a fitter arrives or leaves, the booking shows how long they have been on site — and Print all gives every team its run sheet for the day."
   ]
  ],
  "included": [
@@ -50,6 +50,14 @@
   [
    "On their phone",
    "Bookings show in the team member's app, with a push notification when today's plan changes."
+  ],
+  [
+   "Customer availability link",
+   "Customers tick the arrival windows that suit them on a page in your branding. Send it by hand or automatically."
+  ],
+  [
+   "Map view and run sheets",
+   "See the day’s stops on a map, and print every team’s run sheet for the day."
   ],
   [
    "Vehicle allocation",
@@ -68,8 +76,8 @@
    "Store staff details, roles, employee types, contact info and mobile app access in one place."
   ],
   [
-   "Employee credentials",
-   "Track driving licences, CSCS cards, accreditations and other certifications per team member."
+   "Cards & certificates",
+   "Keep CSCS and other safety cards for each person — checked when you build a RAMS for a job."
   ],
   [
    "Roles and permissions",
@@ -77,7 +85,7 @@
   ],
   [
    "Nearby jobs",
-   "After you book someone, Coglass suggests other ready jobs close to their route that day."
+   "When you book someone, Coglass lists other ready jobs a short drive from their stops that day, with the extra minutes for each."
   ],
   [
    "Assignment notes",
@@ -89,9 +97,65 @@
   ],
   [
    "Suggested runs",
-   "Coglass groups ready jobs that are close together into suggested runs, using the days customers said suit them."
+   "Ready jobs that are close together grouped into runs, on the days customers said suit them."
   ]
  ],
  "cta_h2": "Stop coordinating your team over WhatsApp",
- "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}"
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}",
+ "stories": {
+  "id": "smart-scheduling",
+  "label": "Smart scheduling",
+  "h2": "Fill the van without ringing round",
+  "sub": "Most planning time goes on phone calls to find a day that suits, then on driving across town between jobs. These tools cut both.",
+  "items": [
+   {
+    "title": "Customers pick the times that suit them",
+    "problem": "You ring to book a fitting, the customer is at work, you leave a message, and they ring back when you are up a ladder.",
+    "fix": "Press Request availability on the order — or let Coglass send it by itself when the job is ready for fitting. The customer gets an email link, taps every arrival window that suits and presses Send my times.",
+    "see": [
+     "A “When are you free?” page with your logo and the arrival windows you choose, such as 8–10 and 9–11",
+     "A notification when they reply, and their times on the order",
+     "Jobs still waiting for a reply listed on their own, so you know who to phone"
+    ]
+   },
+   {
+    "title": "Suggested runs",
+    "problem": "Ready jobs are spread across the area, and working out which ones go together on which day takes an evening with a map.",
+    "fix": "Suggested runs looks at every survey and fitting not yet booked, groups the jobs that are close together, and picks the best day for each group from the times customers said suit them.",
+    "see": [
+     "Runs by area for the next 7, 14 or 30 days, with the total hours and how many customers are free that day",
+     "A week view, and a grid of every job against every day with a tick where the customer is free",
+     "Schedule this run: pick the fitter, check the date, and the jobs go on the planner"
+    ]
+   },
+   {
+    "title": "Nearby jobs",
+    "problem": "A fitter has a job across town in the morning and nothing after — and there is probably another ready job five minutes away that nobody thought of.",
+    "fix": "Drop a job on someone’s day, or press the pin on their row, and Coglass lists other ready jobs only a short drive out of their way. It uses real driving time between the stops already booked, not distance on a map.",
+    "see": [
+     "Each job with the extra driving it adds, such as “+8 min”, grouped as Close, Short detour or Further",
+     "Surveys, fittings and deliveries all offered",
+     "Tick the ones you want and add them to the day — they go into the first free gaps, and nothing already booked moves"
+    ]
+   },
+   {
+    "title": "Anytime customers",
+    "problem": "Schools, surgeries, offices and trade counters are open all day. Asking them to pick a time just slows the booking down.",
+    "fix": "Switch on Flexible scheduling for the customer. Coglass stops sending them the availability email and treats them as free 8am to 6pm every day, so their jobs fit into any run.",
+    "see": [
+     "An Anytime label on their jobs in Nearby jobs, whatever day you are planning",
+     "An override on a single order when one site is different"
+    ]
+   },
+   {
+    "title": "Glass that won’t be in on time",
+    "problem": "A fitting is booked for Tuesday, and on Monday you find the glass isn’t due until Thursday.",
+    "fix": "The planner checks each booking against the job’s purchase orders.",
+    "see": [
+     "The booking card turns hatched red when its glass won’t arrive in time",
+     "Chase PO from the booking’s job card"
+    ]
+   }
+  ]
+ }
 }
