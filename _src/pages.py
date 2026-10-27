@@ -109,7 +109,7 @@ def demo(ctx):
       </ol>
       <p class="fine" style="margin-top:18px">Rather email? <a href="mailto:{ctx['CONTACT']}">{ctx['CONTACT']}</a> · or call <a href="tel:+441215170383">{ctx['PHONE_INTL']}</a> (UK).</p>
       <p class="fine">Want to see prices first? <a href="/pricing/">Pricing for your country</a>.</p>
-      <p class="fine">Rather look around on your own first? <a href="{ctx['TRY_DEMO']}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and nothing you do is sent to anyone.</p>
+      <p class="fine">Rather look around on your own first? <a href="{ctx['TRY_DEMO']}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>
     </div>
   </div>
 </section>'''

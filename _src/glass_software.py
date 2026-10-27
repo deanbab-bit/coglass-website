@@ -98,7 +98,7 @@ def page(ctx, org, cta_band):
 {sections}<h2>How to choose glass software</h2>
 <p>Most systems look alike in a sales video. These questions separate software made for glass from software adapted to it:</p>
 <ul class="checks">{checks}</ul>
-<p>Coglass includes every feature on every plan, priced by how many people use it — <a href="/pricing/">see pricing for your country</a> or <a href="{ctx['DEMO']}">book a demo</a> and we'll walk you through it with the glass you sell. To look around on your own first, <a href="{ctx['TRY_DEMO']}" target="_blank" rel="noopener">try the live demo</a> — no sign-up, and nothing you do is sent to anyone.</p>
+<p>Coglass includes every feature on every plan, priced by how many people use it — <a href="/pricing/">see pricing for your country</a> or <a href="{ctx['DEMO']}">book a demo</a> and we'll walk you through it with the glass you sell. To look around on your own first, <a href="{ctx['TRY_DEMO']}" target="_blank" rel="noopener">try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>
 <h2>Questions about glass software</h2>
 <div class="faq">{faq}</div>
 <h2>Read more</h2>

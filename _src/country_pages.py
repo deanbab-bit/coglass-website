@@ -82,7 +82,7 @@ def hero_ctas(ctx, c):
 def cta_band(ctx, c, h, p):
     e = ctx['e']
     second = (f'<a class="btn ghost-light lg" href="{cpath(c, "pricing")}#plans">See plans and start a trial</a>' if c['subscribe']
-              else f'<a class="btn ghost-light lg" href="{cpath(c, "pricing")}">See pricing</a>')
+              else '')
     return f'''<section class="cta-band">
   <div class="wrap">
     <h2>{e(h)}</h2>
@@ -353,12 +353,12 @@ def country_pricing(ctx, c):
                  'charge nothing until the trial ends — cancel before then and you pay nothing. We email you before the first payment. '
                  "During the trial every feature is switched on with no limits; your plan's limits apply from the first payment.</div>")
         start += (f'<p>Prefer to talk first, or want us to set it up with you? <a href="{ctx["demo_href"](c)}">Book a demo</a>. '
-                  f'Or <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">try the live demo</a> — no sign-up, and nothing you do is sent to anyone.</p>')
+                  f'Or <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>')
     else:
         start = (f'<div class="note"><strong>How to start.</strong> Book a demo and we will show you Coglass on the kind of jobs you do, '
                  f'then set your account up with you — your products, prices and team. You are billed monthly in {e(c["currency"])} '
                  'from the day your account goes live.</div>'
-                 f'<p>Want to look around first? <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and nothing you do is sent to anyone.</p>')
+                 f'<p>Want to look around first? <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>')
     tax = ''.join(f'<p>{e(t)}</p>' for t in c['tax_notes'])
     crown = ''
     if c.get('crown'):
@@ -554,7 +554,7 @@ def global_home(ctx):
   <div class="wrap">
     <h2>See it on your own kind of jobs</h2>
     <p>Pick your country for local prices, or book a demo and we will walk you through Coglass with the glass you sell.</p>
-    <div class="ctas"><a class="btn acc lg" href="{ctx['DEMO']}">Book a demo</a>{ctx['try_demo']('btn ghost-light lg')}<a class="btn ghost-light lg" href="#countries">Choose your country</a></div>
+    <div class="ctas"><a class="btn acc lg" href="{ctx['DEMO']}">Book a demo</a>{ctx['try_demo']('btn ghost-light lg')}</div>
     {ctx['try_note'](dark=True)}
   </div>
 </section>'''

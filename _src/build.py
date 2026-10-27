@@ -201,9 +201,9 @@ def shot(src, alt, w, h, bar=True):
 
 
 # "Try the live demo": demo.coglass.app runs in DEMO_MODE (coglass src/lib/demo-mode.ts) — the Example Glazing Ltd
-# dataset, signed straight in by /login?try=1, with email and SMS sends faked. A secondary button beside "Book a demo".
+# dataset, signed straight in by /login?try=1, with all sending switched off. A secondary button beside "Book a demo".
 TRY_DEMO = 'https://demo.coglass.app/login?try=1'
-TRY_NOTE = "No sign-up. Click around a demo glazing company's day — nothing you do is sent to anyone."
+TRY_NOTE = "No sign-up. Click around a demo glazing company's day — sending is switched off, so nothing you do reaches anyone."
 
 
 def try_demo(cls='btn lg'):
@@ -218,7 +218,7 @@ def try_note(dark=False):
 
 def cta_band(h, p):
     second = (f'<a class="btn ghost-light lg" href="{TRIAL}">See plans and start a trial</a>' if CS.TRIAL_LIVE
-              else '<a class="btn ghost-light lg" href="/pricing/">See pricing</a>')
+              else '')
     return f'''<section class="cta-band">
   <div class="wrap">
     <h2>{e(h)}</h2>
