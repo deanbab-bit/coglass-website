@@ -5,7 +5,7 @@
  "eyebrow": "For glass merchants, processors & sealed unit makers",
  "h1": "Sell, cut and process glass —",
  "h1_accent": "all from one system",
- "lead": "From the trade counter to the toughening line, Coglass runs a glass merchant's day: quick counter quotes, cut-to-size orders online, the processing board, stock, trade accounts and route-planned deliveries — priced the way glass is actually sold.",
+ "lead": "From the trade counter to the toughening line, Coglass runs a glass merchant's day: quick counter quotes, cut-to-size orders online, the processing board, stock, trade accounts and deliveries — priced the way glass is actually sold.",
  "steps_label": "How it works",
  "steps_h2": "From counter to collection — the merchant's day",
  "steps_sub": "Coglass runs the whole flow a glass merchant works through, on one system.",
@@ -31,7 +31,7 @@
   ],
   [
    "Collect or deliver",
-   "Collection orders with a signature at the counter, or delivery runs planned on the board, with the route on a map for cut glass — because not everything gets fitted."
+   "Collection orders with a signature at the counter, or deliveries booked on the planner and shown on its map — because not everything gets fitted."
   ],
   [
    "Get paid",
@@ -69,7 +69,7 @@
   ],
   [
    "Collections & deliveries",
-   "Collection signing at the counter plus delivery runs planned on the board — not just fitting."
+   "Collection signing at the counter plus deliveries booked on the planner — not just fitting."
   ],
   [
    "Supplier orders",
@@ -89,5 +89,24 @@
   ]
  ],
  "cta_h2": "Run your glass merchant business from one app",
- "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}"
+ "cta_p": "Book a demo and we'll walk you through it on the kind of jobs you do{{trial:: — or pick a plan and start a 14-day trial.::.}}",
+ "stories": {
+  "id": "quick-go",
+  "label": "At the counter and on the phone",
+  "h2": "Price it while they wait",
+  "sub": "Most merchant enquiries are one pane and one question: how much? Quick Go answers it without leaving what you are doing.",
+  "items": [
+   {
+    "title": "Quick Go",
+    "problem": "A trade customer rings or walks in for a price, and someone has to drop what they are doing to open a new order and find the account.",
+    "fix": "Press Quick Go on any page in Coglass. Pick the account, or Walk-in / phone, add the glass and size, and their price list is applied as you go. Send the quote by text or email, or sell it there and then.",
+    "see": [
+     "Sealed units with the gap and spacer bar set on the line",
+     "Cash sale: record cash, card or on account, print the receipt and sign the collection off",
+     "Show their saving on the quote, when their price list saves them money",
+     "Ready-made texts for the usual replies, set in Settings → Quick Go"
+    ]
+   }
+  ]
+ }
 }

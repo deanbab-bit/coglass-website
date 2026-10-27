@@ -146,6 +146,22 @@ def faq_ld(items):
     return {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in items]}
 
 
+def smart_scheduling_html(ctx, alt=True):
+    """The "Smart scheduling" split section on every home page (country homes and the global home)."""
+    return f'''<section class="sect{' alt' if alt else ''}" id="smart-scheduling">
+  <div class="wrap split">
+    <div class="split-text">
+      <span class="kicker">Smart scheduling</span>
+      <h2>Book the week without ringing round</h2>
+      <p>Send customers a link and they tick the arrival times that suit them. Coglass groups nearby jobs into runs on the days they are free, and when you book someone it shows other ready jobs a few minutes from their route.</p>
+      <ul class="checks"><li>Customers pick their own arrival windows</li><li>Suggested runs by area, on the days customers are free</li><li>Nearby jobs, with the extra driving for each</li><li>Schools and offices marked anytime, so you don't have to ask</li></ul>
+      <a class="btn" href="/coglass-feature-scheduling.html#smart-scheduling">See smart scheduling</a>
+    </div>
+    <div>{ctx['panel']('Suggested runs · next 14 days', [('f', 'Run 1 · Tuesday', '4 jobs close together · 6h 30m · 3 of 4 customers free'), ('s', 'Run 2 · Wednesday', '3 jobs · 5h · all 3 customers free'), ('d', 'Nearby jobs for Gary · Thursday', '+8 min · Fitting · Fernbrook Primary · Anytime')], 'Drawn illustration of suggested runs and nearby jobs.')}</div>
+  </div>
+</section>'''
+
+
 # ---------------------------------------------------------------------------- country home
 def country_home(ctx, c):
     e, site = ctx['e'], ctx['SITE']
@@ -226,6 +242,7 @@ def country_home(ctx, c):
   </div>
 </section>
 {pages.flow_html(ctx)}
+{smart_scheduling_html(ctx)}
 <section class="sect">
   <div class="wrap split">
     <div class="split-text">
@@ -520,6 +537,7 @@ def global_home(ctx):
   </div>
 </section>
 {pages.flow_html(ctx)}
+{smart_scheduling_html(ctx)}
 <section class="sect">
   <div class="wrap" style="max-width:860px">
     <div class="sect-head"><span class="kicker">Questions</span><h2>Frequently asked questions</h2></div>

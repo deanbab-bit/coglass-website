@@ -53,7 +53,7 @@
   ],
   [
    "Fitting completion record",
-   "Checklist-based fitting record with snag notes, photos and partial fitting tracking with reasons."
+   "Per-pane fitted, partly fitted or not fitted, with reasons, photos and snags — panes that need new glass flagged to the office for re-order."
   ],
   [
    "Customer digital signature",
@@ -76,8 +76,8 @@
    "Workshop staff run the shop-floor app on an iPad — cut lists by station, barcode scan to advance, and collection sign-off."
   ],
   [
-   "Photo capture",
-   "Take photos on site and attach to measurements, surveys or job notes. Photos upload automatically when back in signal."
+   "Extra job at this site",
+   "Found more work on site? Make a new job for the same customer with photos, even with no signal — it goes to the office to quote."
   ],
   [
    "Planner view",

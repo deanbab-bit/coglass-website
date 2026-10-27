@@ -23,7 +23,7 @@
   ],
   [
    "Assign vehicles daily",
-   "From the planning board, put a van with each team member for the day. Staff can also pick their vehicle for the day from their phone."
+   "From the planning board, drag a van onto each team member for the day."
   ],
   [
    "Get vehicle test reminders",
@@ -72,8 +72,8 @@
    "Vehicle assignments show on the same planning board as staff scheduling — full operational view in one screen."
   ],
   [
-   "Pick the van from a phone",
-   "Staff can choose the vehicle they are driving today from their phone, which keeps the record accurate."
+   "Vehicle files",
+   "Insurance documents and other pictures or PDFs kept with the van."
   ]
  ],
  "cta_h2": "Keep your fleet compliant without the extra admin",

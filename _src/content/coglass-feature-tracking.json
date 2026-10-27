@@ -12,7 +12,7 @@
  "steps": [
   [
    "The day is planned",
-   "Visits are booked on the planner. Customers can get a booking confirmation when you book them in."
+   "Visits are booked on the planner. Customers can get a booking confirmation when you book them in, and an email with their tracking link at 8am on the day."
   ],
   [
    "The fitter taps On my way",
@@ -34,6 +34,10 @@
   [
    "Automatic on-our-way text",
    "Sent when the fitter taps On my way. You can change the wording, or send it by email instead, in Automations."
+  ],
+  [
+   "Morning tracking email",
+   "At 8am on the day of the visit, the site contact is emailed their tracking link. You can switch it off."
   ],
   [
    "Arrival window",

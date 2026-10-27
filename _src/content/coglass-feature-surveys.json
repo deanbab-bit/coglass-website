@@ -19,7 +19,7 @@
   ],
   [
    "Start the survey visit",
-   "Tap Start Survey. Coglass records the time, date and who is on site. The surveyor can record how many operatives are present, access requirements (ladders, scaffolding, powered access), and any special notes."
+   "Tap On my way to text the customer, then I’ve arrived — start survey. Arrival time and who is on site are recorded, and access for each window can be noted as you go."
   ],
   [
    "Add measurements",
@@ -34,8 +34,8 @@
    "Attach photos to each individual measurement and to the overall survey. Photos are stored against the job and viewable in the office immediately — useful for checking the frame, damage, or unusual details."
   ],
   [
-   "Import to order",
-   "Once the survey is finished, office staff click Import to Workbench. Each measurement becomes a product line on the order — dimensions, shape, operations and all — ready for pricing and supplier ordering."
+   "Onto the work bench",
+   "When the survey is finished the office gets a notification. On the order’s work bench they open the survey alongside — measurements, drawings, photos and GPS pins — pick the glass and press Add to turn each pane into a priced line."
   ]
  ],
  "included": [
@@ -60,6 +60,14 @@
    "Record circular holes, rectangular cutouts, letterbox cutouts and corner notches — with position, size and label."
   ],
   [
+   "Safety glass check",
+   "If the glass isn’t already safety glass, the app asks whether it is in or beside a door, or below 800 mm."
+  ],
+  [
+   "Separate quotes from site",
+   "If the customer wants separate prices for parts of the job, tag each pane with a section as you measure."
+  ],
+  [
    "Survey photos",
    "Take photos per measurement and per survey. All photos are stored against the order, viewable in the office instantly."
   ],
@@ -76,12 +84,12 @@
    "No signal on site? No problem. All survey data is captured and queued locally. Syncs automatically when connection is restored."
   ],
   [
-   "Survey duration and operatives",
-   "Record how long the survey took and who was on site — useful for labour costing and scheduling future visits."
+   "Fitting time and crew",
+   "The surveyor sets the fitting time and how many fitters are needed — the survey can’t be finished without them, so the booking is the right length."
   ],
   [
-   "One-click import to order",
-   "Finished surveys import directly to the order workbench — dimensions, shapes and operations all carry through to the glass order."
+   "Survey beside the work bench",
+   "The office opens the survey next to the work bench, picks the glass and presses Add for each pane — sizes, shape and operations carried across."
   ],
   [
    "Multiple visit types",

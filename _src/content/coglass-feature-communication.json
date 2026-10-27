@@ -23,7 +23,7 @@
   ],
   [
    "Replies come in automatically",
-   "Customer emails and messages sent from their quote or tracking page land in the Coglass inbox, and can be linked to the right order in one click."
+   "Customer emails land in the Coglass inbox and can be linked to the right order in one click. Messages from the chat on their quote or tracking page go straight onto the order, with a notification to the office."
   ],
   [
    "Set up automated notifications",
@@ -68,8 +68,8 @@
    "Automation rules come with starter messages using variables like customer name, order number and quote link."
   ],
   [
-   "Customer chat portal",
-   "Customers can reply to messages via a web link — no WhatsApp or app required on their side."
+   "Chat on your customer pages",
+   "Customers message you from their quote or tracking page — no WhatsApp or app needed on their side."
   ],
   [
    "Full conversation history",
