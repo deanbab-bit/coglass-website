@@ -494,8 +494,8 @@ def global_home(ctx):
   <div class="wrap grid">
     <div class="copy">
       <span class="eyebrow">Software for glass &amp; glazing companies</span>
-      <h1>Every job, from enquiry to paid.</h1>
-      <p class="lead">Quotes with real glass drawings, a planner your fitters actually use, purchase orders to suppliers, and invoices that look the part. One system for the office, the van and the workshop — in the UK, Ireland, Australia, New Zealand, Southern Africa and Malta.</p>
+      <h1>Glass software that runs every job, from enquiry to paid.</h1>
+      <p class="lead">Coglass is glass software for glass shops, glaziers, merchants, processors and sealed unit makers. Quote with the glass drawn on every line, order from your suppliers, track every pane through the workshop, book the fitting and send the invoice — one system for the office, the van and the workshop, in the UK, Ireland, Australia, New Zealand, Southern Africa and Malta.</p>
       <div class="ctas"><a class="btn acc lg" href="#countries">Choose your country</a><a class="btn lg" href="{ctx['DEMO']}">Book a demo</a></div>
       {ctx['trust'](['Phone, iPad & web apps', 'Xero connected', 'Prices in your currency'])}
     </div>
@@ -512,6 +512,7 @@ def global_home(ctx):
   <div class="wrap">
     <div class="sect-head"><span class="kicker">Made for glass</span><h2>Made for glass, not bolted on</h2><p>The things a general CRM can't do — drawn, priced and sent to the supplier properly.</p></div>
     <ul class="tiles" style="list-style:none;padding:0;margin:0">{tiles_html}</ul>
+    <p style="margin:22px 0 0">Choosing a system? Read <a href="/glass-software/">what glass software should do for a glass business</a> — and the questions to ask before you buy.</p>
   </div>
 </section>
 <section class="sect alt">
@@ -555,13 +556,14 @@ def global_home(ctx):
     jsonld = {'@context': 'https://schema.org', '@graph': [
         org(site),
         {'@type': 'WebSite', '@id': f'{site}/#website', 'url': f'{site}/', 'name': 'Coglass', 'publisher': {'@id': ORG_ID}},
-        software(site, f'{site}/', all_offers),
+        dict(software(site, f'{site}/', all_offers), applicationSubCategory='Glass software',
+             description='Glass software for glaziers, glass shops, merchants, processors and sealed unit makers: quoting, '
+                         'production, supplier orders, fitting and invoicing in one system.'),
         faq_ld(GLOBAL_FAQ),
     ]}
-    return ctx['layout'](path='/', title='Coglass | Software for Glaziers, Glass Merchants & Sealed Unit Makers',
-                         description='Quotes with real glass drawings, surveys, production, supplier POs, fitting and invoicing in one system '
-                                     'for glass and glazing companies in the UK, Ireland, Australia, New Zealand, South Africa, Namibia, '
-                                     'Botswana and Malta.',
+    return ctx['layout'](path='/', title='Glass Software for Glaziers & Glass Shops | Coglass',
+                         description='Glass software for glaziers, glass shops, merchants and sealed unit makers: quotes with the glass '
+                                     'drawn, production, fitting and invoicing in one system.',
                          body=body, current='/', og_title='Coglass — every glass job, from enquiry to paid', jsonld=jsonld,
                          lang='en', og_locale='en_GB', alternates=alternates('home'))
 

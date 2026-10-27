@@ -5,7 +5,7 @@ import os, re, json
 import countries as _CS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-LASTMOD = '2026-10-04'
+LASTMOD = '2026-10-27'
 
 FEATURES = [
     # icon, title, text, bullets, link
@@ -127,6 +127,7 @@ def not_found(ctx):
 
 
 SITEMAP = [
+    ('/glass-software/', '0.9', 'monthly'),
     ('/signup.html', '0.7', 'monthly'),
     ('/coglass-for-merchants.html', '0.8', 'monthly'), ('/coglass-for-sealed-units.html', '0.8', 'monthly'),
 ] + [(f'/coglass-feature-{s}.html', '0.7', 'monthly') for s in
@@ -165,6 +166,8 @@ def build(ctx):
         'support/index.html': legal(ctx, 'support', '/support/', 'Help & Support | Coglass', 'Help signing in to Coglass, common questions, and how to contact the Coglass team.'),
     }
     out.update(country_pages.build(ctx))
+    import glass_software
+    out['glass-software/index.html'] = glass_software.page(ctx, country_pages.org, ctx['cta_band'])
     out['sitemap.xml'] = sitemap_xml(ctx['SITE'])
     out['robots.txt'] = f'User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /og-image.html\n\nSitemap: {ctx["SITE"]}/sitemap.xml\n'
     return out
