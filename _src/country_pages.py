@@ -73,7 +73,7 @@ def plans_html(ctx, c, full=True):
 
 
 def hero_ctas(ctx, c):
-    demo = f'<a class="btn acc lg" href="{ctx["demo_href"](c)}">Book a demo</a>'
+    demo = f'<a class="btn acc lg" href="{ctx["demo_href"](c)}">Book a demo</a>' + ctx['try_demo']()
     if c['subscribe']:
         return demo + f'<a class="btn lg" href="{cpath(c, "pricing")}#plans">Start a 14-day trial</a>'
     return demo + f'<a class="btn lg" href="{cpath(c, "pricing")}">See {c["short"]} pricing</a>'
@@ -82,12 +82,13 @@ def hero_ctas(ctx, c):
 def cta_band(ctx, c, h, p):
     e = ctx['e']
     second = (f'<a class="btn ghost-light lg" href="{cpath(c, "pricing")}#plans">See plans and start a trial</a>' if c['subscribe']
-              else f'<a class="btn ghost-light lg" href="{cpath(c, "pricing")}">See pricing</a>')
+              else '')
     return f'''<section class="cta-band">
   <div class="wrap">
     <h2>{e(h)}</h2>
     <p>{e(p)}</p>
-    <div class="ctas"><a class="btn acc lg" href="{ctx["demo_href"](c)}">Book a demo</a>{second}</div>
+    <div class="ctas"><a class="btn acc lg" href="{ctx["demo_href"](c)}">Book a demo</a>{ctx['try_demo']('btn ghost-light lg')}{second}</div>
+    {ctx['try_note'](dark=True)}
   </div>
 </section>'''
 
@@ -184,6 +185,7 @@ def country_home(ctx, c):
       <h1>{e(c['h1'])}</h1>
       <p class="lead">{e(c['lead'])}</p>
       <div class="ctas">{hero_ctas(ctx, c)}</div>
+      {ctx['try_note']()}
       {ctx['trust'](trust_items)}{crown}
     </div>
     <div class="visual">{hero_img}{ctx['phone']('Today · Gary', [('f', '08:00 Fitting', 'School · 1h 30m'), ('s', '10:30 Survey', 'Kitchen + bay · 45m'), ('f', '13:00 Fitting', 'Offices · 2h')])}</div>
@@ -350,11 +352,13 @@ def country_pricing(ctx, c):
         start = ('<div class="note"><strong>How the trial works.</strong> Your first 14 days are free. We take your card when you start and '
                  'charge nothing until the trial ends — cancel before then and you pay nothing. We email you before the first payment. '
                  "During the trial every feature is switched on with no limits; your plan's limits apply from the first payment.</div>")
-        start += f'<p>Prefer to talk first, or want us to set it up with you? <a href="{ctx["demo_href"](c)}">Book a demo</a>.</p>'
+        start += (f'<p>Prefer to talk first, or want us to set it up with you? <a href="{ctx["demo_href"](c)}">Book a demo</a>. '
+                  f'Or <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>')
     else:
         start = (f'<div class="note"><strong>How to start.</strong> Book a demo and we will show you Coglass on the kind of jobs you do, '
                  f'then set your account up with you — your products, prices and team. You are billed monthly in {e(c["currency"])} '
-                 'from the day your account goes live.</div>')
+                 'from the day your account goes live.</div>'
+                 f'<p>Want to look around first? <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>')
     tax = ''.join(f'<p>{e(t)}</p>' for t in c['tax_notes'])
     crown = ''
     if c.get('crown'):
@@ -496,7 +500,8 @@ def global_home(ctx):
       <span class="eyebrow">Software for glass &amp; glazing companies</span>
       <h1>Glass software that runs every job, from enquiry to paid.</h1>
       <p class="lead">Coglass is glass software for glass shops, glaziers, merchants, processors and sealed unit makers. Quote with the glass drawn on every line, order from your suppliers, track every pane through the workshop, book the fitting and send the invoice — one system for the office, the van and the workshop, in the UK, Ireland, Australia, New Zealand, Southern Africa and Malta.</p>
-      <div class="ctas"><a class="btn acc lg" href="#countries">Choose your country</a><a class="btn lg" href="{ctx['DEMO']}">Book a demo</a></div>
+      <div class="ctas"><a class="btn acc lg" href="#countries">Choose your country</a><a class="btn lg" href="{ctx['DEMO']}">Book a demo</a>{ctx['try_demo']()}</div>
+      {ctx['try_note']()}
       {ctx['trust'](['Phone, iPad & web apps', 'Xero connected', 'Prices in your currency'])}
     </div>
     <div class="visual">{hero_img}{ctx['phone']('Today · Gary', [('f', '08:00 Fitting', 'School · 1h 30m'), ('s', '10:30 Survey', 'Kitchen + bay · 45m'), ('f', '13:00 Fitting', 'Offices · 2h')])}</div>
@@ -549,7 +554,8 @@ def global_home(ctx):
   <div class="wrap">
     <h2>See it on your own kind of jobs</h2>
     <p>Pick your country for local prices, or book a demo and we will walk you through Coglass with the glass you sell.</p>
-    <div class="ctas"><a class="btn acc lg" href="{ctx['DEMO']}">Book a demo</a><a class="btn ghost-light lg" href="#countries">Choose your country</a></div>
+    <div class="ctas"><a class="btn acc lg" href="{ctx['DEMO']}">Book a demo</a>{ctx['try_demo']('btn ghost-light lg')}</div>
+    {ctx['try_note'](dark=True)}
   </div>
 </section>'''
     all_offers = [o for k in ORDER for o in offers(site, C[k])]

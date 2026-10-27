@@ -200,14 +200,31 @@ def shot(src, alt, w, h, bar=True):
     return f'<div class="shot">{b}<img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" loading="lazy" decoding="async"></div>'
 
 
+# "Try the live demo": demo.coglass.app runs in DEMO_MODE (coglass src/lib/demo-mode.ts) — the Example Glazing Ltd
+# dataset, signed straight in by /login?try=1, with all sending switched off. A secondary button beside "Book a demo".
+TRY_DEMO = 'https://demo.coglass.app/login?try=1'
+TRY_NOTE = "No sign-up. Click around a demo glazing company's day — sending is switched off, so nothing you do reaches anyone."
+
+
+def try_demo(cls='btn lg'):
+    return (f'<a class="{cls}" href="{TRY_DEMO}" target="_blank" rel="noopener">Try the live demo'
+            '<span class="sr-only"> (opens in a new tab)</span></a>')
+
+
+def try_note(dark=False):
+    attrs = ' style="margin:14px auto 0;font-size:14px"' if dark else ' class="fine"'
+    return f'<p{attrs}>{e(TRY_NOTE)}</p>'
+
+
 def cta_band(h, p):
     second = (f'<a class="btn ghost-light lg" href="{TRIAL}">See plans and start a trial</a>' if CS.TRIAL_LIVE
-              else '<a class="btn ghost-light lg" href="/pricing/">See pricing</a>')
+              else '')
     return f'''<section class="cta-band">
   <div class="wrap">
     <h2>{e(h)}</h2>
     <p>{e(p)}</p>
-    <div class="ctas"><a class="btn acc lg" href="{DEMO}">Book a demo</a>{second}</div>
+    <div class="ctas"><a class="btn acc lg" href="{DEMO}">Book a demo</a>{try_demo('btn ghost-light lg')}{second}</div>
+    {try_note(dark=True)}
   </div>
 </section>'''
 
@@ -452,10 +469,10 @@ def feature_page(slug, d):
                 '<a class="btn lg" href="https://play.google.com/store/apps/details?id=com.coglass.app" rel="noopener">Get it on Google Play</a>')
         note = '<p class="fine">The app is for staff of companies that use Coglass — you sign in with the login your company gives you.</p>'
     else:
-        ctas = f'<a class="btn acc lg" href="{DEMO}">Book a demo</a>' + (
+        ctas = f'<a class="btn acc lg" href="{DEMO}">Book a demo</a>' + try_demo() + (
             f'<a class="btn lg" href="{TRIAL}">Start a 14-day trial</a>' if CS.TRIAL_LIVE
             else '<a class="btn lg" href="/pricing/">See pricing</a>')
-        note = ''
+        note = try_note()
     steps = ''.join(f'<li><h3>{e(t)}</h3><p>{e(x)}</p></li>' for t, x in d['steps'])
     incl = ''
     for t, x in d['included']:
@@ -517,7 +534,7 @@ def write(rel, content):
 def main():
     ctx = dict(related_html=related_html, soon_badge=soon_badge, big_phone=big_phone, phone_img=phone_img, visual_html=visual_html, RELATED=RELATED, layout=layout, e=e, trust=trust, shot=shot, cta_band=cta_band, phone=phone, panel=panel, IMG=IMG,
                ICON=ICON, DEMO=DEMO, TRIAL=TRIAL, SIGN_IN=SIGN_IN, CONTACT=CONTACT, PHONE=PHONE, PHONE_INTL=PHONE_INTL, SITE=SITE,
-               demo_href=demo_href)
+               demo_href=demo_href, try_demo=try_demo, try_note=try_note, TRY_DEMO=TRY_DEMO)
     cdir = os.path.join(SRC, 'content')
     for f in sorted(os.listdir(cdir)):
         slug = f[:-5]
