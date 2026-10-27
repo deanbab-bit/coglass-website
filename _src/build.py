@@ -99,6 +99,7 @@ def footer(country=None):
         <h2>Product</h2>
         <ul>
           <li><a href="/#features">All features</a></li>
+          <li><a href="/glass-software/">What glass software does</a></li>
           <li><a href="{pricing}">Pricing</a></li>
           <li><a href="/coglass-ipad.html">Coglass on the iPad</a></li>
           <li><a href="/coglass-feature-mobile.html">Mobile app</a></li>
@@ -424,6 +425,23 @@ def stories_html(d):
 '''
 
 
+# One "glass software" link back to the /glass-software/ pillar, on the pages that answer the same searches.
+# Kept to a few pages on purpose (the footer already links it everywhere).
+PILLAR_LINK = {
+    'coglass-feature-orders': 'what glass software should do for a glass shop',
+    'coglass-feature-quoting': 'how to choose glass software for quoting and pricing',
+    'coglass-feature-suppliers': 'what to look for in glass software',
+    'coglass-feature-invoicing': 'what glass software should cover, from quote to invoice',
+    'coglass-for-merchants': 'glass software for merchants, shops and processors',
+    'coglass-for-sealed-units': 'what glass software should do for sealed unit makers',
+}
+
+
+def pillar_html(slug):
+    t = PILLAR_LINK.get(slug)
+    return f'\n    <p style="margin:18px 0 0">New to this? Read <a href="/glass-software/">{e(t)}</a>.</p>' if t else ''
+
+
 def feature_page(slug, d):
     d = CS.launch_data(d)
     live = CS.feature_live(slug)
@@ -479,7 +497,7 @@ def feature_page(slug, d):
 <section class="sect">
   <div class="wrap">
     <h2 style="font-size:22px">More of Coglass</h2>
-    <ul class="related">{rel}</ul>
+    <ul class="related">{rel}</ul>{pillar_html(slug)}
   </div>
 </section>
 {cta_band(d['cta_h2'], d['cta_p'])}'''
