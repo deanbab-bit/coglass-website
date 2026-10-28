@@ -119,8 +119,8 @@ def local_features(ctx, c):
             x = f'Deposit, proforma and final invoices with {c["tax"]}, payments recorded, and Xero.'
             bs = ['Overdue invoices flagged', f'{c["tax"]} on every invoice', 'Invoices and payments push to Xero']
         if i == 'chat':
-            bs = (['Gmail and Outlook inbox', 'SMS under your company name', CS.wa('WhatsApp, with Messenger coming soon', 'WhatsApp switching on shortly')]
-                  if c['key'] == 'uk' else ['Gmail and Outlook inbox', 'SMS and email updates', CS.wa('WhatsApp messages', 'WhatsApp switching on shortly')])
+            bs = (['Your email inbox inside Coglass', 'SMS under your company name', CS.wa('WhatsApp, with Messenger coming soon', 'WhatsApp switching on shortly')]
+                  if c['key'] == 'uk' else ['Your email inbox inside Coglass', 'SMS and email updates', CS.wa('WhatsApp messages', 'WhatsApp switching on shortly')])
         # Customer portal / webshop: a "Coming soon" pill while they aren't live (countries.py).
         out += (f'<li class="fcard">{I[i]}<h3>{e(t)}{ctx["soon_badge"](i)}</h3><p>{e(x)}</p><ul>{"".join(f"<li>{e(b)}</li>" for b in bs)}</ul>'
                 f'<a class="more" href="/{l}">{e(t)} in detail<span aria-hidden="true">&nbsp;→</span></a></li>')
