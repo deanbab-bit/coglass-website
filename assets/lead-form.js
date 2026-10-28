@@ -6,13 +6,13 @@
 //      show the normal success screen and send nothing. (HQ already receives this field
 //      as `website` and can drop the lead too.)
 //   2. Time-to-submit: a form completed in under MIN_FILL_MS is treated as a bot the same way.
-//   3. Cloudflare Turnstile: OFF until the owner creates a Turnstile site and pastes the
-//      public SITE KEY below. When switched on, the token is sent as `turnstileToken` and
-//      HQ /api/leads MUST verify it server-side with the secret key
-//      (POST https://challenges.cloudflare.com/turnstile/v0/siteverify) — a token nobody
-//      checks stops nothing. Leave '' to keep it off.
+//   3. Cloudflare Turnstile (widget "Coglass website forms", Managed mode, hostnames
+//      coglass.net + coglass.co.uk). The token is sent as `turnstileToken` and HQ
+//      /api/leads verifies it server-side with the secret (siteverify). Tokens are
+//      single-use and expire after 5 minutes, so the widget is reset after any failed
+//      send and when the token expires. Set the key to '' to switch it off.
 (function () {
-  var TURNSTILE_SITE_KEY = ''; // [[DECISION: Turnstile site key — see DECISIONS.md]]
+  var TURNSTILE_SITE_KEY = '0x4AAAAAAFpk9A5Ts04mQYKE'; // public site key (safe to publish)
   var MIN_FILL_MS = 4000;
   var ENDPOINT = 'https://hq.coglass.app/api/leads';
 
@@ -40,8 +40,11 @@
 
   if (TURNSTILE_SITE_KEY) {
     window.coglassTurnstileOk = function (t) { turnstileToken = t; };
+    window.coglassTurnstileReset = function () { turnstileToken = ''; };
     var slot = document.getElementById('turnstile-slot');
-    slot.innerHTML = '<div class="cf-turnstile" data-sitekey="' + TURNSTILE_SITE_KEY + '" data-callback="coglassTurnstileOk"></div>';
+    slot.innerHTML = '<div class="cf-turnstile" data-sitekey="' + TURNSTILE_SITE_KEY + '" data-callback="coglassTurnstileOk"'
+      + ' data-expired-callback="coglassTurnstileReset" data-error-callback="coglassTurnstileReset"'
+      + ' data-action="lead" data-size="flexible" data-theme="light"></div>';
     var s = document.createElement('script');
     s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
     s.async = true; s.defer = true;
@@ -54,6 +57,11 @@
     var ok = document.getElementById('lead-ok');
     ok.style.display = 'block';
     ok.focus();
+  }
+  function resetTurnstile() {
+    // A token can only be checked once — after a failed send, get a fresh one.
+    turnstileToken = '';
+    try { if (TURNSTILE_SITE_KEY && window.turnstile) window.turnstile.reset(); } catch (e) {}
   }
   function showError(msg) {
     errorEl.textContent = msg;
@@ -68,7 +76,7 @@
 
     var honeypot = document.getElementById('lead-website').value;
     if (honeypot || Date.now() - startedAt < MIN_FILL_MS) { showSuccess(); return; }
-    if (TURNSTILE_SITE_KEY && !turnstileToken) { showError('Please complete the check above the button.'); return; }
+    if (TURNSTILE_SITE_KEY && !turnstileToken) { showError('Please wait a moment for the security check above the button to finish, then try again.'); return; }
 
     var cKey = countrySel ? countrySel.value : '';
     var cName = countrySel && countrySel.selectedIndex > 0 ? countrySel.options[countrySel.selectedIndex].text : '';
@@ -90,9 +98,10 @@
     try {
       var res = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
       var data = await res.json().catch(function () { return {}; });
-      if (!res.ok) { showError(data.error || 'Something went wrong. Please try again, or email contact@coglass.co.uk.'); return; }
+      if (!res.ok) { resetTurnstile(); showError(data.error || 'Something went wrong. Please try again, or email contact@coglass.co.uk.'); return; }
       showSuccess();
     } catch (err) {
+      resetTurnstile();
       showError('Could not connect. Please try again, or email contact@coglass.co.uk.');
     }
   });

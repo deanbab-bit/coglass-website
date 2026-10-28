@@ -90,7 +90,7 @@ def demo(ctx):
         <div class="field"><label for="lead-phone">Phone <span class="hint">(optional)</span></label><input type="tel" id="lead-phone" name="phone" autocomplete="tel"></div>
         <div class="field"><label for="lead-message">Anything we should know? <span class="hint">(optional)</span></label><textarea id="lead-message" name="message" placeholder="How many people, what you sell or fit, what you use today…"></textarea></div>
         <div class="hp" aria-hidden="true"><label for="lead-website">Leave this empty</label><input type="text" id="lead-website" name="website" tabindex="-1" autocomplete="off"></div>
-        <div id="turnstile-slot"></div>
+        <div id="turnstile-slot" style="margin:4px 0 14px;max-width:100%;overflow:hidden"></div>
         <button type="submit" class="btn acc lg block" id="lead-submit">Ask us to get in touch</button>
         <p class="fine">We use these details only to contact you about Coglass. See our <a href="/privacy/">privacy policy</a>.</p>
       </form>
@@ -114,7 +114,7 @@ def demo(ctx):
   </div>
 </section>'''
     return ctx['layout'](path='/signup.html', title='Book a demo | Coglass', description='Book a demo of Coglass, the software for glass and glazing companies. Tell us about your business and we will be in touch, usually the same working day.',
-                         body=body, current='/signup.html', scripts='<script src="/assets/lead-form.js?v=4" defer></script>\n')
+                         body=body, current='/signup.html', scripts='<script src="/assets/lead-form.js?v=5" defer></script>\n')
 
 
 def not_found(ctx):
