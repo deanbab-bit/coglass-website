@@ -15,7 +15,7 @@
  "steps": [
   [
    "Connect your channels",
-   "Connect your Gmail or Outlook mailbox in Settings — a one-time setup you do yourself. Texts go out through Coglass's own SMS service under your company name, with a monthly allowance on every plan. {{whatsapp::Connect your WhatsApp Business number in Settings too — WhatsApp messages have their own monthly allowance on every plan. Facebook Messenger is coming soon.::WhatsApp is approved by Meta, and one-click connect is switching on shortly — included in your plan, with its own monthly message allowance. Facebook Messenger is coming soon.}}"
+   "Connect your company mailbox in Settings with its email server details (works with most providers) — a one-time setup you do yourself. One-click Gmail and Outlook sign-in is coming soon. Texts go out through Coglass's own SMS service under your company name, with a monthly allowance on every plan. {{whatsapp::Connect your WhatsApp Business number in Settings too — WhatsApp messages have their own monthly allowance on every plan. Facebook Messenger is coming soon.::WhatsApp is approved by Meta, and one-click connect is switching on shortly — included in your plan, with its own monthly message allowance. Facebook Messenger is coming soon.}}"
   ],
   [
    "Message from the order",
@@ -48,12 +48,12 @@
    "Text customers from any order. Sent under your company name through Coglass's SMS service, with a monthly allowance on every plan."
   ],
   [
-   "Gmail integration",
-   "Connect your Gmail account — send and receive emails from within Coglass, tracked against jobs."
+   "Gmail (one-click coming soon)",
+   "One-click Gmail sign-in is coming soon. Until then, connect any mailbox with its email server details — send and receive from within Coglass, tracked against jobs."
   ],
   [
-   "Outlook integration",
-   "Connect Microsoft Outlook — full email integration with the same order-linked tracking."
+   "Outlook (one-click coming soon)",
+   "One-click Microsoft Outlook sign-in is coming soon, with the same order-linked tracking."
   ],
   [
    "Automated notifications",
