@@ -43,9 +43,12 @@ def app_store(cc='gb'):
 PHONE_INTL = '+44 121 517 0383'
 e = html.escape
 
+# The window-frame mark, geometry = the Facebook profile picture (brand/coglass-mark.svg
+# in the app repo: 100-unit box, frame + cross stroke 9, outer corner radius 22),
+# here 45.5 wide on a 64 navy tile. favicon.svg is the same drawing.
 LOGO_SVG = ('<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#123447"/>'
-            '<rect x="9" y="9" width="46" height="46" rx="9" fill="none" stroke="#3fa9d6" stroke-width="4.5"/>'
-            '<path d="M32 11V53M11 32H53" stroke="#3fa9d6" stroke-width="4.5" stroke-linecap="round"/></svg>')
+            '<rect x="9.25" y="9.25" width="45.5" height="45.5" rx="8.75" fill="none" stroke="#3fa9d6" stroke-width="4.5"/>'
+            '<path d="M32 9.25V54.75M9.25 32H54.75" stroke="#3fa9d6" stroke-width="4.5"/></svg>')
 
 NAV = [('Features', '/#features'), ('For merchants', '/coglass-for-merchants.html'),
        ('Sealed units', '/coglass-for-sealed-units.html'), ('Mobile app', '/coglass-feature-mobile.html'),
