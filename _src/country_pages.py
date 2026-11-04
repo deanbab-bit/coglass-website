@@ -50,10 +50,12 @@ def software(site, url, offer_list):
 
 
 def plan_cta(ctx, c, k, n):
+    """(href, label, new_tab). On sale: the card trial on accounts.coglass.co.uk. Not on sale yet (SUBSCRIBE False —
+    the accounts site bills GBP only): never the Stripe trial; "Get notified when Coglass opens in <country>" (an email to us)."""
     if c['subscribe']:
         q = f'?plan={k}' + ('' if c['key'] == 'uk' else f'&country={c["slug"]}')
-        return f'{SIGNUP_URL}{q}', f'Start 14-day trial<span class="sr-only"> on {n}</span>'
-    return f'{ctx["DEMO"]}?country={c["slug"]}&plan={k}', f'Book a demo<span class="sr-only"> for {n}</span>'
+        return f'{SIGNUP_URL}{q}', f'Start 14-day trial<span class="sr-only"> on {n}</span>', False
+    return ctx['notify_href'](c), f'Get notified when Coglass opens in {ctx["e"](c["in_name"])}<span class="sr-only"> ({n} plan)</span>', False
 
 
 def plans_html(ctx, c, full=True):
@@ -61,34 +63,32 @@ def plans_html(ctx, c, full=True):
     out = ''
     for n, k, pop in PLAN_NAMES:
         lines = CS.plan_lines(k) if full else CS.plan_lines(k)[:4]
+        new_tab = False
         if full:
-            href, label = plan_cta(ctx, c, k, n)
+            href, label, new_tab = plan_cta(ctx, c, k, n)
         else:
             href, label = f'{cpath(c, "pricing")}#plans', f'See the {n} plan'
+        tgt = ' target="_blank" rel="noopener"' if new_tab else ''
         out += (f'<div class="plan{" pop" if pop else ""}">{"<span class=tag>Most popular</span>" if pop else ""}<h3>{n}</h3>'
                 f'<p class="pr">{c["prices"][k]}</p><p class="per">{c["per"]}</p>'
                 f'<ul>{"".join(f"<li>{e(x)}</li>" for x in lines)}</ul>'
-                f'<a class="btn{" acc" if pop else ""} block" href="{href}">{label}</a></div>')
+                f'<a class="btn{" acc" if pop else ""} block" href="{href}"{tgt}>{label}</a></div>')
     return out
 
 
 def hero_ctas(ctx, c):
-    demo = f'<a class="btn acc lg" href="{ctx["demo_href"](c)}">Book a demo</a>' + ctx['try_demo']()
-    if c['subscribe']:
-        return demo + f'<a class="btn lg" href="{cpath(c, "pricing")}#plans">Start a 14-day trial</a>'
-    return demo + f'<a class="btn lg" href="{cpath(c, "pricing")}">See {c["short"]} pricing</a>'
+    return ctx['trial_btn'](c) + ctx['try_demo']()
 
 
 def cta_band(ctx, c, h, p):
     e = ctx['e']
-    second = (f'<a class="btn ghost-light lg" href="{cpath(c, "pricing")}#plans">See plans and start a trial</a>' if c['subscribe']
-              else '')
+    ctas = ctx['trial_btn'](c) + ctx['try_demo']('btn ghost-light lg')
     return f'''<section class="cta-band">
   <div class="wrap">
     <h2>{e(h)}</h2>
     <p>{e(p)}</p>
-    <div class="ctas"><a class="btn acc lg" href="{ctx["demo_href"](c)}">Book a demo</a>{ctx['try_demo']('btn ghost-light lg')}{second}</div>
-    {ctx['try_note'](dark=True)}
+    <div class="ctas">{ctas}</div>
+    {ctx['try_note'](dark=True, trial=c['subscribe'])}
   </div>
 </section>'''
 
@@ -185,7 +185,7 @@ def country_home(ctx, c):
       <h1>{e(c['h1'])}</h1>
       <p class="lead">{e(c['lead'])}</p>
       <div class="ctas">{hero_ctas(ctx, c)}</div>
-      {ctx['try_note']()}
+      {ctx['try_note'](trial=c['subscribe'])}
       {ctx['trust'](trust_items)}{crown}
     </div>
     <div class="visual">{hero_img}{ctx['phone']('Today · Gary', [('f', '08:00 Fitting', 'School · 1h 30m'), ('s', '10:30 Survey', 'Kitchen + bay · 45m'), ('f', '13:00 Fitting', 'Offices · 2h')])}</div>
@@ -274,7 +274,7 @@ def country_home(ctx, c):
     {other_countries(c, 'home', 'Coglass in other countries:')}
   </div>
 </section>
-{cta_band(ctx, c, 'See it on your own kind of jobs', 'Book a demo and we will walk you through Coglass with the glass you sell and the way you work.')}'''
+{cta_band(ctx, c, 'See it on your own kind of jobs', ('Start a 14-day trial and set Coglass up with the glass you sell — or try the live demo first, no sign-up needed.' if c['subscribe'] else "Try the live demo to see a glazing company's day in Coglass — no sign-up needed."))}'''
     url = site + cpath(c, 'home')
     jsonld = {'@context': 'https://schema.org', '@graph': [org(site), software(site, url, offers(site, c))]}
     return ctx['layout'](path=cpath(c, 'home'), title=c['title'], description=c['description'], body=body,
@@ -352,12 +352,13 @@ def country_pricing(ctx, c):
         start = ('<div class="note"><strong>How the trial works.</strong> Your first 14 days are free. We take your card when you start and '
                  'charge nothing until the trial ends — cancel before then and you pay nothing. We email you before the first payment. '
                  "During the trial every feature is switched on with no limits; your plan's limits apply from the first payment.</div>")
-        start += (f'<p>Prefer to talk first, or want us to set it up with you? <a href="{ctx["demo_href"](c)}">Book a demo</a>. '
-                  f'Or <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>')
+        ph, tel = (ctx['PHONE'], '01215170383') if c['key'] == 'uk' else (ctx['PHONE_INTL'], '+441215170383')
+        start += (f'<p>Questions first? Email <a href="mailto:{CONTACT}">{CONTACT}</a> or call <a href="tel:{tel}">{ph}</a>, '
+                  f'or <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">try the live demo</a>.</p>')
     else:
-        start = (f'<div class="note"><strong>How to start.</strong> Book a demo and we will show you Coglass on the kind of jobs you do, '
-                 f'then set your account up with you — your products, prices and team. You are billed monthly in {e(c["currency"])} '
-                 'from the day your account goes live.</div>'
+        start = (f'<div class="note"><strong>Coming soon in {e(c["in_name"])}.</strong> Online sign-up isn\'t open in '
+                 f'{e(c["in_name"])} yet — when it is, you\'ll start with a 14-day free trial and be billed monthly in '
+                 f'{e(c["currency"])}. <a href="{ctx["notify_href"](c)}">Leave us your email</a> and we\'ll tell you when it opens.</div>'
                  f'<p>Want to look around first? <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>')
     tax = ''.join(f'<p>{e(t)}</p>' for t in c['tax_notes'])
     crown = ''
@@ -416,7 +417,7 @@ def country_pricing(ctx, c):
     <p class="fine">Prices may change; we give existing customers at least 30 days' notice by email first.</p>
   </div>
 </section>
-{cta_band(ctx, c, 'Not sure which plan fits?', 'Book a demo and we will help you pick — and you can move up a plan any time.')}'''
+{cta_band(ctx, c, 'Not sure which plan fits?', 'Every plan has every feature, and you can move up a plan any time. Try the live demo, or email us and we will help you pick.')}'''
     url = site + cpath(c, 'pricing')
     jsonld = {'@context': 'https://schema.org', '@graph': [org(site), software(site, url, offers(site, c))]}
     low = c['prices']['starter']
@@ -438,7 +439,7 @@ def country_faq(ctx, c):
     {other_countries(c, 'faq', 'Questions for another country:')}
   </div>
 </section>
-{cta_band(ctx, c, 'Want to see it first?', 'Book a demo and we will show you Coglass on the kind of jobs you do.')}'''
+{cta_band(ctx, c, 'Want to see it first?', 'Try the live demo — a demo glazing company with every part of Coglass switched on, and no sign-up needed.')}'''
     jsonld = {'@context': 'https://schema.org', '@graph': [org(site), faq_ld(c['faq'])]}
     return ctx['layout'](path=cpath(c, 'faq'), title=f'Coglass in {c["in_name"]} — FAQ | Glazing software',
                          description=f'Questions about Coglass in {c["in_name"]}: prices in {c["currency"]}, {c["tax"]}, support hours, '
@@ -454,7 +455,9 @@ def chooser_cards(ctx, kind):
     for k in ORDER:
         c = C[k]
         extra = '<span class="sub">Also the Isle of Man, Jersey, Guernsey &amp; Gibraltar</span>' if k == 'uk' else ''
-        cards += (f'<li><a class="ccard" href="{cpath(c, kind)}" data-country="{k}" hreflang="{c["lang"]}">'
+        # On /pricing/ the cards land on the country's plans (the trial buttons), not the top of its pricing page.
+        href = cpath(c, kind) + ('#plans' if kind == 'pricing' else '')
+        cards += (f'<li><a class="ccard" href="{href}" data-country="{k}" hreflang="{c["lang"]}">'
                   f'<span class="code" aria-hidden="true">{c["code"]}</span><span class="nm">{e(c["name"])}</span>{extra}'
                   f'<span class="pr">From {c["prices"]["starter"]} a month{e(c["price_tax"])}</span></a></li>')
     return f'<ul class="cgrid">{cards}</ul>'
@@ -500,7 +503,7 @@ def global_home(ctx):
       <span class="eyebrow">Software for glass &amp; glazing companies</span>
       <h1>Glass software that runs every job, from enquiry to paid.</h1>
       <p class="lead">Coglass is glass software for glass shops, glaziers, merchants, processors and sealed unit makers. Quote with the glass drawn on every line, order from your suppliers, track every pane through the workshop, book the fitting and send the invoice — one system for the office, the van and the workshop, in the UK, Ireland, Australia, New Zealand, Southern Africa and Malta.</p>
-      <div class="ctas"><a class="btn acc lg" href="#countries">Choose your country</a><a class="btn lg" href="{ctx['DEMO']}">Book a demo</a>{ctx['try_demo']()}</div>
+      <div class="ctas">{ctx['trial_btn']()}{ctx['try_demo']()}</div>
       {ctx['try_note']()}
       {ctx['trust'](['Phone, iPad & web apps', 'Xero connected', 'Prices in your currency'])}
     </div>
@@ -553,8 +556,8 @@ def global_home(ctx):
 <section class="cta-band">
   <div class="wrap">
     <h2>See it on your own kind of jobs</h2>
-    <p>Pick your country for local prices, or book a demo and we will walk you through Coglass with the glass you sell.</p>
-    <div class="ctas"><a class="btn acc lg" href="{ctx['DEMO']}">Book a demo</a>{ctx['try_demo']('btn ghost-light lg')}</div>
+    <p>Pick a plan for your country and start a 14-day trial, or try the live demo first — no sign-up needed.</p>
+    <div class="ctas">{ctx['trial_btn']()}{ctx['try_demo']('btn ghost-light lg')}</div>
     {ctx['try_note'](dark=True)}
   </div>
 </section>'''
@@ -591,10 +594,10 @@ def pricing_chooser(ctx):
       <tr><th scope="col">Country</th><th scope="col">Starter</th><th scope="col">Professional</th><th scope="col">Business</th><th scope="col">Tax</th></tr>
       {rows}
     </table></div>
-    <p class="fine">The UK prices also apply in the Isle of Man, Jersey, Guernsey and Gibraltar. Elsewhere? <a href="{ctx['DEMO']}">Get in touch</a>.</p>
+    <p class="fine">The UK prices also apply in the Isle of Man, Jersey, Guernsey and Gibraltar. Somewhere else? Email <a href="mailto:{ctx['CONTACT']}">{ctx['CONTACT']}</a>.</p>
   </div>
 </section>
-{ctx['cta_band']('Not sure which plan fits?', 'Book a demo and we will help you pick — and you can move up a plan any time.')}'''
+{ctx['cta_band']('Not sure which plan fits?', 'Every plan has every feature, and you can move up a plan any time. Try the live demo first if you like.')}'''
     all_offers = [o for k in ORDER for o in offers(site, C[k])]
     jsonld = {'@context': 'https://schema.org', '@graph': [org(site), software(site, f'{site}/pricing/', all_offers)]}
     return ctx['layout'](path='/pricing/', title='Pricing | Coglass glazing software — plans by country',

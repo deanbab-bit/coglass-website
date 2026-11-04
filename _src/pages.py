@@ -1,4 +1,4 @@
-"""Hand-written pages: demo request, support + legal wrappers, 404, sitemap.
+"""Hand-written pages: the /signup.html redirect, support + legal wrappers, 404, sitemap.
 
 Home, pricing and the country sections are in country_pages.py."""
 import os, re, json
@@ -71,50 +71,30 @@ def legal(ctx, name, path, title, description):
     return ctx['layout'](path=path, title=title, description=description, body=body, current=path)
 
 
-def demo(ctx):
+def signup_redirect(ctx):
+    """/signup.html used to be the "book a demo" lead form (posted to hq.coglass.app/api/leads). Dean, Nov 2026:
+    the only way to start is the 14-day card trial from a country's pricing plans, and anyone who wants to look
+    first can try the live demo — so this page just forwards old links and search results.
+    ?country=<slug> goes to that country's pricing (assets/signup-redirect.js; the CSP allows no inline script);
+    without JS, the meta refresh goes to the country chooser and the links below are there to click."""
     e = ctx['e']
     import countries as CS
-    country_opts = '<option value="">Choose…</option>' + ''.join(
-        f'<option value="{k}">{e(CS.C[k]["name"])}{" (incl. Isle of Man, Channel Islands, Gibraltar)" if k == "uk" else ""}</option>'
-        for k in CS.ORDER) + '<option value="other">Somewhere else</option>'
-    body = f'''<section class="page-head"><div class="wrap"><h1>Book a demo</h1><p>Tell us a little about your business and we'll call or email to arrange a time — usually the same working day.</p></div></section>
+    links = ' · '.join(f'<a href="/{k}/pricing/">{e(CS.C[k]["name"])}</a>' for k in CS.ORDER)
+    body = f'''<section class="page-head"><div class="wrap"><h1>Start your 14-day trial</h1><p>Taking you to the plans for your country…</p></div></section>
 <section class="sect" style="padding-top:44px">
-  <div class="wrap two-col">
-    <div class="form-card">
-      <form id="lead-form">
-        <div id="lead-error" class="form-error" role="alert"></div>
-        <div class="field"><label for="lead-company">Company name</label><input type="text" id="lead-company" name="company" autocomplete="organization" required></div>
-        <div class="field"><label for="lead-name">Your name <span class="hint">(optional)</span></label><input type="text" id="lead-name" name="name" autocomplete="name"></div>
-        <div class="field"><label for="lead-country">Country</label><select id="lead-country" name="country" autocomplete="country">{country_opts}</select></div>
-        <div class="field"><label for="lead-email">Work email</label><input type="email" id="lead-email" name="email" autocomplete="email" required></div>
-        <div class="field"><label for="lead-phone">Phone <span class="hint">(optional)</span></label><input type="tel" id="lead-phone" name="phone" autocomplete="tel"></div>
-        <div class="field"><label for="lead-message">Anything we should know? <span class="hint">(optional)</span></label><textarea id="lead-message" name="message" placeholder="How many people, what you sell or fit, what you use today…"></textarea></div>
-        <div class="hp" aria-hidden="true"><label for="lead-website">Leave this empty</label><input type="text" id="lead-website" name="website" tabindex="-1" autocomplete="off"></div>
-        <div id="turnstile-slot" style="margin:4px 0 14px;max-width:100%;overflow:hidden"></div>
-        <button type="submit" class="btn acc lg block" id="lead-submit">Ask us to get in touch</button>
-        <p class="fine">We use these details only to contact you about Coglass. See our <a href="/privacy/">privacy policy</a>.</p>
-      </form>
-      <div id="lead-ok" class="form-ok" tabindex="-1">
-        <h2>Thanks — we've got your details</h2>
-        <p>We'll call or email you to arrange a demo, usually the same working day. Nothing has been set up or charged.</p>
-        <p>Want to look around in the meantime? <a href="/#features">See all features</a> or <a href="/pricing/">compare plans</a>.</p>
-      </div>
-    </div>
-    <div>
-      <h2 style="font-size:22px">What happens next</h2>
-      <ol class="steps" style="grid-template-columns:1fr">
-        <li><h3>We get in touch</h3><p>A quick call to understand what you make, fit or sell, and how you work today.</p></li>
-        <li><h3>We show you Coglass</h3><p>On screen, using the kind of jobs you do — quotes, the planner, the phone app, invoices.</p></li>
-        <li><h3>You decide</h3><p>If it suits, pick a plan and we'll help you load your products, prices and team.</p></li>
-      </ol>
-      <p class="fine" style="margin-top:18px">Rather email? <a href="mailto:{ctx['CONTACT']}">{ctx['CONTACT']}</a> · or call <a href="tel:+441215170383">{ctx['PHONE_INTL']}</a> (UK).</p>
-      <p class="fine">Want to see prices first? <a href="/pricing/">Pricing for your country</a>.</p>
-      <p class="fine">Rather look around on your own first? <a href="{ctx['TRY_DEMO']}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>
-    </div>
+  <div class="wrap" style="max-width:760px">
+    <p>To start with Coglass, pick a plan for your country — your first 14 days are free, and you can cancel before the trial ends and pay nothing.</p>
+    <div class="ctas"><a class="btn acc lg" href="{ctx['TRIAL']}" id="signup-go">{ctx['TRIAL_TEXT']}</a>{ctx['try_demo']()}</div>
+    {ctx['try_note']()}
+    <p>Pricing by country: {links}. The UK prices also cover <a href="/uk/pricing/#crown">the Isle of Man, Jersey, Guernsey and Gibraltar</a>.</p>
+    <p class="fine">Got a question first? Email <a href="mailto:{ctx['CONTACT']}">{ctx['CONTACT']}</a> or call <a href="tel:+441215170383">{ctx['PHONE_INTL']}</a> (UK).</p>
   </div>
 </section>'''
-    return ctx['layout'](path='/signup.html', title='Book a demo | Coglass', description='Book a demo of Coglass, the software for glass and glazing companies. Tell us about your business and we will be in touch, usually the same working day.',
-                         body=body, current='/signup.html', scripts='<script src="/assets/lead-form.js?v=5" defer></script>\n')
+    head = ('<script src="/assets/signup-redirect.js?v=1"></script>\n'
+            f'<meta http-equiv="refresh" content="3;url={ctx["TRIAL"]}">\n')
+    return ctx['layout'](path='/signup.html', title='Start your 14-day trial | Coglass',
+                         description='Start a 14-day trial of Coglass from the plans for your country, or try the live demo.',
+                         body=body, head=head, noindex=True)
 
 
 def not_found(ctx):
@@ -129,7 +109,6 @@ def not_found(ctx):
 
 SITEMAP = [
     ('/glass-software/', '0.9', 'monthly'),
-    ('/signup.html', '0.7', 'monthly'),
     ('/coglass-for-merchants.html', '0.8', 'monthly'), ('/coglass-for-sealed-units.html', '0.8', 'monthly'),
 ] + [(f'/coglass-feature-{s}.html', '0.7', 'monthly') for s in
      ['orders', 'quoting', 'surveys', 'glass-specs', 'production', 'suppliers', 'scheduling', 'fitting', 'invoicing',
@@ -157,7 +136,7 @@ def sitemap_xml(site):
 def build(ctx):
     import country_pages
     out = {
-        'signup.html': demo(ctx),
+        'signup.html': signup_redirect(ctx),
         'coglass-ipad.html': ipad(ctx),
         '404.html': not_found(ctx),
         'terms/index.html': legal(ctx, 'terms', '/terms/', 'Terms of Service | Coglass', 'The terms between Halliday Morrow Ltd (Coglass) and businesses that subscribe to Coglass.'),
@@ -238,7 +217,7 @@ def ipad(ctx):
                                                         ('d', '13:00 Dan · Delivery', 'D. Harris'), ('', 'Messages · 2 new', 'Reply by email')]),
                     ('More about the app', '/coglass-feature-mobile.html'))
     apps = (f'<div class="ctas"><a class="btn acc lg" href="{ctx["app_store"]()}" rel="noopener">Download for iPhone &amp; iPad</a>'
-            f'<a class="btn lg" href="{ctx["DEMO"]}">Book a demo</a>{ctx["try_demo"]()}</div>')
+            f'<a class="btn lg" href="{ctx["TRIAL"]}">{ctx["TRIAL_TEXT"]}</a>{ctx["try_demo"]()}</div>')
     body = f'''<section class="hero">
   <div class="wrap grid">
     <div class="copy">
@@ -266,7 +245,7 @@ def ipad(ctx):
     <ul class="related">{ctx['related_html']('coglass-ipad')}</ul>
   </div>
 </section>
-{ctx['cta_band']('See it on an iPad', 'Book a demo and we will show you the office, the shop floor and the counter on the kind of jobs you do.')}'''
+{ctx['cta_band']('See it on an iPad', 'Start a 14-day trial and try the office, the shop floor and the counter on your own jobs — or try the live demo first.')}'''
     return ctx['layout'](path='/coglass-ipad.html', title='Glazing Software for iPad | Office, Shop Floor, Counter & Site | Coglass',
                          description='Run your glazing business from an iPad: the Coglass office CRM in Safari, the shop-floor production board, a trade counter with live pricing, and surveys and fittings on site.',
                          body=body, current='/coglass-ipad.html', og_title='Run your whole glazing business from an iPad')

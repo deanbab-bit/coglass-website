@@ -69,7 +69,7 @@
   ]
  ],
  "cta_h2": "Less typing, fewer missing signatures",
- "cta_p": "Book a demo and we will show you the documents from one of your own jobs{{trial:: — or pick a plan and start a 14-day trial.::.}}",
+ "cta_p": "{{trial::Pick a plan and start a 14-day trial to try it on your own jobs — or try the live demo first, no sign-up needed.::Try the live demo to see it on a demo company's jobs — no sign-up needed.}}",
  "stories": {
   "id": "rams",
   "label": "The documents that matter",

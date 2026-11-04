@@ -3,7 +3,8 @@
 LAUNCH-DAY SWITCH
 -----------------
 `SUBSCRIBE` below decides, per country, whether the plan buttons go to card checkout on
-accounts.coglass.co.uk ("Start 14-day trial") or to the demo form ("Book a demo").
+accounts.coglass.co.uk ("Start 14-day trial") or, while a country isn't on sale, to the live demo (there is
+no demo-booking form any more — Dean, Nov 2026).
 The accounts site only bills in GBP today, so every country except the UK is False.
 On launch day, once accounts.coglass.co.uk has Stripe prices in that currency, flip the
 country to True and re-run `python3 _src/build.py`. Nothing else needs to change.
@@ -44,7 +45,7 @@ SUBSCRIBE = {
 WHATSAPP_LIVE = False  # 21 Oct: Meta approved messaging, but a new instance can't connect yet (relay key / one-click connect pending)
 
 # Country-neutral pages (feature pages, /support) offer "start a 14-day trial" only while at least one
-# country's SUBSCRIBE is on; otherwise they say "book a demo" / "see pricing". JSON/legal: `{{trial::live::soon}}`.
+# country's SUBSCRIBE is on; otherwise they say "try the live demo" / "see pricing". JSON/legal: `{{trial::live::soon}}`.
 TRIAL_LIVE = any(SUBSCRIBE.values())
 PORTAL_LIVE = False
 WEBSHOP_LIVE = False
@@ -234,14 +235,14 @@ C['uk'] = dict(
          'UK VAT is added. When you sign up, choose your island or Gibraltar as the country — the pricing page has a link for '
          'each.'),
         (('How does the trial work?', 'Pick a plan on the pricing page. We take your card at sign-up and charge nothing for 14 '
-          'days; cancel before the trial ends and you pay nothing. If you would rather see it first, book a demo.')
+          'days; cancel before the trial ends and you pay nothing. If you would rather look around first, try the live demo — '
+          'no sign-up needed.')
          if SUBSCRIBE['uk'] else
-         ('How do I get started?', 'Book a demo. We will show you Coglass on the kind of jobs you do, then set your account up '
-          'with you — your products, prices and team. You are billed monthly from the day your account goes live.')),
+         ('How do I get started?', 'Sign-up opens soon. Until then, try the live demo to see Coglass on a demo company\'s jobs.')),
         XERO_FAQ,
         OFFLINE_FAQ,
-        ('Can you help us set it up?', 'Yes — book a demo and we will go through your products, prices and team with you. There '
-         'is no setup fee.'),
+        ('Can you help us set it up?', 'Yes — start your trial, then email us and we will go through your products, prices and '
+         'team with you. There is no setup fee.'),
         _wa_faq('the UK'),
     ],
 )
@@ -337,7 +338,7 @@ C['au'] = dict(
     proof=[('From A$169', 'a month, no GST added'), ('Every feature', 'on every plan'), ('No setup fee', 'no minimum term'), ('iPhone · Android · web', '')],
     support='Our team is in the UK. Australian business hours overlap our early morning and late evening — the east coast is '
             '9 to 11 hours ahead of the UK, depending on the season and your state. Email any time and we usually reply within '
-            'one UK working day; we will agree a demo time that suits you.',
+            'one UK working day.',
     tz_note='The east coast is 9 to 11 hours ahead of the UK (Perth 7 to 8).',
     tax_notes=[
         'Coglass is sold to GST-registered businesses by Halliday Morrow Ltd, a UK company. No GST is added to our prices.',
@@ -350,7 +351,7 @@ C['au'] = dict(
         ('Is my Coglass subscription charged GST?', 'No GST is added. Coglass is sold to GST-registered businesses: give us your '
          'ABN when you sign up and confirm you are registered for GST.'),
         ('What hours is support?', 'Our team is in the UK, which is 9 to 11 hours behind the east coast. Email any time and we '
-         'usually reply within one UK working day; demos are booked at a time that suits you.'),
+         'usually reply within one UK working day, and the live demo is open whenever suits you.'),
         OFFLINE_FAQ,
         XERO_FAQ,
         ('Can customers pay online?', 'Yes. Connect your Stripe account and customers can pay an invoice by card from its link.'),
@@ -386,8 +387,7 @@ C['nz'] = dict(
     ],
     proof=[('From NZ$209', 'a month, no GST added'), ('Every feature', 'on every plan'), ('No setup fee', 'no minimum term'), ('iPhone · Android · web', '')],
     support='Our team is in the UK, 11 to 13 hours behind New Zealand depending on the season, so our working day is your '
-            'evening and night. Email any time and we usually reply within one UK working day; we will agree a demo time that '
-            'suits you.',
+            'evening and night. Email any time and we usually reply within one UK working day.',
     tz_note='New Zealand is 11 to 13 hours ahead of the UK.',
     tax_notes=[
         'Coglass is sold to GST-registered businesses by Halliday Morrow Ltd, a UK company. No GST is added to our prices.',
@@ -399,7 +399,7 @@ C['nz'] = dict(
         ('Is my Coglass subscription charged GST?', 'No GST is added. Coglass is sold to GST-registered businesses: give us your '
          'GST number when you sign up.'),
         ('What hours is support?', 'Our team is in the UK, 11 to 13 hours behind you. Email any time and we usually reply within '
-         'one UK working day; demos are booked at a time that suits you.'),
+         'one UK working day, and the live demo is open whenever suits you.'),
         _wa_faq('New Zealand'),
         OFFLINE_FAQ,
         XERO_FAQ,
@@ -485,7 +485,7 @@ C['na'] = dict(
          'catalogue and trade price lists.'),
         ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Ready to go, and '
          'barcode labels for every pane.'),
-        ('Close to our working day', 'Namibia is one to two hours ahead of our UK team, so support and demos fit your '
+        ('Close to our working day', 'Namibia is one to two hours ahead of our UK team, so support fits your '
          'business hours.'),
     ],
     proof=[('From N$1,969', 'a month, no VAT added'), ('Every feature', 'on every plan'), ('1–2 hours', 'from our UK team'), ('iPhone · Android · web', '')],
@@ -537,7 +537,7 @@ C['bw'] = dict(
          'catalogue and trade price lists.'),
         ('Production and suppliers', 'Purchase orders with the drawing on them, a production board from To plan to Ready to go, and '
          'barcode labels for every pane.'),
-        ('Close to our working day', 'Botswana is one to two hours ahead of our UK team, so support and demos fit your '
+        ('Close to our working day', 'Botswana is one to two hours ahead of our UK team, so support fits your '
          'business hours.'),
     ],
     proof=[('From P1,579', 'a month, no VAT added'), ('Every feature', 'on every plan'), ('1–2 hours', 'from our UK team'), ('iPhone · Android · web', '')],
