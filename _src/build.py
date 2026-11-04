@@ -7,7 +7,7 @@ Writes every page into the repo root (index.html, coglass-feature-*.html, pricin
 from one layout, so the header, footer, meta tags and styles can't drift between pages.
 
   _src/content/*.json   feature / audience page copy (one file per page)
-  _src/pages.py         home, pricing, legal, support, demo-request and 404 bodies
+  _src/pages.py         home, pricing, legal, support, signup.html redirect and 404 bodies
   assets/site.css       the shared stylesheet (all pages)
 
 Edit those, re-run this script, commit the generated HTML with them. The output is plain
@@ -26,8 +26,11 @@ import countries as CS  # noqa: E402
 SITE = 'https://coglass.net'
 CONTACT = 'contact@coglass.co.uk'
 PHONE = '0121 517 0383'
-DEMO = '/signup.html'
+# The only way to sign up is the 14-day card trial on accounts.coglass.co.uk, started from a country's
+# pricing plans. (/signup.html used to be a "book a demo" lead form; it is now just a redirect — Dean, Nov 2026:
+# no demo booking, people can try the live demo themselves.)
 TRIAL = '/pricing/#plans'
+TRIAL_TEXT = 'Start your 14-day trial'
 SIGN_IN = 'https://accounts.coglass.co.uk'
 ASSET_V = '6'
 # App Store links must carry a storefront code: without one Apple sends visitors to the US store, where
@@ -64,8 +67,19 @@ def nav_for(country):
             ('Pricing', f'/{s}/pricing/'), ('FAQ', f'/{s}/faq/'), ('Help', '/support/')]
 
 
-def demo_href(country):
-    return f'{DEMO}?country={country["slug"]}' if country else DEMO
+def trial_href(country=None):
+    """Where "Start your 14-day trial" goes: that country's plans, or the country chooser on global pages."""
+    return f'/{country["slug"]}/pricing/#plans' if country else TRIAL
+
+
+def trial_btn(country=None, cls='btn acc lg', short=False):
+    """The main call to action. A country not yet on sale (countries.SUBSCRIBE False) gets its pricing page
+    instead — there is no trial to start there yet."""
+    if country and not country['subscribe']:
+        return f'<a class="{cls}" href="/{country["slug"]}/pricing/">See {e(country["short"])} pricing</a>'
+    if not country and not CS.TRIAL_LIVE:
+        return f'<a class="{cls}" href="/pricing/">See pricing</a>'
+    return f'<a class="{cls}" href="{trial_href(country)}">{"Start 14-day trial" if short else TRIAL_TEXT}</a>'
 
 
 def header(current, country=None):
@@ -87,7 +101,7 @@ def header(current, country=None):
     <div class="head-ctas">
       {cty}
       <a class="btn" href="{SIGN_IN}">Sign in</a>
-      <a class="btn pri" href="{demo_href(country)}">Book a demo</a>
+      {trial_btn(country, 'btn pri', short=True)}
     </div>
   </div>
 </header>'''
@@ -124,9 +138,8 @@ def footer(country=None):
         </ul>
       </div>
       <div>
-        <h2>Get in touch</h2>
+        <h2>Contact us</h2>
         <ul>
-          <li><a href="{demo_href(country)}">Book a demo</a></li>
           <li><a href="mailto:{CONTACT}">{CONTACT}</a></li>
           <li><a href="tel:{phone_tel}">{phone_txt}</a></li>
           <li><a href="/support/">Help &amp; support</a></li>
@@ -149,7 +162,7 @@ def footer(country=None):
 </footer>'''
 
 
-def layout(*, path, title, description, body, current=None, og_title=None, jsonld=None, scripts='', noindex=False,
+def layout(*, path, title, description, body, current=None, og_title=None, jsonld=None, scripts='', head='', noindex=False,
            lang='en-GB', og_locale='en_GB', alternates=None, country=None):
     url = SITE + path
     alt = ''.join(f'<link rel="alternate" hreflang="{h}" href="{SITE}{p}">\n' for h, p in (alternates or []))
@@ -188,7 +201,7 @@ def layout(*, path, title, description, body, current=None, og_title=None, jsonl
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Raleway:wght@700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v={ASSET_V}">
-{ld}</head>
+{ld}{head}</head>
 <body>
 {header(current, country)}
 <div class="suggest" id="cty-suggest" data-current="{country['key'] if country else ''}" hidden></div>
@@ -214,7 +227,7 @@ def shot(src, alt, w, h, bar=True):
 
 
 # "Try the live demo": demo.coglass.app runs in DEMO_MODE (coglass src/lib/demo-mode.ts) — the Example Glazing Ltd
-# dataset, signed straight in by /login?try=1, with all sending switched off. A secondary button beside "Book a demo".
+# dataset, signed straight in by /login?try=1, with all sending switched off. The button beside "Start your 14-day trial".
 TRY_DEMO = 'https://demo.coglass.app/login?try=1'
 TRY_NOTE = "No sign-up. Click around a demo glazing company's day — sending is switched off, so nothing you do reaches anyone."
 
@@ -230,13 +243,11 @@ def try_note(dark=False):
 
 
 def cta_band(h, p):
-    second = (f'<a class="btn ghost-light lg" href="{TRIAL}">See plans and start a trial</a>' if CS.TRIAL_LIVE
-              else '')
     return f'''<section class="cta-band">
   <div class="wrap">
     <h2>{e(h)}</h2>
     <p>{e(p)}</p>
-    <div class="ctas"><a class="btn acc lg" href="{DEMO}">Book a demo</a>{try_demo('btn ghost-light lg')}{second}</div>
+    <div class="ctas">{trial_btn()}{try_demo('btn ghost-light lg')}</div>
     {try_note(dark=True)}
   </div>
 </section>'''
@@ -482,9 +493,7 @@ def feature_page(slug, d):
                 '<a class="btn lg" href="https://play.google.com/store/apps/details?id=com.coglass.app" rel="noopener">Get it on Google Play</a>')
         note = '<p class="fine">The app is for staff of companies that use Coglass — you sign in with the login your company gives you.</p>'
     else:
-        ctas = f'<a class="btn acc lg" href="{DEMO}">Book a demo</a>' + try_demo() + (
-            f'<a class="btn lg" href="{TRIAL}">Start a 14-day trial</a>' if CS.TRIAL_LIVE
-            else '<a class="btn lg" href="/pricing/">See pricing</a>')
+        ctas = trial_btn() + try_demo()
         note = try_note()
     steps = ''.join(f'<li><h3>{e(t)}</h3><p>{e(x)}</p></li>' for t, x in d['steps'])
     incl = ''
@@ -546,8 +555,8 @@ def write(rel, content):
 
 def main():
     ctx = dict(related_html=related_html, soon_badge=soon_badge, big_phone=big_phone, phone_img=phone_img, visual_html=visual_html, RELATED=RELATED, layout=layout, e=e, trust=trust, shot=shot, cta_band=cta_band, phone=phone, panel=panel, IMG=IMG,
-               ICON=ICON, DEMO=DEMO, TRIAL=TRIAL, SIGN_IN=SIGN_IN, CONTACT=CONTACT, PHONE=PHONE, PHONE_INTL=PHONE_INTL, SITE=SITE,
-               demo_href=demo_href, app_store=app_store, try_demo=try_demo, try_note=try_note, TRY_DEMO=TRY_DEMO)
+               ICON=ICON, TRIAL=TRIAL, TRIAL_TEXT=TRIAL_TEXT, SIGN_IN=SIGN_IN, CONTACT=CONTACT, PHONE=PHONE, PHONE_INTL=PHONE_INTL, SITE=SITE,
+               trial_href=trial_href, trial_btn=trial_btn, app_store=app_store, try_demo=try_demo, try_note=try_note, TRY_DEMO=TRY_DEMO)
     cdir = os.path.join(SRC, 'content')
     for f in sorted(os.listdir(cdir)):
         slug = f[:-5]

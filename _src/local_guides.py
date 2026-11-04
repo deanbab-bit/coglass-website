@@ -61,7 +61,7 @@ def guide_page(ctx, c, g, org, cta_band):
 <h2>Where Coglass fits</h2>
 {fits_note}
 <ul class="checks">{fits}</ul>
-<p>Want to see it on your own jobs? <a href="{ctx['demo_href'](c)}">Book a demo</a> or <a href="/{c['slug']}/pricing/">see pricing in {e(c['currency'])}</a>.</p>
+<p>Want to see it working? <a href="{ctx['TRY_DEMO']}" target="_blank" rel="noopener">Try the live demo</a>{f' or <a href="/{c["slug"]}/pricing/#plans">start a 14-day trial</a>' if c['subscribe'] else f' or <a href="/{c["slug"]}/pricing/">see pricing in {e(c["currency"])}</a>'}.</p>
 <h2>Sources</h2>
 <ul>{sources}</ul>
 <p class="fine">This page explains the rules in general terms. Standards and tax rules change, and how they apply depends on the job — check the source, your building control body or your accountant before relying on it.</p>
@@ -174,7 +174,7 @@ GUIDES['au'] = [
             ('ABCB — Housing Provisions Part 8.4, Glazing: human impact (NCC 2022)', 'https://www.abcb.gov.au/editions/ncc-2022/adopted/housing-provisions/8-glazing/part-84-glazing-human-impact'),
             ('ABCB — NCC Volume One referenced documents', 'https://www.abcb.gov.au/editions/ncc-2022/adopted/volume-one/2-referenced-documents/referenced-documents'),
         ],
-        cta=('Keep the glass you quoted the glass you fit', 'Book a demo and we will show you a job going from survey to purchase order to fitting in Coglass.'),
+        cta=('Keep the glass you quoted the glass you fit', 'Try the live demo to see a job going from survey to purchase order to fitting in Coglass.'),
     ),
     dict(
         slug='gst-tax-invoices', nav='GST tax invoices',
@@ -211,7 +211,7 @@ GUIDES['au'] = [
             ('ATO — Registering for GST', 'https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/registering-for-gst'),
             ('ATO — How Australian GST works', 'https://www.ato.gov.au/businesses-and-organisations/international-tax-for-business/gst-for-non-resident-businesses/how-australian-gst-works'),
         ],
-        cta=('Invoices out, payments in, BAS in Xero', 'Book a demo and we will show you a job from deposit invoice to paid, and how it lands in Xero.'),
+        cta=('Invoices out, payments in, BAS in Xero', 'Try the live demo to see a job from deposit invoice to paid, and how it lands in Xero.'),
     ),
     dict(
         slug='swms-working-at-height', nav='SWMS and working at height',
@@ -241,7 +241,7 @@ GUIDES['au'] = [
             ('Safe Work Australia — Working at heights (construction)', 'https://safeworkaustralia.gov.au/duties-tool/construction/hazards-information/working-heights'),
             ('SafeWork SA — Lowering the height threshold', 'https://safework.sa.gov.au/news-and-alerts/news/news/2025/lowering-height-threshold-will-raise-safety-standards'),
         ],
-        cta=('Every job with its safety paperwork', 'Book a demo and we will show you a survey turning into a job, a risk assessment and a fitting.'),
+        cta=('Every job with its safety paperwork', 'Try the live demo to see a survey turning into a job, a risk assessment and a fitting.'),
     ),
     dict(
         slug='glazing-software-australia', nav='Coglass across Australia',
@@ -253,7 +253,7 @@ GUIDES['au'] = [
         lead='From Sydney to Perth: when you can reach our team, how Coglass copes with long drives and patchy coverage, and how '
              'we get you set up.',
         sections=[
-            ('Support hours in your time zone', '''<p>Our team is in the UK. Email any time and we usually reply within one UK working day; demos are booked at a time that suits you, early morning or evening. How far ahead of the UK you are depends on your city and the season:</p>
+            ('Support hours in your time zone', '''<p>Our team is in the UK. Email any time and we usually reply within one UK working day; the live demo is open whenever suits you, early morning or evening. How far ahead of the UK you are depends on your city and the season:</p>
 <div class="table-wrap"><table>
 <tr><th scope="col">City</th><th scope="col">Time zone</th><th scope="col">Ahead of the UK, Nov–Mar</th><th scope="col">Ahead of the UK, Apr–Sep</th></tr>
 <tr><th scope="row">Sydney, Melbourne, Canberra, Hobart</th><td>AEST / AEDT</td><td>11 hours</td><td>9 hours</td></tr>
@@ -264,7 +264,7 @@ GUIDES['au'] = [
 </table></div>
 <p class="fine">For a few weeks in October and around the start of April, both countries are on summer time at once and the gap is an hour different — Sydney is then 10 hours ahead.</p>'''),
             ('Long drives and patchy coverage', '''<p>A survey two hours up the highway, a fitting on a rural block with one bar of signal: the phone app is built for it. Surveys, drawings, photos and fitting sign-offs are saved on the phone and sync when you are back in range. The planner shows which ready jobs are close to the day's other stops, scored by driving distance rather than a straight line, so a long drive can pick up a second job on the way.</p>'''),
-            ('Getting set up', '''<p>Coglass is priced in Australian dollars and sold to registered businesses. Book a demo and we will show you Coglass with the glass you sell, then set your account up with you — your products, trade prices, team and vans. There is no setup fee and no minimum term.</p>'''),
+            ('Getting set up', '''<p>Coglass is priced in Australian dollars and sold to registered businesses. Try the live demo to see how it works on a demo company's jobs; when your account starts, email us and we will help you set up your products, trade prices, team and vans. There is no setup fee and no minimum term.</p>'''),
         ],
         coglass_note='What you get, wherever you are in Australia:',
         coglass=[FIT_OFFLINE,
@@ -274,7 +274,7 @@ GUIDES['au'] = [
             ('Australian Government — Time zones and daylight saving', 'https://info.australia.gov.au/about-australia/facts-and-figures/time-zones-and-daylight-saving'),
             ('NSW Government — Daylight saving', 'https://www.nsw.gov.au/about-nsw/daylight-saving'),
         ],
-        cta=('Talk to us at a time that suits you', 'Book a demo and we will find a time that works for your time zone.'),
+        cta=('Look around at a time that suits you', 'Try the live demo whenever you like — no sign-up and nothing to book. Email us with any questions.'),
     ),
 ]
 
@@ -308,7 +308,7 @@ GUIDES['nz'] = [
             ('MBIE Building Performance — NZS 4223.3:2016', 'https://codehub.building.govt.nz/resources/4223-32016-nzs'),
             ('MBIE Building Performance — F2 Hazardous building materials: acceptable solutions', 'https://www.building.govt.nz/building-code-compliance/f-safety-of-users/f2-hazardous-building-materials/acceptable-solutions-and-verification-methods'),
         ],
-        cta=('Keep the glass you quoted the glass you fit', 'Book a demo and we will show you a job going from measure-up to purchase order to fitting in Coglass.'),
+        cta=('Keep the glass you quoted the glass you fit', 'Try the live demo to see a job going from measure-up to purchase order to fitting in Coglass.'),
     ),
     dict(
         slug='gst-taxable-supply-information', nav='GST and taxable supply information',
@@ -337,7 +337,7 @@ GUIDES['nz'] = [
             ('Inland Revenue — Tax invoices for GST', 'https://www.ird.govt.nz/gst/tax-invoices-for-gst'),
             ('Inland Revenue — How tax invoices for GST work', 'https://www.ird.govt.nz/gst/tax-invoices-for-gst/how-tax-invoices-for-gst-work'),
         ],
-        cta=('Invoices out, payments in, GST in Xero', 'Book a demo and we will show you a job from deposit invoice to paid, and how it lands in Xero.'),
+        cta=('Invoices out, payments in, GST in Xero', 'Try the live demo to see a job from deposit invoice to paid, and how it lands in Xero.'),
     ),
     dict(
         slug='health-and-safety-working-at-height', nav='Health & safety and working at height',
@@ -362,7 +362,7 @@ GUIDES['nz'] = [
             ('WorkSafe — Notifying hazardous work', 'https://worksafe.govt.nz/notifications/hazardous-work/'),
             ('Site Safe — Site-specific safety plans', 'https://www.sitesafe.org.nz/products-and-services/sssp/'),
         ],
-        cta=('Every job with its safety paperwork', 'Book a demo and we will show you a measure-up turning into a job, a risk assessment and a fitting.'),
+        cta=('Every job with its safety paperwork', 'Try the live demo to see a measure-up turning into a job, a risk assessment and a fitting.'),
     ),
 ]
 
@@ -397,7 +397,7 @@ GUIDES['za'] = [
             ('National Building Regulations — Regulation N1, type and fixing of glazing', 'https://www.acts.co.za/national-building/r2378_n1__type_and_fixing_of_g'),
             ('Government of South Africa — NRCS compulsory specification notices', 'https://www.gov.za/documents/notices/national-regulator-compulsory-specifications-act-compulsory-specification-40'),
         ],
-        cta=('Keep the glass you quoted the glass you fit', 'Book a demo and we will show you a job going from measure to purchase order to fitting in Coglass.'),
+        cta=('Keep the glass you quoted the glass you fit', 'Try the live demo to see a job going from measure to purchase order to fitting in Coglass.'),
     ),
     dict(
         slug='vat-tax-invoices', nav='VAT tax invoices',
@@ -433,7 +433,7 @@ GUIDES['za'] = [
             ('SARS — Tax invoices', 'https://www.sars.gov.za/businesses-and-employers/government/tax-invoices/'),
             ('SAnews — Proposed VAT increase officially withdrawn', 'https://www.sanews.gov.za/south-africa/proposed-vat-increase-officially-withdrawn'),
         ],
-        cta=('Invoices out, payments in, VAT in Xero', 'Book a demo and we will show you a job from deposit invoice to paid, and how it lands in Xero.'),
+        cta=('Invoices out, payments in, VAT in Xero', 'Try the live demo to see a job from deposit invoice to paid, and how it lands in Xero.'),
     ),
     dict(
         slug='power-cuts-offline-working', nav='Working through power cuts and dead spots',
@@ -465,7 +465,7 @@ GUIDES['za'] = [
             ('Eskom — 2026 winter performance statement', 'https://www.eskom.co.za/eskom-fully-meets-2026-winter-demand-eaf-remains-at-its-highest-level-since-2020-67-79-and-diesel-expenditure-declines-by-r4-84-billion-or-81-64-to-deliver-energy-security/'),
             ('Eskom — Winter outlook statement', 'https://www.eskom.co.za/media-statement-winter-outlook-for-power-grid-again-predicts-no-loadshedding-system-stability-enables-key-energy-security-decisions-to-be-updated/'),
         ],
-        cta=('See it work with the wifi off', 'Book a demo and we will show you a survey and a fitting captured offline and syncing afterwards.'),
+        cta=('See it work with the wifi off', 'Try the live demo to see a survey and a fitting captured offline and syncing afterwards.'),
     ),
 ]
 
@@ -491,7 +491,7 @@ def _distance_guide(c, slug, blurb, title, description, h1, lead, distances, int
                  '<strong>Customers know when you are coming.</strong> Booking confirmations and on-the-way messages can go out by email, and customers can follow their job on a tracking page on their phone.',
                  FIT_XERO],
         sources=sources,
-        cta=('See it on your own jobs', f'Book a demo and we will show you Coglass with the glass you sell and the distances you drive in {c}.'),
+        cta=('See it working', f'Try the live demo to see how Coglass plans the vans and fittings of a glazing company\'s day — the long drives in {c} included.'),
     )
 
 
@@ -600,7 +600,7 @@ GUIDES['uk'] = [
             ('Scottish Government — Building Standards Technical Handbook (domestic), 4.8', 'https://www.gov.scot/publications/building-standards-technical-handbook-2022-domestic/4-safety/4-8-danger-accidents/'),
             ('Department of Finance NI — Technical Booklet V', 'https://www.finance-ni.gov.uk/publications/technical-booklet-v'),
         ],
-        cta=('Keep the glass you quoted the glass you fit', 'Book a demo and we will show you a job going from survey to purchase order to fitting in Coglass.'),
+        cta=('Keep the glass you quoted the glass you fit', 'Try the live demo to see a job going from survey to purchase order to fitting in Coglass.'),
     ),
     dict(
         slug='making-tax-digital-xero', nav='Making Tax Digital and Xero',
@@ -633,7 +633,7 @@ GUIDES['uk'] = [
             ('GOV.UK — Find software for Making Tax Digital for Income Tax', 'https://www.gov.uk/guidance/find-software-thats-compatible-with-making-tax-digital-for-income-tax'),
             ('Xero — Making Tax Digital', 'https://www.xero.com/uk/programme/making-tax-digital/income-tax/'),
         ],
-        cta=('From invoice to Xero without re-typing', ('Book a demo or start a 14-day trial and connect your Xero organisation.' if _SUB['uk'] else 'Book a demo and we will connect a Xero demo company with you.')),
+        cta=('From invoice to Xero without re-typing', ('Start a 14-day trial and connect your Xero organisation — or try the live demo first.' if _SUB['uk'] else 'Try the live demo to see how invoices go to Xero.')),
     ),
     dict(
         slug='van-mot-reminders', nav='Van MOTs and reminders',
@@ -667,7 +667,7 @@ GUIDES['uk'] = [
             ('GOV.UK — Get an MOT reminder', 'https://www.gov.uk/mot-reminder'),
             ('nidirect — How the MOT scheme works', 'https://www.nidirect.gov.uk/articles/how-mot-scheme-works'),
         ],
-        cta=('Keep every van on the road', ('Book a demo or start a 14-day trial and add your fleet.' if _SUB['uk'] else 'Book a demo and we will show you how Coglass keeps track of your vans.')),
+        cta=('Keep every van on the road', ('Start a 14-day trial and add your fleet — or try the live demo first.' if _SUB['uk'] else 'Try the live demo to see how Coglass keeps track of your vans.')),
     ),
 ]
 
@@ -706,7 +706,7 @@ GUIDES['ie'] = [
             ('gov.ie — Technical Guidance Document K', 'https://www.gov.ie/en/publication/6b632-technical-guidance-document-k-stairways-ladders-ramps-and-guards'),
             ('BSI — BS 6262-4', 'https://knowledge.bsigroup.com/products/glazing-for-buildings-code-of-practice-for-safety-related-to-human-impact'),
         ],
-        cta=('Keep the glass you quoted the glass you fit', 'Book a demo and we will show you a job going from survey to purchase order to fitting in Coglass.'),
+        cta=('Keep the glass you quoted the glass you fit', 'Try the live demo to see a job going from survey to purchase order to fitting in Coglass.'),
     ),
     dict(
         slug='vat-rct-eircodes', nav='VAT, RCT and Eircodes',
@@ -735,6 +735,6 @@ GUIDES['ie'] = [
             ('Revenue — Reverse charge (self-accounting)', 'https://www.revenue.ie/en/vat/what-is-vat/reverse-charge-self-accounting.aspx'),
             ('Eircode — What is Eircode?', 'https://www.eircode.ie/what-is-eircode'),
         ],
-        cta=('Every job with the right address', 'Book a demo and we will show you Coglass with the glass you sell and the way you work in Ireland.'),
+        cta=('Every job with the right address', 'Try the live demo to see a glazing company\'s day in Coglass — no sign-up needed.'),
     ),
 ]

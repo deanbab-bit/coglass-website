@@ -98,13 +98,13 @@ def page(ctx, org, cta_band):
 {sections}<h2>How to choose glass software</h2>
 <p>Most systems look alike in a sales video. These questions separate software made for glass from software adapted to it:</p>
 <ul class="checks">{checks}</ul>
-<p>Coglass includes every feature on every plan, priced by how many people use it — <a href="/pricing/">see pricing for your country</a> or <a href="{ctx['DEMO']}">book a demo</a> and we'll walk you through it with the glass you sell. To look around on your own first, <a href="{ctx['TRY_DEMO']}" target="_blank" rel="noopener">try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>
+<p>Coglass includes every feature on every plan, priced by how many people use it — <a href="/pricing/#plans">pick a plan for your country</a> and start a 14-day trial with the glass you sell. To look around on your own first, <a href="{ctx['TRY_DEMO']}" target="_blank" rel="noopener">try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>
 <h2>Questions about glass software</h2>
 <div class="faq">{faq}</div>
 <h2>Read more</h2>
 <ul class="related"><li><a href="/coglass-for-merchants.html">For glass merchants</a></li><li><a href="/coglass-for-sealed-units.html">For sealed unit makers</a></li><li><a href="/coglass-feature-glass-specs.html">Glass specs</a></li><li><a href="/coglass-feature-suppliers.html">Suppliers</a></li><li><a href="/coglass-feature-mobile.html">Mobile app</a></li><li><a href="/coglass-ipad.html">Coglass on the iPad</a></li><li><a href="/#features">All features</a></li></ul>
 </article>
-{cta_band('See it on your own kind of jobs', 'Book a demo and we will walk you through Coglass with the glass you sell and the way you work.')}'''
+{cta_band('See it on your own kind of jobs', 'Start a 14-day trial and set Coglass up with the glass you sell — or try the live demo first, no sign-up needed.')}'''
     url = site + PATH
     jsonld = {'@context': 'https://schema.org', '@graph': [
         org(site),
