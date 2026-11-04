@@ -79,12 +79,12 @@ def notify_href(country):
 
 
 def notify_label(country, short=False):
-    return 'Get notified' if short else f'Get notified when it opens in {e(country["in_name"])}'
+    return 'Get notified' if short else f'Get notified when Coglass opens in {e(country["in_name"])}'
 
 
 def trial_btn(country=None, cls='btn acc lg', short=False):
     """The main call to action. A country not yet on sale (countries.SUBSCRIBE False — the accounts site bills GBP
-    only) is NOT sent to the Stripe trial: it gets "Get notified when it opens in <country>" (an email to us).
+    only) is NOT sent to the Stripe trial: it gets "Get notified when Coglass opens in <country>" (an email to us).
     Flip that country's SUBSCRIBE to True and every button becomes the trial."""
     if country and not country['subscribe']:
         return f'<a class="{cls}" href="{notify_href(country)}">{notify_label(country, short)}</a>'

@@ -51,11 +51,11 @@ def software(site, url, offer_list):
 
 def plan_cta(ctx, c, k, n):
     """(href, label, new_tab). On sale: the card trial on accounts.coglass.co.uk. Not on sale yet (SUBSCRIBE False —
-    the accounts site bills GBP only): never the Stripe trial; "Get notified when it opens in <country>" (an email to us)."""
+    the accounts site bills GBP only): never the Stripe trial; "Get notified when Coglass opens in <country>" (an email to us)."""
     if c['subscribe']:
         q = f'?plan={k}' + ('' if c['key'] == 'uk' else f'&country={c["slug"]}')
         return f'{SIGNUP_URL}{q}', f'Start 14-day trial<span class="sr-only"> on {n}</span>', False
-    return ctx['notify_href'](c), f'Get notified when it opens in {ctx["e"](c["in_name"])}<span class="sr-only"> ({n} plan)</span>', False
+    return ctx['notify_href'](c), f'Get notified when Coglass opens in {ctx["e"](c["in_name"])}<span class="sr-only"> ({n} plan)</span>', False
 
 
 def plans_html(ctx, c, full=True):
