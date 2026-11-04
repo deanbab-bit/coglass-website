@@ -30,7 +30,7 @@ PHONE = '0121 517 0383'
 # pricing plans. (/signup.html used to be a "book a demo" lead form; it is now just a redirect — Dean, Nov 2026:
 # no demo booking, people can try the live demo themselves.)
 TRIAL = '/pricing/#plans'
-TRIAL_TEXT = 'Start your 14-day trial'
+TRIAL_TEXT = 'Start 14-day free trial'
 SIGN_IN = 'https://accounts.coglass.co.uk'
 ASSET_V = '6'
 # App Store links must carry a storefront code: without one Apple sends visitors to the US store, where
@@ -68,18 +68,29 @@ def nav_for(country):
 
 
 def trial_href(country=None):
-    """Where "Start your 14-day trial" goes: that country's plans, or the country chooser on global pages."""
+    """Where "Start 14-day free trial" goes: that country's plans, or the country chooser on global pages."""
     return f'/{country["slug"]}/pricing/#plans' if country else TRIAL
 
 
+def notify_href(country):
+    """Register interest in a country that isn't on sale yet: a plain email to us (no form, no demo request)."""
+    from urllib.parse import quote
+    return f'mailto:{CONTACT}?subject=' + quote(f'Tell me when Coglass opens in {country["in_name"]}')
+
+
+def notify_label(country, short=False):
+    return 'Get notified' if short else f'Get notified when it opens in {e(country["in_name"])}'
+
+
 def trial_btn(country=None, cls='btn acc lg', short=False):
-    """The main call to action. A country not yet on sale (countries.SUBSCRIBE False) gets its pricing page
-    instead — there is no trial to start there yet."""
+    """The main call to action. A country not yet on sale (countries.SUBSCRIBE False — the accounts site bills GBP
+    only) is NOT sent to the Stripe trial: it gets "Get notified when it opens in <country>" (an email to us).
+    Flip that country's SUBSCRIBE to True and every button becomes the trial."""
     if country and not country['subscribe']:
-        return f'<a class="{cls}" href="/{country["slug"]}/pricing/">See {e(country["short"])} pricing</a>'
+        return f'<a class="{cls}" href="{notify_href(country)}">{notify_label(country, short)}</a>'
     if not country and not CS.TRIAL_LIVE:
         return f'<a class="{cls}" href="/pricing/">See pricing</a>'
-    return f'<a class="{cls}" href="{trial_href(country)}">{"Start 14-day trial" if short else TRIAL_TEXT}</a>'
+    return f'<a class="{cls}" href="{trial_href(country)}">{"Start free trial" if short else TRIAL_TEXT}</a>'
 
 
 def header(current, country=None):
@@ -227,9 +238,10 @@ def shot(src, alt, w, h, bar=True):
 
 
 # "Try the live demo": demo.coglass.app runs in DEMO_MODE (coglass src/lib/demo-mode.ts) — the Example Glazing Ltd
-# dataset, signed straight in by /login?try=1, with all sending switched off. The button beside "Start your 14-day trial".
+# dataset, signed straight in by /login?try=1, with all sending switched off. The button beside "Start 14-day free trial".
 TRY_DEMO = 'https://demo.coglass.app/login?try=1'
-TRY_NOTE = "No sign-up. Click around a demo glazing company's day — sending is switched off, so nothing you do reaches anyone."
+TRY_NOTE = 'no sign-up, nothing you do reaches anyone.'
+TRIAL_NOTE = 'card taken today, nothing charged for 14 days. Cancel any time.'
 
 
 def try_demo(cls='btn lg'):
@@ -237,9 +249,14 @@ def try_demo(cls='btn lg'):
             '<span class="sr-only"> (opens in a new tab)</span></a>')
 
 
-def try_note(dark=False):
+def try_note(dark=False, trial=None):
+    """The small print under the two buttons, one labelled line per button so the demo's "no sign-up" isn't read as
+    the trial's. trial=None → global pages (a trial button whenever any country is on sale); country pages pass
+    c['subscribe']."""
+    trial = CS.TRIAL_LIVE if trial is None else trial
     attrs = ' style="margin:14px auto 0;font-size:14px"' if dark else ' class="fine"'
-    return f'<p{attrs}>{e(TRY_NOTE)}</p>'
+    lines = ([f'<strong>Free trial:</strong> {e(TRIAL_NOTE)}'] if trial else []) + [f'<strong>Live demo:</strong> {e(TRY_NOTE)}']
+    return f'<p{attrs}>{"<br>".join(lines)}</p>'
 
 
 def cta_band(h, p):
@@ -556,7 +573,7 @@ def write(rel, content):
 def main():
     ctx = dict(related_html=related_html, soon_badge=soon_badge, big_phone=big_phone, phone_img=phone_img, visual_html=visual_html, RELATED=RELATED, layout=layout, e=e, trust=trust, shot=shot, cta_band=cta_band, phone=phone, panel=panel, IMG=IMG,
                ICON=ICON, TRIAL=TRIAL, TRIAL_TEXT=TRIAL_TEXT, SIGN_IN=SIGN_IN, CONTACT=CONTACT, PHONE=PHONE, PHONE_INTL=PHONE_INTL, SITE=SITE,
-               trial_href=trial_href, trial_btn=trial_btn, app_store=app_store, try_demo=try_demo, try_note=try_note, TRY_DEMO=TRY_DEMO)
+               trial_href=trial_href, trial_btn=trial_btn, notify_href=notify_href, app_store=app_store, try_demo=try_demo, try_note=try_note, TRY_DEMO=TRY_DEMO)
     cdir = os.path.join(SRC, 'content')
     for f in sorted(os.listdir(cdir)):
         slug = f[:-5]

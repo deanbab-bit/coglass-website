@@ -50,12 +50,12 @@ def software(site, url, offer_list):
 
 
 def plan_cta(ctx, c, k, n):
-    """(href, label, new_tab). On sale: the card trial on accounts.coglass.co.uk. Not on sale yet (SUBSCRIBE False):
-    there is no trial to start, so the button opens the live demo instead (the old "Book a demo" form is gone)."""
+    """(href, label, new_tab). On sale: the card trial on accounts.coglass.co.uk. Not on sale yet (SUBSCRIBE False —
+    the accounts site bills GBP only): never the Stripe trial; "Get notified when it opens in <country>" (an email to us)."""
     if c['subscribe']:
         q = f'?plan={k}' + ('' if c['key'] == 'uk' else f'&country={c["slug"]}')
         return f'{SIGNUP_URL}{q}', f'Start 14-day trial<span class="sr-only"> on {n}</span>', False
-    return ctx['TRY_DEMO'], f'Try the live demo<span class="sr-only"> (opens in a new tab)</span>', True
+    return ctx['notify_href'](c), f'Get notified when it opens in {ctx["e"](c["in_name"])}<span class="sr-only"> ({n} plan)</span>', False
 
 
 def plans_html(ctx, c, full=True):
@@ -82,14 +82,13 @@ def hero_ctas(ctx, c):
 
 def cta_band(ctx, c, h, p):
     e = ctx['e']
-    # Not on sale yet: no trial to start, so the live demo is the main button (the hero links the pricing page).
-    ctas = (ctx['trial_btn'](c) + ctx['try_demo']('btn ghost-light lg')) if c['subscribe'] else ctx['try_demo']('btn acc lg')
+    ctas = ctx['trial_btn'](c) + ctx['try_demo']('btn ghost-light lg')
     return f'''<section class="cta-band">
   <div class="wrap">
     <h2>{e(h)}</h2>
     <p>{e(p)}</p>
     <div class="ctas">{ctas}</div>
-    {ctx['try_note'](dark=True)}
+    {ctx['try_note'](dark=True, trial=c['subscribe'])}
   </div>
 </section>'''
 
@@ -186,7 +185,7 @@ def country_home(ctx, c):
       <h1>{e(c['h1'])}</h1>
       <p class="lead">{e(c['lead'])}</p>
       <div class="ctas">{hero_ctas(ctx, c)}</div>
-      {ctx['try_note']()}
+      {ctx['try_note'](trial=c['subscribe'])}
       {ctx['trust'](trust_items)}{crown}
     </div>
     <div class="visual">{hero_img}{ctx['phone']('Today · Gary', [('f', '08:00 Fitting', 'School · 1h 30m'), ('s', '10:30 Survey', 'Kitchen + bay · 45m'), ('f', '13:00 Fitting', 'Offices · 2h')])}</div>
@@ -353,12 +352,13 @@ def country_pricing(ctx, c):
         start = ('<div class="note"><strong>How the trial works.</strong> Your first 14 days are free. We take your card when you start and '
                  'charge nothing until the trial ends — cancel before then and you pay nothing. We email you before the first payment. '
                  "During the trial every feature is switched on with no limits; your plan's limits apply from the first payment.</div>")
-        start += (f'<p>Want to look around first? <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone. '
-                  f'Questions before you start? Email <a href="mailto:{CONTACT}">{CONTACT}</a>.</p>')
+        ph, tel = (ctx['PHONE'], '01215170383') if c['key'] == 'uk' else (ctx['PHONE_INTL'], '+441215170383')
+        start += (f'<p>Questions first? Email <a href="mailto:{CONTACT}">{CONTACT}</a> or call <a href="tel:{tel}">{ph}</a>, '
+                  f'or <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">try the live demo</a>.</p>')
     else:
-        start = (f'<div class="note"><strong>Sign-up in {e(c["in_name"])} opens soon.</strong> You start Coglass with a 14-day trial on '
-                 f'our accounts site, which isn\'t taking sign-ups in {e(c["in_name"])} yet. When it opens you\'ll be billed monthly in '
-                 f'{e(c["currency"])}. Want to know when? Email <a href="mailto:{CONTACT}">{CONTACT}</a>.</div>'
+        start = (f'<div class="note"><strong>Coming soon in {e(c["in_name"])}.</strong> Online sign-up isn\'t open in '
+                 f'{e(c["in_name"])} yet — when it is, you\'ll start with a 14-day free trial and be billed monthly in '
+                 f'{e(c["currency"])}. <a href="{ctx["notify_href"](c)}">Leave us your email</a> and we\'ll tell you when it opens.</div>'
                  f'<p>Want to look around first? <a href="{ctx["TRY_DEMO"]}" target="_blank" rel="noopener">Try the live demo</a> — no sign-up, and sending is switched off, so nothing you do reaches anyone.</p>')
     tax = ''.join(f'<p>{e(t)}</p>' for t in c['tax_notes'])
     crown = ''
@@ -455,7 +455,9 @@ def chooser_cards(ctx, kind):
     for k in ORDER:
         c = C[k]
         extra = '<span class="sub">Also the Isle of Man, Jersey, Guernsey &amp; Gibraltar</span>' if k == 'uk' else ''
-        cards += (f'<li><a class="ccard" href="{cpath(c, kind)}" data-country="{k}" hreflang="{c["lang"]}">'
+        # On /pricing/ the cards land on the country's plans (the trial buttons), not the top of its pricing page.
+        href = cpath(c, kind) + ('#plans' if kind == 'pricing' else '')
+        cards += (f'<li><a class="ccard" href="{href}" data-country="{k}" hreflang="{c["lang"]}">'
                   f'<span class="code" aria-hidden="true">{c["code"]}</span><span class="nm">{e(c["name"])}</span>{extra}'
                   f'<span class="pr">From {c["prices"]["starter"]} a month{e(c["price_tax"])}</span></a></li>')
     return f'<ul class="cgrid">{cards}</ul>'
@@ -501,7 +503,7 @@ def global_home(ctx):
       <span class="eyebrow">Software for glass &amp; glazing companies</span>
       <h1>Glass software that runs every job, from enquiry to paid.</h1>
       <p class="lead">Coglass is glass software for glass shops, glaziers, merchants, processors and sealed unit makers. Quote with the glass drawn on every line, order from your suppliers, track every pane through the workshop, book the fitting and send the invoice — one system for the office, the van and the workshop, in the UK, Ireland, Australia, New Zealand, Southern Africa and Malta.</p>
-      <div class="ctas"><a class="btn acc lg" href="#countries">Choose your country</a>{ctx['try_demo']()}</div>
+      <div class="ctas">{ctx['trial_btn']()}{ctx['try_demo']()}</div>
       {ctx['try_note']()}
       {ctx['trust'](['Phone, iPad & web apps', 'Xero connected', 'Prices in your currency'])}
     </div>
