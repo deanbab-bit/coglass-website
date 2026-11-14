@@ -267,3 +267,6 @@ th{color:var(--navy);font-weight:700;background:var(--bg)}
 .steps.flow{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 .steps.flow h3 a{color:var(--navy);text-decoration:none}
 .steps.flow h3 a:hover{color:var(--accent);text-decoration:underline}
+/* Screenshot and document pictures: a light fill while the picture downloads, so a slow
+   phone signal shows a grey box rather than a blank white one (Dean, 14 Nov 2026). */
+.doc img,.shot img,.framed img,.ipad-frame img{background:#eef2f5}
