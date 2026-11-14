@@ -168,7 +168,7 @@ def country_home(ctx, c):
     e, site = ctx['e'], ctx['SITE']
     src, alt, w, h = ctx['IMG']['planning']
     hero_img = f'<div class="shot"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" fetchpriority="high"></div>'
-    img = lambda k: f'<div class="framed"><img src="{ctx["IMG"][k][0]}" alt="{e(ctx["IMG"][k][1])}" width="{ctx["IMG"][k][2]}" height="{ctx["IMG"][k][3]}" loading="lazy" decoding="async"></div>'
+    img = lambda k: f'<div class="framed"><img src="{ctx["IMG"][k][0]}" alt="{e(ctx["IMG"][k][1])}" width="{ctx["IMG"][k][2]}" height="{ctx["IMG"][k][3]}" decoding="async"></div>'
     proof = ''.join(f'<li><b>{e(a)}</b>{e(b)}</li>' for a, b in c['proof'])
     why = ''.join(f'<li class="tile"><h3>{e(t)}</h3><p>{e(x)}</p></li>' for t, x in c['why'])
     trust_items = ['Phone, iPad & web apps', 'Xero connected', 'No setup fee'] if c['key'] == 'uk' else \
@@ -233,7 +233,7 @@ def country_home(ctx, c):
       <ul class="checks"><li>Quotes, the planner and invoices in the browser</li><li>Cut list, scan to advance and sealed-unit steps in the workshop</li><li>Counter sales signed for on screen</li></ul>
       <a class="btn" href="/coglass-ipad.html">Coglass on the iPad</a>
     </div>
-    <div class="ipad-frame"><img src="{ctx['IMG']['ipad-planner'][0]}" alt="{e(ctx['IMG']['ipad-planner'][1])}" width="1600" height="1112" loading="lazy" decoding="async"></div>
+    <div class="ipad-frame"><img src="{ctx['IMG']['ipad-planner'][0]}" alt="{e(ctx['IMG']['ipad-planner'][1])}" width="1600" height="1112" decoding="async"></div>
   </div>
 </section>
 <section class="sect alt" id="features">
@@ -527,8 +527,8 @@ def global_home(ctx):
   <div class="wrap">
     <div class="sect-head"><span class="kicker">What your customers receive</span><h2>Quotes and invoices that look the part</h2><p>Your logo and details, the drawing on every line, and a link to accept the quote online.</p></div>
     <div class="docs">
-      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['quote'][0]}" alt="{e(ctx['IMG']['quote'][1])}" width="{ctx['IMG']['quote'][2]}" height="{ctx['IMG']['quote'][3]}" loading="lazy" decoding="async"></div><figcaption class="cap">Quotation 0101 from the demo company Example Glazing Ltd (made-up details): an arched top-light with Georgian bars, two side panels and a splashback with two holes, £550.37 inc VAT.</figcaption></figure>
-      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['invoice'][0]}" alt="{e(ctx['IMG']['invoice'][1])}" width="{ctx['IMG']['invoice'][2]}" height="{ctx['IMG']['invoice'][3]}" loading="lazy" decoding="async"></div><figcaption class="cap">The matching invoice, INV-0042, for the same job: £550.37.</figcaption></figure>
+      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['quote'][0]}" alt="{e(ctx['IMG']['quote'][1])}" width="{ctx['IMG']['quote'][2]}" height="{ctx['IMG']['quote'][3]}" decoding="async"></div><figcaption class="cap">Quotation 0101 from the demo company Example Glazing Ltd (made-up details): an arched top-light with Georgian bars, two side panels and a splashback with two holes, £550.37 inc VAT.</figcaption></figure>
+      <figure style="margin:0"><div class="doc"><img src="{ctx['IMG']['invoice'][0]}" alt="{e(ctx['IMG']['invoice'][1])}" width="{ctx['IMG']['invoice'][2]}" height="{ctx['IMG']['invoice'][3]}" decoding="async"></div><figcaption class="cap">The matching invoice, INV-0042, for the same job: £550.37.</figcaption></figure>
     </div>
   </div>
 </section>

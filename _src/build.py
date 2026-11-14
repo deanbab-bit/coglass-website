@@ -32,7 +32,7 @@ PHONE = '0121 517 0383'
 TRIAL = '/pricing/#plans'
 TRIAL_TEXT = 'Start 14-day free trial'
 SIGN_IN = 'https://accounts.coglass.co.uk'
-ASSET_V = '6'
+ASSET_V = '7'
 # App Store links must carry a storefront code: without one Apple sends visitors to the US store, where
 # the app isn't listed (404). Live in these storefronts; the Isle of Man, Jersey, Guernsey and Gibraltar
 # have no store of their own and use gb, as do the global pages.
@@ -234,7 +234,7 @@ def trust(items):
 
 def shot(src, alt, w, h, bar=True):
     b = '<div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>' if bar else ''
-    return f'<div class="shot">{b}<img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" loading="lazy" decoding="async"></div>'
+    return f'<div class="shot">{b}<img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" decoding="async"></div>'
 
 
 # "Try the live demo": demo.coglass.app runs in DEMO_MODE (coglass src/lib/demo-mode.ts) — the Example Glazing Ltd
@@ -327,7 +327,7 @@ def gallery_html(slug):
     for key, cap in items:
         src, alt, w, h = IMG[key]
         figs += (f'<figure style="margin:0"><div class="doc"><img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" '
-                 f'loading="lazy" decoding="async"></div><figcaption class="cap">{e(cap)}</figcaption></figure>')
+                 f'decoding="async"></div><figcaption class="cap">{e(cap)}</figcaption></figure>')
     if len(items) > 1:
         return f'\n    <div class="docs" style="margin-top:36px">{figs}</div>'
     return f'\n    <div class="docs" style="grid-template-columns:1fr;max-width:640px;margin:36px auto 0">{figs}</div>'
@@ -451,7 +451,7 @@ def phone_img(key):
     """A real phone-sized screenshot inside the same phone frame as big_phone."""
     src, alt, w, h = IMG[key]
     return (f'<div style="max-width:300px;margin:0 auto 40px;border-radius:36px;background:#0d1b22;padding:10px;box-shadow:0 18px 40px rgba(0,0,0,.25)">'
-            f'<img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" loading="lazy" decoding="async" '
+            f'<img src="{src}" alt="{e(alt)}" width="{w}" height="{h}" decoding="async" '
             f'style="display:block;width:100%;height:auto;border-radius:28px"></div>')
 
 
