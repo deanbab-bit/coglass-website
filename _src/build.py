@@ -13,7 +13,7 @@ from one layout, so the header, footer, meta tags and styles can't drift between
 Edit those, re-run this script, commit the generated HTML with them. The output is plain
 static HTML — nginx serves it as-is, nothing runs at request time.
 """
-import html, json, os, sys
+import html, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, '_src')
@@ -240,11 +240,16 @@ def shot(src, alt, w, h, bar=True):
 # "Try the live demo": demo.coglass.app runs in DEMO_MODE (coglass src/lib/demo-mode.ts) — the Example Glazing Ltd
 # dataset, signed straight in by /login?try=1, with all sending switched off. The button beside "Start 14-day free trial".
 TRY_DEMO = 'https://demo.coglass.app/login?try=1'
+# Dean 17 Nov 2026: demo hidden from the website for a while, to see if more people start the trial.
+# Set back to True to bring every demo button and mention back.
+SHOW_DEMO = False
 TRY_NOTE = 'no sign-up, nothing you do reaches anyone.'
 TRIAL_NOTE = 'card taken today, nothing charged for 14 days. Cancel any time.'
 
 
 def try_demo(cls='btn lg'):
+    if not SHOW_DEMO:
+        return ''
     return (f'<a class="{cls}" href="{TRY_DEMO}" target="_blank" rel="noopener">Try the live demo'
             '<span class="sr-only"> (opens in a new tab)</span></a>')
 
@@ -255,7 +260,9 @@ def try_note(dark=False, trial=None):
     c['subscribe']."""
     trial = CS.TRIAL_LIVE if trial is None else trial
     attrs = ' style="margin:14px auto 0;font-size:14px"' if dark else ' class="fine"'
-    lines = ([f'<strong>Free trial:</strong> {e(TRIAL_NOTE)}'] if trial else []) + [f'<strong>Live demo:</strong> {e(TRY_NOTE)}']
+    lines = ([f'<strong>Free trial:</strong> {e(TRIAL_NOTE)}'] if trial else []) + ([f'<strong>Live demo:</strong> {e(TRY_NOTE)}'] if SHOW_DEMO else [])
+    if not lines:
+        return ''
     return f'<p{attrs}>{"<br>".join(lines)}</p>'
 
 
@@ -562,7 +569,50 @@ def feature_page(slug, d):
                   current=f'/{slug}.html', og_title=title.split(' | ')[0])
 
 
+# While SHOW_DEMO is off, every sentence that offers the demo is reworded or dropped as the page is written, so no copy
+# file needs editing and turning it back on restores them all. write() refuses to finish if any mention is left.
+_DEMO_LINK = r'<a href="https://demo\.coglass\.app/login\?try=1" target="_blank" rel="noopener">'
+_DEMO_SCRUB = [
+    (r'<p>Want to look around first\? ' + _DEMO_LINK + r'Try the live demo</a>[^<]*</p>', ''),
+    (r'<p>Want to see it working\? ' + _DEMO_LINK + r'Try the live demo</a> or (<a [^>]*>)([^<]*)</a>\.</p>',
+     lambda m: f'<p>{"Want to see it working? " if m.group(2).startswith("start") else ""}'
+               f'{m.group(1)}{m.group(2)[:1].upper()}{m.group(2)[1:]}</a>.</p>'),
+    (r' To look around on your own first, ' + _DEMO_LINK + r'try the live demo</a>[^<]*', ''),
+    (r', or ' + _DEMO_LINK + r'try the live demo</a> — no sign-up needed\.', '.'),
+    (r', or ' + _DEMO_LINK + r'try the live demo</a>\.', '.'),
+    (r' — or try the live demo first, no sign-up needed\.', '.'),
+    (r', or try the live demo first — no sign-up needed\.', '.'),
+    (r' — or try the live demo first\.', '.'),
+    (r', or try the live demo\.', '.'),
+    (r', and the live demo is open whenever suits you\.', '.'),
+    (r'; the live demo is open whenever suits you, early morning or evening\.', '.'),
+    (r' If you would rather look around first, try the live demo — no sign-up needed\.', ''),
+    (r'Try the live demo, or email us and we will help you pick\.', 'Email us and we will help you pick.'),
+    (r' Try the live demo first if you like\.', ''),
+    (r'Try the live demo whenever you like — no sign-up and nothing to book\. ', ''),
+    (r'Try the live demo to see it on a demo company(&#x27;|\')s jobs — no sign-up needed\.', 'Email us and we will show you round.'),
+    (r'Try the live demo to see how it works on a demo company(&#x27;|\')s jobs; when', 'When'),
+    (r'Try the live demo — a demo glazing company with every part of Coglass switched on, and no sign-up needed\.',
+     'Email us and we will show you round — every part of Coglass is on every plan.'),
+    (r'Try the live demo to see (.*?) — no sign-up needed\.', r'Email us and we will show you \1.'),
+    (r'Try the live demo to see ', 'Email us and we will show you '),
+]
+_DEMO_LEFT = re.compile(r'live demo|demo\.coglass\.app', re.I)
+DEMO_LEFTOVERS = []
+
+
+def scrub_demo(rel, content):
+    if SHOW_DEMO or not rel.endswith(('.html', '.json', '.txt', '.xml')):
+        return content
+    for pat, rep in _DEMO_SCRUB:
+        content = re.sub(pat, rep, content)
+    if _DEMO_LEFT.search(content):
+        DEMO_LEFTOVERS.append(rel)
+    return content
+
+
 def write(rel, content):
+    content = scrub_demo(rel, content)
     p = os.path.join(ROOT, rel)
     os.makedirs(os.path.dirname(p), exist_ok=True)
     with open(p, 'w') as fh:
@@ -580,6 +630,9 @@ def main():
         write(f'{slug}.html', feature_page(slug, json.load(open(os.path.join(cdir, f)))))
     for rel, html_ in pages.build(ctx).items():
         write(rel, html_)
+    if DEMO_LEFTOVERS:
+        sys.exit('SHOW_DEMO is off but the demo is still mentioned in: ' + ', '.join(DEMO_LEFTOVERS)
+                 + ' — add a rewording to _DEMO_SCRUB in build.py.')
 
 
 if __name__ == '__main__':
